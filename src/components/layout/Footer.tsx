@@ -2,10 +2,11 @@ import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
   { name: "About Us", href: "/about" },
+  { name: "Services", href: "/prices" },
   { name: "Shop", href: "/shop" },
-  { name: "Blog", href: "/blog" },
+  { name: "Gift Vouchers", href: "/gift-vouchers" },
+  { name: "Academy", href: "/academy" },
   { name: "Contact", href: "/contact" },
 ];
 

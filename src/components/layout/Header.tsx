@@ -27,8 +27,10 @@ const services = [
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { name: "Prices", href: "/prices" },
   { name: "Shop", href: "/shop" },
-  { name: "Blog", href: "/blog" },
+  { name: "Gift Vouchers", href: "/gift-vouchers" },
+  { name: "Academy", href: "/academy" },
   { name: "Contact", href: "/contact" },
 ];
 
