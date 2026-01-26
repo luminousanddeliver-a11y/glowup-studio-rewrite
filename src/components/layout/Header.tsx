@@ -39,17 +39,12 @@ const serviceCategories = [
   {
     name: "Advanced Treatments",
     services: [
+      { name: "Botox & Fillers", href: "/injectables-dagenham" },
       { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham" },
       { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham" },
       { name: "Cold Plasma", href: "/cold-plasma-treatment-dagenham" },
       { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham" },
       { name: "Pigmentation Treatment", href: "/pigmentation-treatment-dagenham" },
-    ],
-  },
-  {
-    name: "Injectables",
-    services: [
-      { name: "Botox & Fillers", href: "/injectables-dagenham" },
     ],
   },
   {
@@ -61,7 +56,7 @@ const serviceCategories = [
     ],
   },
   {
-    name: "Wellness & Other",
+    name: "Wellness & Body",
     services: [
       { name: "IV Drips & Infusions", href: "/iv-drips-infusions-east-london" },
       { name: "Massage", href: "/massage-dagenham" },
@@ -163,16 +158,16 @@ export const Header = () => {
                   </span>
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[700px] p-4 grid grid-cols-3 gap-4 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                <DropdownMenuContent className="w-[580px] p-5 grid grid-cols-2 gap-x-8 gap-y-5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                   {serviceCategories.map((category, categoryIndex) => (
                     <motion.div 
                       key={category.name} 
-                      className="space-y-2"
+                      className="space-y-1.5"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: categoryIndex * 0.05, duration: 0.2 }}
+                      transition={{ delay: categoryIndex * 0.03, duration: 0.2 }}
                     >
-                      <DropdownMenuLabel className="text-accent font-heading text-sm">
+                      <DropdownMenuLabel className="text-accent font-heading text-sm pb-1.5 mb-1 border-b border-accent/20">
                         {category.name}
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
@@ -180,7 +175,7 @@ export const Header = () => {
                           <a 
                             href={service.href} 
                             className={cn(
-                              "cursor-pointer w-full text-sm py-1.5 transition-colors group/item relative",
+                              "cursor-pointer w-full text-sm py-1 transition-colors group/item relative",
                               location.pathname === service.href
                                 ? "text-accent font-medium"
                                 : "text-foreground hover:text-accent"
