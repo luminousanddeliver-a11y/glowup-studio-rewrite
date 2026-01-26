@@ -30,30 +30,25 @@ const getAnimatePosition = (direction: string) => {
   }
 };
 
-export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(({ 
-  children, 
-  className = "", 
-  delay = 0,
-  direction = "up",
-  duration = 0.6,
-  once = true,
-}, ref) => {
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={getInitialPosition(direction)}
-      whileInView={getAnimatePosition(direction)}
-      viewport={{ once, margin: "-100px" }}
-      transition={{ 
-        duration, 
-        delay,
-        ease: [0.4, 0, 0.2, 1] 
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-});
+export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
+  ({ children, className = "", delay = 0, direction = "up", duration = 0.6, once = true }, ref) => {
+    return (
+      <motion.div
+        ref={ref}
+        className={className}
+        initial={getInitialPosition(direction)}
+        whileInView={getAnimatePosition(direction)}
+        viewport={{ once, margin: "-100px" }}
+        transition={{ 
+          duration, 
+          delay,
+          ease: [0.4, 0, 0.2, 1] 
+        }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+);
 
 ScrollReveal.displayName = "ScrollReveal";
