@@ -281,7 +281,7 @@ const FAQ = () => {
                       asChild 
                       variant="outline"
                       size="lg"
-                      className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-12 px-6"
+                      className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 font-body h-12 px-6"
                     >
                       <a href="tel:02085981200">
                         <Phone className="mr-2 h-5 w-5" />

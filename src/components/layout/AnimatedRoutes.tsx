@@ -18,6 +18,8 @@ import GiftVouchers from "@/pages/GiftVouchers";
 import Academy from "@/pages/Academy";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsAndConditions from "@/pages/TermsAndConditions";
 
 // Services
 import LaserHairRemoval from "@/pages/services/LaserHairRemoval";
@@ -88,6 +90,8 @@ export const AnimatedRoutes = () => {
         <Route path="/advanced-peels-dagenham" element={<PageTransition><AdvancedPeels /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
+        <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
