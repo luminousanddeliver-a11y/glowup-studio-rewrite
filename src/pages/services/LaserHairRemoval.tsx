@@ -342,7 +342,7 @@ const LaserHairRemoval = () => {
           trustBadge="NHS-Approved Clinic"
           title="Pain-Free Laser Hair Removal in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Permanent hair reduction in just 6-8 sessions with the revolutionary Lynton Motus AY."
+          subtitle="Experience the Freedom of Permanently Smooth Skin"
           description="Safe for all skin types including dark skin. Book your free consultation and say goodbye to shaving forever."
           badge="25% Off First Course"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

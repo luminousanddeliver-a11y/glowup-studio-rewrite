@@ -280,7 +280,7 @@ const AdvancedPeels = () => {
           trustBadge="Melasma Specialists"
           title="Advanced Peels in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Mesopeels, Cosmelan & Dermamelan"
+          subtitle="Up to 95% Reduction in Stubborn Pigmentation"
           description="The world's most effective treatments for melasma, stubborn pigmentation, and skin rejuvenation. Medical-grade peels for dramatic, lasting results."
           badge="Up to 95% Pigmentation Reduction"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

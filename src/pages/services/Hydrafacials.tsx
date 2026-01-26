@@ -330,7 +330,7 @@ const Hydrafacials = () => {
           trustBadge="Celebrity-Loved Treatment"
           title="Hydrafacial East London"
           titleAccent="East London"
-          subtitle="Deep Cleanse. Extract. Hydrate. Glow."
+          subtitle="Walk Out Glowing. Zero Downtime. Instant Results."
           description="The ultimate facial that cleanses, exfoliates, and hydrates in 45 minutes. Walk out glowing with zero downtime."
           badge="Most Popular Facial"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

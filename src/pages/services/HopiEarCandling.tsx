@@ -236,7 +236,7 @@ const HopiEarCandling = () => {
           trustBadge="Traditional Wellness Therapy"
           title="Hopi Ear Candling in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Ancient Relaxation Ritual for Modern Life"
+          subtitle="Deep Relaxation for Mind and Body"
           description="Experience this traditional thermo-auricular therapy. A gentle, relaxing treatment including soothing facial massage."
           badge="From £45"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

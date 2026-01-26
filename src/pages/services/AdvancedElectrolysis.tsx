@@ -252,7 +252,7 @@ const AdvancedElectrolysis = () => {
           trustBadge="Precision Blemish Removal"
           title="Advanced Electrolysis in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Skin Tags, Milia, Blood Spots & More"
+          subtitle="Specialist Solutions for Stubborn Skin Blemishes"
           description="Precise removal of unwanted skin blemishes using advanced electrolysis techniques. Permanent results with minimal scarring."
           badge="15-Minute Sessions From £50"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

@@ -269,7 +269,7 @@ const ChemicalPeels = () => {
           trustBadge="AlumierMD Professional"
           title="Chemical Peels Dagenham"
           titleAccent="Dagenham"
-          subtitle="Reveal Fresher, Clearer, Brighter Skin."
+          subtitle="Reveal Fresh, Radiant Skin in One Session"
           description="Medical-grade chemical peels to treat acne, pigmentation, and dull skin. Professional solutions for visible results."
           badge="Skin Resurfacing"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

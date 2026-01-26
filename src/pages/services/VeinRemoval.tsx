@@ -257,7 +257,7 @@ const VeinRemoval = () => {
           trustBadge="Advanced Vascular Laser"
           title="Red Vein & Spider Vein Removal in East London"
           titleAccent="East London"
-          subtitle="Clear Thread Veins, Red Veins & Broken Capillaries"
+          subtitle="Clear, Confident Skin Without Visible Veins"
           description="Advanced laser technology targets and eliminates visible thread veins on face and body. Quick, effective treatment with minimal downtime."
           badge="Results in 1-3 Sessions"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

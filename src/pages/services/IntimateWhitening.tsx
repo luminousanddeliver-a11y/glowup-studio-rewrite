@@ -282,7 +282,7 @@ const IntimateWhitening = () => {
           trustBadge="Female Practitioners Only"
           title="Intimate V-Whitening East London"
           titleAccent="East London"
-          subtitle="Confidence Restored. Privacy Guaranteed."
+          subtitle="Confidence-Boosting Results in a Private Setting"
           description="Safe, professional intimate lightening using medical-grade products. Discreet care by qualified female practitioners."
           badge="Discreet & Professional"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

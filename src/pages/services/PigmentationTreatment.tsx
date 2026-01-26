@@ -258,7 +258,7 @@ const PigmentationTreatment = () => {
           trustBadge="Specialist Pigmentation Care"
           title="Pigmentation Treatment in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Clear Sun Spots, Melasma & Uneven Skin Tone"
+          subtitle="Achieve an Even, Radiant Complexion"
           description="Advanced treatments for all types of pigmentation. From laser to Cosmelan, we find the right solution for your skin."
           badge="Free Skin Analysis"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

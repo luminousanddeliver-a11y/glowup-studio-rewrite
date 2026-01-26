@@ -206,7 +206,7 @@ const SkinAnalysis = () => {
           trustBadge="Data-Driven Skincare"
           title="Professional Skin Analysis in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Understand Your Skin at a Deeper Level"
+          subtitle="Know Your Skin. Transform Your Results."
           description="Advanced imaging reveals what your mirror can't. Get a comprehensive analysis and personalized treatment plan based on your skin's unique needs."
           badge="Complimentary With Any Treatment"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

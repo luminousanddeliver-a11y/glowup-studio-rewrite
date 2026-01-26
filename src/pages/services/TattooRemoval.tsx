@@ -334,7 +334,7 @@ const TattooRemoval = () => {
           trustBadge="★ Only Quanta Thunder in East London"
           title="Tattoo Removal East London"
           titleAccent="East London"
-          subtitle="The ONLY Quanta Thunder Clinic in East London"
+          subtitle="Erase Your Past. Love Your Skin Again."
           description="Remove ALL ink colors—including stubborn blues and greens—in 50% fewer sessions with our exclusive Quanta Thunder Series technology."
           badge="Exclusive Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

@@ -290,7 +290,7 @@ const Injectables = () => {
           trustBadge="Level 4 Qualified Practitioners"
           title="Aesthetic Injectables in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Botox, Dermal Fillers, Lemon Bottle & Lumi Eyes"
+          subtitle="Look Refreshed, Not Frozen. Subtle Anti-Aging Results."
           description="Subtle, natural-looking enhancements performed by qualified aesthetic practitioners using premium FDA-approved products."
           badge="Free Consultation Available"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

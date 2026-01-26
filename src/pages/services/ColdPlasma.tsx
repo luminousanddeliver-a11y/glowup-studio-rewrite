@@ -6,6 +6,7 @@ import { QuickStatsBar } from "@/components/services/QuickStatsBar";
 import { WhatIsSection } from "@/components/services/WhatIsSection";
 import { BenefitsList } from "@/components/services/BenefitsList";
 import { HowItWorks } from "@/components/services/HowItWorks";
+import { TechnologySection } from "@/components/services/TechnologySection";
 import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
@@ -272,7 +273,7 @@ const ColdPlasma = () => {
           trustBadge="Advanced Science"
           title="Cold Plasma Treatment Dagenham"
           titleAccent="Dagenham"
-          subtitle="The 4th State of Matter. For Revolutionary Skin Results."
+          subtitle="Clear Acne. Supercharge Serums. Science-Backed Results."
           description="Harness cold atmospheric plasma to sterilize acne bacteria, boost product absorption 120x, and stimulate natural collagen."
           badge="Cutting-Edge Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
@@ -306,6 +307,24 @@ const ColdPlasma = () => {
           title="The Cold Plasma Process"
           subtitle="From consultation to radiant skin"
           steps={steps}
+        />
+        
+        <TechnologySection
+          title="The Science Behind Cold Plasma"
+          subtitle="Cutting-edge atmospheric plasma technology"
+          technologyName="Cold Atmospheric Plasma Device"
+          description="Our professional-grade cold plasma device generates ionized gas at body temperature, creating a unique 4th state of matter. This allows safe, non-invasive skin treatment with powerful therapeutic benefits including instant bacterial sterilization, enhanced product penetration, and natural collagen stimulation."
+          features={[
+            "Non-thermal plasma at body-safe temperatures",
+            "Instant sterilization of P. acnes bacteria",
+            "120x enhanced product absorption",
+            "Stimulates fibroblast collagen production",
+            "Anti-inflammatory properties",
+            "Compatible with all skin types"
+          ]}
+          certifications={["CE Marked", "Medical Grade"]}
+          deviceImage={coldPlasmaDevice}
+          deviceImageAlt="Cold Atmospheric Plasma device for acne and skin rejuvenation at Laser Light Skin Clinic Dagenham"
         />
         
         <div id="pricing">
