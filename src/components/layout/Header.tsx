@@ -176,14 +176,14 @@ export const Header = () => {
                         {category.name}
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild>
+                        <DropdownMenuItem key={service.href} asChild className="bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent">
                           <a 
                             href={service.href} 
                             className={cn(
                               "cursor-pointer w-full text-sm py-1.5 transition-colors group/item relative",
                               location.pathname === service.href
-                                ? "text-accent font-medium bg-accent/5"
-                                : "hover:text-accent"
+                                ? "text-accent font-medium"
+                                : "text-foreground hover:text-accent"
                             )}
                           >
                             <span className="relative">
