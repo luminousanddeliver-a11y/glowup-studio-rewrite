@@ -140,11 +140,38 @@ const ProductDetail = () => {
     });
   };
 
+  // Product schema for SEO
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description || `Premium AlumierMD medical-grade skincare product.`,
+    "image": product.image_url || "https://laserlightskinclinic.co.uk/placeholder.svg",
+    "brand": {
+      "@type": "Brand",
+      "name": "AlumierMD"
+    },
+    "sku": product.id,
+    "offers": {
+      "@type": "Offer",
+      "url": `https://laserlightskinclinic.co.uk/shop/${product.slug}`,
+      "priceCurrency": "GBP",
+      "price": displayPrice.toFixed(2),
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Laser Light Skin Clinic"
+      }
+    },
+    "category": product.category || "Skincare"
+  };
+
   return (
     <>
       <SEOHead
         title={`${product.name} | AlumierMD | Laser Light Skin Clinic`}
         description={product.description || `Shop ${product.name} - premium AlumierMD medical-grade skincare.`}
+        structuredData={productSchema}
       />
 
       <Header />
