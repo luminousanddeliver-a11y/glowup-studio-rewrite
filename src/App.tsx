@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { CartProvider } from "@/contexts/CartContext";
 import { CartDrawer } from "@/components/shop/CartDrawer";
+import { FlyingCartAnimation } from "@/components/shop/FlyingCartAnimation";
 import { AnimatedRoutes } from "@/components/layout/AnimatedRoutes";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <CartDrawer />
+          <FlyingCartAnimation />
           <BrowserRouter>
             <AnimatedRoutes />
           </BrowserRouter>

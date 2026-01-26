@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 
 export interface CartItem {
   id: string;
@@ -11,9 +11,16 @@ export interface CartItem {
   imageUrl: string | null;
 }
 
+export interface FlyingItemData {
+  id: string;
+  imageUrl: string | null;
+  startX: number;
+  startY: number;
+}
+
 interface CartContextType {
   cartItems: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>, quantity?: number) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'>, quantity?: number, elementRef?: HTMLElement | null) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -21,6 +28,9 @@ interface CartContextType {
   cartCount: number;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
+  flyingItem: FlyingItemData | null;
+  clearFlyingItem: () => void;
+  cartBounce: boolean;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -36,12 +46,29 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return [];
   });
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [flyingItem, setFlyingItem] = useState<FlyingItemData | null>(null);
+  const [cartBounce, setCartBounce] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (item: Omit<CartItem, 'quantity'>, quantity = 1) => {
+  const addToCart = (item: Omit<CartItem, 'quantity'>, quantity = 1, elementRef?: HTMLElement | null) => {
+    // Trigger flying animation if element ref provided
+    if (elementRef) {
+      const rect = elementRef.getBoundingClientRect();
+      setFlyingItem({
+        id: item.id,
+        imageUrl: item.imageUrl,
+        startX: rect.left + rect.width / 2 - 28, // Center the 56px flying item
+        startY: rect.top + rect.height / 2 - 28,
+      });
+    }
+
+    // Trigger cart bounce
+    setCartBounce(true);
+    setTimeout(() => setCartBounce(false), 400);
+
     setCartItems((prev) => {
       const existing = prev.find((i) => i.id === item.id);
       if (existing) {
@@ -51,7 +78,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       }
       return [...prev, { ...item, quantity }];
     });
-    setIsCartOpen(true);
+    
+    // Open cart after a slight delay for animation
+    setTimeout(() => setIsCartOpen(true), 650);
   };
 
   const removeFromCart = (productId: string) => {
@@ -72,6 +101,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems([]);
   };
 
+  const clearFlyingItem = useCallback(() => {
+    setFlyingItem(null);
+  }, []);
+
   const cartTotal = cartItems.reduce((sum, item) => {
     const price = item.salePrice ?? item.price;
     return sum + price * item.quantity;
@@ -91,6 +124,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         cartCount,
         isCartOpen,
         setIsCartOpen,
+        flyingItem,
+        clearFlyingItem,
+        cartBounce,
       }}
     >
       {children}
