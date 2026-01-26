@@ -7,6 +7,7 @@ import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { ProductGrid } from "@/components/shop/ProductGrid";
 import { CategoryFilter } from "@/components/shop/CategoryFilter";
 import { CartDrawer } from "@/components/shop/CartDrawer";
+import { RecentlyViewed } from "@/components/shop/RecentlyViewed";
 
 const categories = ["Serums", "Moisturizers", "Sun Protection", "Eye Care", "Exfoliators"];
 
@@ -84,6 +85,9 @@ const Shop = () => {
             <ProductGrid category={activeCategory} />
           </div>
         </section>
+
+        {/* Recently Viewed */}
+        <RecentlyViewed />
 
         {/* Info Banner */}
         <section className="bg-muted/50 py-12">

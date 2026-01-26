@@ -12,7 +12,9 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
 import { CartPreviewTooltip } from "@/components/shop/CartPreviewTooltip";
+import { WishlistPreviewTooltip } from "@/components/shop/WishlistPreviewTooltip";
 import { CartBounceIndicator } from "@/components/shop/FlyingCartAnimation";
 import { PromoBanner } from "./PromoBanner";
 import { ScrollProgress } from "./ScrollProgress";
@@ -95,6 +97,7 @@ export const Header = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
   const { cartCount, setIsCartOpen, cartBounce } = useCart();
+  const { wishlistCount, setIsWishlistOpen, wishlistBounce } = useWishlist();
   const location = useLocation();
 
   // Check if a nav link is active
@@ -237,6 +240,32 @@ export const Header = () => {
                   <span className="absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out w-0 group-hover:w-full" />
                 </span>
               </a>
+
+              {/* Wishlist Icon with Preview Tooltip */}
+              <WishlistPreviewTooltip>
+                <button
+                  onClick={() => setIsWishlistOpen(true)}
+                  className="relative p-2 text-foreground hover:text-accent transition-colors"
+                  aria-label="Open wishlist"
+                >
+                  <motion.div
+                    animate={wishlistBounce ? { scale: [1, 1.2, 1] } : { scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Heart className="h-5 w-5" />
+                  </motion.div>
+                  {wishlistCount > 0 && (
+                    <motion.span 
+                      className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                    >
+                      {wishlistCount > 9 ? "9+" : wishlistCount}
+                    </motion.span>
+                  )}
+                </button>
+              </WishlistPreviewTooltip>
               
               {/* Cart Icon with Preview Tooltip */}
               <CartPreviewTooltip>
@@ -269,8 +298,32 @@ export const Header = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button & Cart */}
+            {/* Mobile Menu Button & Icons */}
             <div className="lg:hidden flex items-center gap-1">
+              {/* Mobile Wishlist Icon */}
+              <button
+                onClick={() => setIsWishlistOpen(true)}
+                className="relative p-3 text-foreground hover:text-accent transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
+                aria-label="Open wishlist"
+              >
+                <motion.div
+                  animate={wishlistBounce ? { scale: [1, 1.3, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Heart className="h-6 w-6" />
+                </motion.div>
+                {wishlistCount > 0 && (
+                  <motion.span 
+                    className="absolute top-1.5 right-1.5 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                  >
+                    {wishlistCount > 9 ? "9+" : wishlistCount}
+                  </motion.span>
+                )}
+              </button>
+              
               {/* Mobile Cart Icon */}
               <button
                 onClick={() => setIsCartOpen(true)}
