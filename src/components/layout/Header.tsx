@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/contexts/CartContext";
+import { PromoBanner } from "./PromoBanner";
 import logo from "@/assets/logo.png";
 
 const services = [
@@ -36,8 +37,10 @@ export const Header = () => {
   const { cartCount, setIsCartOpen } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 bg-card shadow-card">
-      <div className="container-custom">
+    <>
+      <PromoBanner />
+      <header className="sticky top-0 z-50 bg-card shadow-card">
+        <div className="container-custom">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center">
@@ -189,5 +192,6 @@ export const Header = () => {
         )}
       </div>
     </header>
+    </>
   );
 };

@@ -52,7 +52,7 @@ export const Footer = () => {
                 <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span className="font-body text-background/80 text-sm">
                   125 Becontree Avenue,<br />
-                  Dagenham, RM8 2TX
+                  Dagenham, Essex, RM8 2UJ
                 </span>
               </li>
               <li className="flex items-center gap-3">
