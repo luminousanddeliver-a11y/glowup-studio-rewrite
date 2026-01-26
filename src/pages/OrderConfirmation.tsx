@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { CheckCircle, Package, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
@@ -22,62 +23,104 @@ const OrderConfirmation = () => {
         <div className="container-custom max-w-2xl">
           <div className="text-center">
             {/* Success Icon */}
-            <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1.2, 1] }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
               <CheckCircle className="w-10 h-10 text-accent" />
-            </div>
+            </motion.div>
 
-            <h1 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4"
+            >
               Thank You for Your Order!
-            </h1>
+            </motion.h1>
 
-            <p className="font-body text-lg text-muted-foreground mb-8">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="font-body text-lg text-muted-foreground mb-8"
+            >
               Your order has been received and is being processed.
-            </p>
+            </motion.p>
 
             {/* Order Number */}
-            <div className="bg-card rounded-xl border border-border p-6 mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-card rounded-xl border border-border p-6 mb-8"
+            >
               <p className="font-body text-sm text-muted-foreground mb-1">
                 Order Number
               </p>
-              <p className="font-heading text-2xl font-bold text-foreground">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.7 }}
+                className="font-heading text-2xl font-bold text-foreground"
+              >
                 {orderNumber}
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
 
             {/* What's Next */}
-            <div className="bg-muted/50 rounded-xl p-6 mb-8 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-muted/50 rounded-xl p-6 mb-8 text-left"
+            >
               <h2 className="font-heading text-lg font-semibold text-foreground mb-4">
                 What happens next?
               </h2>
               <div className="space-y-4">
-                <div className="flex gap-4">
-                  <Mail className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-body text-sm font-semibold text-foreground">
-                      Confirmation Email
-                    </p>
-                    <p className="font-body text-sm text-muted-foreground">
-                      You'll receive an order confirmation email shortly.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <Package className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-body text-sm font-semibold text-foreground">
-                      Shipping
-                    </p>
-                    <p className="font-body text-sm text-muted-foreground">
-                      Orders are typically dispatched within 1-2 business days. 
-                      You'll receive tracking information once shipped.
-                    </p>
-                  </div>
-                </div>
+                {[
+                  {
+                    icon: Mail,
+                    title: "Confirmation Email",
+                    description: "You'll receive an order confirmation email shortly.",
+                  },
+                  {
+                    icon: Package,
+                    title: "Shipping",
+                    description: "Orders are typically dispatched within 1-2 business days. You'll receive tracking information once shipped.",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <item.icon className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-body text-sm font-semibold text-foreground">
+                        {item.title}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
               <Button
                 asChild
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-12 px-8"
@@ -91,15 +134,20 @@ const OrderConfirmation = () => {
               >
                 <a href="/">Return to Home</a>
               </Button>
-            </div>
+            </motion.div>
 
             {/* Contact */}
-            <p className="font-body text-sm text-muted-foreground mt-8">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.9 }}
+              className="font-body text-sm text-muted-foreground mt-8"
+            >
               Questions about your order?{" "}
               <a href="tel:02085981200" className="text-accent hover:underline">
                 Call us on 0208 598 1200
               </a>
-            </p>
+            </motion.p>
           </div>
         </div>
       </main>

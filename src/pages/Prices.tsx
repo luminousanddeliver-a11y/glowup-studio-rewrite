@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -133,12 +134,17 @@ const Prices = () => {
         {/* Hero */}
         <section className="bg-primary text-primary-foreground py-16">
           <div className="container-custom">
-            <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-3xl"
+            >
               <h1 className="mb-4">Treatment Prices</h1>
               <p className="text-lg text-primary-foreground/80 font-body">
                 Transparent pricing for all our services. New clients receive 25% off their first treatment course.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -146,18 +152,30 @@ const Prices = () => {
         <section className="section-padding bg-background">
           <div className="container-custom">
             <Tabs defaultValue="laser" className="w-full">
-              <TabsList className="w-full flex-wrap h-auto gap-2 bg-secondary p-2 mb-8">
-                <TabsTrigger value="laser" className="flex-1 min-w-[120px]">Laser</TabsTrigger>
-                <TabsTrigger value="facials" className="flex-1 min-w-[120px]">Facials</TabsTrigger>
-                <TabsTrigger value="advanced" className="flex-1 min-w-[120px]">Advanced</TabsTrigger>
-                <TabsTrigger value="injectables" className="flex-1 min-w-[120px]">Injectables</TabsTrigger>
-                <TabsTrigger value="removal" className="flex-1 min-w-[120px]">Removal</TabsTrigger>
-                <TabsTrigger value="wellness" className="flex-1 min-w-[120px]">Wellness</TabsTrigger>
-              </TabsList>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4 }}
+              >
+                <TabsList className="w-full flex-wrap h-auto gap-2 bg-secondary p-2 mb-8">
+                  <TabsTrigger value="laser" className="flex-1 min-w-[120px]">Laser</TabsTrigger>
+                  <TabsTrigger value="facials" className="flex-1 min-w-[120px]">Facials</TabsTrigger>
+                  <TabsTrigger value="advanced" className="flex-1 min-w-[120px]">Advanced</TabsTrigger>
+                  <TabsTrigger value="injectables" className="flex-1 min-w-[120px]">Injectables</TabsTrigger>
+                  <TabsTrigger value="removal" className="flex-1 min-w-[120px]">Removal</TabsTrigger>
+                  <TabsTrigger value="wellness" className="flex-1 min-w-[120px]">Wellness</TabsTrigger>
+                </TabsList>
+              </motion.div>
 
               {Object.entries(priceCategories).map(([key, category]) => (
                 <TabsContent key={key} value={key}>
-                  <div className="bg-card rounded-lg shadow-card overflow-hidden">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="bg-card rounded-lg shadow-card overflow-hidden"
+                  >
                     <div className="p-6 border-b border-border">
                       <h2 className="text-foreground mb-2">{category.title}</h2>
                       <p className="text-muted-foreground font-body">{category.description}</p>
@@ -176,8 +194,11 @@ const Prices = () => {
                         </thead>
                         <tbody>
                           {category.treatments.map((treatment, index) => (
-                            <tr 
+                            <motion.tr
                               key={treatment.name}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: index * 0.03 }}
                               className={index % 2 === 0 ? "bg-background" : "bg-secondary/50"}
                             >
                               <td className="p-4 font-body text-foreground">{treatment.name}</td>
@@ -185,7 +206,7 @@ const Prices = () => {
                               <td className="p-4 font-body text-foreground text-right">
                                 {(treatment as any).course6 || (treatment as any).course3 || "—"}
                               </td>
-                            </tr>
+                            </motion.tr>
                           ))}
                         </tbody>
                       </table>
@@ -196,7 +217,7 @@ const Prices = () => {
                         {category.note}
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 </TabsContent>
               ))}
             </Tabs>
@@ -206,11 +227,31 @@ const Prices = () => {
         {/* CTA */}
         <section className="section-padding bg-secondary">
           <div className="container-custom text-center">
-            <h2 className="text-foreground mb-4">Ready to Book?</h2>
-            <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto mb-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              className="text-foreground mb-4"
+            >
+              Ready to Book?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-lg text-muted-foreground font-body max-w-2xl mx-auto mb-8"
+            >
               Contact us for a free consultation and let us create a personalized treatment plan for you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <a href="/contact">Book Consultation</a>
               </Button>
@@ -220,7 +261,7 @@ const Prices = () => {
                   0208 598 1200
                 </a>
               </Button>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>

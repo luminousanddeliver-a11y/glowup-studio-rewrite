@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Calendar, Phone, MapPin } from "lucide-react";
 
@@ -15,48 +16,90 @@ export const ServiceCTA = ({
   return (
     <section id="contact" className="section-padding bg-primary text-primary-foreground">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto text-center"
+        >
           <h2 className="mb-4 text-primary-foreground">{title}</h2>
-          <p className="font-body text-xl opacity-90 mb-8">{subtitle}</p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="font-body text-xl opacity-90 mb-8"
+          >
+            {subtitle}
+          </motion.p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          >
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <a href="#contact">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Free Consultation
-              </a>
-            </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
+              >
+                <a href="#contact">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Book Free Consultation
+                </a>
+              </Button>
+            </motion.div>
             
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8 text-lg"
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <a href="tel:02085981200">
-                <Phone className="mr-2 h-5 w-5" />
-                0208 598 1200
-              </a>
-            </Button>
-          </div>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8 text-lg"
+              >
+                <a href="tel:02085981200">
+                  <Phone className="mr-2 h-5 w-5" />
+                  0208 598 1200
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
           
           {showMap && (
-            <div className="bg-primary-foreground/10 rounded-lg p-6">
-              <div className="flex items-center justify-center gap-2 mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-primary-foreground/10 rounded-lg p-6"
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="flex items-center justify-center gap-2 mb-4"
+              >
                 <MapPin className="h-5 w-5" />
                 <span className="font-heading font-semibold">Visit Our Clinic</span>
-              </div>
+              </motion.div>
               <address className="font-body not-italic opacity-90">
                 6 Church Elm Lane, Dagenham, RM10 9RR<br />
                 Open: Monday - Friday 10:00 AM - 7:00 PM | Saturday 10:00 AM - 5:00 PM
               </address>
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
