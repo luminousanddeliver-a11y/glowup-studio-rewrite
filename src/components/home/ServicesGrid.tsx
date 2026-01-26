@@ -162,7 +162,7 @@ export const ServicesGrid = () => {
           {serviceCategories.map((category) => (
             <div key={category.name}>
               {/* Category Header */}
-              <h3 className="font-heading text-xl font-semibold text-accent mb-4 pb-2 border-b border-accent/20">
+              <h3 className="font-heading text-xl font-semibold text-primary mb-4 pb-2 border-b border-primary/20">
                 {category.name}
               </h3>
               
@@ -175,14 +175,14 @@ export const ServicesGrid = () => {
                     className="group bg-card p-4 md:p-5 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 active:scale-[0.99] touch-manipulation min-h-[88px] flex flex-col justify-between"
                   >
                     <div>
-                      <h4 className="font-heading text-base font-medium text-foreground mb-1.5 md:mb-2 group-hover:text-accent transition-colors">
+                      <h4 className="font-heading text-base font-medium text-foreground mb-1.5 md:mb-2 group-hover:text-primary transition-colors">
                         {service.name}
                       </h4>
                       <p className="font-body text-sm text-muted-foreground line-clamp-2">
                         {service.description}
                       </p>
                     </div>
-                    <span className="inline-flex items-center font-body text-sm text-accent mt-2 md:mt-3">
+                    <span className="inline-flex items-center font-body text-sm text-primary mt-2 md:mt-3">
                       Learn More
                       <ArrowRight className="ml-1 h-4 w-4 md:h-3 md:w-3 group-hover:translate-x-1 transition-transform" />
                     </span>

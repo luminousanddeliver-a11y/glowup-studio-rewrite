@@ -69,7 +69,7 @@ export const FeaturedServices = () => {
                 />
               </div>
               <CardHeader className="pb-4">
-                <h3 className="text-foreground group-hover:text-accent transition-colors">
+                <h3 className="text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
               </CardHeader>
@@ -85,7 +85,7 @@ export const FeaturedServices = () => {
                 <Button
                   asChild
                   variant="ghost"
-                  className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-body"
+                  className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-body"
                 >
                   <a href={service.href}>
                     Learn More
