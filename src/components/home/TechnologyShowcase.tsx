@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import laserDevice from "@/assets/laser-device.jpg";
 import skinTexture from "@/assets/skin-texture.jpg";
 
@@ -69,10 +70,11 @@ export const TechnologyShowcase = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <img 
+                <OptimizedImage 
                   src={tech.image} 
                   alt={tech.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
+                  objectFit="cover"
                 />
               </motion.div>
 
