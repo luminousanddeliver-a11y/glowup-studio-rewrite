@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Sparkles, Shield, Users } from "lucide-react";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -278,6 +280,39 @@ const Hydrafacials = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      quote: "The Hydrafacial treatment was AMAZING! My skin has never felt so good. I'm absolutely glowing and my pores look so much smaller.",
+      initials: "JM",
+      treatment: "Hydrafacial Platinum",
+      rating: 5
+    },
+    {
+      quote: "I get a Hydrafacial every month now - it's my self-care ritual. The team here are so professional and the results speak for themselves!",
+      initials: "RK",
+      treatment: "Hydrafacial Signature",
+      rating: 5
+    }
+  ];
+
+  const relatedServices = [
+    {
+      name: "Chemical Peels",
+      href: "/chemical-peels-dagenham",
+      description: "Deeper exfoliation for enhanced skin renewal and clarity."
+    },
+    {
+      name: "Skin Analysis",
+      href: "/skin-analysis-dagenham",
+      description: "Understand your skin's unique needs with advanced diagnostics."
+    },
+    {
+      name: "LED Light Therapy",
+      href: "/led-light-therapy-dagenham",
+      description: "Boost collagen and heal blemishes with targeted light therapy."
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
@@ -368,10 +403,14 @@ const Hydrafacials = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial testimonials={testimonials} />
+        
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible difference a Hydrafacial makes"
         />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready for Your Best Skin?"

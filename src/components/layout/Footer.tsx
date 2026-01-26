@@ -5,7 +5,9 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/prices" },
+  { name: "Prices", href: "/prices" },
   { name: "Shop", href: "/shop" },
+  { name: "Blog", href: "/blog" },
   { name: "Gift Vouchers", href: "/gift-vouchers" },
   { name: "Academy", href: "/academy" },
   { name: "Contact", href: "/contact" },
@@ -74,8 +76,8 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <span className="font-body text-background/80 text-sm">
-                  125 Becontree Avenue,<br />
-                  Dagenham, Essex, RM8 2UJ
+                  125 Becontree Ave,<br />
+                  Dagenham RM8 2UJ
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -93,7 +95,7 @@ export const Footer = () => {
                 <Mail className="h-5 w-5 text-primary shrink-0" />
                 <a 
                   href="mailto:info@laserlightskinclinic.co.uk" 
-                  className="font-body text-background/80 text-sm hover:text-primary transition-colors"
+                  className="font-body text-background/80 text-sm hover:text-primary transition-colors break-all"
                 >
                   info@laserlightskinclinic.co.uk
                 </a>

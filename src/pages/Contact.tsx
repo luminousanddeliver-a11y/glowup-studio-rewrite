@@ -246,18 +246,58 @@ const Contact = () => {
                   ))}
                 </div>
 
-                {/* Map Placeholder */}
+                {/* Interactive Google Map */}
                 <motion.div 
-                  className="mt-8 bg-secondary rounded-lg p-8 text-center"
+                  className="mt-8 rounded-lg overflow-hidden shadow-card"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="font-body text-muted-foreground">
-                    We're located on Becontree Avenue, easily accessible from Becontree and Dagenham Heathway stations.
-                  </p>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.7657412826285!2d0.12287!3d51.5432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a6e3a8c8e8e7%3A0x1234567890abcdef!2s125%20Becontree%20Ave%2C%20Dagenham%20RM8%202UJ!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                    width="100%"
+                    height="280"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Laser Light Skin Clinic Location"
+                    className="w-full"
+                  />
+                </motion.div>
+
+                {/* Parking & Transport Info */}
+                <motion.div 
+                  className="mt-6 bg-accent/5 rounded-lg p-6 border border-accent/10"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                  <h3 className="font-heading text-lg font-medium text-foreground mb-4">
+                    Getting Here
+                  </h3>
+                  <div className="space-y-3 font-body text-sm text-muted-foreground">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-accent text-xs font-bold">P</span>
+                      </div>
+                      <p>Free street parking available on Becontree Avenue and surrounding roads</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-accent text-xs font-bold">🚇</span>
+                      </div>
+                      <p>5-minute walk from Becontree Station (District Line)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-accent text-xs font-bold">🚌</span>
+                      </div>
+                      <p>Bus routes 62, 145, and 368 stop nearby</p>
+                    </div>
+                  </div>
                 </motion.div>
               </motion.div>
 

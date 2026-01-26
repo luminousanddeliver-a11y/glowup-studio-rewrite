@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, PiggyBank } from "lucide-react";
 import laserDevice from "@/assets/laser-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -289,6 +291,39 @@ const LaserHairRemoval = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      quote: "I've had laser hair removal on my legs and underarms. The results are amazing! Completely pain-free and my skin is so smooth now. Best decision I ever made!",
+      initials: "SA",
+      treatment: "Laser Hair Removal - Full Legs",
+      rating: 5
+    },
+    {
+      quote: "As someone with dark skin, I was worried about finding a safe laser. The Lynton Motus AY is incredible - no burns, no pain, just results. Highly recommend!",
+      initials: "NK",
+      treatment: "Laser Hair Removal - Full Body",
+      rating: 5
+    }
+  ];
+
+  const relatedServices = [
+    {
+      name: "Advanced Electrolysis",
+      href: "/advanced-electrolysis-dagenham",
+      description: "Permanent hair removal for fine or light hair that laser can't target."
+    },
+    {
+      name: "Intimate V-Whitening",
+      href: "/intimate-whitening-east-london",
+      description: "Brighten and rejuvenate intimate areas for even-toned skin."
+    },
+    {
+      name: "Skin Rejuvenation",
+      href: "/skin-rejuvenation-dagenham",
+      description: "Complement your hair-free skin with complete rejuvenation."
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
@@ -392,11 +427,17 @@ const LaserHairRemoval = () => {
           faqs={faqs}
         />
         
-        {/* Section 11: Results Showcase */}
+        {/* Section 11: Testimonials */}
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        {/* Section 12: Results Showcase */}
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="Join thousands of satisfied clients who have achieved permanent hair reduction with our pain-free laser technology."
         />
+        
+        {/* Section 13: Related Services */}
+        <RelatedServices services={relatedServices} />
         
         {/* Section 12: Final CTA */}
         <ServiceCTA

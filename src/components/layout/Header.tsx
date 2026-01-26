@@ -36,6 +36,7 @@ const serviceCategories = [
     icon: Sparkles,
     services: [
       { name: "Hydrafacials", href: "/hydrafacial-east-london" },
+      { name: "Million Dollar Facial", href: "/million-dollar-facial-dagenham" },
       { name: "Facials", href: "/facials-dagenham" },
       { name: "Chemical Peels", href: "/chemical-peels-dagenham" },
       { name: "Skin Analysis", href: "/skin-analysis-dagenham" },
@@ -51,6 +52,7 @@ const serviceCategories = [
       { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham" },
       { name: "Cold Plasma", href: "/cold-plasma-treatment-dagenham" },
       { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham" },
+      { name: "Advanced Peels", href: "/advanced-peels-dagenham" },
       { name: "Pigmentation Treatment", href: "/pigmentation-treatment-dagenham" },
     ],
   },
@@ -70,7 +72,7 @@ const serviceCategories = [
     icon: Eraser,
     services: [
       { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
-      { name: "Vein Removal", href: "/vein-removal-east-london" },
+      { name: "Red Vein & Spider Vein Removal", href: "/vein-removal-east-london" },
       { name: "Skin Tag & Mole Removal", href: "/skin-tag-mole-removal-dagenham" },
     ],
   },

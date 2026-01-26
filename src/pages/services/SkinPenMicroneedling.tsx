@@ -266,8 +266,8 @@ const SkinPenMicroneedling = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="SkinPen Microneedling Dagenham | Acne Scars | FDA Cleared | Book Now"
-        description="FDA-cleared SkinPen microneedling in Dagenham. Dramatically reduce acne scars and improve skin texture. Safe for all skin types. Book your consultation today."
+        title="SkinPen Precision Microneedling Dagenham | Acne Scars | FDA Cleared | Book Now"
+        description="FDA-cleared SkinPen Precision microneedling in Dagenham. Dramatically reduce acne scars and improve skin texture. Safe for all skin types. Book your consultation today."
         canonicalUrl="https://laserlightskinclinic.co.uk/skinpen-microneedling-dagenham"
         structuredData={[serviceSchema, faqSchema]}
       />
@@ -277,10 +277,10 @@ const SkinPenMicroneedling = () => {
       <main className="flex-1">
         <ServiceHero
           trustBadge="FDA Cleared Device"
-          title="SkinPen Microneedling Dagenham"
+          title="SkinPen Precision Microneedling Dagenham"
           titleAccent="Dagenham"
           subtitle="Transform Scars. Boost Collagen. Naturally."
-          description="FDA-cleared collagen induction therapy that dramatically reduces acne scars, fine lines, and improves skin texture. Safe for all skin types."
+          description="FDA-cleared SkinPen Precision collagen induction therapy that dramatically reduces acne scars, fine lines, and improves skin texture. Safe for all skin types."
           badge="Natural Collagen Boost"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}

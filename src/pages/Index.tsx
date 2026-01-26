@@ -62,7 +62,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Laser Hair Removal & Skin Clinic Dagenham | Only Quanta Thunder in East London"
+        title="NHS-Approved Laser & Skin Clinic in Dagenham | Laser Light"
         description="East London's ONLY clinic with the Quanta Thunder Series for advanced tattoo removal. Pain-free laser hair removal, Hydrafacials & skin treatments. NHS-approved. 25% off new clients!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
         keywords="laser hair removal dagenham, quanta thunder east london, tattoo removal east london, skin clinic dagenham, hydrafacial, NHS approved clinic"

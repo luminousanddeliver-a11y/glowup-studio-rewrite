@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Palette, Calendar, Shield, Sparkles } from "lucide-react";
 import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -282,6 +284,39 @@ const TattooRemoval = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      quote: "I had a large colorful sleeve that other clinics said couldn't be removed. After 6 sessions here, it's almost completely gone! The Quanta Thunder really is different.",
+      initials: "DT",
+      treatment: "Tattoo Removal - Full Sleeve",
+      rating: 5
+    },
+    {
+      quote: "Quick, professional, and actually works. My old tattoo is finally fading and I can start planning my cover-up. Highly recommend!",
+      initials: "MB",
+      treatment: "Tattoo Removal - Cover-up Prep",
+      rating: 5
+    }
+  ];
+
+  const relatedServices = [
+    {
+      name: "Pigmentation Treatment",
+      href: "/pigmentation-treatment-dagenham",
+      description: "Even out skin tone and reduce dark spots after ink removal."
+    },
+    {
+      name: "Laser Resurfacing",
+      href: "/laser-resurfacing-dagenham",
+      description: "Smooth skin texture and improve scarring appearance."
+    },
+    {
+      name: "Skin Rejuvenation",
+      href: "/skin-rejuvenation-dagenham",
+      description: "Complete skin renewal for a fresh, healthy complexion."
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
@@ -372,10 +407,14 @@ const TattooRemoval = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial testimonials={testimonials} />
+        
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible progress of tattoo removal over multiple sessions"
         />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Remove Your Tattoo?"

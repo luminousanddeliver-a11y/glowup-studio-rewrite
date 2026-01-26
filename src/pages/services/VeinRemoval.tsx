@@ -21,7 +21,7 @@ const VeinRemoval = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Thread Vein Removal Dagenham - Spider Vein Treatment",
+    "name": "Red Vein, Thread Vein & Spider Vein Removal Dagenham",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Laser Light Skin Clinic",
@@ -241,8 +241,8 @@ const VeinRemoval = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Thread Vein Removal Dagenham | Spider Vein Treatment | Book Now"
-        description="Professional thread vein and spider vein removal in Dagenham. Advanced laser treatment for facial and leg veins. Results in 1-3 sessions. Book consultation!"
+        title="Red Vein & Spider Vein Removal Dagenham | Thread Vein Treatment | Book Now"
+        description="Professional red vein, thread vein and spider vein removal in Dagenham. Advanced laser treatment for facial and leg veins. Results in 1-3 sessions. Book consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/vein-removal-east-london"
         structuredData={structuredData}
       />
@@ -252,9 +252,9 @@ const VeinRemoval = () => {
       <main className="flex-1">
         <ServiceHero
           trustBadge="Advanced Vascular Laser"
-          title="Thread Vein Removal in East London"
+          title="Red Vein & Spider Vein Removal in East London"
           titleAccent="East London"
-          subtitle="Clear Spider Veins & Broken Capillaries"
+          subtitle="Clear Thread Veins, Red Veins & Broken Capillaries"
           description="Advanced laser technology targets and eliminates visible thread veins on face and body. Quick, effective treatment with minimal downtime."
           badge="Results in 1-3 Sessions"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
