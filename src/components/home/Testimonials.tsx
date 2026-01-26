@@ -1,6 +1,7 @@
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import heroClinic from "@/assets/hero-clinic.jpg";
 
 const testimonials = [
@@ -30,7 +31,13 @@ export const Testimonials = () => {
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
-          <div className="relative hidden lg:block">
+          <motion.div 
+            className="relative hidden lg:block"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={heroClinic} 
@@ -41,7 +48,13 @@ export const Testimonials = () => {
               />
             </div>
             {/* Floating Stats Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-card px-8 py-6 rounded-xl shadow-xl border border-border">
+            <motion.div 
+              className="absolute -bottom-6 -right-6 bg-card px-8 py-6 rounded-xl shadow-xl border border-border"
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            >
               <div className="flex items-center gap-2 mb-2">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-gold text-gold" />
@@ -49,79 +62,102 @@ export const Testimonials = () => {
               </div>
               <div className="font-heading text-2xl font-bold text-foreground">4.9 / 5</div>
               <div className="font-body text-sm text-muted-foreground">250+ Google Reviews</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Testimonials Side */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {/* Header */}
-            <div className="mb-8">
+            <motion.div 
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <h2 className="text-foreground mb-4">
                 What Our Dagenham Clients Are Saying
               </h2>
               <p className="font-body text-lg text-muted-foreground">
                 Don't just take our word for it. Read real stories from clients who achieved life-changing results at our NHS-approved clinic.
               </p>
-            </div>
+            </motion.div>
 
             {/* Testimonials Stack */}
             <div className="space-y-4 mb-8">
               {testimonials.map((testimonial, index) => (
-                <Card
+                <motion.div
                   key={index}
-                  className="bg-card border-border shadow-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                 >
-                  <CardContent className="p-6">
-                    <div className="flex gap-4">
-                      {/* Quote Icon */}
-                      <div className="w-10 h-10 shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Quote className="w-5 h-5 text-primary" />
-                      </div>
+                  <Card className="bg-card border-border shadow-card">
+                    <CardContent className="p-6">
+                      <div className="flex gap-4">
+                        {/* Quote Icon */}
+                        <div className="w-10 h-10 shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Quote className="w-5 h-5 text-primary" />
+                        </div>
 
-                      <div className="flex-1">
-                        {/* Quote Text */}
-                        <p className="font-body text-foreground mb-4 italic text-sm">
-                          "{testimonial.quote}"
-                        </p>
+                        <div className="flex-1">
+                          {/* Quote Text */}
+                          <p className="font-body text-foreground mb-4 italic text-sm">
+                            "{testimonial.quote}"
+                          </p>
 
-                        {/* Author & Rating */}
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="font-heading font-medium text-foreground text-sm">
-                              {testimonial.name}
-                            </p>
-                            <p className="font-body text-xs text-muted-foreground">
-                              {testimonial.treatment}
-                            </p>
-                          </div>
-                          <div className="flex gap-0.5">
-                            {Array.from({ length: testimonial.rating }).map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                            ))}
+                          {/* Author & Rating */}
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <p className="font-heading font-medium text-foreground text-sm">
+                                {testimonial.name}
+                              </p>
+                              <p className="font-body text-xs text-muted-foreground">
+                                {testimonial.treatment}
+                              </p>
+                            </div>
+                            <div className="flex gap-0.5">
+                              {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
             {/* CTA */}
-            <Button
-              asChild
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body"
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: 0.5 }}
             >
-              <a
-                href="https://g.page/r/laserlightskinclinic/review"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button
+                asChild
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body"
               >
-                Read All 250+ Reviews
-              </a>
-            </Button>
-          </div>
+                <a
+                  href="https://g.page/r/laserlightskinclinic/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read All 250+ Reviews
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
