@@ -86,7 +86,7 @@ export const ServiceHero = ({
   };
 
   return (
-    <section ref={sectionRef} className="bg-background py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section ref={sectionRef} className="bg-background -mt-[80px] pt-[88px] pb-16 md:pt-[92px] md:pb-20 lg:pb-24 overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Content (appears second on mobile, first on desktop) */}
