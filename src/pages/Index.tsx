@@ -14,6 +14,7 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { AwardsSection } from "@/components/home/AwardsSection";
 import { BookingForm } from "@/components/home/BookingForm";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 const Index = () => {
   const localBusinessSchema = {
@@ -71,16 +72,36 @@ const Index = () => {
       <main className="flex-1 pb-20 lg:pb-0">
         <HeroSection />
         <TrustBar />
-        <AwardsSection />
-        <FeaturedServices />
-        <WhyChooseUs />
-        <TechnologyShowcase />
-        <Testimonials />
-        <ServicesGrid />
-        <OfferBanner />
-        <FAQSection />
-        <BookingForm />
-        <FinalCTA />
+        <ScrollReveal>
+          <AwardsSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <FeaturedServices />
+        </ScrollReveal>
+        <ScrollReveal>
+          <WhyChooseUs />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <TechnologyShowcase />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Testimonials />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <ServicesGrid />
+        </ScrollReveal>
+        <ScrollReveal>
+          <OfferBanner />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <FAQSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <BookingForm />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <FinalCTA />
+        </ScrollReveal>
       </main>
       <Footer />
       <MobileStickyButton />
