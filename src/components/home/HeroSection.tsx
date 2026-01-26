@@ -12,17 +12,16 @@ export const HeroSection = () => {
             {/* Decorative teal bar */}
             <div className="w-12 h-1 bg-primary mb-6 mx-auto lg:mx-0" />
 
-            <h1 className="text-foreground mb-6 leading-tight">
-              NHS-Approved Laser & Skin Clinic in{" "}
-              <span className="text-primary">Dagenham, East London</span>
+            <h1 className="text-foreground mb-4 leading-tight">
+              Advanced Laser & Skin Treatments
             </h1>
 
-            <p className="font-body text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              The only 5-star clinic in East London with pain-free Lynton Motus AY laser technology. Medically graded, FDA-approved, and trusted by over 250+ clients.
+            <p className="font-body text-lg text-muted-foreground mb-6 max-w-xl mx-auto lg:mx-0">
+              Professional laser treatments and skincare solutions in Dagenham, East London. NHS-approved, FDA-certified technology with pain-free Lynton Motus AY laser.
             </p>
 
             {/* Offer Badge */}
-            <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-8">
+            <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-6">
               <Star className="h-4 w-4 fill-current" />
               <span className="font-body font-semibold">25% Off for New Clients</span>
             </div>
@@ -32,10 +31,10 @@ export const HeroSection = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-12 px-6 text-base"
               >
                 <a href="#contact">
-                  Book Free Consultation & Get 25% Off
+                  Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -43,34 +42,34 @@ export const HeroSection = () => {
                 asChild 
                 variant="outline"
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-12 px-6 text-base"
               >
-                <a href="#services">View All Treatments</a>
+                <a href="#services">Learn More</a>
               </Button>
             </div>
 
             {/* Stats with divider */}
-            <div className="border-t border-border mt-10 pt-8">
-              <div className="flex flex-wrap justify-center lg:justify-start gap-8">
+            <div className="border-t border-border mt-8 pt-6">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 <div className="text-center lg:text-left">
-                  <div className="font-heading text-2xl font-semibold text-primary">250+</div>
-                  <div className="font-body text-sm text-muted-foreground">5-Star Reviews</div>
+                  <div className="font-heading text-xl font-bold text-primary">250+</div>
+                  <div className="font-body text-xs text-muted-foreground">Happy Clients</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="font-heading text-2xl font-semibold text-primary">10+</div>
-                  <div className="font-body text-sm text-muted-foreground">Treatments</div>
+                  <div className="font-heading text-xl font-bold text-primary">6+</div>
+                  <div className="font-body text-xs text-muted-foreground">Years Experience</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="font-heading text-2xl font-semibold text-primary">6+</div>
-                  <div className="font-body text-sm text-muted-foreground">Years Experience</div>
+                  <div className="font-heading text-xl font-bold text-primary">5★</div>
+                  <div className="font-body text-xs text-muted-foreground">Rated Clinic</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Image - appears first on mobile, second on desktop */}
-          <div className="relative order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative order-1 lg:order-2 mb-10 lg:mb-0">
+            <div className="rounded-2xl overflow-hidden shadow-lg">
               <img 
                 src={heroClinicNew} 
                 alt="Modern aesthetic clinic treatment room with professional equipment"
@@ -78,15 +77,15 @@ export const HeroSection = () => {
                 loading="eager"
                 fetchPriority="high"
               />
-              
-              {/* NHS Approved Badge Overlay */}
-              <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground px-4 py-3 rounded-lg max-w-xs">
-                <div className="flex items-center gap-2 mb-1">
-                  <Shield className="h-4 w-4" />
-                  <span className="font-semibold text-sm">NHS Approved</span>
-                </div>
-                <div className="text-xs opacity-90">FDA-certified technology for safe, effective treatments</div>
+            </div>
+            
+            {/* NHS Approved Badge - Floating outside image */}
+            <div className="absolute -bottom-6 right-4 lg:-right-4 bg-primary text-primary-foreground px-5 py-4 rounded-xl shadow-xl max-w-[220px] z-10">
+              <div className="flex items-center gap-2 mb-1">
+                <Shield className="h-4 w-4 flex-shrink-0" />
+                <span className="font-semibold text-sm">NHS Approved</span>
               </div>
+              <div className="text-xs opacity-90 leading-tight">FDA-certified technology for safe, effective treatments</div>
             </div>
           </div>
         </div>
