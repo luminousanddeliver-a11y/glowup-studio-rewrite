@@ -125,13 +125,18 @@ export const Header = () => {
       <ScrollProgress />
       <PromoBanner />
       <motion.header 
-        className="sticky top-0 z-50 bg-card shadow-card"
+        className={cn(
+          "sticky top-0 z-50 transition-colors duration-300",
+          isCompact 
+            ? "bg-card/95 backdrop-blur-md" 
+            : "bg-transparent"
+        )}
         animate={{ 
           boxShadow: isCompact 
             ? "0 4px 20px rgba(0,0,0,0.1)" 
-            : "0 1px 3px rgba(0,0,0,0.05)" 
+            : "0 0 0 rgba(0,0,0,0)" 
         }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="container-custom">
           <motion.div 
