@@ -44,7 +44,7 @@ const BlogPost = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
-          <section className="bg-primary py-16">
+          <section className="bg-primary -mt-[80px] pt-[100px] md:pt-[108px] pb-12">
             <div className="container-custom max-w-4xl">
               <Skeleton className="h-8 w-32 mb-4" />
               <Skeleton className="h-12 w-full mb-4" />
@@ -136,7 +136,7 @@ const BlogPost = () => {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-primary py-12 md:py-20">
+        <section className="bg-primary -mt-[80px] pt-[100px] md:pt-[108px] pb-12 md:pb-16">
           <div className="container-custom max-w-4xl">
             <PageBreadcrumb 
               items={[
@@ -208,19 +208,23 @@ const BlogPost = () => {
         )}
 
         {/* Article Content */}
-        <article className="section-padding">
+        <article className="section-padding pb-8">
           <div className="container-custom max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="prose prose-lg max-w-none font-body
-                prose-headings:font-heading prose-headings:text-foreground
-                prose-p:text-muted-foreground prose-p:leading-relaxed
+                prose-headings:font-heading prose-headings:text-foreground prose-headings:mb-4
+                prose-h2:text-2xl prose-h2:mt-8 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border
+                prose-h3:text-xl prose-h3:mt-6
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
                 prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-foreground
+                prose-strong:text-foreground prose-strong:font-semibold
                 prose-ul:text-muted-foreground prose-ol:text-muted-foreground
-                prose-li:marker:text-accent"
+                prose-li:marker:text-accent prose-li:mb-2
+                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-secondary/50 prose-blockquote:rounded-r-lg prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:italic"
               dangerouslySetInnerHTML={{ __html: post.content || "" }}
             />
           </div>
