@@ -11,7 +11,7 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { OfferBanner } from "@/components/home/OfferBanner";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { AwardsSection } from "@/components/home/AwardsSection";
+
 import { BookingForm } from "@/components/home/BookingForm";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
@@ -72,9 +72,6 @@ const Index = () => {
       <main className="flex-1 pb-20 lg:pb-0">
         <HeroSection />
         <TrustBar />
-        <ScrollReveal>
-          <AwardsSection />
-        </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <FeaturedServices />
         </ScrollReveal>
