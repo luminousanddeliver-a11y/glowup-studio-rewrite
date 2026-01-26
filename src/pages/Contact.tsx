@@ -18,6 +18,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { z } from "zod";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -186,7 +187,7 @@ const Contact = () => {
       <Header />
       <main className="flex-1 overflow-hidden">
         {/* Hero */}
-        <section className="bg-primary text-primary-foreground py-16">
+        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[112px] pb-16">
           <div className="container-custom">
             <motion.div 
               className="max-w-2xl"

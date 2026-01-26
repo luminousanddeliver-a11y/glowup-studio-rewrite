@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck, Star, Zap, Crown, Heart } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { PricesStickyButton } from "@/components/prices/PricesStickyButton";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 interface Treatment {
   name: string;
@@ -395,7 +396,7 @@ const Prices = () => {
       <Header />
       <main className="flex-1 pb-20 lg:pb-0">
         {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16 lg:py-20">
+        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[96px] pb-16 lg:pb-20">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, x: -30 }}

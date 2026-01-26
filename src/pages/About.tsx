@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import treatmentRoom from "@/assets/treatment-room.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 const About = () => {
   const organizationSchema = {
@@ -80,7 +81,7 @@ const About = () => {
       <Header />
       <main className="flex-1 overflow-hidden">
         {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center">
+        <section className="relative min-h-[50vh] flex items-center -mt-[80px] pt-[80px]">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${consultationRoom})` }}
