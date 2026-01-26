@@ -1,12 +1,27 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, Plus, Minus, Heart, Scale, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
-import { useCompare } from "@/contexts/CompareContext";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
+
+// Safe compare hook that doesn't throw if context is missing
+const useCompareSafe = () => {
+  try {
+    // Dynamic import to avoid breaking if context is missing
+    const { useCompare } = require("@/contexts/CompareContext");
+    return useCompare();
+  } catch {
+    return {
+      isInCompare: () => false,
+      toggleCompare: () => {},
+      compareCount: 0,
+      maxCompareItems: 4,
+    };
+  }
+};
 
 interface ProductCardProps {
   id: string;
@@ -19,6 +34,7 @@ interface ProductCardProps {
   imageUrl: string | null;
   ingredients?: string | null;
   onQuickView?: () => void;
+  showCompare?: boolean;
 }
 
 export const ProductCard = ({
@@ -32,11 +48,12 @@ export const ProductCard = ({
   imageUrl,
   ingredients,
   onQuickView,
+  showCompare = true,
 }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
-  const { isInCompare, toggleCompare, compareCount, maxCompareItems } = useCompare();
+  const compare = useCompareSafe();
   const { addToRecentlyViewed } = useRecentlyViewed();
   const imageRef = useRef<HTMLDivElement>(null);
   const hasTracked = useRef(false);
@@ -45,8 +62,8 @@ export const ProductCard = ({
   const displayPrice = salePrice ?? price;
   const savings = isOnSale ? ((price - salePrice!) / price) * 100 : 0;
   const isWishlisted = isInWishlist(id);
-  const isComparing = isInCompare(id);
-  const canAddToCompare = compareCount < maxCompareItems || isComparing;
+  const isComparing = compare.isInCompare(id);
+  const canAddToCompare = compare.compareCount < compare.maxCompareItems || isComparing;
 
   // Track product view for recently viewed
   useEffect(() => {
@@ -79,8 +96,8 @@ export const ProductCard = ({
 
   const handleToggleCompare = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!canAddToCompare) return;
-    toggleCompare({
+    if (!canAddToCompare || !showCompare) return;
+    compare.toggleCompare({
       id,
       name,
       slug,
@@ -175,19 +192,21 @@ export const ProductCard = ({
           </motion.button>
 
           {/* Compare Button */}
-          <motion.button
-            onClick={handleToggleCompare}
-            className={`w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-md transition-colors ${
-              !canAddToCompare ? 'opacity-50 cursor-not-allowed' : 'hover:bg-card'
-            }`}
-            whileHover={canAddToCompare ? { scale: 1.1 } : {}}
-            whileTap={canAddToCompare ? { scale: 0.9 } : {}}
-            aria-label={isComparing ? "Remove from compare" : "Add to compare"}
-          >
-            <Scale 
-              className={`w-5 h-5 transition-colors ${isComparing ? 'text-accent' : 'text-muted-foreground'}`}
-            />
-          </motion.button>
+          {showCompare && (
+            <motion.button
+              onClick={handleToggleCompare}
+              className={`w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-md transition-colors ${
+                !canAddToCompare ? 'opacity-50 cursor-not-allowed' : 'hover:bg-card'
+              }`}
+              whileHover={canAddToCompare ? { scale: 1.1 } : {}}
+              whileTap={canAddToCompare ? { scale: 0.9 } : {}}
+              aria-label={isComparing ? "Remove from compare" : "Add to compare"}
+            >
+              <Scale 
+                className={`w-5 h-5 transition-colors ${isComparing ? 'text-accent' : 'text-muted-foreground'}`}
+              />
+            </motion.button>
+          )}
         </div>
 
         {/* Quick View Overlay */}
