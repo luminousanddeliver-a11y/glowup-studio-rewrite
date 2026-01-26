@@ -12,9 +12,21 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Shield, Heart, Sparkles, Lock } from "lucide-react";
 import intimateCareProducts from "@/assets/intimate-care-products.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham", description: "Permanent hair reduction for smooth skin" },
+  { name: "Pigmentation Treatment", href: "/pigmentation-treatment-dagenham", description: "Even out skin tone on face and body" },
+  { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Improve skin texture and radiance" },
+];
+
+const testimonials = [
+  { quote: "The staff made me feel so comfortable. Results exceeded my expectations and my confidence is restored.", initials: "FA", treatment: "Intimate Whitening", rating: 5 },
+];
 
 const IntimateWhitening = () => {
   const serviceSchema = {
@@ -337,6 +349,10 @@ const IntimateWhitening = () => {
           title="Real Results from Real Clients"
           description="Discreet, professional care that restores confidence"
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Feel More Confident?"

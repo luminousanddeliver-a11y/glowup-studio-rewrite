@@ -13,9 +13,22 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, CheckCircle, Sparkles, RefreshCw, Target, Layers, Zap } from "lucide-react";
 import laserResurfacingDevice from "@/assets/laser-resurfacing-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham", description: "Natural collagen induction for scars" },
+  { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Reveal fresh, rejuvenated skin" },
+  { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Multi-modality approach for radiant skin" },
+];
+
+const testimonials = [
+  { quote: "My acne scars have improved dramatically after 3 sessions. I finally feel confident going makeup-free!", initials: "ZA", treatment: "Laser Resurfacing", rating: 5 },
+  { quote: "The downtime was worth it. My sun-damaged skin looks years younger and my pores are so refined.", initials: "EW", treatment: "Laser Resurfacing", rating: 5 },
+];
 
 const LaserResurfacing = () => {
   const structuredData = {
@@ -354,6 +367,10 @@ const LaserResurfacing = () => {
           title="Transformative Results"
           description="See the dramatic improvements our clients achieve with laser resurfacing. Book a consultation to start your journey."
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Transform Your Skin?"

@@ -11,9 +11,22 @@ import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Star, CheckCircle, Gem, ShieldCheck } from "lucide-react";
 import piercingSetup from "@/assets/piercing-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Hopi Ear Candling", href: "/hopi-ear-candling-dagenham", description: "Relaxing ear therapy for wellbeing" },
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Treat yourself to a glowing facial" },
+  { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Rejuvenate and heal your skin" },
+];
+
+const testimonials = [
+  { quote: "Brought my daughter for her first ear piercing. The staff were so gentle and patient with her. Healed perfectly!", initials: "RS", treatment: "Ear Piercing", rating: 5 },
+  { quote: "So much better than going to a mall kiosk. Clean, professional, and the earrings are beautiful quality.", initials: "AJ", treatment: "Ear Piercing", rating: 5 },
+];
 
 const Piercing = () => {
   const structuredData = {
@@ -292,6 +305,10 @@ const Piercing = () => {
           subtitle="Common questions from parents and adults"
           faqs={faqs}
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Get Pierced?"

@@ -13,9 +13,22 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Sun, Sparkles, Shield, Clock } from "lucide-react";
 import skinTexture from "@/assets/skin-texture.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham", description: "Fractional laser for dramatic transformation" },
+  { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Reveal fresher, younger-looking skin" },
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep hydration and instant glow" },
+];
+
+const testimonials = [
+  { quote: "The combination of treatments has completely transformed my sun-damaged skin. I look years younger!", initials: "JW", treatment: "Skin Rejuvenation Course", rating: 5 },
+  { quote: "My skin tone is so much more even now. The fine lines around my eyes have softened beautifully.", initials: "RP", treatment: "Laser Rejuvenation", rating: 5 },
+];
 
 const SkinRejuvenation = () => {
   const serviceSchema = {
@@ -348,6 +361,10 @@ const SkinRejuvenation = () => {
           title="Real Results from Real Clients"
           description="See the visible improvement in skin tone, texture, and radiance"
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready for Radiant Skin?"
