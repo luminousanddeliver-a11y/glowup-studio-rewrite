@@ -4,8 +4,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
-import { ProductGrid } from "@/components/shop/ProductGrid";
+import { ProductGrid, usePriceRange } from "@/components/shop/ProductGrid";
 import { CategoryFilter } from "@/components/shop/CategoryFilter";
+import { ProductSortSelect, SortOption } from "@/components/shop/ProductSortSelect";
+import { PriceRangeFilter } from "@/components/shop/PriceRangeFilter";
 import { CartDrawer } from "@/components/shop/CartDrawer";
 import { RecentlyViewed } from "@/components/shop/RecentlyViewed";
 import { CompareBar } from "@/components/shop/CompareBar";
@@ -14,6 +16,22 @@ const categories = ["Serums", "Moisturizers", "Sun Protection", "Eye Care", "Exf
 
 const Shop = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [sortBy, setSortBy] = useState<SortOption>("featured");
+  const priceRange = usePriceRange(activeCategory);
+  const [priceMin, setPriceMin] = useState<number | undefined>(undefined);
+  const [priceMax, setPriceMax] = useState<number | undefined>(undefined);
+
+  const handlePriceChange = (min: number, max: number) => {
+    setPriceMin(min === priceRange.min ? undefined : min);
+    setPriceMax(max === priceRange.max ? undefined : max);
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    // Reset price filter when category changes
+    setPriceMin(undefined);
+    setPriceMax(undefined);
+  };
 
   return (
     <>
@@ -63,27 +81,54 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Category Filter */}
-        <section className="py-8 border-b border-border">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4 }}
-            className="container-custom"
-          >
-            <CategoryFilter
-              categories={categories}
-              activeCategory={activeCategory}
-              onCategoryChange={setActiveCategory}
-            />
-          </motion.div>
+        {/* Filter Bar */}
+        <section className="py-6 border-b border-border sticky top-[72px] bg-background/95 backdrop-blur-sm z-40">
+          <div className="container-custom">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              {/* Category Filter */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4 }}
+              >
+                <CategoryFilter
+                  categories={categories}
+                  activeCategory={activeCategory}
+                  onCategoryChange={handleCategoryChange}
+                />
+              </motion.div>
+
+              {/* Sort & Price Filter */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="flex items-center gap-3"
+              >
+                <PriceRangeFilter
+                  minPrice={priceRange.min}
+                  maxPrice={priceRange.max}
+                  currentMin={priceMin ?? priceRange.min}
+                  currentMax={priceMax ?? priceRange.max}
+                  onChange={handlePriceChange}
+                />
+                <ProductSortSelect value={sortBy} onChange={setSortBy} />
+              </motion.div>
+            </div>
+          </div>
         </section>
 
         {/* Product Grid */}
         <section className="py-12 lg:py-16">
           <div className="container-custom">
-            <ProductGrid category={activeCategory} />
+            <ProductGrid 
+              category={activeCategory} 
+              sortBy={sortBy}
+              priceMin={priceMin}
+              priceMax={priceMax}
+            />
           </div>
         </section>
 

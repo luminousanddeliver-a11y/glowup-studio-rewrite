@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShoppingBag, Heart, Plus, Minus, Scale, Check } from "lucide-react";
+import { X, ShoppingBag, Heart, Plus, Minus, Scale, Check, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -129,9 +130,13 @@ export const ProductQuickView = ({ product, isOpen, onClose }: ProductQuickViewP
           {/* Details */}
           <div className="p-6 flex flex-col">
             <div className="flex-1">
-              <h2 className="font-heading text-2xl font-bold text-foreground mb-2">
+              <Link 
+                to={`/shop/${product.slug}`}
+                className="font-heading text-2xl font-bold text-foreground mb-2 hover:text-accent transition-colors block"
+                onClick={onClose}
+              >
                 {product.name}
-              </h2>
+              </Link>
               
               {/* Price */}
               <div className="flex items-baseline gap-3 mb-4">

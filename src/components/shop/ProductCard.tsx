@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingBag, Plus, Minus, Heart, Scale, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -224,10 +225,11 @@ export const ProductCard = ({
 
       {/* Content */}
       <div className="p-4 space-y-3" onClick={(e) => e.stopPropagation()}>
-        <h3 className="font-heading text-lg font-semibold text-foreground line-clamp-1 cursor-pointer hover:text-accent transition-colors" onClick={handleQuickView}>
-          {name}
-        </h3>
-        
+        <Link to={`/shop/${slug}`}>
+          <h3 className="font-heading text-lg font-semibold text-foreground line-clamp-1 cursor-pointer hover:text-accent transition-colors">
+            {name}
+          </h3>
+        </Link>
         {description && (
           <p className="font-body text-sm text-muted-foreground line-clamp-2">
             {description}
