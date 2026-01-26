@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -12,11 +13,16 @@ const quickLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-foreground text-background overflow-hidden">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Column 1: About */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+          >
             <h3 className="font-heading text-xl font-semibold mb-4">
               Laser Light Skin Clinic
             </h3>
@@ -26,27 +32,43 @@ export const Footer = () => {
             <p className="text-background/70 font-body text-sm">
               NHS-approved clinic offering pain-free laser hair removal and advanced skin treatments in East London.
             </p>
-          </div>
+          </motion.div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h4 className="font-heading text-lg font-medium mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
+              {quickLinks.map((link, index) => (
+                <motion.li 
+                  key={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
                     className="font-body text-background/80 hover:text-primary transition-colors"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 3: Contact Info */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h4 className="font-heading text-lg font-medium mb-4">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -84,30 +106,39 @@ export const Footer = () => {
                 </span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 4: Social & Trust */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <h4 className="font-heading text-lg font-medium mb-4">Follow Us</h4>
             <div className="flex gap-4 mb-6">
-              <a
+              <motion.a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Instagram"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <Instagram className="h-5 w-5" />
-              </a>
+              </motion.a>
             </div>
             
             <div className="space-y-2">
@@ -120,7 +151,7 @@ export const Footer = () => {
                 <span className="font-body text-background/80 text-sm">Lynton Certified</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
