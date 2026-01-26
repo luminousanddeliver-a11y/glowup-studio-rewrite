@@ -37,7 +37,7 @@ export const WhyChooseUs = () => {
               />
             </div>
             {/* Floating Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground px-6 py-4 rounded-xl shadow-lg hidden md:block">
+            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-4 rounded-xl shadow-lg hidden md:block">
               <div className="font-heading text-2xl font-bold">6+</div>
               <div className="font-body text-sm">Years Experience</div>
             </div>

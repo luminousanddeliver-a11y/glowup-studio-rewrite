@@ -74,8 +74,8 @@ export const Testimonials = () => {
                   <CardContent className="p-6">
                     <div className="flex gap-4">
                       {/* Quote Icon */}
-                      <div className="w-10 h-10 shrink-0 rounded-full bg-accent/10 flex items-center justify-center">
-                        <Quote className="w-5 h-5 text-accent" />
+                      <div className="w-10 h-10 shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Quote className="w-5 h-5 text-primary" />
                       </div>
 
                       <div className="flex-1">
