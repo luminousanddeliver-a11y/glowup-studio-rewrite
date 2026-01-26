@@ -12,6 +12,7 @@ import { CartDrawer } from "@/components/shop/CartDrawer";
 import { RecentlyViewed } from "@/components/shop/RecentlyViewed";
 import { CompareBar } from "@/components/shop/CompareBar";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const categories = ["Serums", "Moisturizers", "Sun Protection", "Eye Care", "Exfoliators"];
 
@@ -44,7 +45,7 @@ const Shop = () => {
       <Header />
       <CartDrawer />
 
-      <main className="min-h-screen bg-background pb-20">
+      <main className="min-h-screen bg-background pb-24 lg:pb-0">
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 to-accent/5 -mt-[80px] pt-[88px] lg:pt-[92px] pb-8 lg:pb-10">
           <div className="container-custom text-center">
@@ -83,7 +84,7 @@ const Shop = () => {
         </section>
 
         {/* Filter Bar */}
-        <section className="py-6 border-b border-border sticky top-[72px] bg-background/95 backdrop-blur-sm z-40">
+        <section className="py-4 border-b border-border sticky top-[72px] lg:top-[80px] bg-background/98 backdrop-blur-md z-40">
           <div className="container-custom">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               {/* Category Filter */}
@@ -178,6 +179,7 @@ const Shop = () => {
       <CompareBar />
 
       <Footer />
+      <MobileStickyButton />
     </>
   );
 };

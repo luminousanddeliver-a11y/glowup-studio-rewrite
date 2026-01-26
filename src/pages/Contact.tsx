@@ -19,6 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { z } from "zod";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -460,6 +461,7 @@ const Contact = () => {
         </section>
       </main>
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Award, Users, Clock, CheckCircle, Phone, Mail } from "lucide-react";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const courses = [
   {
@@ -111,7 +112,7 @@ const Academy = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
         title="Laser Training Academy | Level 4 Courses Dagenham | Laser Light"
         description="Professional laser and aesthetic training at Laser Light Academy, Dagenham. Level 3 & 4 accredited courses in laser hair removal, microneedling, and chemical peels."
@@ -349,6 +350,7 @@ const Academy = () => {
         </section>
       </main>
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

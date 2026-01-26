@@ -71,7 +71,7 @@ const Index = () => {
       />
       
       <Header />
-      <main className="flex-1 pb-20 lg:pb-0">
+      <main className="flex-1">
         <HeroSection />
         <TrustBar />
         <ScrollReveal delay={0.1}>

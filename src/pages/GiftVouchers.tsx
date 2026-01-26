@@ -6,6 +6,7 @@ import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { Gift, Phone, Mail, Heart, Sparkles, Star } from "lucide-react";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const voucherOptions = [
   {
@@ -78,7 +79,7 @@ const GiftVouchers = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
         title="Gift Vouchers | Laser & Skin Treatment Gifts Dagenham | Laser Light"
         description="Give the gift of beautiful skin. Purchase gift vouchers for laser hair removal, Hydrafacials, and skin treatments at Laser Light Skin Clinic Dagenham."
@@ -329,6 +330,7 @@ const GiftVouchers = () => {
         </section>
       </main>
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };
