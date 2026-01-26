@@ -81,14 +81,14 @@ const About = () => {
       <Header />
       <main className="flex-1 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center -mt-[80px] pt-24">
+      <section className="relative min-h-[50vh] flex items-center -mt-[80px] pt-[88px] lg:pt-[92px]">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${consultationRoom})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
           
-          <div className="container-custom relative z-10 py-8">
+          <div className="container-custom relative z-10 py-4">
             <motion.div 
               className="max-w-2xl"
               initial={{ opacity: 0, y: 30 }}
