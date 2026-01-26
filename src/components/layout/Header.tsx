@@ -66,20 +66,20 @@ const serviceCategories = [
     ],
   },
   {
-    name: "More",
-    icon: Gift,
-    services: [
-      { name: "Gift Vouchers", href: "/gift-vouchers" },
-      { name: "Academy", href: "/academy" },
-    ],
-  },
-  {
     name: "Removal Treatments",
     icon: Eraser,
     services: [
       { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
       { name: "Vein Removal", href: "/vein-removal-east-london" },
       { name: "Skin Tag & Mole Removal", href: "/skin-tag-mole-removal-dagenham" },
+    ],
+  },
+  {
+    name: "More",
+    icon: Gift,
+    services: [
+      { name: "Gift Vouchers", href: "/gift-vouchers" },
+      { name: "Academy", href: "/academy" },
     ],
   },
 ];

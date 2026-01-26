@@ -80,8 +80,8 @@ const About = () => {
       
       <Header />
       <main className="flex-1 overflow-hidden">
-        {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center -mt-[80px] pt-[80px]">
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center -mt-[80px] pt-[100px] lg:pt-[110px]">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${consultationRoom})` }}

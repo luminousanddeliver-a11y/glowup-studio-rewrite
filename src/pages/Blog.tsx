@@ -61,8 +61,8 @@ const Blog = () => {
       
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-primary -mt-[80px] pt-[120px] md:pt-[140px] pb-16 md:pb-24">
+      {/* Hero Section */}
+      <section className="bg-primary -mt-[80px] pt-[100px] md:pt-[110px] pb-12 md:pb-16">
           <div className="container-custom text-center">
             <PageBreadcrumb 
               items={[{ label: "Blog" }]} 
