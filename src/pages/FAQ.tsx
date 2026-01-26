@@ -12,7 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 
 // General clinic FAQs
 const generalFaqs = [
@@ -108,6 +108,34 @@ const serviceFaqs = {
   ],
 };
 
+const FAQCard = ({ faq, index, prefix }: { faq: { question: string; answer: string }; index: number; prefix: string }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-30px" }}
+    transition={{ duration: 0.3, delay: index * 0.05 }}
+  >
+    <AccordionItem 
+      value={`${prefix}-${index}`}
+      className="bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden data-[state=open]:shadow-md"
+    >
+      <AccordionTrigger className="font-heading text-left text-foreground hover:text-primary py-5 px-6 hover:no-underline [&[data-state=open]]:text-primary">
+        <span className="flex items-center gap-3">
+          <span className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-semibold text-primary">
+            {index + 1}
+          </span>
+          {faq.question}
+        </span>
+      </AccordionTrigger>
+      <AccordionContent className="font-body text-muted-foreground px-6 pb-5 pt-0">
+        <div className="pl-11">
+          {faq.answer}
+        </div>
+      </AccordionContent>
+    </AccordionItem>
+  </motion.div>
+);
+
 const FAQ = () => {
   const faqPageSchema = {
     "@context": "https://schema.org",
@@ -137,7 +165,7 @@ const FAQ = () => {
       <Header />
       <main className="flex-1 pb-20">
         {/* Hero */}
-        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[88px] lg:pt-[92px] pb-10">
+        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[88px] lg:pt-[92px] pb-12">
           <div className="container-custom">
             <motion.div 
               className="max-w-2xl"
@@ -150,6 +178,9 @@ const FAQ = () => {
                 variant="dark"
                 className="mb-4"
               />
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-foreground/10 rounded-full mb-4">
+                <MessageCircle className="h-7 w-7 text-primary-foreground" />
+              </div>
               <h1 className="mb-4">Frequently Asked Questions</h1>
               <p className="text-lg text-primary-foreground/80 font-body">
                 Find answers to the most common questions about our treatments, technology, and clinic.
@@ -160,7 +191,7 @@ const FAQ = () => {
 
         {/* General FAQs */}
         <ScrollReveal>
-          <section className="section-padding bg-background">
+          <section className="section-padding bg-secondary/50">
             <div className="container-custom">
               <div className="max-w-3xl mx-auto">
                 <motion.div 
@@ -176,24 +207,9 @@ const FAQ = () => {
                   </p>
                 </motion.div>
 
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="w-full space-y-4">
                   {generalFaqs.map((faq, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-30px" }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                    >
-                      <AccordionItem value={`general-${index}`}>
-                        <AccordionTrigger className="font-heading text-left text-foreground hover:text-primary">
-                          {faq.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="font-body text-muted-foreground">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    </motion.div>
+                    <FAQCard key={index} faq={faq} index={index} prefix="general" />
                   ))}
                 </Accordion>
               </div>
@@ -204,7 +220,7 @@ const FAQ = () => {
         {/* Service-Specific FAQs */}
         {Object.entries(serviceFaqs).map(([category, faqs], categoryIndex) => (
           <ScrollReveal key={category} delay={0.1}>
-            <section className={`section-padding ${categoryIndex % 2 === 0 ? 'bg-secondary' : 'bg-background'}`}>
+            <section className={`section-padding ${categoryIndex % 2 === 0 ? 'bg-background' : 'bg-secondary/50'}`}>
               <div className="container-custom">
                 <div className="max-w-3xl mx-auto">
                   <motion.div 
@@ -220,24 +236,9 @@ const FAQ = () => {
                     </p>
                   </motion.div>
 
-                  <Accordion type="single" collapsible className="w-full">
+                  <Accordion type="single" collapsible className="w-full space-y-4">
                     {faqs.map((faq, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-30px" }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                      >
-                        <AccordionItem value={`${category}-${index}`}>
-                          <AccordionTrigger className="font-heading text-left text-foreground hover:text-primary">
-                            {faq.question}
-                          </AccordionTrigger>
-                          <AccordionContent className="font-body text-muted-foreground">
-                            {faq.answer}
-                          </AccordionContent>
-                        </AccordionItem>
-                      </motion.div>
+                      <FAQCard key={index} faq={faq} index={index} prefix={category} />
                     ))}
                   </Accordion>
                 </div>
@@ -249,41 +250,47 @@ const FAQ = () => {
         {/* CTA Section */}
         <ScrollReveal>
           <section className="section-padding bg-primary text-primary-foreground">
-            <div className="container-custom text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-primary-foreground mb-4">Still Have Questions?</h2>
-                <p className="font-body text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                  Our friendly team is here to help. Book a free consultation or give us a call to discuss your treatment options.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    asChild 
-                    size="lg"
-                    className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6"
-                  >
-                    <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
-                      Book Free Consultation
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
-                  <Button 
-                    asChild 
-                    variant="outline"
-                    size="lg"
-                    className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-12 px-6"
-                  >
-                    <a href="tel:02085981200">
-                      <Phone className="mr-2 h-5 w-5" />
-                      0208 598 1200
-                    </a>
-                  </Button>
-                </div>
-              </motion.div>
+            <div className="container-custom">
+              <div className="max-w-3xl mx-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-primary-foreground/10 rounded-2xl p-8 md:p-10 text-center"
+                >
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-foreground/10 rounded-full mb-4">
+                    <MessageCircle className="h-7 w-7 text-primary-foreground" />
+                  </div>
+                  <h2 className="text-primary-foreground mb-4">Still Have Questions?</h2>
+                  <p className="font-body text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+                    Our friendly team is here to help. Book a free consultation or give us a call to discuss your treatment options.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button 
+                      asChild 
+                      size="lg"
+                      className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6"
+                    >
+                      <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                        Book Free Consultation
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </a>
+                    </Button>
+                    <Button 
+                      asChild 
+                      variant="outline"
+                      size="lg"
+                      className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-12 px-6"
+                    >
+                      <a href="tel:02085981200">
+                        <Phone className="mr-2 h-5 w-5" />
+                        0208 598 1200
+                      </a>
+                    </Button>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </section>
         </ScrollReveal>

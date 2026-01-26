@@ -86,8 +86,12 @@ export const ServiceHero = ({
   };
 
   return (
-    <section ref={sectionRef} className="bg-background -mt-[80px] pt-[88px] pb-16 md:pt-[92px] md:pb-20 lg:pb-24 overflow-hidden">
-      <div className="container-custom">
+    <section ref={sectionRef} className="relative bg-gradient-to-br from-primary/5 via-background to-background -mt-[80px] pt-[88px] pb-16 md:pt-[92px] md:pb-20 lg:pb-24 overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-20 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Content (appears second on mobile, first on desktop) */}
           <motion.div 

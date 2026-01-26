@@ -85,7 +85,7 @@ export const PageBreadcrumb = ({ items, variant = "light", className = "" }: Pag
                       <Link to={item.href || "/"}>
                         {index === 0 ? (
                           <span className="flex items-center gap-1">
-                            <Home className="h-3.5 w-3.5" />
+                            <Home className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                             <span className="sr-only sm:not-sr-only">{item.label}</span>
                           </span>
                         ) : (
