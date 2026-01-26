@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logo from "@/assets/logo.png";
 
 const services = [
   { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham" },
@@ -37,10 +38,8 @@ export const Header = () => {
       <div className="container-custom">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <span className="font-heading text-xl font-semibold text-primary">
-              Laser Light Skin Clinic
-            </span>
+          <a href="/" className="flex items-center">
+            <img src={logo} alt="Laser Light Skin Clinic" className="h-14 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
