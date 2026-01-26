@@ -191,11 +191,14 @@ export const ServicesGrid = () => {
                   <motion.a
                     key={service.name}
                     href={service.href}
-                    className="group bg-card p-4 md:p-5 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 active:scale-[0.99] touch-manipulation min-h-[88px] flex flex-col justify-between"
+                    className="group bg-card p-4 md:p-5 rounded-lg shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-2 active:scale-[0.99] touch-manipulation min-h-[88px] flex flex-col justify-between"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-30px" }}
                     transition={{ duration: 0.3, delay: serviceIndex * 0.05 }}
+                    whileHover={{ 
+                      boxShadow: "0 20px 40px -15px rgba(0,0,0,0.15)",
+                    }}
                   >
                     <div>
                       <h4 className="font-heading text-base font-medium text-foreground mb-1.5 md:mb-2 group-hover:text-primary transition-colors">
