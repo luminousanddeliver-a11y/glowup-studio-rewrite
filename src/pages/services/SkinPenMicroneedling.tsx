@@ -13,9 +13,22 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Award, Sparkles, Shield, RefreshCw } from "lucide-react";
 import microneedlingDevice from "@/assets/microneedling-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham", description: "Fractional laser for deeper scars" },
+  { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Boost healing and collagen production" },
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep hydration for glowing skin" },
+];
+
+const testimonials = [
+  { quote: "After struggling with acne scars for years, SkinPen has been a game changer. My skin texture is so much smoother!", initials: "LA", treatment: "SkinPen Microneedling", rating: 5 },
+  { quote: "I love that it's safe for my skin tone. Three sessions and my scars have improved dramatically.", initials: "OB", treatment: "SkinPen Course", rating: 5 },
+];
 
 const SkinPenMicroneedling = () => {
   const serviceSchema = {
@@ -357,6 +370,10 @@ const SkinPenMicroneedling = () => {
           title="Real Results from Real Clients"
           description="See the dramatic improvement in acne scars and skin texture"
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Transform Your Skin?"

@@ -9,9 +9,22 @@ import { TabbedPricingTable } from "@/components/services/TabbedPricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Heart, Sparkles, RefreshCw, Zap, Moon, Leaf } from "lucide-react";
 import massageSetup from "@/assets/massage-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Hopi Ear Candling", href: "/hopi-ear-candling-dagenham", description: "Relaxing traditional therapy for wellbeing" },
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Pamper yourself with a glowing facial" },
+  { name: "IV Vitamin Drips", href: "/iv-drips-dagenham", description: "Boost energy and wellness from within" },
+];
+
+const testimonials = [
+  { quote: "The hot stone massage was absolute bliss. All my tension melted away. I've booked a monthly session now!", initials: "LT", treatment: "Hot Stone Massage", rating: 5 },
+  { quote: "I came in with terrible shoulder pain from desk work. The deep tissue massage worked wonders.", initials: "MK", treatment: "Deep Tissue Massage", rating: 5 },
+];
 
 const Massage = () => {
   const structuredData = {
@@ -245,6 +258,10 @@ const Massage = () => {
           subtitle="Common questions about our massage services"
           faqs={faqs}
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Relax?"

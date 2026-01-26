@@ -13,9 +13,22 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Award, Sparkles, Shield, Clock, Sun, Droplets, Target, RefreshCw } from "lucide-react";
 import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Pigmentation Treatment", href: "/pigmentation-treatment-dagenham", description: "Laser solutions for stubborn dark spots" },
+  { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Multi-modality approach for radiant skin" },
+  { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Gentle peels for regular maintenance" },
+];
+
+const testimonials = [
+  { quote: "After years of struggling with melasma, the Cosmelan treatment finally gave me clear, even skin. Life-changing!", initials: "NK", treatment: "Cosmelan Treatment", rating: 5 },
+  { quote: "The Dermamelan protocol was intense but so worth it. My pigmentation has reduced by at least 80%.", initials: "PT", treatment: "Dermamelan Treatment", rating: 5 },
+];
 
 const AdvancedPeels = () => {
   const serviceSchema = {
@@ -349,6 +362,10 @@ const AdvancedPeels = () => {
           title="Clear, Even-Toned Results"
           description="See how our clients have transformed their skin with professional peel treatments"
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Transform Your Skin?"

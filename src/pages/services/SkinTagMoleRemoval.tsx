@@ -13,9 +13,22 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, CheckCircle, Target, Zap, Sparkles, RefreshCw, AlertCircle } from "lucide-react";
 import skinTagDevice from "@/assets/skin-tag-removal-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Advanced Electrolysis", href: "/advanced-electrolysis-dagenham", description: "Remove thread veins and skin imperfections" },
+  { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Improve overall skin texture and tone" },
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep cleanse for clear, healthy skin" },
+];
+
+const testimonials = [
+  { quote: "Had several skin tags removed from my neck. Quick, virtually painless, and they're completely gone!", initials: "DB", treatment: "Skin Tag Removal", rating: 5 },
+  { quote: "I was nervous about removing a mole on my face, but the procedure was so quick and healed beautifully.", initials: "KM", treatment: "Mole Removal", rating: 5 },
+];
 
 const SkinTagMoleRemoval = () => {
   const structuredData = {
@@ -338,6 +351,10 @@ const SkinTagMoleRemoval = () => {
           title="Clear, Smooth Skin"
           description="See how quickly and effectively unwanted skin lesions can be removed. Book your assessment today."
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Remove Unwanted Lesions?"

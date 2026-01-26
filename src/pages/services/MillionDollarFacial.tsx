@@ -13,9 +13,22 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Award, Sparkles, Shield, Clock, Diamond, Star, Heart, Zap } from "lucide-react";
 import facialsSetup from "@/assets/facials-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep cleansing and hydration for glowing skin" },
+  { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Boost collagen and reduce inflammation" },
+  { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Reveal fresh, radiant skin beneath" },
+];
+
+const testimonials = [
+  { quote: "I had the Million Dollar Facial before my wedding and my skin looked absolutely incredible in every photo. Worth every penny!", initials: "SH", treatment: "Million Dollar Facial", rating: 5 },
+  { quote: "Finally found a facial that actually delivers on the hype. My skin has never looked so radiant and lifted.", initials: "AM", treatment: "Million Dollar Facial", rating: 5 },
+];
 
 const MillionDollarFacial = () => {
   const serviceSchema = {
@@ -323,6 +336,10 @@ const MillionDollarFacial = () => {
           title="Red Carpet-Ready Results"
           description="Join our clients who achieve celebrity-worthy skin with the Million Dollar Facial"
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready for Your Million Dollar Moment?"

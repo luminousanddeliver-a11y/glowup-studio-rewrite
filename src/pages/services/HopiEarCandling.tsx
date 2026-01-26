@@ -11,9 +11,22 @@ import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Sparkles, Moon, Heart, RefreshCw, Ear, Leaf } from "lucide-react";
 import hopiCandles from "@/assets/hopi-candles.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Massage Therapy", href: "/massage-dagenham", description: "Complete your relaxation with therapeutic massage" },
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Pamper yourself with a glowing facial" },
+  { name: "IV Vitamin Drips", href: "/iv-drips-dagenham", description: "Boost your wellness from within" },
+];
+
+const testimonials = [
+  { quote: "Such a relaxing experience! The warmth and gentle sounds were so calming. The facial massage was a lovely bonus.", initials: "CB", treatment: "Hopi Ear Candling", rating: 5 },
+  { quote: "I've made this part of my monthly wellness routine. It's my time to completely switch off and relax.", initials: "HG", treatment: "Hopi Ear Candling", rating: 5 },
+];
 
 const HopiEarCandling = () => {
   const structuredData = {
@@ -290,6 +303,10 @@ const HopiEarCandling = () => {
           subtitle="Common questions about this traditional therapy"
           faqs={faqs}
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Relax?"

@@ -11,9 +11,22 @@ import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Search, Layers, Target, FileText, Sparkles, Zap } from "lucide-react";
 import skinAnalysisDevice from "@/assets/skin-analysis-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
+
+const relatedServices = [
+  { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep cleansing treatment for glowing skin" },
+  { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Multi-modality treatments for radiant skin" },
+  { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Professional peels for skin renewal" },
+];
+
+const testimonials = [
+  { quote: "The skin analysis was eye-opening! I finally understand why certain products weren't working for me.", initials: "JL", treatment: "Skin Analysis", rating: 5 },
+  { quote: "Seeing the UV damage under my skin was a wake-up call. Now I have a proper skincare plan.", initials: "CM", treatment: "Skin Analysis", rating: 5 },
+];
 
 const SkinAnalysis = () => {
   const structuredData = {
@@ -264,6 +277,10 @@ const SkinAnalysis = () => {
           subtitle="Common questions about our analysis service"
           faqs={faqs}
         />
+        
+        <ServiceTestimonial testimonials={testimonials} />
+        
+        <RelatedServices services={relatedServices} />
         
         <ServiceCTA
           title="Ready to Understand Your Skin?"
