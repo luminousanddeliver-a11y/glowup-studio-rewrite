@@ -12,6 +12,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Zap, Shield, Sparkles, Atom } from "lucide-react";
 import coldPlasmaDevice from "@/assets/cold-plasma-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -333,9 +335,24 @@ const ColdPlasma = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "Tried everything for my acne. Cold plasma combined with facials finally cleared my skin!", initials: "AW", treatment: "Cold Plasma + Facial", rating: 5 },
+            { quote: "Love how my serums work so much better after cold plasma. Skin feels amazing.", initials: "SH", treatment: "Cold Plasma Treatment", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="Experience the science-backed skin transformation"
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Combine with Hydrafacial for best results" },
+            { name: "Facials", href: "/facials-dagenham", description: "Enhance your facial with cold plasma" },
+            { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Layer treatments for maximum effect" }
+          ]}
         />
         
         <ServiceCTA

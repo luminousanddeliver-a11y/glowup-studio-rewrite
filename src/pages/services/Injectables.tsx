@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Sparkles, Target, Zap } from "lucide-react";
 import injectablesDevice from "@/assets/injectables-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -364,9 +366,24 @@ const Injectables = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "The anti-wrinkle treatment is so natural - nobody knows I've had anything done!", initials: "DK", treatment: "Anti-Wrinkle Injections", rating: 5 },
+            { quote: "My lips look amazing. Subtle enhancement that really suits my face.", initials: "AR", treatment: "Lip Fillers", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Subtle, Natural Enhancements"
           description="Our clients trust us for natural-looking results that enhance their features. Book a consultation to discuss your goals."
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Complement injectables with skin treatments" },
+            { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham", description: "Boost collagen naturally" },
+            { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Maintain glowing, healthy skin" }
+          ]}
         />
         
         <ServiceCTA

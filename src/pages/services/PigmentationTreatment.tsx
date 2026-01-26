@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Sun, Layers, Target, Sparkles, RefreshCw, CheckCircle } from "lucide-react";
 import pigmentationDevice from "@/assets/pigmentation-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -332,9 +334,24 @@ const PigmentationTreatment = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "Years of sun damage faded after my course of treatments. So happy with my results!", initials: "CM", treatment: "Pigmentation Course", rating: 5 },
+            { quote: "My melasma is finally under control. The team really understood my skin.", initials: "FA", treatment: "Melasma Treatment", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Clearer, More Even Skin"
           description="See how our clients achieve more uniform, radiant complexions. Book a consultation to start your journey."
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Pigmentation peels for dark spots" },
+            { name: "Skin Analysis", href: "/skin-analysis-dagenham", description: "Diagnose your pigmentation" },
+            { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham", description: "For stubborn sun damage" }
+          ]}
         />
         
         <ServiceCTA

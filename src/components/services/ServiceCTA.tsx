@@ -65,7 +65,7 @@ export const ServiceCTA = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8 text-lg"
+                className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground font-body h-14 px-8 text-lg"
               >
                 <a href="tel:02085981200">
                   <Phone className="mr-2 h-5 w-5" />
@@ -94,7 +94,7 @@ export const ServiceCTA = ({
                 <span className="font-heading font-semibold">Visit Our Clinic</span>
               </motion.div>
               <address className="font-body not-italic opacity-90">
-                6 Church Elm Lane, Dagenham, RM10 9RR<br />
+                125 Becontree Ave, Dagenham RM8 2UJ<br />
                 Open: Monday - Friday 10:00 AM - 7:00 PM | Saturday 10:00 AM - 5:00 PM
               </address>
             </motion.div>

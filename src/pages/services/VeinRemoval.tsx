@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, CheckCircle, Target, Zap, Eye, Heart, RefreshCw } from "lucide-react";
 import veinDevice from "@/assets/vein-removal-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -331,9 +333,24 @@ const VeinRemoval = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "Had thread veins on my nose for years. Two sessions and they're completely gone!", initials: "HB", treatment: "Facial Vein Removal", rating: 5 },
+            { quote: "Finally feel confident in shorts again. The leg vein treatment was so effective.", initials: "JM", treatment: "Leg Vein Treatment", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Clearer, More Even Skin"
           description="See how our clients achieve vein-free skin. Book a consultation to discuss your treatment."
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Advanced Electrolysis", href: "/advanced-electrolysis-dagenham", description: "For blood spots and spider naevi" },
+            { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham", description: "Comprehensive skin improvement" },
+            { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham", description: "For overall skin texture" }
+          ]}
         />
         
         <ServiceCTA

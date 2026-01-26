@@ -68,7 +68,7 @@ export const FinalCTA = () => {
               asChild
               variant="outline"
               size="lg"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-body h-14 px-8 text-lg"
+              className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground font-body h-14 px-8 text-lg"
             >
               <a href="tel:02085981200">
                 <Phone className="mr-2 h-5 w-5" />

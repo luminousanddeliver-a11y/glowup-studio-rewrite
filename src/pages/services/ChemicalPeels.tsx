@@ -12,6 +12,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Sparkles, Layers, Clock, Shield } from "lucide-react";
 import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -330,9 +332,24 @@ const ChemicalPeels = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "My skin has never looked better! The chemical peel really helped with my pigmentation issues.", initials: "SK", treatment: "Pigmentation Peel", rating: 5 },
+            { quote: "Love the glow I get after my peels. The team are so knowledgeable about what my skin needs.", initials: "RM", treatment: "Light Peel Course", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible improvement in skin clarity and tone"
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Combine with Hydrafacial for ultimate skin refresh" },
+            { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Enhance peel healing with LED therapy" },
+            { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham", description: "For deeper scarring concerns" }
+          ]}
         />
         
         <ServiceCTA
