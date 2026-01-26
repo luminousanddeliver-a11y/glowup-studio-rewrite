@@ -1,55 +1,145 @@
 import { ArrowRight } from "lucide-react";
 
-const allServices = [
+const serviceCategories = [
   {
-    name: "Laser Hair Removal",
-    description: "Pain-free permanent hair reduction with Lynton Motus AY.",
-    href: "/laser-hair-removal-dagenham",
+    name: "Laser & Hair Removal",
+    services: [
+      {
+        name: "Laser Hair Removal",
+        description: "Pain-free permanent hair reduction with Lynton Motus AY.",
+        href: "/laser-hair-removal-dagenham",
+      },
+      {
+        name: "Electrolysis",
+        description: "Permanent hair removal, one follicle at a time.",
+        href: "/electrolysis-hair-removal-dagenham",
+      },
+      {
+        name: "Advanced Electrolysis",
+        description: "Specialist treatment for stubborn or hormonal hair.",
+        href: "/advanced-electrolysis-dagenham",
+      },
+    ],
   },
   {
-    name: "Hydrafacials",
-    description: "Deep cleansing and hydration for radiant skin.",
-    href: "/hydrafacial-east-london",
+    name: "Facials & Skin",
+    services: [
+      {
+        name: "Hydrafacials",
+        description: "Deep cleansing and hydration for radiant skin.",
+        href: "/hydrafacial-east-london",
+      },
+      {
+        name: "Facials",
+        description: "Customized facial treatments for all skin types.",
+        href: "/facials-dagenham",
+      },
+      {
+        name: "Chemical Peels",
+        description: "Medical-grade peels for smooth, clear complexion.",
+        href: "/chemical-peels-dagenham",
+      },
+      {
+        name: "Skin Analysis",
+        description: "Professional skin assessment with OBSERV 520x.",
+        href: "/skin-analysis-dagenham",
+      },
+      {
+        name: "LED Light Therapy",
+        description: "Non-invasive light treatment for skin healing.",
+        href: "/led-light-therapy-dagenham",
+      },
+    ],
   },
   {
-    name: "Skin Rejuvenation",
-    description: "Restore youthful glow with advanced light therapy.",
-    href: "/skin-rejuvenation-dagenham",
+    name: "Advanced Treatments",
+    services: [
+      {
+        name: "Skin Rejuvenation",
+        description: "Restore youthful glow with advanced light therapy.",
+        href: "/skin-rejuvenation-dagenham",
+      },
+      {
+        name: "SkinPen Microneedling",
+        description: "FDA-cleared collagen induction therapy.",
+        href: "/skinpen-microneedling-dagenham",
+      },
+      {
+        name: "Cold Plasma",
+        description: "Non-invasive skin tightening and rejuvenation.",
+        href: "/cold-plasma-treatment-dagenham",
+      },
+      {
+        name: "Laser Resurfacing",
+        description: "Advanced laser treatment for skin renewal.",
+        href: "/laser-resurfacing-dagenham",
+      },
+      {
+        name: "Pigmentation Treatment",
+        description: "Target and reduce unwanted pigmentation.",
+        href: "/pigmentation-treatment-dagenham",
+      },
+    ],
   },
   {
-    name: "Chemical Peels",
-    description: "Medical-grade peels for smooth, clear complexion.",
-    href: "/chemical-peels-dagenham",
+    name: "Injectables",
+    services: [
+      {
+        name: "Botox & Fillers",
+        description: "Expert anti-wrinkle and volume restoration.",
+        href: "/injectables-dagenham",
+      },
+    ],
   },
   {
-    name: "Electrolysis",
-    description: "Permanent hair removal, one follicle at a time.",
-    href: "/electrolysis-hair-removal-dagenham",
+    name: "Removal Treatments",
+    services: [
+      {
+        name: "Tattoo Removal",
+        description: "Multi-wavelength laser removes all ink colors.",
+        href: "/tattoo-removal-east-london",
+      },
+      {
+        name: "Vein Removal",
+        description: "Safe removal of thread veins and spider veins.",
+        href: "/vein-removal-east-london",
+      },
+      {
+        name: "Skin Tag & Mole Removal",
+        description: "Quick, safe removal of unwanted skin lesions.",
+        href: "/skin-tag-mole-removal-dagenham",
+      },
+    ],
   },
   {
-    name: "SkinPen Microneedling",
-    description: "FDA-cleared collagen induction therapy.",
-    href: "/skinpen-microneedling-dagenham",
-  },
-  {
-    name: "IV Drips & Infusions",
-    description: "Vitamin therapy for energy and skin health.",
-    href: "/iv-drips-infusions-east-london",
-  },
-  {
-    name: "Tattoo Removal",
-    description: "Multi-wavelength laser removes all ink colors.",
-    href: "/tattoo-removal-east-london",
-  },
-  {
-    name: "Cold Plasma",
-    description: "Non-invasive skin tightening and rejuvenation.",
-    href: "/cold-plasma-treatment-dagenham",
-  },
-  {
-    name: "Intimate V-Whitening",
-    description: "Safe, professional intimate area treatments.",
-    href: "/intimate-whitening-east-london",
+    name: "Wellness & Other",
+    services: [
+      {
+        name: "IV Drips & Infusions",
+        description: "Vitamin therapy for energy and skin health.",
+        href: "/iv-drips-infusions-east-london",
+      },
+      {
+        name: "Massage",
+        description: "Relaxing therapeutic massage treatments.",
+        href: "/massage-dagenham",
+      },
+      {
+        name: "Hopi Ear Candling",
+        description: "Traditional ear cleansing and relaxation.",
+        href: "/hopi-ear-candling-dagenham",
+      },
+      {
+        name: "Intimate V-Whitening",
+        description: "Safe, professional intimate area treatments.",
+        href: "/intimate-whitening-east-london",
+      },
+      {
+        name: "Ear Piercing",
+        description: "Safe, hygienic ear piercing for all ages.",
+        href: "/ear-piercing-dagenham",
+      },
+    ],
   },
 ];
 
@@ -67,25 +157,37 @@ export const ServicesGrid = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-          {allServices.map((service) => (
-            <a
-              key={service.name}
-              href={service.href}
-              className="group bg-card p-6 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 className="font-heading text-base font-medium text-foreground mb-2 group-hover:text-accent transition-colors">
-                {service.name}
+        {/* Services by Category */}
+        <div className="space-y-10">
+          {serviceCategories.map((category) => (
+            <div key={category.name}>
+              {/* Category Header */}
+              <h3 className="font-heading text-xl font-semibold text-accent mb-4 pb-2 border-b border-accent/20">
+                {category.name}
               </h3>
-              <p className="font-body text-sm text-muted-foreground mb-3">
-                {service.description}
-              </p>
-              <span className="inline-flex items-center font-body text-sm text-accent">
-                Learn More
-                <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
+              
+              {/* Services Grid */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {category.services.map((service) => (
+                  <a
+                    key={service.name}
+                    href={service.href}
+                    className="group bg-card p-5 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <h4 className="font-heading text-base font-medium text-foreground mb-2 group-hover:text-accent transition-colors">
+                      {service.name}
+                    </h4>
+                    <p className="font-body text-sm text-muted-foreground mb-3 line-clamp-2">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center font-body text-sm text-accent">
+                      Learn More
+                      <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
