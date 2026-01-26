@@ -122,7 +122,7 @@ const Academy = () => {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[112px] pb-16">
+        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[88px] lg:pt-[92px] pb-10">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
