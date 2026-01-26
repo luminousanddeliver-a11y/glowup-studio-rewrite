@@ -2,18 +2,25 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { QuickStatsBar } from "@/components/services/QuickStatsBar";
+import { WhatIsSection } from "@/components/services/WhatIsSection";
 import { BenefitsList } from "@/components/services/BenefitsList";
 import { HowItWorks } from "@/components/services/HowItWorks";
 import { TechnologySection } from "@/components/services/TechnologySection";
-import { PricingTable } from "@/components/services/PricingTable";
+import { TabbedPricingTable } from "@/components/services/TabbedPricingTable";
+import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
+import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
+import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, PiggyBank } from "lucide-react";
 
 const LaserHairRemoval = () => {
+  // Structured Data for SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Laser Hair Removal Dagenham",
+    "name": "Pain-Free Laser Hair Removal Dagenham",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Laser Light Skin Clinic",
@@ -26,173 +33,362 @@ const LaserHairRemoval = () => {
       },
       "telephone": "+442085981200"
     },
-    "description": "Pain-free laser hair removal in Dagenham using the Lynton Motus AY. Safe for all skin types including dark skin. NHS-approved clinic.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"]
+    "description": "Pain-free laser hair removal in Dagenham using the Lynton Motus AY. Safe for all skin types including dark skin. NHS-approved clinic. 25% off for new clients.",
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
+    "offers": {
+      "@type": "Offer",
+      "description": "25% off first treatment course for new clients"
+    }
   };
 
+  // FAQ Schema for rich snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does laser hair removal hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Our Lynton Motus AY is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many sessions will I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most clients need 6-8 sessions for optimal results. Hair grows in cycles, and laser only targets hair in the active growth phase. Sessions are spaced 4-6 weeks apart."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is laser hair removal safe for dark skin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Lynton Motus AY is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). Traditional lasers carried a risk of burns or hyperpigmentation on dark skin, but our technology eliminates this risk."
+        }
+      }
+    ]
+  };
+
+  // Quick Stats
+  const quickStats = [
+    { value: "6-8 Sessions", label: "Average Treatment Course", icon: Timer },
+    { value: "Pain-Free", label: "Guaranteed Comfort", icon: Shield },
+    { value: "All Skin Types", label: "Fitzpatrick I-VI", icon: Users },
+    { value: "NHS-Approved", label: "Medical-Grade Standards", icon: Award },
+  ];
+
+  // What Is Content
+  const whatIsContent = [
+    "Laser hair removal is a medical procedure that uses concentrated light energy to target and destroy hair follicles at the root. The laser emits a specific wavelength of light that is absorbed by the melanin (pigment) in the hair shaft. This energy is converted into heat, which damages the hair follicle and inhibits future hair growth.",
+    "Unlike temporary methods like shaving or waxing, laser hair removal provides long-term reduction. After a full course of treatments (typically 6-8 sessions), most clients experience permanent reduction of 80-95% in the treated area.",
+    "At Laser Light Skin Clinic, we use the Lynton Motus AY, the most advanced pain-free laser technology available. This means you get permanent results without the discomfort associated with older laser systems."
+  ];
+
+  // Benefits
   const benefits = [
     {
-      title: "Pain-Free Treatment",
-      description: "The Lynton Motus AY uses advanced Moveo technology and cooling system for a completely comfortable experience, even on sensitive areas."
+      title: "Permanent Hair Reduction",
+      description: "Achieve 80-95% permanent hair reduction after a full course. No more daily shaving or painful waxing.",
+      icon: CheckCircle
+    },
+    {
+      title: "Pain-Free Experience",
+      description: "Our Lynton Motus AY technology is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
+      icon: Heart
     },
     {
       title: "Safe for All Skin Types",
-      description: "Our laser is clinically proven safe for Fitzpatrick skin types I-VI, including dark skin tones—something many lasers cannot offer."
+      description: "Suitable for Fitzpatrick skin types I-VI, including darker skin tones that were previously unsuitable for laser.",
+      icon: Users
     },
     {
-      title: "Permanent Hair Reduction",
-      description: "Achieve up to 90% permanent hair reduction after completing your treatment course. Say goodbye to shaving and waxing forever."
-    },
-    {
-      title: "Fast Treatment Sessions",
-      description: "Large areas like legs and back can be treated in under 30 minutes, fitting easily into your busy schedule."
+      title: "Quick Treatment Times",
+      description: "Treat large areas like full legs in under 30 minutes. Underarms take just 5-10 minutes.",
+      icon: Clock
     },
     {
       title: "No Downtime",
-      description: "Return to your normal activities immediately after treatment. No redness, no recovery time needed."
+      description: "Resume your normal activities immediately. No recovery period or special aftercare required.",
+      icon: Calendar
     },
     {
-      title: "NHS-Approved Standards",
-      description: "As an NHS-approved clinic, we follow the highest safety protocols and use only medically-certified equipment."
+      title: "Cost-Effective Long-Term",
+      description: "Save thousands over a lifetime compared to waxing. Average client saves £5,000+ over 10 years.",
+      icon: PiggyBank
     }
   ];
 
+  // How It Works Steps
   const steps = [
     {
       number: 1,
-      title: "Free Consultation",
-      description: "We assess your skin type, hair color, and treatment goals. We'll create a personalized plan and provide a transparent quote."
+      title: "Free Consultation & Patch Test",
+      description: "We assess your skin type, hair type, and treatment goals. A complimentary patch test ensures you're a suitable candidate."
     },
     {
       number: 2,
-      title: "Preparation",
-      description: "Shave the area 24 hours before. Avoid sun exposure and tanning products for 2 weeks prior to treatment."
+      title: "Treatment Sessions (6-8 Sessions)",
+      description: "Sessions are spaced 4-6 weeks apart to target hair in different growth phases. Each session takes 10-45 minutes depending on the area."
     },
     {
       number: 3,
-      title: "Treatment Session",
-      description: "The laser delivers precise energy to hair follicles while the cooling system keeps you comfortable. Most sessions take 15-45 minutes."
+      title: "Hair Reduction Results",
+      description: "You'll notice gradual reduction after each session. By session 4, most clients see 50-70% reduction."
     },
     {
       number: 4,
-      title: "Aftercare",
-      description: "Apply SPF, avoid hot baths for 24 hours, and let treated hairs shed naturally over 1-2 weeks."
-    },
-    {
-      number: 5,
-      title: "Follow-up Sessions",
-      description: "Return every 4-6 weeks to target hair in different growth cycles. Typically 6-8 sessions needed for optimal results."
+      title: "Maintenance (Optional)",
+      description: "Most clients achieve permanent reduction. Occasional touch-ups (once yearly) may be needed due to hormonal changes."
     }
   ];
 
+  // Technology Features
   const technologyFeatures = [
-    "Alexandrite 755nm & Nd:YAG 1064nm wavelengths",
-    "Moveo™ pain-free technology",
-    "Integrated cooling system",
-    "Safe for tanned skin",
-    "Treats all hair types",
-    "Fast repetition rate for speed"
+    "Moveo Technology: Treats large areas quickly with sweeping motion",
+    "Advanced Cooling: Built-in cooling system eliminates pain",
+    "Adjustable Pulse Duration: Safe for all skin types, including dark skin",
+    "Faster Results: Fewer sessions required compared to older systems",
+    "Alexandrite 755nm wavelength for clinical efficacy",
+    "True pain-free experience unlike any other laser"
   ];
 
-  const prices = [
-    { area: "Upper Lip", singleSession: "£45", course: "£180 (6 sessions)" },
-    { area: "Chin", singleSession: "£55", course: "£220 (6 sessions)" },
-    { area: "Full Face", singleSession: "£95", course: "£380 (6 sessions)" },
-    { area: "Underarms", singleSession: "£65", course: "£260 (6 sessions)" },
-    { area: "Brazilian/Hollywood", singleSession: "£120", course: "£480 (6 sessions)" },
-    { area: "Half Legs", singleSession: "£150", course: "£600 (6 sessions)" },
-    { area: "Full Legs", singleSession: "£250", course: "£1000 (6 sessions)" },
-    { area: "Full Back", singleSession: "£180", course: "£720 (6 sessions)" },
-    { area: "Full Body", singleSession: "£450", course: "£1800 (6 sessions)" }
-  ];
-
-  const faqs = [
+  // Pricing Tabs
+  const pricingTabs = [
     {
-      question: "Is laser hair removal really pain-free?",
-      answer: "Yes! The Lynton Motus AY uses Moveo technology combined with an integrated cooling system to deliver completely pain-free treatments. Most clients describe the sensation as a warm massage."
+      label: "Women's",
+      prices: [
+        { area: "Upper Lip", singleSession: "£80", course: "£450", savings: "Save £30" },
+        { area: "Full Face", singleSession: "£140", course: "£780", savings: "Save £60" },
+        { area: "Underarms", singleSession: "£80", course: "£450", savings: "Save £30" },
+        { area: "Brazilian/Hollywood", singleSession: "£120", course: "£660", savings: "Save £60" },
+        { area: "Half Legs", singleSession: "£140", course: "£780", savings: "Save £60" },
+        { area: "Full Legs", singleSession: "£200", course: "£1,100", savings: "Save £100" },
+        { area: "Full Body Special", singleSession: "£450", course: "£2,400", savings: "Save £300" },
+      ]
     },
     {
-      question: "How many sessions do I need?",
-      answer: "Most clients need 6-8 sessions for optimal results, spaced 4-6 weeks apart. This accounts for the different hair growth cycles. During your free consultation, we'll provide a personalized treatment plan."
+      label: "Men's",
+      prices: [
+        { area: "Beard Line", singleSession: "£100", course: "£550", savings: "Save £50" },
+        { area: "Back (Full)", singleSession: "£200", course: "£1,100", savings: "Save £100" },
+        { area: "Chest", singleSession: "£140", course: "£780", savings: "Save £60" },
+        { area: "Shoulders", singleSession: "£100", course: "£550", savings: "Save £50" },
+      ]
+    }
+  ];
+
+  // Who Is This For
+  const idealCandidates = [
+    "Tired of shaving, waxing, or plucking",
+    "Have dark hair (laser targets melanin)",
+    "Want long-term hair reduction",
+    "Have realistic expectations (80-95% reduction)",
+    "Not currently pregnant or breastfeeding",
+    "Not taking photosensitive medications"
+  ];
+
+  const considerations = [
+    {
+      title: "PCOS & Hirsutism",
+      description: "Laser hair removal is highly effective for women with PCOS-related excess hair growth."
+    },
+    {
+      title: "Dark Skin",
+      description: "Our Lynton Motus AY is specifically designed to be safe for darker skin tones (Fitzpatrick IV-VI)."
+    },
+    {
+      title: "Blonde/Red Hair",
+      description: "Laser is less effective on light hair. We recommend a free consultation to assess suitability."
+    }
+  ];
+
+  // What to Expect Phases
+  const phases = [
+    {
+      phase: "Before First Session",
+      icon: "before" as const,
+      items: [
+        "Shave the treatment area 24 hours before",
+        "Avoid sun exposure for 2 weeks",
+        "No waxing or plucking for 4 weeks"
+      ]
+    },
+    {
+      phase: "During Treatment",
+      icon: "during" as const,
+      items: [
+        "Session duration: 10-45 minutes",
+        "Sensation: Warm, painless massage-like feeling",
+        "Safety: Protective eyewear provided"
+      ]
+    },
+    {
+      phase: "After Treatment",
+      icon: "after" as const,
+      items: [
+        "Redness: May last 1-2 hours (normal)",
+        "Hair shedding: 7-14 days post-treatment",
+        "Next session: 4-6 weeks later"
+      ]
+    }
+  ];
+
+  const resultsTimeline = [
+    { session: "Session 1-2", result: "Hair grows back slower" },
+    { session: "Session 3-4", result: "50-70% reduction visible" },
+    { session: "Session 6-8", result: "80-95% permanent reduction achieved" }
+  ];
+
+  // FAQs
+  const faqs = [
+    {
+      question: "Does laser hair removal hurt?",
+      answer: "No. Our Lynton Motus AY is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
+    },
+    {
+      question: "How many sessions will I need?",
+      answer: "Most clients need 6-8 sessions for optimal results. Hair grows in cycles, and laser only targets hair in the active growth phase. Sessions are spaced 4-6 weeks apart."
     },
     {
       question: "Is it safe for dark skin?",
-      answer: "Absolutely. The Lynton Motus AY is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI. The Nd:YAG wavelength penetrates deeper without affecting melanin in the skin."
+      answer: "Yes. The Lynton Motus AY is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). Traditional lasers carried a risk of burns or hyperpigmentation on dark skin, but our technology eliminates this risk."
     },
     {
-      question: "What should I do before my appointment?",
-      answer: "Shave the treatment area 24 hours before. Avoid sun exposure, tanning beds, and self-tanning products for at least 2 weeks. Do not wax or pluck—the laser needs the hair root intact."
+      question: "Is laser hair removal permanent?",
+      answer: "We achieve permanent hair *reduction* of 80-95%. This means the majority of hair follicles are destroyed permanently. However, hormonal changes (pregnancy, menopause, PCOS) can trigger new hair growth over time, requiring occasional touch-ups."
     },
     {
-      question: "Are results permanent?",
-      answer: "Laser hair removal provides permanent hair reduction of 80-90%. Some fine hairs may regrow over time due to hormonal changes, which can be addressed with occasional maintenance sessions."
+      question: "Can I shave between sessions?",
+      answer: "Yes, you should shave between sessions. Avoid waxing, plucking, or threading, as these remove the hair follicle that the laser needs to target."
     },
     {
-      question: "Can I have treatment during pregnancy?",
-      answer: "We recommend waiting until after pregnancy and breastfeeding to resume treatments. While there's no evidence of harm, we prioritize caution during this special time."
+      question: "What's the difference between laser hair removal and IPL?",
+      answer: "IPL (Intense Pulsed Light) uses broad-spectrum light and is less effective than laser. True medical-grade lasers, like our Lynton Motus AY, use a single focused wavelength (Alexandrite 755nm) for superior results and safety."
     },
     {
-      question: "What areas can you treat?",
-      answer: "We treat all body areas including face, underarms, bikini/Brazilian, legs, arms, chest, back, and stomach. We offer full body packages for comprehensive treatment."
+      question: "Can I get laser hair removal if I have a tan?",
+      answer: "We recommend avoiding sun exposure and tanning for 2 weeks before and after treatment. Tanned skin increases the risk of side effects. If you have naturally dark skin, you are still a candidate."
+    },
+    {
+      question: "Is there any downtime?",
+      answer: "No. You can resume normal activities immediately. Some clients experience mild redness for 1-2 hours, similar to a light sunburn."
+    },
+    {
+      question: "Can I get laser hair removal while pregnant?",
+      answer: "We do not perform laser hair removal on pregnant or breastfeeding clients as a precaution, though there is no evidence of harm."
+    },
+    {
+      question: "How much does it cost compared to waxing?",
+      answer: "While laser has a higher upfront cost, it's significantly cheaper long-term. The average person spends £100-150 per year on waxing (£1,500 over 10 years). A full course of laser costs £450-1,100 depending on the area, providing permanent reduction."
     }
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Laser Hair Removal Dagenham | Pain-Free | All Skin Types | 25% Off"
-        description="Get pain-free laser hair removal in Dagenham with the Lynton Motus AY. Safe for all skin types including dark skin. NHS-approved clinic. Book your free consultation today."
+        title="Pain-Free Laser Hair Removal Dagenham | NHS Approved | Book Free Consult"
+        description="Get permanent hair reduction in 6-8 sessions with pain-free Lynton Motus AY laser. Safe for all skin types. NHS-approved clinic in Dagenham. 25% off for new clients!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
-        structuredData={structuredData}
+        structuredData={[structuredData, faqSchema]}
       />
       
       <Header />
       
       <main className="flex-1">
+        {/* Section 1: Hero */}
         <ServiceHero
           badge="25% Off First Course"
-          title="Laser Hair Removal Dagenham"
-          subtitle="Pain-Free. Permanent Results. Safe for All Skin Types."
-          description="Say goodbye to shaving and waxing forever. Our NHS-approved clinic uses the Lynton Motus AY—the most advanced pain-free laser available—to deliver permanent hair reduction for every skin type."
+          title="Pain-Free Laser Hair Removal in Dagenham"
+          subtitle="Achieve permanent hair reduction in just 6-8 sessions using the revolutionary Lynton Motus AY system. Safe for all skin types, including dark skin."
+          description="Book your free consultation today and say goodbye to shaving and waxing forever."
+          secondaryCta={{ text: "View Pricing", href: "#pricing" }}
         />
         
+        {/* Section 2: Quick Stats */}
+        <QuickStatsBar stats={quickStats} />
+        
+        {/* Section 3: What Is It? */}
+        <WhatIsSection
+          title="What is Laser Hair Removal?"
+          content={whatIsContent}
+          highlightText="The only system we trust for our Dagenham clients - delivering permanent results without the discomfort."
+        />
+        
+        {/* Section 4: Benefits */}
         <BenefitsList
-          title="Why Choose Our Laser Hair Removal?"
+          title="Why Choose Laser Hair Removal?"
           subtitle="Experience the difference of medical-grade technology and expert care"
           benefits={benefits}
         />
         
+        {/* Section 5: How It Works */}
         <HowItWorks
-          title="Your Treatment Journey"
-          subtitle="From consultation to lasting results in 5 simple steps"
+          title="The Laser Hair Removal Process"
+          subtitle="From consultation to permanent results in 4 simple steps"
           steps={steps}
         />
         
+        {/* Section 6: Technology */}
         <TechnologySection
-          title="The Technology Behind Your Results"
-          subtitle="Why we chose the Lynton Motus AY for our clinic"
+          title="Why We Use the Lynton Motus AY"
+          subtitle="The only laser hair removal system that combines clinical efficacy with true pain-free technology"
           technologyName="Lynton Motus AY"
-          description="The Lynton Motus AY combines two gold-standard wavelengths—Alexandrite (755nm) for lighter skin and Nd:YAG (1064nm) for darker skin—with patented Moveo™ technology for completely pain-free treatments. This is the same system trusted by NHS dermatology departments."
+          description="The Lynton Motus AY is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
         />
         
-        <PricingTable
-          title="Transparent Pricing"
+        {/* Section 7: Pricing */}
+        <TabbedPricingTable
+          title="Areas We Treat & Transparent Pricing"
           subtitle="No hidden fees. Book a free consultation for a personalized quote."
-          prices={prices}
-          disclaimer="New clients receive 25% off their first treatment course. Prices may vary based on individual assessment. Course payments can be split with 0% finance options available."
+          tabs={pricingTabs}
+          offerBanner={{
+            highlight: "25% OFF ALL PACKAGES",
+            text: "Book Your Free Consultation"
+          }}
+          paymentOptions="Interest-free payment plans available. Spread the cost over 6-12 months."
+          disclaimer="Prices may vary based on individual assessment. Course payments can be split with 0% finance options available."
         />
         
+        {/* Section 8: Who Is This For */}
+        <WhoIsThisFor
+          title="Is Laser Hair Removal Right for You?"
+          intro="Laser hair removal is suitable for most people, but certain factors make you an ideal candidate:"
+          idealCandidates={idealCandidates}
+          considerations={considerations}
+        />
+        
+        {/* Section 9: What to Expect */}
+        <WhatToExpect
+          title="Your Laser Hair Removal Journey: Session by Session"
+          phases={phases}
+          resultsTimeline={resultsTimeline}
+        />
+        
+        {/* Section 10: FAQs */}
         <ServiceFAQ
-          title="Frequently Asked Questions"
-          subtitle="Everything you need to know about laser hair removal"
+          title="Laser Hair Removal FAQs"
+          subtitle="Everything you need to know about our pain-free laser hair removal"
           faqs={faqs}
         />
         
+        {/* Section 11: Before/After Gallery */}
+        <BeforeAfterGallery
+          title="Real Results from Real Clients"
+          description="See the permanent hair reduction our clients have achieved with the Lynton Motus AY"
+          ctaText="See More Results on Instagram"
+          ctaLink="https://instagram.com"
+        />
+        
+        {/* Section 12: Final CTA */}
         <ServiceCTA
-          title="Ready to Start Your Hair-Free Journey?"
-          subtitle="Book your free consultation today and get 25% off your first course"
+          title="Ready to Say Goodbye to Unwanted Hair?"
+          subtitle="Book a free, no-obligation consultation with one of our Level 4 qualified therapists. We'll assess your skin type, discuss your goals, and provide a personalized treatment plan."
         />
       </main>
       

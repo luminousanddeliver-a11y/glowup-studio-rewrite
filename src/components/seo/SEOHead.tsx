@@ -6,7 +6,7 @@ interface SEOHeadProps {
   canonicalUrl?: string;
   ogImage?: string;
   ogType?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
 }
 
 export const SEOHead = ({
@@ -17,6 +17,24 @@ export const SEOHead = ({
   ogType = "website",
   structuredData,
 }: SEOHeadProps) => {
+  const renderStructuredData = () => {
+    if (!structuredData) return null;
+    
+    if (Array.isArray(structuredData)) {
+      return structuredData.map((data, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(data)}
+        </script>
+      ));
+    }
+    
+    return (
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+    );
+  };
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -39,11 +57,7 @@ export const SEOHead = ({
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       
       {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      )}
+      {renderStructuredData()}
     </Helmet>
   );
 };
