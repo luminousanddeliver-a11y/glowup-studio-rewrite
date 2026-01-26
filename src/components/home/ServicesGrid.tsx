@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const serviceCategories = [
   {
@@ -145,34 +146,56 @@ const serviceCategories = [
 
 export const ServicesGrid = () => {
   return (
-    <section className="section-padding bg-secondary">
+    <section className="section-padding bg-secondary overflow-hidden">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-foreground mb-4">
             Explore Our Full Range of Advanced Treatments
           </h2>
           <p className="font-body text-lg text-muted-foreground">
             From permanent hair removal to advanced skin rejuvenation, click on any service below to learn how we can help you achieve your aesthetic goals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services by Category */}
         <div className="space-y-10">
-          {serviceCategories.map((category) => (
-            <div key={category.name}>
+          {serviceCategories.map((category, categoryIndex) => (
+            <motion.div 
+              key={category.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: categoryIndex * 0.05 }}
+            >
               {/* Category Header */}
-              <h3 className="font-heading text-xl font-semibold text-primary mb-4 pb-2 border-b border-primary/20">
+              <motion.h3 
+                className="font-heading text-xl font-semibold text-primary mb-4 pb-2 border-b border-primary/20"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: categoryIndex * 0.05 }}
+              >
                 {category.name}
-              </h3>
+              </motion.h3>
               
               {/* Services Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
-                {category.services.map((service) => (
-                  <a
+                {category.services.map((service, serviceIndex) => (
+                  <motion.a
                     key={service.name}
                     href={service.href}
                     className="group bg-card p-4 md:p-5 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 active:scale-[0.99] touch-manipulation min-h-[88px] flex flex-col justify-between"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-30px" }}
+                    transition={{ duration: 0.3, delay: serviceIndex * 0.05 }}
                   >
                     <div>
                       <h4 className="font-heading text-base font-medium text-foreground mb-1.5 md:mb-2 group-hover:text-primary transition-colors">
@@ -186,10 +209,10 @@ export const ServicesGrid = () => {
                       Learn More
                       <ArrowRight className="ml-1 h-4 w-4 md:h-3 md:w-3 group-hover:translate-x-1 transition-transform" />
                     </span>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

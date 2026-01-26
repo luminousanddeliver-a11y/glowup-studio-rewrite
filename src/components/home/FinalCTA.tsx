@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import skincareProducts from "@/assets/skincare-products.jpg";
 
 export const FinalCTA = () => {
@@ -16,19 +17,43 @@ export const FinalCTA = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="text-center max-w-3xl mx-auto">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           {/* Headline */}
-          <h2 className="text-primary-foreground mb-4">
+          <motion.h2 
+            className="text-primary-foreground mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             Ready to Start Your Journey to Clearer, Smoother Skin?
-          </h2>
+          </motion.h2>
 
           {/* Description */}
-          <p className="font-body text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+          <motion.p 
+            className="font-body text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Our team of local, NHS-approved experts is here to guide you. Book a free, no-obligation consultation to discuss your goals.
-          </p>
+          </motion.p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <Button
               asChild
               size="lg"
@@ -50,8 +75,8 @@ export const FinalCTA = () => {
                 Call Us: 0208 598 1200
               </a>
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

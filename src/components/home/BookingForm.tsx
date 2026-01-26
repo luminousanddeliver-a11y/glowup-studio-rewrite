@@ -23,6 +23,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowRight, Calendar, Phone, Mail, User } from "lucide-react";
+import { motion } from "framer-motion";
 
 const bookingSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
@@ -98,61 +99,92 @@ export const BookingForm = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-primary">
+    <section id="contact" className="section-padding bg-primary overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text */}
-          <div className="text-center lg:text-left">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-primary-foreground mb-6">
+          <motion.div 
+            className="text-center lg:text-left"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.h2 
+              className="font-heading text-3xl md:text-4xl font-semibold text-primary-foreground mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               Book Your Free Consultation
-            </h2>
-            <p className="font-body text-lg text-primary-foreground/80 mb-8">
+            </motion.h2>
+            <motion.p 
+              className="font-body text-lg text-primary-foreground/80 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               Take the first step towards flawless skin. Our expert team will assess your needs and create a personalized treatment plan just for you.
-            </p>
+            </motion.p>
 
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-4 justify-center lg:justify-start">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <p className="font-body text-primary-foreground font-medium">Call Us Directly</p>
-                  <a href="tel:02085981200" className="font-body text-primary-foreground/80 hover:text-accent transition-colors">
-                    0208 598 1200
-                  </a>
-                </div>
-              </div>
+            <motion.div 
+              className="space-y-4 mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              {[
+                { icon: Phone, title: "Call Us Directly", content: "0208 598 1200", href: "tel:02085981200" },
+                { icon: Mail, title: "Email Us", content: "info@laserlightskinclinic.co.uk", href: "mailto:info@laserlightskinclinic.co.uk" },
+                { icon: Calendar, title: "Opening Hours", content: "Mon - Sat: 10:00 AM - 7:00 PM", href: null },
+              ].map((item, index) => (
+                <motion.div 
+                  key={item.title}
+                  className="flex items-center gap-4 justify-center lg:justify-start"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                >
+                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-body text-primary-foreground font-medium">{item.title}</p>
+                    {item.href ? (
+                      <a href={item.href} className="font-body text-primary-foreground/80 hover:text-accent transition-colors">
+                        {item.content}
+                      </a>
+                    ) : (
+                      <p className="font-body text-primary-foreground/80">{item.content}</p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
 
-              <div className="flex items-center gap-4 justify-center lg:justify-start">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <p className="font-body text-primary-foreground font-medium">Email Us</p>
-                  <a href="mailto:info@laserlightskinclinic.co.uk" className="font-body text-primary-foreground/80 hover:text-accent transition-colors">
-                    info@laserlightskinclinic.co.uk
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 justify-center lg:justify-start">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <p className="font-body text-primary-foreground font-medium">Opening Hours</p>
-                  <p className="font-body text-primary-foreground/80">Mon - Sat: 10:00 AM - 7:00 PM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-lg">
+            <motion.div 
+              className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-lg"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.6 }}
+            >
               <span className="font-body font-semibold">🎉 25% Off for New Clients!</span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column - Form */}
-          <div className="bg-card rounded-2xl p-5 md:p-8 shadow-card">
+          <motion.div 
+            className="bg-card rounded-2xl p-5 md:p-8 shadow-card"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                 <FormField
@@ -290,7 +322,7 @@ export const BookingForm = () => {
                 </p>
               </form>
             </Form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

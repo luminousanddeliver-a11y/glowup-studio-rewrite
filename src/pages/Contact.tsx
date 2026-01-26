@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { motion } from "framer-motion";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -88,7 +88,6 @@ const Contact = () => {
     try {
       const validated = contactSchema.parse(formData);
       
-      // For now, we'll just show success - in production this would submit to database
       toast({
         title: "Message Sent!",
         description: "We'll get back to you within 24 hours.",
@@ -114,6 +113,66 @@ const Contact = () => {
     }
   };
 
+  const contactItems = [
+    {
+      icon: MapPin,
+      title: "Address",
+      content: (
+        <p className="font-body text-muted-foreground">
+          125 Becontree Avenue,<br />
+          Dagenham, Essex,<br />
+          RM8 2UJ
+        </p>
+      )
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      content: (
+        <div className="font-body text-muted-foreground space-y-1">
+          <a href="tel:02085981200" className="block hover:text-accent transition-colors">
+            0208 598 1200
+          </a>
+          <a href="tel:07949501777" className="block hover:text-accent transition-colors">
+            07949 501 777
+          </a>
+        </div>
+      )
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      content: (
+        <a 
+          href="mailto:info@laserlightskinclinic.co.uk" 
+          className="font-body text-muted-foreground hover:text-accent transition-colors"
+        >
+          info@laserlightskinclinic.co.uk
+        </a>
+      )
+    },
+    {
+      icon: Clock,
+      title: "Opening Hours",
+      content: (
+        <div className="font-body text-muted-foreground space-y-1 text-sm">
+          <div className="flex justify-between gap-8">
+            <span>Monday - Friday</span>
+            <span>10:00 AM - 7:00 PM</span>
+          </div>
+          <div className="flex justify-between gap-8">
+            <span>Saturday</span>
+            <span>10:00 AM - 7:00 PM</span>
+          </div>
+          <div className="flex justify-between gap-8">
+            <span>Sunday</span>
+            <span>Closed</span>
+          </div>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
@@ -124,16 +183,21 @@ const Contact = () => {
       />
       
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 overflow-hidden">
         {/* Hero */}
         <section className="bg-primary text-primary-foreground py-16">
           <div className="container-custom">
-            <div className="max-w-2xl">
+            <motion.div 
+              className="max-w-2xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <h1 className="mb-4">Get in Touch</h1>
               <p className="text-lg text-primary-foreground/80 font-body">
                 Ready to start your journey to beautiful skin? Contact us today for a free consultation.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -142,95 +206,61 @@ const Contact = () => {
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Info */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="text-foreground mb-8">Contact Information</h2>
                 
                 <div className="space-y-6">
-                  {/* Address */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-                      <MapPin className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">Address</h3>
-                      <p className="font-body text-muted-foreground">
-                        125 Becontree Avenue,<br />
-                        Dagenham, Essex,<br />
-                        RM8 2UJ
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Phone */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-                      <Phone className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">Phone</h3>
-                      <div className="font-body text-muted-foreground space-y-1">
-                        <a href="tel:02085981200" className="block hover:text-accent transition-colors">
-                          0208 598 1200
-                        </a>
-                        <a href="tel:07949501777" className="block hover:text-accent transition-colors">
-                          07949 501 777
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-                      <Mail className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">Email</h3>
-                      <a 
-                        href="mailto:info@laserlightskinclinic.co.uk" 
-                        className="font-body text-muted-foreground hover:text-accent transition-colors"
+                  {contactItems.map((item, index) => (
+                    <motion.div 
+                      key={item.title}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      <motion.div 
+                        className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       >
-                        info@laserlightskinclinic.co.uk
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Hours */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-                      <Clock className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">Opening Hours</h3>
-                      <div className="font-body text-muted-foreground space-y-1 text-sm">
-                        <div className="flex justify-between gap-8">
-                          <span>Monday - Friday</span>
-                          <span>10:00 AM - 7:00 PM</span>
-                        </div>
-                        <div className="flex justify-between gap-8">
-                          <span>Saturday</span>
-                          <span>10:00 AM - 7:00 PM</span>
-                        </div>
-                        <div className="flex justify-between gap-8">
-                          <span>Sunday</span>
-                          <span>Closed</span>
-                        </div>
+                        <item.icon className="h-6 w-6 text-accent" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-heading text-lg font-medium text-foreground mb-1">{item.title}</h3>
+                        {item.content}
                       </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  ))}
                 </div>
 
                 {/* Map Placeholder */}
-                <div className="mt-8 bg-secondary rounded-lg p-8 text-center">
+                <motion.div 
+                  className="mt-8 bg-secondary rounded-lg p-8 text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
                   <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                   <p className="font-body text-muted-foreground">
                     We're located on Becontree Avenue, easily accessible from Becontree and Dagenham Heathway stations.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Contact Form */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="bg-card p-8 rounded-lg shadow-card">
                   <h2 className="text-foreground mb-2">Send Us a Message</h2>
                   <p className="text-muted-foreground font-body mb-6">
@@ -321,7 +351,7 @@ const Contact = () => {
                     </Button>
                   </form>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
