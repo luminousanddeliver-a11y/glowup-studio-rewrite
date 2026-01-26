@@ -12,6 +12,7 @@ import { WishlistDrawer } from "@/components/shop/WishlistDrawer";
 import { CompareModal } from "@/components/shop/CompareModal";
 import { FlyingCartAnimation } from "@/components/shop/FlyingCartAnimation";
 import { AnimatedRoutes } from "@/components/layout/AnimatedRoutes";
+import { CookieConsent } from "@/components/common/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
               <FlyingCartAnimation />
               <BrowserRouter>
                 <AnimatedRoutes />
+                <CookieConsent />
               </BrowserRouter>
             </TooltipProvider>
           </CompareProvider>
