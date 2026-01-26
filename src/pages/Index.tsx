@@ -16,17 +16,37 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { BookingForm } from "@/components/home/BookingForm";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
 
 const Index = () => {
-  const localBusinessSchema = {
+  // MedicalClinic schema with AggregateRating
+  const medicalClinicSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "MedicalClinic",
     "name": "Laser Light Skin Clinic",
     "image": "https://laserlightskinclinic.co.uk/logo.png",
     "@id": "https://laserlightskinclinic.co.uk",
     "url": "https://laserlightskinclinic.co.uk",
     "telephone": "+442085981200",
     "priceRange": "££",
+    "medicalSpecialty": ["Dermatology", "Cosmetic Medicine"],
+    "availableService": [
+      {
+        "@type": "MedicalProcedure",
+        "name": "Laser Hair Removal",
+        "procedureType": "https://schema.org/CosmeticProcedure"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Tattoo Removal",
+        "procedureType": "https://schema.org/CosmeticProcedure"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Hydrafacial",
+        "procedureType": "https://schema.org/CosmeticProcedure"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "125 Becontree Avenue",
@@ -56,18 +76,68 @@ const Index = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "250"
+      "reviewCount": "250",
+      "bestRating": "5",
+      "worstRating": "1"
     }
+  };
+
+  // FAQPage schema for homepage FAQs
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Laser Light Skin Clinic NHS-approved?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we are proud to be an NHS-approved clinic, meaning all our procedures, equipment, and safety protocols meet the highest medical standards set by the National Health Service."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does your laser hair removal treatment hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We use the Lynton Motus AY, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a treatment cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. New clients also receive 25% off their first treatment course."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the laser safe for dark skin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. The Lynton Motus AY is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many sessions will I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your free consultation."
+        }
+      }
+    ]
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="NHS-Approved Laser & Skin Clinic in Dagenham | Laser Light"
-        description="East London's ONLY clinic with the Quanta Thunder Series for advanced tattoo removal. Pain-free laser hair removal, Hydrafacials & skin treatments. NHS-approved. 25% off new clients!"
+        description="East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, advanced tattoo removal, Hydrafacials & more. NHS-approved. Book now!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
         keywords="laser hair removal dagenham, quanta thunder east london, tattoo removal east london, skin clinic dagenham, hydrafacial, NHS approved clinic"
-        structuredData={localBusinessSchema}
+        structuredData={[medicalClinicSchema, faqPageSchema]}
       />
       
       <Header />
@@ -107,6 +177,7 @@ const Index = () => {
       </main>
       <Footer />
       <MobileStickyButton />
+      <FloatingReviewButton />
     </div>
   );
 };

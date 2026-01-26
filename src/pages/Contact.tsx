@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import { z } from "zod";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
+import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -374,17 +375,22 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="name" className="flex items-center gap-1">
+                          Full Name <span className="text-destructive font-bold">*</span>
+                        </Label>
                         <Input
                           id="name"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="Your name"
                           required
+                          className="border-border focus:border-primary"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="email" className="flex items-center gap-1">
+                          Email <span className="text-destructive font-bold">*</span>
+                        </Label>
                         <Input
                           id="email"
                           type="email"
@@ -392,6 +398,7 @@ const Contact = () => {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="your@email.com"
                           required
+                          className="border-border focus:border-primary"
                         />
                       </div>
                     </div>
@@ -428,7 +435,9 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="message" className="flex items-center gap-1">
+                        Message <span className="text-destructive font-bold">*</span>
+                      </Label>
                       <Textarea
                         id="message"
                         value={formData.message}
@@ -436,6 +445,7 @@ const Contact = () => {
                         placeholder="Tell us about your requirements..."
                         rows={5}
                         required
+                        className="border-border focus:border-primary"
                       />
                     </div>
 
@@ -462,6 +472,7 @@ const Contact = () => {
       </main>
       <Footer />
       <MobileStickyButton />
+      <FloatingReviewButton />
     </div>
   );
 };

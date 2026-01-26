@@ -11,6 +11,7 @@ import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { TeamSection } from "@/components/about/TeamSection";
 import { CertificationsBar } from "@/components/about/CertificationsBar";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
+import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
 
 const About = () => {
   const organizationSchema = {
@@ -299,6 +300,7 @@ const About = () => {
       </main>
       <Footer />
       <MobileStickyButton />
+      <FloatingReviewButton />
     </div>
   );
 };
