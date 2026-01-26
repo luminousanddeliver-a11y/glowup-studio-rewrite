@@ -12,6 +12,8 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/contexts/CartContext";
+import { CartPreviewTooltip } from "@/components/shop/CartPreviewTooltip";
+import { CartBounceIndicator } from "@/components/shop/FlyingCartAnimation";
 import { PromoBanner } from "./PromoBanner";
 import { ScrollProgress } from "./ScrollProgress";
 import logo from "@/assets/logo.png";
@@ -92,7 +94,7 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const { cartCount, setIsCartOpen } = useCart();
+  const { cartCount, setIsCartOpen, cartBounce } = useCart();
   const location = useLocation();
 
   // Check if a nav link is active
@@ -236,19 +238,31 @@ export const Header = () => {
                 </span>
               </a>
               
-              {/* Cart Icon */}
-              <button
-                onClick={() => setIsCartOpen(true)}
-                className="relative p-2 text-foreground hover:text-accent transition-colors"
-                aria-label="Open cart"
-              >
-                <ShoppingBag className="h-5 w-5" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                    {cartCount > 9 ? "9+" : cartCount}
-                  </span>
-                )}
-              </button>
+              {/* Cart Icon with Preview Tooltip */}
+              <CartPreviewTooltip>
+                <button
+                  onClick={() => setIsCartOpen(true)}
+                  className="relative p-2 text-foreground hover:text-accent transition-colors"
+                  aria-label="Open cart"
+                >
+                  <motion.div
+                    animate={cartBounce ? { scale: [1, 1.2, 1] } : { scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ShoppingBag className="h-5 w-5" />
+                  </motion.div>
+                  {cartCount > 0 && (
+                    <motion.span 
+                      className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                    >
+                      {cartCount > 9 ? "9+" : cartCount}
+                    </motion.span>
+                  )}
+                </button>
+              </CartPreviewTooltip>
               
               <Button asChild className={`bg-primary hover:bg-primary/90 text-primary-foreground font-body px-6 transition-all duration-200 ${isCompact ? 'h-10' : 'h-12'}`}>
                 <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
@@ -262,12 +276,23 @@ export const Header = () => {
                 onClick={() => setIsCartOpen(true)}
                 className="relative p-3 text-foreground hover:text-accent transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
                 aria-label="Open cart"
+                data-cart-icon="true"
               >
-                <ShoppingBag className="h-6 w-6" />
+                <motion.div
+                  animate={cartBounce ? { scale: [1, 1.3, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ShoppingBag className="h-6 w-6" />
+                </motion.div>
                 {cartCount > 0 && (
-                  <span className="absolute top-1.5 right-1.5 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  <motion.span 
+                    className="absolute top-1.5 right-1.5 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                  >
                     {cartCount > 9 ? "9+" : cartCount}
-                  </span>
+                  </motion.span>
                 )}
               </button>
               

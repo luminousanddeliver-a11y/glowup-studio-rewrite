@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,7 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const imageRef = useRef<HTMLDivElement>(null);
 
   const isOnSale = salePrice !== null && salePrice < price;
   const displayPrice = salePrice ?? price;
@@ -44,7 +45,8 @@ export const ProductCard = ({
         category,
         imageUrl,
       },
-      quantity
+      quantity,
+      imageRef.current // Pass the image element for flying animation
     );
     setQuantity(1);
   };
@@ -59,7 +61,7 @@ export const ProductCard = ({
       className="group bg-card rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300"
     >
       {/* Image */}
-      <div className="relative aspect-square bg-muted overflow-hidden">
+      <div ref={imageRef} className="relative aspect-square bg-muted overflow-hidden">
         {imageUrl ? (
           <img
             src={imageUrl}
