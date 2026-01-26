@@ -14,6 +14,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Zap, Shield, Droplets, Heart } from "lucide-react";
 import ivDripSetup from "@/assets/iv-drip-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -359,6 +360,7 @@ const IVDrips = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

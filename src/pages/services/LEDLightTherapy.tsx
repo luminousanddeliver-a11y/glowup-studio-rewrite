@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Sun, Zap, RefreshCw, CheckCircle } from "lucide-react";
 import ledDevice from "@/assets/led-therapy-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -353,6 +354,7 @@ const LEDLightTherapy = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

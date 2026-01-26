@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sun, Layers, Target, Sparkles, RefreshCw, CheckCircle } from "lucide-react";
 import pigmentationDevice from "@/assets/pigmentation-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -361,6 +362,7 @@ const PigmentationTreatment = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

@@ -14,6 +14,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Award, Target, Palette, CheckCircle } from "lucide-react";
 import electrolysisDevice from "@/assets/electrolysis-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -362,6 +363,7 @@ const Electrolysis = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

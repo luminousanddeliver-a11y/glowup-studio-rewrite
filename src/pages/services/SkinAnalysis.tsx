@@ -13,6 +13,7 @@ import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Search, Layers, Target, FileText, Sparkles, Zap } from "lucide-react";
 import skinAnalysisDevice from "@/assets/skin-analysis-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -289,6 +290,7 @@ const SkinAnalysis = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

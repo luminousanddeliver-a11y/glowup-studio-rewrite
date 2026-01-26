@@ -13,6 +13,7 @@ import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Moon, Heart, RefreshCw, Ear, Leaf } from "lucide-react";
 import hopiCandles from "@/assets/hopi-candles.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -315,6 +316,7 @@ const HopiEarCandling = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

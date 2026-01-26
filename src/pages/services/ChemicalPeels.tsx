@@ -14,6 +14,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Sparkles, Layers, Clock, Shield } from "lucide-react";
 import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -359,6 +360,7 @@ const ChemicalPeels = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };
