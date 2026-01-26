@@ -1,8 +1,10 @@
-import { Check, Zap, Target } from "lucide-react";
+import { Check } from "lucide-react";
+import laserDevice from "@/assets/laser-device.jpg";
+import skinTexture from "@/assets/skin-texture.jpg";
 
 const technologies = [
   {
-    icon: Zap,
+    image: laserDevice,
     name: "Lynton Motus AY",
     tagline: "Pain-Free Laser Hair Removal",
     description: "The only laser that delivers the power of Alexandrite without the pain. Our advanced cooling system ensures a comfortable experience, even on sensitive areas.",
@@ -12,10 +14,9 @@ const technologies = [
       "Faster treatment times",
       "NHS-approved technology",
     ],
-    gradient: "from-accent to-accent/60",
   },
   {
-    icon: Target,
+    image: skinTexture,
     name: "Quanta Thunder",
     tagline: "Advanced Tattoo Removal",
     description: "The multi-wavelength system that removes all ink colors in fewer sessions than traditional lasers.",
@@ -25,7 +26,6 @@ const technologies = [
       "Fewer sessions required",
       "Precision targeting",
     ],
-    gradient: "from-primary to-primary/60",
   },
 ];
 
@@ -50,11 +50,13 @@ export const TechnologyShowcase = () => {
               key={tech.name}
               className="bg-card rounded-2xl overflow-hidden shadow-card"
             >
-              {/* Visual Header */}
-              <div className={`h-48 bg-gradient-to-br ${tech.gradient} flex items-center justify-center`}>
-                <div className="w-24 h-24 bg-card/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                  <tech.icon className="w-12 h-12 text-card" />
-                </div>
+              {/* Visual Header with Image */}
+              <div className="h-56 overflow-hidden">
+                <img 
+                  src={tech.image} 
+                  alt={tech.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Content */}

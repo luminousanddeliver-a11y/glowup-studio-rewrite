@@ -4,52 +4,52 @@ const allServices = [
   {
     name: "Laser Hair Removal",
     description: "Pain-free permanent hair reduction with Lynton Motus AY.",
-    href: "/services/laser-hair-removal",
+    href: "/laser-hair-removal-dagenham",
   },
   {
     name: "Hydrafacials",
     description: "Deep cleansing and hydration for radiant skin.",
-    href: "/services/hydrafacials",
+    href: "/hydrafacial-east-london",
   },
   {
     name: "Skin Rejuvenation",
     description: "Restore youthful glow with advanced light therapy.",
-    href: "/services/skin-rejuvenation",
+    href: "/skin-rejuvenation-dagenham",
   },
   {
     name: "Chemical Peels",
     description: "Medical-grade peels for smooth, clear complexion.",
-    href: "/services/chemical-peels",
+    href: "/chemical-peels-dagenham",
   },
   {
     name: "Electrolysis",
     description: "Permanent hair removal, one follicle at a time.",
-    href: "/services/electrolysis",
+    href: "/electrolysis-hair-removal-dagenham",
   },
   {
     name: "SkinPen Microneedling",
     description: "FDA-cleared collagen induction therapy.",
-    href: "/services/microneedling",
+    href: "/skinpen-microneedling-dagenham",
   },
   {
     name: "IV Drips & Infusions",
     description: "Vitamin therapy for energy and skin health.",
-    href: "/services/iv-drips",
+    href: "/iv-drips-infusions-east-london",
   },
   {
     name: "Tattoo Removal",
     description: "Multi-wavelength laser removes all ink colors.",
-    href: "/services/tattoo-removal",
+    href: "/tattoo-removal-east-london",
   },
   {
-    name: "Cold Plasma Treatments",
+    name: "Cold Plasma",
     description: "Non-invasive skin tightening and rejuvenation.",
-    href: "/services/cold-plasma",
+    href: "/cold-plasma-treatment-dagenham",
   },
   {
     name: "Intimate V-Whitening",
     description: "Safe, professional intimate area treatments.",
-    href: "/services/intimate-whitening",
+    href: "/intimate-whitening-east-london",
   },
 ];
 

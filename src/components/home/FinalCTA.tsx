@@ -1,10 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight } from "lucide-react";
+import skincareProducts from "@/assets/skincare-products.jpg";
 
 export const FinalCTA = () => {
   return (
-    <section id="contact" className="bg-primary py-16 md:py-20">
-      <div className="container-custom">
+    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={skincareProducts} 
+          alt="Luxury skincare products" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/90" />
+      </div>
+
+      <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           {/* Headline */}
           <h2 className="text-primary-foreground mb-4">
