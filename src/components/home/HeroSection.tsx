@@ -80,12 +80,12 @@ export const HeroSection = () => {
             </div>
             
             {/* NHS Approved Badge - Floating outside image */}
-            <div className="absolute -bottom-6 right-4 lg:-right-4 bg-primary text-primary-foreground px-5 py-4 rounded-xl shadow-xl max-w-[220px] z-10">
-              <div className="flex items-center gap-2 mb-1">
-                <Shield className="h-4 w-4 flex-shrink-0" />
-                <span className="font-semibold text-sm">NHS Approved</span>
+            <div className="absolute -bottom-8 right-4 lg:-right-6 bg-primary text-primary-foreground px-6 py-5 rounded-xl shadow-xl max-w-[280px] z-10">
+              <div className="flex items-center gap-2 mb-2">
+                <Shield className="h-5 w-5 flex-shrink-0" />
+                <span className="font-semibold text-base">NHS Approved</span>
               </div>
-              <div className="text-xs opacity-90 leading-tight">FDA-certified technology for safe, effective treatments</div>
+              <div className="text-sm opacity-90 leading-snug">FDA-certified technology for safe, effective treatments</div>
             </div>
           </div>
         </div>
