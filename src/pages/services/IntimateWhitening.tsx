@@ -11,7 +11,10 @@ import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { Shield, Heart, Sparkles, Lock } from "lucide-react";
+import intimateCareProducts from "@/assets/intimate-care-products.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const IntimateWhitening = () => {
   const serviceSchema = {
@@ -268,6 +271,7 @@ const IntimateWhitening = () => {
           subtitle="Confidence Restored. Privacy Guaranteed."
           description="Safe, professional intimate lightening treatment using medical-grade products. Discreet care by qualified female practitioners in a confidential setting."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={intimateCareProducts}
         />
         
         <QuickStatsBar stats={stats} />
@@ -316,6 +320,11 @@ const IntimateWhitening = () => {
           title="Intimate Whitening FAQs"
           subtitle="Your questions answered"
           faqs={faqs}
+        />
+        
+        <ResultsShowcase
+          title="Real Results from Real Clients"
+          description="Discreet, professional care that restores confidence"
         />
         
         <ServiceCTA

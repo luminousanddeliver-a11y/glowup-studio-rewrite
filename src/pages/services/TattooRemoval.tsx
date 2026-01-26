@@ -11,9 +11,11 @@ import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
-import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Palette, Calendar, Shield, Sparkles } from "lucide-react";
+import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const TattooRemoval = () => {
   const serviceSchema = {
@@ -297,6 +299,7 @@ const TattooRemoval = () => {
           subtitle="Erase the Past. Embrace Your Future."
           description="Regret your tattoo? Our advanced Q-switched laser technology safely removes all ink colors—including stubborn blues and greens—with minimal scarring risk."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         <QuickStatsBar stats={stats} />
@@ -326,6 +329,7 @@ const TattooRemoval = () => {
           description="The Quanta Q-Plus C is a medical-grade Q-switched laser system that delivers ultra-short nanosecond pulses to shatter ink particles without damaging surrounding tissue. With multiple wavelengths (1064nm, 532nm, and optional Ruby 694nm), it effectively targets all tattoo colors on all skin types."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
+          deviceImage={tattooRemovalDevice}
         />
         
         <div id="pricing">
@@ -356,11 +360,9 @@ const TattooRemoval = () => {
           faqs={faqs}
         />
         
-        <BeforeAfterGallery
+        <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible progress of tattoo removal over multiple sessions"
-          ctaText="See More on Instagram"
-          ctaLink="https://instagram.com/laserlightskinclinic"
         />
         
         <ServiceCTA

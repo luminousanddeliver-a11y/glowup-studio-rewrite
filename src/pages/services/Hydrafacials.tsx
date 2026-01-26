@@ -11,9 +11,11 @@ import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
-import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Timer, Sparkles, Shield, Users } from "lucide-react";
+import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const Hydrafacials = () => {
   const serviceSchema = {
@@ -294,6 +296,7 @@ const Hydrafacials = () => {
           subtitle="Deep Cleanse. Extract. Hydrate. Glow."
           description="The ultimate facial treatment that cleanses, exfoliates, and hydrates your skin in just 45 minutes. Walk out with an instant glow and zero downtime."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         <QuickStatsBar stats={stats} />
@@ -323,6 +326,7 @@ const Hydrafacials = () => {
           description="The Hydrafacial system uses patented Vortex-Fusion technology to deliver superior results. The spiral design creates a vortex effect to easily dislodge and remove impurities while simultaneously infusing the skin with nourishing serums."
           features={technologyFeatures}
           certifications={["FDA Cleared", "CE Marked"]}
+          deviceImage={hydrafacialDevice}
         />
         
         <div id="pricing">
@@ -353,11 +357,9 @@ const Hydrafacials = () => {
           faqs={faqs}
         />
         
-        <BeforeAfterGallery
+        <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible difference a Hydrafacial makes"
-          ctaText="See More on Instagram"
-          ctaLink="https://instagram.com/laserlightskinclinic"
         />
         
         <ServiceCTA

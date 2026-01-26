@@ -15,6 +15,7 @@ interface ServiceHeroProps {
   primaryCtaHref?: string;
   secondaryCta?: SecondaryCTA;
   showPhoneCta?: boolean;
+  backgroundImage?: string;
 }
 
 export const ServiceHero = ({
@@ -26,9 +27,21 @@ export const ServiceHero = ({
   primaryCtaHref = "#contact",
   secondaryCta,
   showPhoneCta = true,
+  backgroundImage,
 }: ServiceHeroProps) => {
   return (
-    <section className="relative bg-gradient-to-br from-primary to-primary/90 text-primary-foreground section-padding">
+    <section className="relative bg-gradient-to-br from-primary to-primary/90 text-primary-foreground section-padding overflow-hidden">
+      {/* Background Image */}
+      {backgroundImage && (
+        <div className="absolute inset-0">
+          <img 
+            src={backgroundImage} 
+            alt="" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/80" />
+        </div>
+      )}
       <div className="container-custom">
         <div className="max-w-4xl mx-auto text-center">
           {badge && (
