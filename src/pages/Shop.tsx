@@ -11,6 +11,7 @@ import { PriceRangeFilter } from "@/components/shop/PriceRangeFilter";
 import { CartDrawer } from "@/components/shop/CartDrawer";
 import { RecentlyViewed } from "@/components/shop/RecentlyViewed";
 import { CompareBar } from "@/components/shop/CompareBar";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 const categories = ["Serums", "Moisturizers", "Sun Protection", "Eye Care", "Exfoliators"];
 

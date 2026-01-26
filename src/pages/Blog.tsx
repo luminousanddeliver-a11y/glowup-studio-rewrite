@@ -7,6 +7,7 @@ import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { supabase } from "@/integrations/supabase/client";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
@@ -61,7 +62,7 @@ const Blog = () => {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-primary py-16 md:py-24">
+        <section className="bg-primary -mt-[80px] pt-[120px] md:pt-[140px] pb-16 md:pb-24">
           <div className="container-custom text-center">
             <PageBreadcrumb 
               items={[{ label: "Blog" }]} 
