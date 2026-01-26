@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, ShoppingBag } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,6 +14,7 @@ import {
 import { useCart } from "@/contexts/CartContext";
 import { PromoBanner } from "./PromoBanner";
 import logo from "@/assets/logo.png";
+import { cn } from "@/lib/utils";
 
 const serviceCategories = [
   {
@@ -89,6 +91,18 @@ export const Header = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
   const { cartCount, setIsCartOpen } = useCart();
+  const location = useLocation();
+
+  // Check if a nav link is active
+  const isActiveLink = (href: string) => {
+    if (href === "/") return location.pathname === "/";
+    return location.pathname.startsWith(href);
+  };
+
+  // Check if any service is active (for Services dropdown)
+  const isServicesActive = serviceCategories.some(category =>
+    category.services.some(service => location.pathname === service.href)
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,12 +146,26 @@ export const Header = () => {
             <nav className="hidden lg:flex items-center gap-6">
               {/* Services Mega Dropdown - First */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 font-body text-foreground hover:text-accent transition-colors">
-                  Services <ChevronDown className="h-4 w-4" />
+                <DropdownMenuTrigger className={cn(
+                  "flex items-center gap-1 font-body transition-colors relative",
+                  isServicesActive 
+                    ? "text-accent font-medium" 
+                    : "text-foreground hover:text-accent"
+                )}>
+                  Services <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                  {isServicesActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                  )}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[700px] p-4 grid grid-cols-3 gap-4">
-                  {serviceCategories.map((category) => (
-                    <div key={category.name} className="space-y-2">
+                <DropdownMenuContent className="w-[700px] p-4 grid grid-cols-3 gap-4 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                  {serviceCategories.map((category, categoryIndex) => (
+                    <motion.div 
+                      key={category.name} 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: categoryIndex * 0.05, duration: 0.2 }}
+                    >
                       <DropdownMenuLabel className="text-accent font-heading text-sm">
                         {category.name}
                       </DropdownMenuLabel>
@@ -145,13 +173,18 @@ export const Header = () => {
                         <DropdownMenuItem key={service.href} asChild>
                           <a 
                             href={service.href} 
-                            className="cursor-pointer w-full text-sm py-1.5 hover:text-accent"
+                            className={cn(
+                              "cursor-pointer w-full text-sm py-1.5 transition-colors",
+                              location.pathname === service.href
+                                ? "text-accent font-medium bg-accent/5"
+                                : "hover:text-accent"
+                            )}
                           >
                             {service.name}
                           </a>
                         </DropdownMenuItem>
                       ))}
-                    </div>
+                    </motion.div>
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -160,9 +193,21 @@ export const Header = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-foreground hover:text-accent transition-colors"
+                  className={cn(
+                    "font-body transition-colors relative py-1",
+                    isActiveLink(link.href)
+                      ? "text-accent font-medium"
+                      : "text-foreground hover:text-accent"
+                  )}
                 >
                   {link.name}
+                  {isActiveLink(link.href) && (
+                    <motion.span 
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </a>
               ))}
             </nav>
@@ -271,7 +316,12 @@ export const Header = () => {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="font-body text-foreground hover:text-accent hover:bg-accent/5 transition-colors py-3.5 px-2 rounded-lg min-h-[48px] flex items-center active:bg-accent/10 touch-manipulation"
+                    className={cn(
+                      "font-body transition-colors py-3.5 px-2 rounded-lg min-h-[48px] flex items-center touch-manipulation",
+                      isActiveLink(link.href)
+                        ? "text-accent font-medium bg-accent/10"
+                        : "text-foreground hover:text-accent hover:bg-accent/5 active:bg-accent/10"
+                    )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
