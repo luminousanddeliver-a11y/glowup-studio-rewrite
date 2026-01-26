@@ -1,11 +1,21 @@
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import heroClinicNew from "@/assets/hero-clinic-new.png";
 
 export const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  
   return (
-    <section className="bg-background py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section ref={sectionRef} className="bg-background py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content - appears second on mobile, first on desktop */}
@@ -116,6 +126,7 @@ export const HeroSection = () => {
           >
             <motion.div 
               className="rounded-2xl overflow-hidden shadow-lg"
+              style={{ y: imageY }}
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}

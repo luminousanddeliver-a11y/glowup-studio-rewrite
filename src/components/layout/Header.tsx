@@ -162,7 +162,6 @@ export const Header = () => {
                     )} />
                   </span>
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-[700px] p-4 grid grid-cols-3 gap-4 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                   {serviceCategories.map((category, categoryIndex) => (
@@ -220,10 +219,13 @@ export const Header = () => {
             <div className="hidden lg:flex items-center gap-4">
               <a 
                 href="tel:02085981200" 
-                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors relative group py-1"
               >
                 <Phone className="h-4 w-4" />
-                <span className="font-body">0208 598 1200</span>
+                <span className="font-body relative">
+                  0208 598 1200
+                  <span className="absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out w-0 group-hover:w-full" />
+                </span>
               </a>
               
               {/* Cart Icon */}
