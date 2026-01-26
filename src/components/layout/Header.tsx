@@ -51,15 +51,6 @@ const serviceCategories = [
     ],
   },
   {
-    name: "Removal Treatments",
-    icon: Eraser,
-    services: [
-      { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
-      { name: "Vein Removal", href: "/vein-removal-east-london" },
-      { name: "Skin Tag & Mole Removal", href: "/skin-tag-mole-removal-dagenham" },
-    ],
-  },
-  {
     name: "Wellness & Body",
     icon: Heart,
     services: [
@@ -76,6 +67,15 @@ const serviceCategories = [
     services: [
       { name: "Gift Vouchers", href: "/gift-vouchers" },
       { name: "Academy", href: "/academy" },
+    ],
+  },
+  {
+    name: "Removal Treatments",
+    icon: Eraser,
+    services: [
+      { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
+      { name: "Vein Removal", href: "/vein-removal-east-london" },
+      { name: "Skin Tag & Mole Removal", href: "/skin-tag-mole-removal-dagenham" },
     ],
   },
 ];
@@ -178,14 +178,14 @@ export const Header = () => {
                         {category.name}
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild className="bg-transparent focus:bg-transparent focus:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground">
+                        <DropdownMenuItem key={service.href} asChild className="p-0 focus:bg-transparent data-[highlighted]:bg-transparent">
                           <a 
                             href={service.href} 
                             className={cn(
-                              "cursor-pointer w-full text-sm py-1 transition-colors group/item relative",
+                              "cursor-pointer w-full text-sm py-1.5 px-2 -mx-2 rounded-md transition-all duration-200 group/item relative",
                               location.pathname === service.href
-                                ? "text-accent font-medium"
-                                : "text-foreground hover:text-accent"
+                                ? "text-accent font-medium bg-accent/5"
+                                : "text-foreground hover:text-accent hover:bg-accent/10"
                             )}
                           >
                             <span className="relative">
