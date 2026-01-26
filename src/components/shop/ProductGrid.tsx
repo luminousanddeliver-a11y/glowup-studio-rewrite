@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { ProductCard } from "./ProductCard";
+import { ProductQuickView, QuickViewProduct } from "./ProductQuickView";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface ProductGridProps {
@@ -9,6 +11,9 @@ interface ProductGridProps {
 }
 
 export const ProductGrid = ({ category }: ProductGridProps) => {
+  const [quickViewProduct, setQuickViewProduct] = useState<QuickViewProduct | null>(null);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
   const { data: products, isLoading, error } = useQuery({
     queryKey: ["products", category],
     queryFn: async () => {
@@ -28,6 +33,21 @@ export const ProductGrid = ({ category }: ProductGridProps) => {
       return data;
     },
   });
+
+  const handleQuickView = (product: typeof products extends (infer T)[] ? T : never) => {
+    setQuickViewProduct({
+      id: product.id,
+      name: product.name,
+      slug: product.slug,
+      price: product.price,
+      salePrice: product.sale_price,
+      category: product.category || "Uncategorized",
+      description: product.description,
+      imageUrl: product.image_url,
+      ingredients: product.ingredients,
+    });
+    setIsQuickViewOpen(true);
+  };
 
   if (isLoading) {
     return (
@@ -79,27 +99,37 @@ export const ProductGrid = ({ category }: ProductGridProps) => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {products.map((product, index) => (
-        <motion.div
-          key={product.id}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <ProductCard
-            id={product.id}
-            name={product.name}
-            slug={product.slug}
-            price={product.price}
-            salePrice={product.sale_price}
-            category={product.category || "Uncategorized"}
-            description={product.description}
-            imageUrl={product.image_url}
-          />
-        </motion.div>
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {products.map((product, index) => (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <ProductCard
+              id={product.id}
+              name={product.name}
+              slug={product.slug}
+              price={product.price}
+              salePrice={product.sale_price}
+              category={product.category || "Uncategorized"}
+              description={product.description}
+              imageUrl={product.image_url}
+              ingredients={product.ingredients}
+              onQuickView={() => handleQuickView(product)}
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      <ProductQuickView
+        product={quickViewProduct}
+        isOpen={isQuickViewOpen}
+        onClose={() => setIsQuickViewOpen(false)}
+      />
+    </>
   );
 };
