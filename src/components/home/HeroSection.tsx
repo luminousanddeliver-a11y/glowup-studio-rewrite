@@ -1,32 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Star } from "lucide-react";
-import heroClinic from "@/assets/hero-clinic.jpg";
+import heroClinicNew from "@/assets/hero-clinic-new.png";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image - Priority load for LCP */}
-      <div className="absolute inset-0">
-        <img 
-          src={heroClinic} 
-          alt="Modern aesthetic clinic treatment room with advanced laser equipment" 
-          className="w-full h-full object-cover"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
-      </div>
-
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+    <section className="bg-background py-16 md:py-20 lg:py-24">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Content */}
           <div className="text-center lg:text-left">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
-              <Shield className="h-4 w-4" />
-              <span className="font-body text-sm font-semibold">NHS-Approved Clinic</span>
-            </div>
+            {/* Decorative teal bar */}
+            <div className="w-12 h-1 bg-primary mb-6 mx-auto lg:mx-0" />
 
             <h1 className="text-foreground mb-6 leading-tight">
               NHS-Approved Laser & Skin Clinic in{" "}
@@ -38,7 +22,7 @@ export const HeroSection = () => {
             </p>
 
             {/* Offer Badge */}
-            <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-8 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-8">
               <Star className="h-4 w-4 fill-current" />
               <span className="font-body font-semibold">25% Off for New Clients</span>
             </div>
@@ -59,31 +43,52 @@ export const HeroSection = () => {
                 asChild 
                 variant="outline"
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg bg-background/50 backdrop-blur-sm"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg"
               >
                 <a href="#services">View All Treatments</a>
               </Button>
             </div>
 
-            {/* Quick Stats */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 mt-10">
-              <div className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="font-heading text-3xl font-semibold text-foreground">250+</div>
-                <div className="font-body text-sm text-muted-foreground">5-Star Reviews</div>
-              </div>
-              <div className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="font-heading text-3xl font-semibold text-foreground">10+</div>
-                <div className="font-body text-sm text-muted-foreground">Treatments</div>
-              </div>
-              <div className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="font-heading text-3xl font-semibold text-foreground">6+</div>
-                <div className="font-body text-sm text-muted-foreground">Years Experience</div>
+            {/* Stats with divider */}
+            <div className="border-t border-border mt-10 pt-8">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-8">
+                <div className="text-center lg:text-left">
+                  <div className="font-heading text-2xl font-semibold text-primary">250+</div>
+                  <div className="font-body text-sm text-muted-foreground">5-Star Reviews</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="font-heading text-2xl font-semibold text-primary">10+</div>
+                  <div className="font-body text-sm text-muted-foreground">Treatments</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="font-heading text-2xl font-semibold text-primary">6+</div>
+                  <div className="font-body text-sm text-muted-foreground">Years Experience</div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Empty right side - image fills background */}
-          <div className="hidden lg:block" />
+          {/* Right: Image with NHS Badge */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src={heroClinicNew} 
+                alt="Modern aesthetic clinic treatment room with professional equipment"
+                className="w-full h-auto object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+              
+              {/* NHS Approved Badge Overlay */}
+              <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground px-4 py-3 rounded-lg max-w-xs">
+                <div className="flex items-center gap-2 mb-1">
+                  <Shield className="h-4 w-4" />
+                  <span className="font-semibold text-sm">NHS Approved</span>
+                </div>
+                <div className="text-xs opacity-90">FDA-certified technology for safe, effective treatments</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
