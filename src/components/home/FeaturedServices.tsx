@@ -68,7 +68,7 @@ export const FeaturedServices = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Card className="group bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden h-full">
+              <Card className="group bg-card border-border shadow-card hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 overflow-hidden h-full">
                 {/* Service Image */}
                 <div className="aspect-square overflow-hidden">
                   <img 
