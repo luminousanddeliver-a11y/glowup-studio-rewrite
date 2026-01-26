@@ -13,7 +13,7 @@ import { OfferBanner } from "@/components/home/OfferBanner";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
-import { BookingForm } from "@/components/home/BookingForm";
+import { BookingFormWizard } from "@/components/home/BookingFormWizard";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
@@ -169,7 +169,7 @@ const Index = () => {
           <FAQSection />
         </ScrollReveal>
         <ScrollReveal>
-          <BookingForm />
+          <BookingFormWizard />
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <FinalCTA />

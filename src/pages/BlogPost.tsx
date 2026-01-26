@@ -311,7 +311,7 @@ const BlogPost = () => {
                 asChild 
                 size="lg"
                 variant="outline"
-                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8"
+                className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 font-body h-14 px-8"
               >
                 <a href="tel:02085981200">
                   <Phone className="mr-2 h-5 w-5" />
