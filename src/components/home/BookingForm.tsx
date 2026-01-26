@@ -117,7 +117,7 @@ export const BookingForm = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Book Your Free Consultation
+              Send an Enquiry
             </motion.h2>
             <motion.p 
               className="font-body text-lg text-primary-foreground/80 mb-8"
@@ -311,7 +311,7 @@ export const BookingForm = () => {
                     "Sending..."
                   ) : (
                     <>
-                      Book Your Free Consultation
+                      Send Enquiry
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </>
                   )}

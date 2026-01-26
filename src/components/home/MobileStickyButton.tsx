@@ -19,9 +19,9 @@ export const MobileStickyButton = () => {
           asChild
           className="flex-1 h-14 font-body font-semibold text-base bg-primary hover:bg-primary/90 text-primary-foreground active:scale-[0.98] transition-all touch-manipulation shadow-lg"
         >
-          <a href="#contact" className="flex items-center justify-center gap-2">
+          <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
             <Calendar className="h-5 w-5" />
-            <span>Book Now</span>
+            <span>Book Appointment</span>
           </a>
         </Button>
       </div>

@@ -64,8 +64,8 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-12 px-6 text-base"
               >
-                <a href="#contact">
-                  Book Free Consultation
+                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                  Book an Appointment
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>

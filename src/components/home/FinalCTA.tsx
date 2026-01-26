@@ -59,8 +59,8 @@ export const FinalCTA = () => {
               size="lg"
               className="bg-card text-primary hover:bg-card/90 font-body h-14 px-8 text-lg"
             >
-              <a href="https://widget.fresha.com" target="_blank" rel="noopener noreferrer">
-                Book Your Free Consultation
+              <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                Book an Appointment
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>

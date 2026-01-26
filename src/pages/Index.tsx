@@ -61,7 +61,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Laser Hair Removal & Skin Clinic Dagenham | 25% Off New Clients"
-        description="Get pain-free laser hair removal, Hydrafacials, and advanced skin treatments in Dagenham, East London. NHS-approved clinic with 20+ years experience. Book your free consultation today!"
+        description="Get pain-free laser hair removal, Hydrafacials, and advanced skin treatments in Dagenham, East London. NHS-approved clinic with 20+ years experience. Book an appointment today!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
         keywords="laser hair removal dagenham, skin clinic east london, hydrafacial dagenham, tattoo removal east london, NHS approved clinic"
         structuredData={localBusinessSchema}
