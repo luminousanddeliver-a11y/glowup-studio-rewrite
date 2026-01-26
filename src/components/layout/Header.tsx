@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/contexts/CartContext";
 import { PromoBanner } from "./PromoBanner";
+import { ScrollProgress } from "./ScrollProgress";
 import logo from "@/assets/logo.png";
 import { cn } from "@/lib/utils";
 
@@ -115,6 +116,7 @@ export const Header = () => {
 
   return (
     <>
+      <ScrollProgress />
       <PromoBanner />
       <motion.header 
         className="sticky top-0 z-50 bg-card shadow-card"
@@ -147,15 +149,20 @@ export const Header = () => {
               {/* Services Mega Dropdown - First */}
               <DropdownMenu>
                 <DropdownMenuTrigger className={cn(
-                  "flex items-center gap-1 font-body transition-colors relative",
+                  "flex items-center gap-1 font-body transition-colors relative group",
                   isServicesActive 
                     ? "text-accent font-medium" 
                     : "text-foreground hover:text-accent"
                 )}>
-                  Services <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                  {isServicesActive && (
+                  <span className="relative">
+                    Services
+                    <span className={cn(
+                      "absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                      isServicesActive ? "w-full" : "w-0 group-hover:w-full"
+                    )} />
+                  </span>
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                     <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
-                  )}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-[700px] p-4 grid grid-cols-3 gap-4 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                   {serviceCategories.map((category, categoryIndex) => (
@@ -194,20 +201,17 @@ export const Header = () => {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "font-body transition-colors relative py-1",
+                    "font-body transition-colors relative py-1 group",
                     isActiveLink(link.href)
                       ? "text-accent font-medium"
                       : "text-foreground hover:text-accent"
                   )}
                 >
                   {link.name}
-                  {isActiveLink(link.href) && (
-                    <motion.span 
-                      layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                    isActiveLink(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                  )} />
                 </a>
               ))}
             </nav>
