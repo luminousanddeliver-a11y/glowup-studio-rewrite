@@ -79,7 +79,7 @@ const About = () => {
       />
       
       <Header />
-      <main className="flex-1 overflow-hidden">
+      <main className="flex-1">
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center -mt-[80px] pt-[88px] lg:pt-[92px]">
           <div 
