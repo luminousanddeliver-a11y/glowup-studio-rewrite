@@ -24,34 +24,34 @@ const Index = () => {
     "priceRange": "££",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "6 Church Elm Lane",
+      "streetAddress": "125 Becontree Avenue",
       "addressLocality": "Dagenham",
-      "postalCode": "RM10 9RR",
+      "addressRegion": "Essex",
+      "postalCode": "RM8 2UJ",
       "addressCountry": "GB"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 51.5465,
-      "longitude": 0.1494
+      "latitude": 51.5432,
+      "longitude": 0.1258
     },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "10:00",
         "closes": "19:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "10:00",
-        "closes": "17:00"
       }
     ],
     "sameAs": [
       "https://www.facebook.com/laserlightskinclinic",
       "https://www.instagram.com/laserlightskinclinic"
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "250"
+    }
   };
 
   return (
