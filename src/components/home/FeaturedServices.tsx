@@ -1,36 +1,39 @@
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Zap, Droplets, Target, Eraser } from "lucide-react";
+import laserDevice from "@/assets/laser-device.jpg";
+import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
+import microneedlingDevice from "@/assets/microneedling-device.jpg";
+import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
 
 const services = [
   {
-    icon: Zap,
+    image: laserDevice,
     title: "Laser Hair Removal",
     description: "Pain-free permanent hair reduction in 6 sessions using NHS-approved Lynton Motus AY technology.",
     price: "From £80",
-    href: "/services/laser-hair-removal",
+    href: "/laser-hair-removal-dagenham",
   },
   {
-    icon: Droplets,
+    image: hydrafacialDevice,
     title: "Hydrafacials",
     description: "Deep cleanse, exfoliate, and hydrate your skin with our medical-grade Hydrafacial treatments.",
     price: "From £90",
-    href: "/services/hydrafacials",
+    href: "/hydrafacial-east-london",
   },
   {
-    icon: Target,
+    image: microneedlingDevice,
     title: "SkinPen Microneedling",
     description: "Reduce acne scars and boost collagen with FDA-cleared SkinPen technology.",
-    price: "Consultation Required",
-    href: "/services/microneedling",
+    price: "From £200",
+    href: "/skinpen-microneedling-dagenham",
   },
   {
-    icon: Eraser,
+    image: tattooRemovalDevice,
     title: "Tattoo Removal",
     description: "Remove unwanted tattoos with our advanced Quanta Thunder multi-wavelength laser system.",
-    price: "From Consultation",
-    href: "/services/tattoo-removal",
+    price: "From £50",
+    href: "/tattoo-removal-east-london",
   },
 ];
 
@@ -53,12 +56,17 @@ export const FeaturedServices = () => {
           {services.map((service) => (
             <Card
               key={service.title}
-              className="group bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+              className="group bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
+              {/* Service Image */}
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <CardHeader className="pb-4">
-                <div className="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                  <service.icon className="h-7 w-7 text-accent" />
-                </div>
                 <h3 className="text-foreground group-hover:text-accent transition-colors">
                   {service.title}
                 </h3>

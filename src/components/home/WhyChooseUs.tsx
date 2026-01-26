@@ -1,5 +1,6 @@
 import { Shield, Sparkles, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import treatmentRoom from "@/assets/treatment-room.jpg";
 
 const differentiators = [
   {
@@ -23,36 +24,57 @@ export const WhyChooseUs = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-foreground mb-4">
-            The Laser Light Difference: Why East London Chooses Us
-          </h2>
-          <p className="font-body text-lg text-muted-foreground">
-            We combine medical-grade safety with cutting-edge technology and local expertise to deliver results you can trust.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Image Side */}
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={treatmentRoom} 
+                alt="Luxury treatment room with ambient lighting" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Floating Badge */}
+            <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground px-6 py-4 rounded-xl shadow-lg hidden md:block">
+              <div className="font-heading text-2xl font-bold">6+</div>
+              <div className="font-body text-sm">Years Experience</div>
+            </div>
+          </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {differentiators.map((item) => (
-            <Card
-              key={item.title}
-              className="bg-card border-border shadow-card text-center group hover:shadow-card-hover transition-all duration-300"
-            >
-              <CardHeader className="pb-4">
-                <div className="w-20 h-20 mx-auto rounded-full bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  <item.icon className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="text-foreground">{item.title}</h3>
-              </CardHeader>
-              <CardContent>
-                <p className="font-body text-muted-foreground">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {/* Content Side */}
+          <div>
+            {/* Header */}
+            <div className="mb-8">
+              <h2 className="text-foreground mb-4">
+                The Laser Light Difference
+              </h2>
+              <p className="font-body text-lg text-muted-foreground">
+                We combine medical-grade safety with cutting-edge technology and local expertise to deliver results you can trust.
+              </p>
+            </div>
+
+            {/* Cards Stack */}
+            <div className="space-y-4">
+              {differentiators.map((item) => (
+                <Card
+                  key={item.title}
+                  className="bg-card border-border shadow-card group hover:shadow-card-hover transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4 p-6">
+                    <div className="w-14 h-14 shrink-0 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                      <item.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-foreground mb-2">{item.title}</h3>
+                      <p className="font-body text-muted-foreground text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
