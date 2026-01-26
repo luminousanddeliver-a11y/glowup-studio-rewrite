@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Phone, ShoppingBag } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -82,17 +83,45 @@ const navLinks = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
   const { cartCount, setIsCartOpen } = useCart();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsCompact(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       <PromoBanner />
-      <header className="sticky top-0 z-50 bg-card shadow-card">
+      <motion.header 
+        className="sticky top-0 z-50 bg-card shadow-card"
+        animate={{ 
+          boxShadow: isCompact 
+            ? "0 4px 20px rgba(0,0,0,0.1)" 
+            : "0 1px 3px rgba(0,0,0,0.05)" 
+        }}
+        transition={{ duration: 0.2 }}
+      >
         <div className="container-custom">
-          <div className="flex h-20 items-center justify-between">
+          <motion.div 
+            className="flex items-center justify-between"
+            animate={{ height: isCompact ? 64 : 80 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <img src={logo} alt="Laser Light Skin Clinic" className="h-14 w-auto" />
+              <motion.img 
+                src={logo} 
+                alt="Laser Light Skin Clinic" 
+                className="w-auto"
+                animate={{ height: isCompact ? 40 : 56 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              />
             </a>
 
             {/* Desktop Navigation */}
@@ -165,7 +194,7 @@ export const Header = () => {
                 )}
               </button>
               
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-12 px-6">
+              <Button asChild className={`bg-primary hover:bg-primary/90 text-primary-foreground font-body px-6 transition-all duration-200 ${isCompact ? 'h-10' : 'h-12'}`}>
                 <a href="/contact">Book Consultation</a>
               </Button>
             </div>
@@ -199,7 +228,7 @@ export const Header = () => {
                 )}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
@@ -266,7 +295,7 @@ export const Header = () => {
             </div>
           )}
         </div>
-      </header>
+      </motion.header>
     </>
   );
 };
