@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar, ChevronDown, Shield, Star } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
-import { useInView } from "framer-motion";
 import { PageBreadcrumb, BreadcrumbItemType } from "@/components/layout/PageBreadcrumb";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 interface SecondaryCTA {
   text: string;
@@ -13,6 +13,12 @@ interface SecondaryCTA {
 interface HeroStat {
   value: string;
   label: string;
+}
+
+interface FloatingBadge {
+  icon?: React.ReactNode;
+  title: string;
+  description: string;
 }
 
 interface ServiceHeroProps {
@@ -26,57 +32,13 @@ interface ServiceHeroProps {
   primaryCtaHref?: string;
   secondaryCta?: SecondaryCTA;
   showPhoneCta?: boolean;
-  backgroundImage?: string;
+  heroImage?: string;
+  floatingBadge?: FloatingBadge;
   stats?: HeroStat[];
   breadcrumbs?: BreadcrumbItemType[];
+  /** @deprecated Use heroImage instead */
+  backgroundImage?: string;
 }
-
-// Animated counter component
-const AnimatedCounter = ({ value, label }: { value: string; label: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [displayValue, setDisplayValue] = useState("0");
-  
-  useEffect(() => {
-    if (!isInView) return;
-    
-    // Extract numeric part and suffix
-    const numericMatch = value.match(/^([\d,]+)/);
-    if (!numericMatch) {
-      setDisplayValue(value);
-      return;
-    }
-    
-    const targetNum = parseInt(numericMatch[1].replace(/,/g, ""));
-    const suffix = value.slice(numericMatch[0].length);
-    const duration = 1500;
-    const steps = 30;
-    const stepDuration = duration / steps;
-    
-    let currentStep = 0;
-    const interval = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-      const currentValue = Math.round(targetNum * eased);
-      setDisplayValue(currentValue.toLocaleString() + suffix);
-      
-      if (currentStep >= steps) {
-        clearInterval(interval);
-        setDisplayValue(value);
-      }
-    }, stepDuration);
-    
-    return () => clearInterval(interval);
-  }, [isInView, value]);
-  
-  return (
-    <div ref={ref} className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-      <div className="font-heading text-2xl font-semibold text-primary">{displayValue}</div>
-      <div className="font-body text-sm text-muted-foreground">{label}</div>
-    </div>
-  );
-};
 
 export const ServiceHero = ({
   title,
@@ -89,10 +51,25 @@ export const ServiceHero = ({
   primaryCtaHref = "https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true",
   secondaryCta,
   showPhoneCta = true,
-  backgroundImage,
+  heroImage,
+  floatingBadge,
   stats,
   breadcrumbs,
+  backgroundImage,
 }: ServiceHeroProps) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Parallax effect for image
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  // Use heroImage or fall back to backgroundImage for backwards compatibility
+  const displayImage = heroImage || backgroundImage;
+
   // Split title by accent if provided
   const renderTitle = () => {
     if (titleAccent && title.includes(titleAccent)) {
@@ -109,32 +86,34 @@ export const ServiceHero = ({
   };
 
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      {backgroundImage && (
-        <div className="absolute inset-0">
-          <img 
-            src={backgroundImage} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
-        </div>
-      )}
-
-      {/* Fallback gradient if no image */}
-      {!backgroundImage && (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5" />
-      )}
-
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-left">
+    <section ref={sectionRef} className="bg-background py-16 md:py-20 lg:py-24 overflow-hidden">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left: Content (appears second on mobile, first on desktop) */}
+          <motion.div 
+            className="text-center lg:text-left order-2 lg:order-1"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {/* Breadcrumbs */}
             {breadcrumbs && breadcrumbs.length > 0 && (
-              <PageBreadcrumb items={breadcrumbs} variant="light" className="mb-4 justify-center lg:justify-start" />
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <PageBreadcrumb items={breadcrumbs} className="mb-4 justify-center lg:justify-start" />
+              </motion.div>
             )}
+
+            {/* Decorative teal bar */}
+            <motion.div 
+              className="w-12 h-1 bg-primary mb-6 mx-auto lg:mx-0"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            />
             
             {/* Trust Badge */}
             {trustBadge && (
@@ -142,7 +121,7 @@ export const ServiceHero = ({
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
-                className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4 backdrop-blur-sm"
               >
                 <Shield className="h-4 w-4" />
                 <span className="font-body text-sm font-semibold">{trustBadge}</span>
@@ -182,7 +161,7 @@ export const ServiceHero = ({
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.4 }}
-                className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-8 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-6"
               >
                 <Star className="h-4 w-4 fill-current" />
                 <span className="font-body font-semibold">{badge}</span>
@@ -212,7 +191,7 @@ export const ServiceHero = ({
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg bg-background/50 backdrop-blur-sm"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg"
                 >
                   <a href={secondaryCta.href}>
                     <ChevronDown className="mr-2 h-5 w-5" />
@@ -226,7 +205,7 @@ export const ServiceHero = ({
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg bg-background/50 backdrop-blur-sm"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg"
                 >
                   <a href="tel:02085981200">
                     <Phone className="mr-2 h-5 w-5" />
@@ -236,30 +215,88 @@ export const ServiceHero = ({
               )}
             </motion.div>
 
-            {/* Quick Stats with counting animation */}
+            {/* Stats with top border divider */}
             {stats && stats.length > 0 && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="flex flex-wrap justify-center lg:justify-start gap-6 mt-10"
+                className="border-t border-border mt-8 pt-6"
               >
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                  >
-                    <AnimatedCounter value={stat.value} label={stat.label} />
-                  </motion.div>
-                ))}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      className="text-center lg:text-left"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                    >
+                      <div className="font-heading text-xl font-bold text-primary">{stat.value}</div>
+                      <div className="font-body text-xs text-muted-foreground">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             )}
-          </div>
+          </motion.div>
 
-          {/* Empty right side - image fills background */}
-          <div className="hidden lg:block" />
+          {/* Right: Image (appears first on mobile, second on desktop) */}
+          <motion.div 
+            className="relative order-1 lg:order-2 mb-10 lg:mb-0"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
+            {displayImage && (
+              <>
+                <motion.div 
+                  className="rounded-2xl overflow-hidden shadow-lg"
+                  style={{ y: imageY }}
+                  initial={{ scale: 0.95 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  <OptimizedImage 
+                    src={displayImage} 
+                    alt={title}
+                    className="w-full aspect-[4/3] object-cover"
+                    priority={true}
+                    objectFit="cover"
+                  />
+                </motion.div>
+                
+                {/* Floating Badge - NHS/Trust indicator */}
+                {floatingBadge ? (
+                  <motion.div 
+                    className="absolute -bottom-8 right-4 lg:-right-6 bg-primary text-primary-foreground px-6 py-5 rounded-xl shadow-xl max-w-[280px] z-10"
+                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      {floatingBadge.icon || <Shield className="h-5 w-5 flex-shrink-0" />}
+                      <span className="font-semibold text-base">{floatingBadge.title}</span>
+                    </div>
+                    <div className="text-sm opacity-90 leading-snug">{floatingBadge.description}</div>
+                  </motion.div>
+                ) : (
+                  <motion.div 
+                    className="absolute -bottom-8 right-4 lg:-right-6 bg-primary text-primary-foreground px-6 py-5 rounded-xl shadow-xl max-w-[280px] z-10"
+                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <Shield className="h-5 w-5 flex-shrink-0" />
+                      <span className="font-semibold text-base">NHS Approved</span>
+                    </div>
+                    <div className="text-sm opacity-90 leading-snug">FDA-certified technology for safe, effective treatments</div>
+                  </motion.div>
+                )}
+              </>
+            )}
+          </motion.div>
         </div>
       </div>
     </section>

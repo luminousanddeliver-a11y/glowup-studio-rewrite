@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Target, Sparkles, Zap, CheckCircle, RefreshCw, Eye } from "lucide-react";
 import advancedElectrolysisDevice from "@/assets/advanced-electrolysis-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const AdvancedElectrolysis = () => {
   const structuredData = {
@@ -256,7 +256,7 @@ const AdvancedElectrolysis = () => {
           description="Precise removal of unwanted skin blemishes using advanced electrolysis techniques. Permanent results with minimal scarring."
           badge="15-Minute Sessions From £50"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={advancedElectrolysisDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Advanced Electrolysis" }

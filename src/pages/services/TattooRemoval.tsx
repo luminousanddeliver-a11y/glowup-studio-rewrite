@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Palette, Calendar, Shield, Sparkles } from "lucide-react";
 import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const TattooRemoval = () => {
   const serviceSchema = {
@@ -338,7 +338,7 @@ const TattooRemoval = () => {
           description="Remove ALL ink colors—including stubborn blues and greens—in 50% fewer sessions with our exclusive Quanta Thunder Series technology."
           badge="Exclusive Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={tattooRemovalDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Tattoo Removal" }

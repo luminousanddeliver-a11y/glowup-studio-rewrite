@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, PiggyBank } from "lucide-react";
 import laserDevice from "@/assets/laser-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const LaserHairRemoval = () => {
   // Structured Data for SEO
@@ -346,7 +346,7 @@ const LaserHairRemoval = () => {
           description="Safe for all skin types including dark skin. Book your free consultation and say goodbye to shaving forever."
           badge="25% Off First Course"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Laser Hair Removal" }

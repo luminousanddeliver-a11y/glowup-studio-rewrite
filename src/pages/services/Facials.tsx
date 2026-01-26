@@ -17,7 +17,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Sun, Droplets, Gem, Star } from "lucide-react";
 import facialsSetup from "@/assets/facials-setup.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const Facials = () => {
   const structuredData = {
@@ -253,7 +253,7 @@ const Facials = () => {
           description="Bespoke treatments tailored to your skin's unique needs. From deep cleansing to red-carpet luxury, experience professional skincare at its finest."
           badge="From £45"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={facialsSetup}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Facials" }

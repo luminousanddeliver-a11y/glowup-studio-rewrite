@@ -17,7 +17,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Sparkles, Layers, Clock, Shield } from "lucide-react";
 import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const ChemicalPeels = () => {
   const serviceSchema = {
@@ -273,7 +273,7 @@ const ChemicalPeels = () => {
           description="Medical-grade chemical peels to treat acne, pigmentation, and dull skin. Professional solutions for visible results."
           badge="Skin Resurfacing"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={chemicalPeelProducts}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Chemical Peels" }

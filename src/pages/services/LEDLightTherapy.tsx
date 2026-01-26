@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Sun, Zap, RefreshCw, CheckCircle } from "lucide-react";
 import ledDevice from "@/assets/led-therapy-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const LEDLightTherapy = () => {
   const structuredData = {
@@ -254,7 +254,7 @@ const LEDLightTherapy = () => {
           description="Painless phototherapy for acne, anti-aging, and inflammation. No downtime, no discomfort—just results."
           badge="From £50 Per Session"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={ledDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "LED Light Therapy" }

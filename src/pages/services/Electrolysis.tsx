@@ -17,7 +17,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Award, Target, Palette, CheckCircle } from "lucide-react";
 import electrolysisDevice from "@/assets/electrolysis-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const Electrolysis = () => {
   const serviceSchema = {
@@ -276,7 +276,7 @@ const Electrolysis = () => {
           description="FDA-approved permanent hair removal that works on grey, blonde, white, and red hair. Precision treatment for lasting results."
           badge="Works on Grey Hair"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={electrolysisDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Electrolysis" }

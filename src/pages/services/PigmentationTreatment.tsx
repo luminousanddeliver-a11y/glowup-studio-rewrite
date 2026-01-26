@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sun, Layers, Target, Sparkles, RefreshCw, CheckCircle } from "lucide-react";
 import pigmentationDevice from "@/assets/pigmentation-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const PigmentationTreatment = () => {
   const structuredData = {
@@ -262,7 +262,7 @@ const PigmentationTreatment = () => {
           description="Advanced treatments for all types of pigmentation. From laser to Cosmelan, we find the right solution for your skin."
           badge="Free Skin Analysis"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={pigmentationDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Pigmentation Treatment" }

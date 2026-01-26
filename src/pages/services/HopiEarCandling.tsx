@@ -16,7 +16,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Moon, Heart, RefreshCw, Ear, Leaf } from "lucide-react";
 import hopiCandles from "@/assets/hopi-candles.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Massage Therapy", href: "/massage-dagenham", description: "Complete your relaxation with therapeutic massage" },
@@ -240,7 +240,7 @@ const HopiEarCandling = () => {
           description="Experience this traditional thermo-auricular therapy. A gentle, relaxing treatment including soothing facial massage."
           badge="From £45"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={hopiCandles}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Hopi Ear Candling" }

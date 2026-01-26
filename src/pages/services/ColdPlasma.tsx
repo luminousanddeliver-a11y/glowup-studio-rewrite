@@ -17,7 +17,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Zap, Shield, Sparkles, Atom } from "lucide-react";
 import coldPlasmaDevice from "@/assets/cold-plasma-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const ColdPlasma = () => {
   const serviceSchema = {
@@ -276,7 +276,7 @@ const ColdPlasma = () => {
           description="Harness cold atmospheric plasma to sterilize acne bacteria, boost product absorption 120x, and stimulate natural collagen."
           badge="Cutting-Edge Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={coldPlasmaDevice}
+          heroImage={coldPlasmaDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Cold Plasma" }

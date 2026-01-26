@@ -17,7 +17,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Zap, Shield, Droplets, Heart } from "lucide-react";
 import ivDripSetup from "@/assets/iv-drip-setup.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const IVDrips = () => {
   const serviceSchema = {
@@ -273,7 +273,7 @@ const IVDrips = () => {
           description="Boost energy, strengthen immunity, and achieve radiant skin with medically supervised IV vitamin infusions."
           badge="Wellness From Within"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={ivDripSetup}
+          heroImage={ivDripSetup}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "IV Drips" }

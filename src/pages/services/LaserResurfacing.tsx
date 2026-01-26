@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Sparkles, RefreshCw, Target, Layers, Zap } from "lucide-react";
 import laserResurfacingDevice from "@/assets/laser-resurfacing-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham", description: "Natural collagen induction for scars" },
@@ -291,7 +291,7 @@ const LaserResurfacing = () => {
           description="Dramatically reduce acne scars, wrinkles, and sun damage. Stimulate collagen production for lasting rejuvenation."
           badge="Free Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={laserResurfacingDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Laser Resurfacing" }
