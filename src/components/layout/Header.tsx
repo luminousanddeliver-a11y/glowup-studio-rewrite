@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone, ShoppingBag } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, ShoppingBag, Zap, Sparkles, Wand2, Eraser, Heart, Gift } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 const serviceCategories = [
   {
     name: "Laser & Hair Removal",
+    icon: Zap,
     services: [
       { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham" },
       { name: "Electrolysis", href: "/electrolysis-hair-removal-dagenham" },
@@ -28,6 +29,7 @@ const serviceCategories = [
   },
   {
     name: "Facials & Skin",
+    icon: Sparkles,
     services: [
       { name: "Hydrafacials", href: "/hydrafacial-east-london" },
       { name: "Facials", href: "/facials-dagenham" },
@@ -38,6 +40,7 @@ const serviceCategories = [
   },
   {
     name: "Advanced Treatments",
+    icon: Wand2,
     services: [
       { name: "Botox & Fillers", href: "/injectables-dagenham" },
       { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham" },
@@ -49,6 +52,7 @@ const serviceCategories = [
   },
   {
     name: "Removal Treatments",
+    icon: Eraser,
     services: [
       { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
       { name: "Vein Removal", href: "/vein-removal-east-london" },
@@ -57,6 +61,7 @@ const serviceCategories = [
   },
   {
     name: "Wellness & Body",
+    icon: Heart,
     services: [
       { name: "IV Drips & Infusions", href: "/iv-drips-infusions-east-london" },
       { name: "Massage", href: "/massage-dagenham" },
@@ -67,6 +72,7 @@ const serviceCategories = [
   },
   {
     name: "More",
+    icon: Gift,
     services: [
       { name: "Gift Vouchers", href: "/gift-vouchers" },
       { name: "Academy", href: "/academy" },
@@ -167,7 +173,8 @@ export const Header = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: categoryIndex * 0.03, duration: 0.2 }}
                     >
-                      <DropdownMenuLabel className="text-accent font-heading text-sm pb-1.5 mb-1 border-b border-accent/20">
+                      <DropdownMenuLabel className="text-accent font-heading text-sm pb-1.5 mb-1 border-b border-accent/20 flex items-center gap-1.5">
+                        <category.icon className="h-3.5 w-3.5" />
                         {category.name}
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
