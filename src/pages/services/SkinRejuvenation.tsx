@@ -267,12 +267,19 @@ const SkinRejuvenation = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="Anti-Aging & Radiance"
+          trustBadge="Multi-Modality Approach"
           title="Skin Rejuvenation Dagenham"
+          titleAccent="Dagenham"
           subtitle="Turn Back the Clock. Reveal Your Best Skin."
-          description="Reduce sun damage, fine lines, and uneven skin tone with our advanced multi-modality skin rejuvenation treatments. Customized plans for lasting results."
+          description="Reduce sun damage, fine lines, and uneven skin tone with advanced multi-modality treatments. Customized plans for lasting results."
+          badge="Anti-Aging & Radiance"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "Sun Damage", label: "Corrected" },
+            { value: "Fine Lines", label: "Reduced" },
+            { value: "Minimal", label: "Downtime" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

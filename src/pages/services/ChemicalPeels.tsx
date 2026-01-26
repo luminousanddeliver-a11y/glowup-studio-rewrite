@@ -263,12 +263,19 @@ const ChemicalPeels = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="Skin Resurfacing"
+          trustBadge="AlumierMD Professional"
           title="Chemical Peels Dagenham"
+          titleAccent="Dagenham"
           subtitle="Reveal Fresher, Clearer, Brighter Skin."
-          description="Medical-grade chemical peels to treat acne, pigmentation, and dull skin. AlumierMD professional solutions for visible results."
+          description="Medical-grade chemical peels to treat acne, pigmentation, and dull skin. Professional solutions for visible results."
+          badge="Skin Resurfacing"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "Clearer", label: "Skin" },
+            { value: "Multiple", label: "Peel Types" },
+            { value: "Lunch", label: "Break Friendly" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

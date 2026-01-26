@@ -291,12 +291,19 @@ const Hydrafacials = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="Most Popular Facial"
+          trustBadge="Celebrity-Loved Treatment"
           title="Hydrafacial East London"
+          titleAccent="East London"
           subtitle="Deep Cleanse. Extract. Hydrate. Glow."
-          description="The ultimate facial treatment that cleanses, exfoliates, and hydrates your skin in just 45 minutes. Walk out with an instant glow and zero downtime."
+          description="The ultimate facial that cleanses, exfoliates, and hydrates in 45 minutes. Walk out glowing with zero downtime."
+          badge="Most Popular Facial"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "45 Min", label: "Treatment" },
+            { value: "Zero", label: "Downtime" },
+            { value: "Instant", label: "Glow" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

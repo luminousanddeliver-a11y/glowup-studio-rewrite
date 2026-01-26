@@ -266,12 +266,19 @@ const IntimateWhitening = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="Discreet & Professional"
-          title="Intimate V-Whitening"
+          trustBadge="Female Practitioners Only"
+          title="Intimate V-Whitening East London"
+          titleAccent="East London"
           subtitle="Confidence Restored. Privacy Guaranteed."
-          description="Safe, professional intimate lightening treatment using medical-grade products. Discreet care by qualified female practitioners in a confidential setting."
+          description="Safe, professional intimate lightening using medical-grade products. Discreet care by qualified female practitioners."
+          badge="Discreet & Professional"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={intimateCareProducts}
+          stats={[
+            { value: "Discreet", label: "& Private" },
+            { value: "Medical", label: "Grade" },
+            { value: "Long", label: "Lasting" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

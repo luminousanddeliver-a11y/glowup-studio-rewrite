@@ -266,12 +266,19 @@ const ColdPlasma = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="Cutting-Edge Technology"
-          title="Cold Plasma Treatment"
+          trustBadge="Advanced Science"
+          title="Cold Plasma Treatment Dagenham"
+          titleAccent="Dagenham"
           subtitle="The 4th State of Matter. For Revolutionary Skin Results."
-          description="Harness the power of cold atmospheric plasma to sterilize acne bacteria, boost product absorption 120x, and stimulate natural collagen production."
+          description="Harness cold atmospheric plasma to sterilize acne bacteria, boost product absorption 120x, and stimulate natural collagen."
+          badge="Cutting-Edge Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={coldPlasmaDevice}
+          stats={[
+            { value: "120x", label: "Absorption" },
+            { value: "Bacteria", label: "Sterilized" },
+            { value: "Zero", label: "Downtime" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

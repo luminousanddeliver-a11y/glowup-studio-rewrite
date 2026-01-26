@@ -303,12 +303,19 @@ const LaserHairRemoval = () => {
       <main className="flex-1">
         {/* Section 1: Hero */}
         <ServiceHero
-          badge="25% Off First Course"
+          trustBadge="NHS-Approved Clinic"
           title="Pain-Free Laser Hair Removal in Dagenham"
-          subtitle="Achieve permanent hair reduction in just 6-8 sessions using the revolutionary Lynton Motus AY system. Safe for all skin types, including dark skin."
-          description="Book your free consultation today and say goodbye to shaving and waxing forever."
+          titleAccent="Dagenham"
+          subtitle="Permanent hair reduction in just 6-8 sessions with the revolutionary Lynton Motus AY."
+          description="Safe for all skin types including dark skin. Book your free consultation and say goodbye to shaving forever."
+          badge="25% Off First Course"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "6-8", label: "Sessions" },
+            { value: "Pain-Free", label: "Guaranteed" },
+            { value: "All Skin", label: "Types" }
+          ]}
         />
         
         {/* Section 2: Quick Stats */}

@@ -294,12 +294,19 @@ const TattooRemoval = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="All Colors Removed"
+          trustBadge="Medical-Grade Laser"
           title="Tattoo Removal East London"
+          titleAccent="East London"
           subtitle="Erase the Past. Embrace Your Future."
-          description="Regret your tattoo? Our advanced Q-switched laser technology safely removes all ink colors—including stubborn blues and greens—with minimal scarring risk."
+          description="Advanced Q-switched laser safely removes all ink colors—including stubborn blues and greens—with minimal scarring risk."
+          badge="All Colors Removed"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "All", label: "Ink Colors" },
+            { value: "Minimal", label: "Scarring" },
+            { value: "Cover-Up", label: "Ready" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

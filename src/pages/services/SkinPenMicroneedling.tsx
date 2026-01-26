@@ -276,12 +276,19 @@ const SkinPenMicroneedling = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="FDA Cleared"
+          trustBadge="FDA Cleared Device"
           title="SkinPen Microneedling Dagenham"
+          titleAccent="Dagenham"
           subtitle="Transform Scars. Boost Collagen. Naturally."
-          description="The FDA-cleared collagen induction therapy that dramatically reduces acne scars, fine lines, and improves skin texture. Safe for all skin types."
+          description="FDA-cleared collagen induction therapy that dramatically reduces acne scars, fine lines, and improves skin texture. Safe for all skin types."
+          badge="Natural Collagen Boost"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "Acne Scars", label: "Reduced" },
+            { value: "All Skin", label: "Types Safe" },
+            { value: "3 Sessions", label: "Results" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />
