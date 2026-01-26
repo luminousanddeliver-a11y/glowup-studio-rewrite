@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -67,7 +68,12 @@ const BlogPost = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 flex items-center justify-center">
-          <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="text-center"
+          >
             <h1 className="font-heading text-3xl font-semibold text-foreground mb-4">
               Article Not Found
             </h1>
@@ -80,7 +86,7 @@ const BlogPost = () => {
                 Back to Blog
               </a>
             </Button>
-          </div>
+          </motion.div>
         </main>
         <Footer />
       </div>
@@ -131,25 +137,43 @@ const BlogPost = () => {
         {/* Hero Section */}
         <section className="bg-primary py-12 md:py-20">
           <div className="container-custom max-w-4xl">
-            <a 
+            <motion.a
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
               href="/blog" 
               className="inline-flex items-center text-primary-foreground/80 hover:text-accent transition-colors mb-6 font-body text-sm"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Blog
-            </a>
+            </motion.a>
             
             {post.category && (
-              <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full font-body text-sm font-medium mb-4">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full font-body text-sm font-medium mb-4"
+              >
                 {post.category}
-              </span>
+              </motion.span>
             )}
             
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 leading-tight"
+            >
               {post.title}
-            </h1>
+            </motion.h1>
             
-            <div className="flex items-center gap-6 text-primary-foreground/70 font-body text-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex items-center gap-6 text-primary-foreground/70 font-body text-sm"
+            >
               {post.published_at && (
                 <span className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
@@ -162,27 +186,35 @@ const BlogPost = () => {
                   {post.reading_time} min read
                 </span>
               )}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Featured Image */}
         {post.featured_image && (
           <section className="container-custom max-w-4xl -mt-8">
-            <div className="rounded-xl overflow-hidden shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="rounded-xl overflow-hidden shadow-lg"
+            >
               <img 
                 src={post.featured_image} 
                 alt={post.title}
                 className="w-full h-auto object-cover"
               />
-            </div>
+            </motion.div>
           </section>
         )}
 
         {/* Article Content */}
         <article className="section-padding">
           <div className="container-custom max-w-4xl">
-            <div 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               className="prose prose-lg max-w-none font-body
                 prose-headings:font-heading prose-headings:text-foreground
                 prose-p:text-muted-foreground prose-p:leading-relaxed
@@ -201,22 +233,41 @@ const BlogPost = () => {
         {/* CTA Section */}
         <section className="bg-secondary py-12 md:py-16">
           <div className="container-custom max-w-4xl text-center">
-            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Ready to Start Your Transformation?
-            </h2>
-            <p className="font-body text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
-            </p>
-            <Button 
-              asChild 
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8"
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4"
             >
-              <a href="/contact">
-                Book Free Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
+              Ready to Start Your Transformation?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-body text-muted-foreground mb-6 max-w-2xl mx-auto"
+            >
+              Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Button 
+                asChild 
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8"
+              >
+                <a href="/contact">
+                  Book Free Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+            </motion.div>
           </div>
         </section>
       </main>

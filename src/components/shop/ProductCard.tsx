@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { ShoppingBag, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -49,7 +50,14 @@ export const ProductCard = ({
   };
 
   return (
-    <div className="group bg-card rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5 }}
+      className="group bg-card rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300"
+    >
       {/* Image */}
       <div className="relative aspect-square bg-muted overflow-hidden">
         {imageUrl ? (
@@ -70,9 +78,15 @@ export const ProductCard = ({
             {category}
           </Badge>
           {isOnSale && (
-            <Badge className="bg-accent text-accent-foreground font-body text-xs">
-              Save {Math.round(savings)}%
-            </Badge>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Badge className="bg-accent text-accent-foreground font-body text-xs">
+                Save {Math.round(savings)}%
+              </Badge>
+            </motion.div>
           )}
         </div>
       </div>
@@ -121,15 +135,21 @@ export const ProductCard = ({
             </button>
           </div>
           
-          <Button
-            onClick={handleAddToCart}
-            className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground font-body"
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex-1"
           >
-            <ShoppingBag className="w-4 h-4 mr-2" />
-            Add to Cart
-          </Button>
+            <Button
+              onClick={handleAddToCart}
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-body"
+            >
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Add to Cart
+            </Button>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

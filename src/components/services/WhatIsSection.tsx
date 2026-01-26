@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 interface WhatIsSectionProps {
   title: string;
   content: string[];
@@ -9,25 +11,43 @@ export const WhatIsSection = ({ title, content, highlightText }: WhatIsSectionPr
     <section className="section-padding bg-background">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-foreground mb-8 text-center">{title}</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-foreground mb-8 text-center"
+          >
+            {title}
+          </motion.h2>
           
           <div className="space-y-6">
             {content.map((paragraph, index) => (
-              <p
+              <motion.p
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="font-body text-lg text-muted-foreground leading-relaxed"
               >
                 {paragraph}
-              </p>
+              </motion.p>
             ))}
           </div>
           
           {highlightText && (
-            <div className="mt-8 p-6 bg-accent/10 rounded-lg border-l-4 border-accent">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: content.length * 0.1 }}
+              className="mt-8 p-6 bg-accent/10 rounded-lg border-l-4 border-accent"
+            >
               <p className="font-heading font-medium text-foreground">
                 {highlightText}
               </p>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>

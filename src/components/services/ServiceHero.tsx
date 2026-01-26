@@ -1,5 +1,8 @@
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar, ChevronDown, Shield, Star } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { useInView } from "framer-motion";
 
 interface SecondaryCTA {
   text: string;
@@ -25,6 +28,53 @@ interface ServiceHeroProps {
   backgroundImage?: string;
   stats?: HeroStat[];
 }
+
+// Animated counter component
+const AnimatedCounter = ({ value, label }: { value: string; label: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [displayValue, setDisplayValue] = useState("0");
+  
+  useEffect(() => {
+    if (!isInView) return;
+    
+    // Extract numeric part and suffix
+    const numericMatch = value.match(/^([\d,]+)/);
+    if (!numericMatch) {
+      setDisplayValue(value);
+      return;
+    }
+    
+    const targetNum = parseInt(numericMatch[1].replace(/,/g, ""));
+    const suffix = value.slice(numericMatch[0].length);
+    const duration = 1500;
+    const steps = 30;
+    const stepDuration = duration / steps;
+    
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const currentValue = Math.round(targetNum * eased);
+      setDisplayValue(currentValue.toLocaleString() + suffix);
+      
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        setDisplayValue(value);
+      }
+    }, stepDuration);
+    
+    return () => clearInterval(interval);
+  }, [isInView, value]);
+  
+  return (
+    <div ref={ref} className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
+      <div className="font-heading text-2xl font-semibold text-primary">{displayValue}</div>
+      <div className="font-body text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+};
 
 export const ServiceHero = ({
   title,
@@ -80,34 +130,64 @@ export const ServiceHero = ({
           <div className="text-center lg:text-left">
             {/* Trust Badge */}
             {trustBadge && (
-              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
+                className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6 backdrop-blur-sm"
+              >
                 <Shield className="h-4 w-4" />
                 <span className="font-body text-sm font-semibold">{trustBadge}</span>
-              </div>
+              </motion.div>
             )}
 
-            <h1 className="text-foreground mb-4 leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-foreground mb-4 leading-tight"
+            >
               {renderTitle()}
-            </h1>
+            </motion.h1>
 
-            <p className="text-xl md:text-2xl font-heading font-medium text-muted-foreground mb-4">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl md:text-2xl font-heading font-medium text-muted-foreground mb-4"
+            >
               {subtitle}
-            </p>
+            </motion.p>
 
-            <p className="font-body text-lg text-muted-foreground/80 max-w-xl mx-auto lg:mx-0 mb-6">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="font-body text-lg text-muted-foreground/80 max-w-xl mx-auto lg:mx-0 mb-6"
+            >
               {description}
-            </p>
+            </motion.p>
 
             {/* Offer Badge */}
             {badge && (
-              <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-8 backdrop-blur-sm">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-8 backdrop-blur-sm"
+              >
                 <Star className="h-4 w-4 fill-current" />
                 <span className="font-body font-semibold">{badge}</span>
-              </div>
+              </motion.div>
             )}
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
               <Button
                 asChild
                 size="lg"
@@ -146,18 +226,27 @@ export const ServiceHero = ({
                   </a>
                 </Button>
               )}
-            </div>
+            </motion.div>
 
-            {/* Quick Stats */}
+            {/* Quick Stats with counting animation */}
             {stats && stats.length > 0 && (
-              <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="flex flex-wrap justify-center lg:justify-start gap-6 mt-10"
+              >
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <div className="font-heading text-2xl font-semibold text-primary">{stat.value}</div>
-                    <div className="font-body text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                  >
+                    <AnimatedCounter value={stat.value} label={stat.label} />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             )}
           </div>
 

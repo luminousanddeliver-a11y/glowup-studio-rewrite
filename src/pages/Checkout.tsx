@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
@@ -31,14 +32,19 @@ const Checkout = () => {
         />
         <Header />
         <main className="min-h-screen bg-background flex items-center justify-center">
-          <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="text-center"
+          >
             <h1 className="font-heading text-2xl font-semibold text-foreground mb-2">
               Your cart is empty
             </h1>
             <p className="font-body text-muted-foreground mb-4">
               Redirecting to shop...
             </p>
-          </div>
+          </motion.div>
         </main>
         <Footer />
       </>
@@ -58,31 +64,52 @@ const Checkout = () => {
       <main className="min-h-screen bg-background py-8 lg:py-12">
         <div className="container-custom">
           {/* Back Link */}
-          <Button
-            variant="ghost"
-            asChild
-            className="mb-6 font-body"
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <a href="/shop">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Shop
-            </a>
-          </Button>
+            <Button
+              variant="ghost"
+              asChild
+              className="mb-6 font-body"
+            >
+              <a href="/shop">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Shop
+              </a>
+            </Button>
+          </motion.div>
 
-          <h1 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-8"
+          >
             Checkout
-          </h1>
+          </motion.h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Form */}
-            <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="lg:col-span-2"
+            >
               <CheckoutForm />
-            </div>
+            </motion.div>
 
             {/* Order Summary */}
-            <div className="lg:col-span-1">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="lg:col-span-1"
+            >
               <OrderSummary />
-            </div>
+            </motion.div>
           </div>
         </div>
       </main>

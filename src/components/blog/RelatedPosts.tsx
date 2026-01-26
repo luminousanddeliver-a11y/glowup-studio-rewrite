@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowRight } from "lucide-react";
@@ -63,13 +64,23 @@ export const RelatedPosts = ({ currentSlug, category }: RelatedPostsProps) => {
   return (
     <section className="bg-muted/30 py-12 md:py-16">
       <div className="container-custom max-w-4xl">
-        <h2 className="font-heading text-2xl font-semibold text-foreground mb-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="font-heading text-2xl font-semibold text-foreground mb-8"
+        >
           You May Also Like
-        </h2>
+        </motion.h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <article 
+          {posts.map((post, index) => (
+            <motion.article
               key={post.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
             >
               {post.featured_image && (
@@ -85,9 +96,14 @@ export const RelatedPosts = ({ currentSlug, category }: RelatedPostsProps) => {
               )}
               <div className="p-4">
                 {post.category && (
-                  <span className="inline-block bg-accent/10 text-accent px-2 py-0.5 rounded-full font-body text-xs font-medium mb-2">
+                  <motion.span
+                    initial={{ scale: 0.9 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    className="inline-block bg-accent/10 text-accent px-2 py-0.5 rounded-full font-body text-xs font-medium mb-2"
+                  >
                     {post.category}
-                  </span>
+                  </motion.span>
                 )}
                 <h3 className="font-heading text-sm font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-accent transition-colors">
                   <a href={`/blog/${post.slug}`}>{post.title}</a>
@@ -100,7 +116,7 @@ export const RelatedPosts = ({ currentSlug, category }: RelatedPostsProps) => {
                   <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

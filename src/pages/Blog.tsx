@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -61,12 +62,22 @@ const Blog = () => {
         {/* Hero Section */}
         <section className="bg-primary py-16 md:py-24">
           <div className="container-custom text-center">
-            <h1 className="font-heading text-3xl md:text-5xl font-semibold text-primary-foreground mb-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="font-heading text-3xl md:text-5xl font-semibold text-primary-foreground mb-4"
+            >
               Expert Advice & Insights
-            </h1>
-            <p className="font-body text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-body text-lg text-primary-foreground/80 max-w-2xl mx-auto"
+            >
               Discover the latest skincare tips, treatment guides, and expert advice from East London's leading NHS-approved aesthetic clinic.
-            </p>
+            </motion.p>
           </div>
         </section>
 
@@ -89,9 +100,13 @@ const Blog = () => {
               </div>
             ) : posts && posts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post) => (
-                  <article 
-                    key={post.id} 
+                {posts.map((post, index) => (
+                  <motion.article
+                    key={post.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
                   >
                     {post.featured_image && (
@@ -105,9 +120,14 @@ const Blog = () => {
                     )}
                     <div className="p-6">
                       {post.category && (
-                        <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full font-body text-xs font-medium mb-3">
+                        <motion.span
+                          initial={{ scale: 0.9 }}
+                          whileInView={{ scale: 1 }}
+                          viewport={{ once: true }}
+                          className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full font-body text-xs font-medium mb-3"
+                        >
                           {post.category}
-                        </span>
+                        </motion.span>
                       )}
                       <h2 className="font-heading text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
                         <a href={`/blog/${post.slug}`}>{post.title}</a>
@@ -139,15 +159,19 @@ const Blog = () => {
                         </a>
                       </div>
                     </div>
-                  </article>
+                  </motion.article>
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-16"
+              >
                 <p className="font-body text-muted-foreground text-lg">
                   No articles yet. Check back soon for expert skincare advice!
                 </p>
-              </div>
+              </motion.div>
             )}
           </div>
         </section>

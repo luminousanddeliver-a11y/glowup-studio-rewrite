@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { ProductCard } from "./ProductCard";
@@ -32,12 +33,18 @@ export const ProductGrid = ({ category }: ProductGridProps) => {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="space-y-4">
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: i * 0.05 }}
+            className="space-y-4"
+          >
             <Skeleton className="aspect-square w-full rounded-xl" />
             <Skeleton className="h-6 w-3/4" />
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-1/2" />
-          </div>
+          </motion.div>
         ))}
       </div>
     );
@@ -45,38 +52,53 @@ export const ProductGrid = ({ category }: ProductGridProps) => {
 
   if (error) {
     return (
-      <div className="text-center py-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="text-center py-12"
+      >
         <p className="text-muted-foreground font-body">
           Unable to load products. Please try again later.
         </p>
-      </div>
+      </motion.div>
     );
   }
 
   if (!products || products.length === 0) {
     return (
-      <div className="text-center py-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="text-center py-12"
+      >
         <p className="text-muted-foreground font-body">
           No products found in this category.
         </p>
-      </div>
+      </motion.div>
     );
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {products.map((product) => (
-        <ProductCard
+      {products.map((product, index) => (
+        <motion.div
           key={product.id}
-          id={product.id}
-          name={product.name}
-          slug={product.slug}
-          price={product.price}
-          salePrice={product.sale_price}
-          category={product.category || "Uncategorized"}
-          description={product.description}
-          imageUrl={product.image_url}
-        />
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <ProductCard
+            id={product.id}
+            name={product.name}
+            slug={product.slug}
+            price={product.price}
+            salePrice={product.sale_price}
+            category={product.category || "Uncategorized"}
+            description={product.description}
+            imageUrl={product.image_url}
+          />
+        </motion.div>
       ))}
     </div>
   );

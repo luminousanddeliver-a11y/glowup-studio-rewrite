@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -88,40 +89,66 @@ const GiftVouchers = () => {
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary via-primary to-accent py-16">
           <div className="container-custom text-center">
-            <div className="max-w-2xl mx-auto">
-              <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-2xl mx-auto"
+            >
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
                 <Gift className="h-8 w-8 text-accent" />
-              </div>
+              </motion.div>
               <h1 className="text-primary-foreground mb-4">Gift Vouchers</h1>
               <p className="text-lg text-primary-foreground/80 font-body">
                 Give the gift of beautiful, radiant skin. The perfect present for birthdays, anniversaries, or just because.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Monetary Vouchers */}
         <section className="section-padding bg-background">
           <div className="container-custom">
-            <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
               <h2 className="text-foreground mb-4">Monetary Gift Vouchers</h2>
               <p className="text-muted-foreground font-body max-w-2xl mx-auto">
                 Let them choose their perfect treatment with a monetary voucher.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {voucherOptions.map((voucher) => (
-                <div 
+              {voucherOptions.map((voucher, index) => (
+                <motion.div
                   key={voucher.amount}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
                   className={`relative bg-card rounded-lg p-6 shadow-card hover:shadow-card-hover transition-shadow text-center ${
                     voucher.popular ? "ring-2 ring-accent" : ""
                   }`}
                 >
                   {voucher.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-body px-3 py-1 rounded-full">
+                    <motion.span
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-body px-3 py-1 rounded-full"
+                    >
                       Most Popular
-                    </span>
+                    </motion.span>
                   )}
                   <div className="text-3xl font-heading font-bold text-foreground mb-2">
                     {voucher.amount}
@@ -129,7 +156,7 @@ const GiftVouchers = () => {
                   <p className="text-sm text-muted-foreground font-body">
                     {voucher.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -138,22 +165,37 @@ const GiftVouchers = () => {
         {/* Treatment Vouchers */}
         <section className="section-padding bg-secondary">
           <div className="container-custom">
-            <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
               <h2 className="text-foreground mb-4">Treatment Gift Vouchers</h2>
               <p className="text-muted-foreground font-body max-w-2xl mx-auto">
                 Choose a specific treatment for a truly thoughtful gift.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {treatmentVouchers.map((voucher) => (
-                <div 
+              {treatmentVouchers.map((voucher, index) => (
+                <motion.div
                   key={voucher.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
                   className="bg-card rounded-lg p-6 shadow-card hover:shadow-card-hover transition-shadow"
                 >
-                  <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mb-4"
+                  >
                     <Sparkles className="h-5 w-5 text-accent" />
-                  </div>
+                  </motion.div>
                   <h3 className="font-heading text-lg font-medium text-foreground mb-2">
                     {voucher.name}
                   </h3>
@@ -163,7 +205,7 @@ const GiftVouchers = () => {
                   <div className="text-xl font-heading font-bold text-accent">
                     {voucher.price}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -173,63 +215,85 @@ const GiftVouchers = () => {
         <section className="section-padding bg-background">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5 }}
+              >
                 <h2 className="text-foreground mb-6">How to Purchase</h2>
                 <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center shrink-0 font-heading font-bold">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">
-                        Contact Us
-                      </h3>
-                      <p className="text-muted-foreground font-body">
-                        Call or email us with your chosen voucher amount or treatment.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center shrink-0 font-heading font-bold">
-                      2
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">
-                        Make Payment
-                      </h3>
-                      <p className="text-muted-foreground font-body">
-                        Pay securely by card over the phone or visit us in person.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center shrink-0 font-heading font-bold">
-                      3
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg font-medium text-foreground mb-1">
-                        Receive Your Voucher
-                      </h3>
-                      <p className="text-muted-foreground font-body">
-                        We'll email a beautiful digital voucher or post a physical one.
-                      </p>
-                    </div>
-                  </div>
+                  {[
+                    {
+                      step: 1,
+                      title: "Contact Us",
+                      description: "Call or email us with your chosen voucher amount or treatment.",
+                    },
+                    {
+                      step: 2,
+                      title: "Make Payment",
+                      description: "Pay securely by card over the phone or visit us in person.",
+                    },
+                    {
+                      step: 3,
+                      title: "Receive Your Voucher",
+                      description: "We'll email a beautiful digital voucher or post a physical one.",
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.step}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 }}
+                      className="flex gap-4"
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center shrink-0 font-heading font-bold"
+                      >
+                        {item.step}
+                      </motion.div>
+                      <div>
+                        <h3 className="font-heading text-lg font-medium text-foreground mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground font-body">
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
 
-                <div className="mt-8 p-4 bg-accent/10 rounded-lg">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="mt-8 p-4 bg-accent/10 rounded-lg"
+                >
                   <div className="flex items-center gap-2 text-accent font-body">
                     <Star className="h-5 w-5" />
                     <span>Gift vouchers are valid for 12 months from purchase date.</span>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="bg-card rounded-lg p-8 shadow-card">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-card rounded-lg p-8 shadow-card"
+              >
                 <div className="text-center mb-8">
-                  <Heart className="h-12 w-12 text-accent mx-auto mb-4" />
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Heart className="h-12 w-12 text-accent mx-auto mb-4" />
+                  </motion.div>
                   <h3 className="font-heading text-xl font-medium text-foreground mb-2">
                     Ready to Order?
                   </h3>
@@ -252,7 +316,7 @@ const GiftVouchers = () => {
                     </a>
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
