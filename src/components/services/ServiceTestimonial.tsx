@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { GOOGLE_MAPS_REVIEWS_URL } from "@/lib/constants";
 
 interface Testimonial {
   quote: string;
@@ -91,16 +92,22 @@ export const ServiceTestimonial = ({
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-8"
         >
-          <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-sm border border-border">
+          <a
+            href={GOOGLE_MAPS_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-sm border border-border hover:border-accent/30 hover:shadow-md transition-all group"
+          >
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
               ))}
             </div>
             <span className="font-body text-sm text-muted-foreground">
-              4.9 from 288+ Google Reviews
+              4.9 from 250+ Google Reviews
             </span>
-          </div>
+            <span className="text-accent text-xs group-hover:underline">View →</span>
+          </a>
         </motion.div>
       </div>
     </section>

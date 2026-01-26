@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroClinic from "@/assets/hero-clinic.jpg";
+import { GOOGLE_MAPS_REVIEWS_URL } from "@/lib/constants";
 
 const testimonials = [
   {
@@ -149,7 +150,7 @@ export const Testimonials = () => {
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body"
               >
                 <a
-                  href="https://g.page/r/laserlightskinclinic/review"
+                  href={GOOGLE_MAPS_REVIEWS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
