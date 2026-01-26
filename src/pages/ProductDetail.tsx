@@ -26,14 +26,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { CompareBar } from "@/components/shop/CompareBar";
-
-// Mock reviews data (in production, this would come from a reviews table)
-const mockReviews = [
-  { id: 1, author: "Sarah M.", rating: 5, date: "2024-01-15", content: "Absolutely love this product! My skin has never looked better. After just two weeks of use, I noticed a significant improvement in my skin texture.", verified: true },
-  { id: 2, author: "Emma L.", rating: 4, date: "2024-01-10", content: "Great quality product, works as described. Would definitely recommend to anyone looking for effective skincare.", verified: true },
-  { id: 3, author: "James R.", rating: 5, date: "2024-01-05", content: "Finally found something that actually works for my sensitive skin. The formula is gentle yet effective.", verified: true },
-  { id: 4, author: "Olivia K.", rating: 5, date: "2023-12-28", content: "This has become a staple in my skincare routine. Can't imagine going without it now!", verified: false },
-];
+import { ProductReviews } from "@/components/shop/ProductReviews";
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -121,7 +114,6 @@ const ProductDetail = () => {
   const displayPrice = product.sale_price ?? product.price;
   const savings = isOnSale ? ((product.price - product.sale_price!) / product.price) * 100 : 0;
   const isWishlisted = isInWishlist(product.id);
-  const averageRating = mockReviews.reduce((sum, r) => sum + r.rating, 0) / mockReviews.length;
 
   const handleAddToCart = () => {
     addToCart({
@@ -225,21 +217,6 @@ const ProductDetail = () => {
                 <h1 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-2">
                   {product.name}
                 </h1>
-                
-                {/* Rating */}
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="flex items-center gap-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-4 h-4 ${i < Math.round(averageRating) ? 'text-amber-400 fill-amber-400' : 'text-muted-foreground/30'}`}
-                      />
-                    ))}
-                  </div>
-                  <span className="font-body text-sm text-muted-foreground">
-                    {averageRating.toFixed(1)} ({mockReviews.length} reviews)
-                  </span>
-                </div>
               </div>
 
               {/* Price */}
@@ -344,7 +321,7 @@ const ProductDetail = () => {
                 value="reviews" 
                 className="font-heading text-base px-6 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-accent data-[state=active]:bg-transparent"
               >
-                Reviews ({mockReviews.length})
+                Reviews
               </TabsTrigger>
             </TabsList>
             
@@ -377,56 +354,7 @@ const ProductDetail = () => {
             </TabsContent>
             
             <TabsContent value="reviews" className="mt-0">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-heading text-xl font-semibold text-foreground">Customer Reviews</h3>
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star 
-                          key={i} 
-                          className={`w-5 h-5 ${i < Math.round(averageRating) ? 'text-amber-400 fill-amber-400' : 'text-muted-foreground/30'}`}
-                        />
-                      ))}
-                    </div>
-                    <span className="font-body font-medium">{averageRating.toFixed(1)} out of 5</span>
-                  </div>
-                </div>
-                
-                <div className="space-y-6">
-                  {mockReviews.map((review) => (
-                    <motion.div
-                      key={review.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="border-b border-border pb-6 last:border-b-0"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-3">
-                          <span className="font-body font-semibold text-foreground">{review.author}</span>
-                          {review.verified && (
-                            <Badge variant="outline" className="text-xs">
-                              <Check className="w-3 h-3 mr-1" />
-                              Verified Purchase
-                            </Badge>
-                          )}
-                        </div>
-                        <span className="text-sm text-muted-foreground">{review.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1 mb-2">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={`w-4 h-4 ${i < review.rating ? 'text-amber-400 fill-amber-400' : 'text-muted-foreground/30'}`}
-                          />
-                        ))}
-                      </div>
-                      <p className="font-body text-muted-foreground">{review.content}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+              <ProductReviews productId={product.id} productName={product.name} />
             </TabsContent>
           </Tabs>
         </section>
