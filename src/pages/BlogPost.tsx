@@ -8,8 +8,9 @@ import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Clock, ArrowLeft, ArrowRight, Phone } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, ArrowRight, Phone, User, Share2, BookOpen } from "lucide-react";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -37,6 +38,19 @@ const BlogPost = () => {
       month: "long",
       year: "numeric",
     });
+  };
+
+  const handleShare = async () => {
+    if (navigator.share && post) {
+      try {
+        await navigator.share({
+          title: post.title,
+          url: window.location.href,
+        });
+      } catch (err) {
+        // User cancelled or share failed
+      }
+    }
   };
 
   if (isLoading) {
@@ -121,7 +135,7 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title={post.meta_title || `${post.title} | Laser Light Skin Clinic`}
         description={post.meta_description || post.excerpt || ""}
@@ -135,96 +149,166 @@ const BlogPost = () => {
       
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-primary -mt-[80px] pt-[100px] md:pt-[108px] pb-12 md:pb-16">
-          <div className="container-custom max-w-4xl">
-            <PageBreadcrumb 
-              items={[
-                { label: "Blog", href: "/blog" },
-                { label: post.title }
-              ]} 
-              variant="dark"
-              className="mb-6"
-            />
-            
-            {post.category && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full font-body text-sm font-medium mb-4"
+        {/* Premium Hero Section with Full-Width Image */}
+        <section className="relative -mt-[80px] pt-[80px]">
+          {/* Hero Image with Overlay */}
+          {post.featured_image && (
+            <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+              <motion.img 
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                src={post.featured_image} 
+                alt={post.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
+            </div>
+          )}
+          
+          {/* Content Overlay positioned at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 pb-8 md:pb-12">
+            <div className="container-custom max-w-4xl">
+              <PageBreadcrumb 
+                items={[
+                  { label: "Blog", href: "/blog" },
+                  { label: post.title }
+                ]} 
+                variant="dark"
+                className="mb-4 opacity-80"
+              />
+              
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                {post.category && (
+                  <motion.span
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-3 py-1 rounded-full font-body text-xs font-semibold uppercase tracking-wide"
+                  >
+                    <BookOpen className="h-3 w-3" />
+                    {post.category}
+                  </motion.span>
+                )}
+                {post.reading_time && (
+                  <motion.span 
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.15 }}
+                    className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full font-body text-xs font-medium"
+                  >
+                    <Clock className="h-3 w-3" />
+                    {post.reading_time} min read
+                  </motion.span>
+                )}
+              </div>
+              
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-[1.1] drop-shadow-lg"
               >
-                {post.category}
-              </motion.span>
-            )}
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 leading-tight"
-            >
-              {post.title}
-            </motion.h1>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="flex items-center gap-6 text-primary-foreground/70 font-body text-sm"
-            >
-              {post.published_at && (
-                <span className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  {formatDate(post.published_at)}
-                </span>
+                {post.title}
+              </motion.h1>
+              
+              {post.excerpt && (
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="font-body text-base md:text-lg text-white/90 max-w-2xl leading-relaxed drop-shadow"
+                >
+                  {post.excerpt}
+                </motion.p>
               )}
-              {post.reading_time && (
-                <span className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  {post.reading_time} min read
-                </span>
-              )}
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Featured Image */}
-        {post.featured_image && (
-          <section className="container-custom max-w-4xl -mt-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 1.02 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="rounded-xl overflow-hidden shadow-lg"
-            >
-              <img 
-                src={post.featured_image} 
-                alt={post.title}
-                className="w-full h-auto object-cover"
-              />
-            </motion.div>
-          </section>
-        )}
+        {/* Article Meta Bar */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="border-b border-border bg-card/50"
+        >
+          <div className="container-custom max-w-4xl py-4">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                <span className="flex items-center gap-2">
+                  <User className="h-4 w-4 text-primary" />
+                  <span className="font-medium text-foreground">Laser Light Skin Clinic</span>
+                </span>
+                {post.published_at && (
+                  <span className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    {formatDate(post.published_at)}
+                  </span>
+                )}
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleShare}
+                className="text-muted-foreground hover:text-primary"
+              >
+                <Share2 className="h-4 w-4 mr-2" />
+                Share
+              </Button>
+            </div>
+          </div>
+        </motion.section>
 
-        {/* Article Content */}
-        <article className="section-padding pb-8">
-          <div className="container-custom max-w-4xl">
+        {/* Article Content - Premium Typography */}
+        <article className="py-12 md:py-16">
+          <div className="container-custom max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="prose prose-lg max-w-none font-body
-                prose-headings:font-heading prose-headings:text-foreground prose-headings:mb-4
-                prose-h2:text-2xl prose-h2:mt-8 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border
-                prose-h3:text-xl prose-h3:mt-6
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
-                prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-foreground prose-strong:font-semibold
-                prose-ul:text-muted-foreground prose-ol:text-muted-foreground
-                prose-li:marker:text-accent prose-li:mb-2
-                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-secondary/50 prose-blockquote:rounded-r-lg prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:italic"
+              className="prose prose-lg lg:prose-xl max-w-none font-body
+                /* Headings */
+                prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
+                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:relative prose-h2:pl-4
+                prose-h2:before:content-[''] prose-h2:before:absolute prose-h2:before:left-0 prose-h2:before:top-0 prose-h2:before:bottom-0 prose-h2:before:w-1 prose-h2:before:bg-gradient-to-b prose-h2:before:from-primary prose-h2:before:to-accent prose-h2:before:rounded-full
+                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-primary
+                
+                /* Paragraphs */
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:mb-6
+                prose-p:first-of-type:text-lg prose-p:first-of-type:md:text-xl prose-p:first-of-type:text-foreground prose-p:first-of-type:font-medium prose-p:first-of-type:leading-relaxed
+                
+                /* Links */
+                prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-4 prose-a:decoration-primary/50 hover:prose-a:decoration-primary hover:prose-a:text-primary/80
+                
+                /* Strong & Emphasis */
+                prose-strong:text-foreground prose-strong:font-bold
+                prose-em:text-foreground
+                
+                /* Lists */
+                prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-ul:my-6 prose-ol:my-6
+                prose-li:text-base prose-li:md:text-lg prose-li:mb-3 prose-li:pl-2
+                prose-li:marker:text-primary prose-li:marker:font-bold
+                
+                /* Images */
+                prose-img:rounded-2xl prose-img:shadow-xl prose-img:my-10 prose-img:ring-1 prose-img:ring-border
+                
+                /* Blockquotes */
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary/5 prose-blockquote:to-transparent
+                prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8
+                prose-blockquote:text-foreground prose-blockquote:font-medium prose-blockquote:not-italic
+                prose-blockquote:text-lg
+                
+                /* Tables */
+                prose-table:rounded-xl prose-table:overflow-hidden prose-table:shadow-md prose-table:border prose-table:border-border
+                prose-th:bg-primary prose-th:text-primary-foreground prose-th:py-3 prose-th:px-4 prose-th:text-left prose-th:font-semibold
+                prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-border
+                prose-tr:even:bg-muted/30
+                
+                /* Code */
+                prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-primary prose-code:font-mono prose-code:text-sm"
               dangerouslySetInnerHTML={{ __html: post.content || "" }}
             />
           </div>
@@ -269,55 +353,64 @@ const BlogPost = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-primary py-12 md:py-16">
-          <div className="container-custom max-w-4xl text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
-              className="font-heading text-2xl md:text-3xl font-semibold text-primary-foreground mb-4"
-            >
-              Ready to Start Your Transformation?
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-body text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
-            >
-              Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
-            </motion.p>
+        {/* Premium CTA Section */}
+        <section className="relative py-16 md:py-24 overflow-hidden">
+          {/* Background with gradient and pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90" />
+          <div className="absolute inset-0 opacity-10">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="cta-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <circle cx="20" cy="20" r="2" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#cta-pattern)" />
+            </svg>
+          </div>
+          
+          <div className="container-custom max-w-4xl relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center"
             >
-              <Button 
-                asChild 
-                size="lg"
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-body h-14 px-8"
-              >
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
-                  Book Free Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button 
-                asChild 
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 font-body h-14 px-8"
-              >
-                <a href="tel:02085981200">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Us Now
-                </a>
-              </Button>
+              <span className="inline-block bg-white/20 text-white px-4 py-1 rounded-full font-body text-sm font-medium mb-6 backdrop-blur-sm">
+                Free Consultation Available
+              </span>
+              
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Ready to Start Your<br />
+                <span className="text-accent">Transformation?</span>
+              </h2>
+              
+              <p className="font-body text-lg text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
+                Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 font-body font-semibold h-14 px-8 shadow-lg hover:shadow-xl transition-all"
+                >
+                  <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                    Book Free Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-body font-semibold h-14 px-8 transition-all"
+                >
+                  <a href="tel:02085981200">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Us Now
+                  </a>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </section>
