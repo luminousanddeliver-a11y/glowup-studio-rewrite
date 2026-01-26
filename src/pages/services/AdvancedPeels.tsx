@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Award, Sparkles, Shield, Clock, Sun, Droplets, Target, RefreshCw } from "lucide-react";
 import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Pigmentation Treatment", href: "/pigmentation-treatment-dagenham", description: "Laser solutions for stubborn dark spots" },
@@ -284,7 +284,7 @@ const AdvancedPeels = () => {
           description="The world's most effective treatments for melasma, stubborn pigmentation, and skin rejuvenation. Medical-grade peels for dramatic, lasting results."
           badge="Up to 95% Pigmentation Reduction"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={chemicalPeelProducts}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Advanced Peels" }

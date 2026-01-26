@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Award, Sparkles, Shield, Clock, Diamond, Star, Heart, Zap } from "lucide-react";
 import facialsSetup from "@/assets/facials-setup.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep cleansing and hydration for glowing skin" },
@@ -263,7 +263,7 @@ const MillionDollarFacial = () => {
           description="Experience the A-list facial loved by celebrities worldwide. 90 minutes of pure luxury combining microneedling, LED therapy, and oxygen infusion for red carpet-ready skin."
           badge="Instant Glow Results"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={facialsSetup}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Million Dollar Facial" }

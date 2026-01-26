@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Sun, Sparkles, Shield, Clock } from "lucide-react";
 import skinTexture from "@/assets/skin-texture.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham", description: "Fractional laser for dramatic transformation" },
@@ -288,7 +288,7 @@ const SkinRejuvenation = () => {
           description="Reduce sun damage, fine lines, and uneven skin tone with advanced multi-modality treatments. Customized plans for lasting results."
           badge="Anti-Aging & Radiance"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={skinTexture}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Skin Rejuvenation" }

@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Target, Zap, Eye, Heart, RefreshCw } from "lucide-react";
 import veinDevice from "@/assets/vein-removal-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const VeinRemoval = () => {
   const structuredData = {
@@ -261,7 +261,7 @@ const VeinRemoval = () => {
           description="Advanced laser technology targets and eliminates visible thread veins on face and body. Quick, effective treatment with minimal downtime."
           badge="Results in 1-3 Sessions"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={veinDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Vein Removal" }

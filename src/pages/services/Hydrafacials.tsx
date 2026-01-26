@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Sparkles, Shield, Users } from "lucide-react";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const Hydrafacials = () => {
   const serviceSchema = {
@@ -334,7 +334,7 @@ const Hydrafacials = () => {
           description="The ultimate facial that cleanses, exfoliates, and hydrates in 45 minutes. Walk out glowing with zero downtime."
           badge="Most Popular Facial"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={hydrafacialDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Hydrafacials" }

@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Target, Zap, Sparkles, RefreshCw, AlertCircle } from "lucide-react";
 import skinTagDevice from "@/assets/skin-tag-removal-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Advanced Electrolysis", href: "/advanced-electrolysis-dagenham", description: "Remove thread veins and skin imperfections" },
@@ -275,7 +275,7 @@ const SkinTagMoleRemoval = () => {
           description="Expert removal of skin tags, moles, warts, and milia using advanced electrolysis and cryotherapy techniques. Minimal scarring, fast healing."
           badge="Skin Tags From £50"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={skinTagDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Skin Tag & Mole Removal" }

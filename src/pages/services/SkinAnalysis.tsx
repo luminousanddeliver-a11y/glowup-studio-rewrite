@@ -16,7 +16,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Search, Layers, Target, FileText, Sparkles, Zap } from "lucide-react";
 import skinAnalysisDevice from "@/assets/skin-analysis-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Deep cleansing treatment for glowing skin" },
@@ -210,7 +210,7 @@ const SkinAnalysis = () => {
           description="Advanced imaging reveals what your mirror can't. Get a comprehensive analysis and personalized treatment plan based on your skin's unique needs."
           badge="Complimentary With Any Treatment"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={skinAnalysisDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Skin Analysis" }

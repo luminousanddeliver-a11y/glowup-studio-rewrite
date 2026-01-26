@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Sparkles, Target, Zap } from "lucide-react";
 import injectablesDevice from "@/assets/injectables-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const Injectables = () => {
   const structuredData = {
@@ -294,7 +294,7 @@ const Injectables = () => {
           description="Subtle, natural-looking enhancements performed by qualified aesthetic practitioners using premium FDA-approved products."
           badge="Free Consultation Available"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={injectablesDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Injectables" }

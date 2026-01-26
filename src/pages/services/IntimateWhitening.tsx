@@ -17,7 +17,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Shield, Heart, Sparkles, Lock } from "lucide-react";
 import intimateCareProducts from "@/assets/intimate-care-products.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham", description: "Permanent hair reduction for smooth skin" },
@@ -286,7 +286,7 @@ const IntimateWhitening = () => {
           description="Safe, professional intimate lightening using medical-grade products. Discreet care by qualified female practitioners."
           badge="Discreet & Professional"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={intimateCareProducts}
+          heroImage={intimateCareProducts}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Intimate Whitening" }

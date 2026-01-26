@@ -16,7 +16,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Star, CheckCircle, Gem, ShieldCheck } from "lucide-react";
 import piercingSetup from "@/assets/piercing-setup.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Hopi Ear Candling", href: "/hopi-ear-candling-dagenham", description: "Relaxing ear therapy for wellbeing" },
@@ -242,7 +242,7 @@ const Piercing = () => {
           description="Get your ears pierced in a clean, clinical environment by trained professionals. Hypoallergenic jewelry included."
           badge="Both Lobes Just £25"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={piercingSetup}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Ear Piercing" }

@@ -18,7 +18,7 @@ import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Award, Sparkles, Shield, RefreshCw } from "lucide-react";
 import microneedlingDevice from "@/assets/microneedling-device.jpg";
-import consultationRoom from "@/assets/consultation-room.jpg";
+
 
 const relatedServices = [
   { name: "Laser Resurfacing", href: "/laser-resurfacing-dagenham", description: "Fractional laser for deeper scars" },
@@ -297,7 +297,7 @@ const SkinPenMicroneedling = () => {
           description="FDA-cleared SkinPen Precision collagen induction therapy that dramatically reduces acne scars, fine lines, and improves skin texture. Safe for all skin types."
           badge="Natural Collagen Boost"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
-          backgroundImage={consultationRoom}
+          heroImage={microneedlingDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "SkinPen Microneedling" }
