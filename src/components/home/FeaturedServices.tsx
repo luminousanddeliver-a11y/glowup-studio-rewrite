@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Droplets, Target, Eraser } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Zap, Droplets, Target, Eraser } from "lucide-react";
 
 const services = [
   {
@@ -77,10 +77,10 @@ export const FeaturedServices = () => {
                   variant="ghost"
                   className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-body"
                 >
-                  <Link to={service.href}>
+                  <a href={service.href}>
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </CardFooter>
             </Card>

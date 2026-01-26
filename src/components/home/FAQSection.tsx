@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -75,7 +74,7 @@ export const FAQSection = () => {
             variant="outline"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body"
           >
-            <Link to="/faq">View All FAQs</Link>
+            <a href="/faq">View All FAQs</a>
           </Button>
         </div>
       </div>
