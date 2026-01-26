@@ -9,6 +9,13 @@ import NotFound from "./pages/NotFound";
 import LaserHairRemoval from "./pages/services/LaserHairRemoval";
 import Hydrafacials from "./pages/services/Hydrafacials";
 import TattooRemoval from "./pages/services/TattooRemoval";
+import SkinRejuvenation from "./pages/services/SkinRejuvenation";
+import SkinPenMicroneedling from "./pages/services/SkinPenMicroneedling";
+import IVDrips from "./pages/services/IVDrips";
+import ChemicalPeels from "./pages/services/ChemicalPeels";
+import Electrolysis from "./pages/services/Electrolysis";
+import ColdPlasma from "./pages/services/ColdPlasma";
+import IntimateWhitening from "./pages/services/IntimateWhitening";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +31,13 @@ const App = () => (
             <Route path="/laser-hair-removal-dagenham" element={<LaserHairRemoval />} />
             <Route path="/hydrafacial-east-london" element={<Hydrafacials />} />
             <Route path="/tattoo-removal-east-london" element={<TattooRemoval />} />
+            <Route path="/skin-rejuvenation-dagenham" element={<SkinRejuvenation />} />
+            <Route path="/skinpen-microneedling-dagenham" element={<SkinPenMicroneedling />} />
+            <Route path="/iv-drips-infusions-east-london" element={<IVDrips />} />
+            <Route path="/chemical-peels-dagenham" element={<ChemicalPeels />} />
+            <Route path="/electrolysis-hair-removal-dagenham" element={<Electrolysis />} />
+            <Route path="/cold-plasma-treatment-dagenham" element={<ColdPlasma />} />
+            <Route path="/intimate-whitening-east-london" element={<IntimateWhitening />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -14,11 +14,11 @@ const services = [
   { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
   { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham" },
   { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham" },
+  { name: "IV Drips & Infusions", href: "/iv-drips-infusions-east-london" },
   { name: "Chemical Peels", href: "/chemical-peels-dagenham" },
-  { name: "IV Drips & Infusions", href: "/iv-drips-east-london" },
   { name: "Electrolysis", href: "/electrolysis-hair-removal-dagenham" },
-  { name: "Cold Plasma Treatments", href: "/cold-plasma-treatment-dagenham" },
-  { name: "Intimate V-Whitening", href: "/intimate-whitening-london" },
+  { name: "Cold Plasma", href: "/cold-plasma-treatment-dagenham" },
+  { name: "Intimate V-Whitening", href: "/intimate-whitening-east-london" },
 ];
 
 const navLinks = [

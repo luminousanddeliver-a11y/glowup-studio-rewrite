@@ -2,15 +2,21 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { QuickStatsBar } from "@/components/services/QuickStatsBar";
+import { WhatIsSection } from "@/components/services/WhatIsSection";
 import { BenefitsList } from "@/components/services/BenefitsList";
 import { HowItWorks } from "@/components/services/HowItWorks";
 import { TechnologySection } from "@/components/services/TechnologySection";
 import { PricingTable } from "@/components/services/PricingTable";
+import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
+import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
+import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { Timer, Sparkles, Shield, Users } from "lucide-react";
 
 const Hydrafacials = () => {
-  const structuredData = {
+  const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hydrafacial East London",
@@ -27,8 +33,90 @@ const Hydrafacials = () => {
       "telephone": "+442085981200"
     },
     "description": "Professional Hydrafacial treatments in East London. Deep cleansing, exfoliation, and hydration in one session. Instant glow with zero downtime.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"]
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
+    "offers": {
+      "@type": "Offer",
+      "price": "120",
+      "priceCurrency": "GBP",
+      "description": "Signature Hydrafacial treatment"
+    }
   };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Hydrafacial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hydrafacial is a medical-grade facial treatment that combines cleansing, exfoliation, extraction, and hydration in one session. It uses patented Vortex-Fusion technology to deliver active ingredients deep into the skin while removing impurities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a Hydrafacial take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard Hydrafacial takes 45-60 minutes. Our Express option is 30 minutes, while Platinum treatments with lymphatic drainage take approximately 75-90 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I get a Hydrafacial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For optimal results, we recommend monthly treatments. However, even a single session will leave your skin visibly improved. Many clients book before special events for an instant glow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there any downtime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No downtime at all! You can apply makeup and return to work immediately. Your skin may appear slightly flushed for 30 minutes, but this subsides quickly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Hydrafacial suitable for acne-prone skin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Hydrafacial is excellent for acne-prone skin. The extraction removes pore-clogging debris, and we can add a salicylic acid booster to target active breakouts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I combine Hydrafacial with other treatments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Hydrafacial pairs beautifully with LED light therapy, chemical peels, and microneedling. We can create a customized treatment plan during your consultation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will I see results after one session?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Most clients notice clearer, brighter, more hydrated skin immediately after their first Hydrafacial. Results improve with regular treatments."
+        }
+      }
+    ]
+  };
+
+  const stats = [
+    { value: "30-45 Min", label: "Treatment Time", icon: Timer },
+    { value: "Zero", label: "Downtime", icon: Sparkles },
+    { value: "Instant", label: "Visible Glow", icon: Shield },
+    { value: "All Types", label: "Skin Suitable", icon: Users },
+  ];
+
+  const whatIsContent = [
+    "Hydrafacial is a revolutionary medical-grade facial treatment that combines cleansing, exfoliation, extraction, and hydration into one seamless session. Using patented Vortex-Fusion technology, the treatment delivers active ingredients deep into the skin while simultaneously removing impurities and dead skin cells.",
+    "Unlike traditional facials that rely on manual extraction (which can be painful and cause redness), Hydrafacial uses a gentle vacuum-like suction that painlessly removes blackheads, dirt, and oil from your pores. This makes it suitable for even the most sensitive skin types.",
+    "At Laser Light Skin Clinic, our Level 4 qualified aestheticians customise every Hydrafacial with targeted boosters—whether you need extra hydration, brightening, or anti-aging benefits. The result is an immediate, visible glow that lasts for weeks."
+  ];
 
   const benefits = [
     {
@@ -90,11 +178,71 @@ const Hydrafacials = () => {
   ];
 
   const prices = [
+    { area: "Express Hydrafacial", singleSession: "£80", course: "£360 (6 sessions)", note: "30-minute treatment" },
     { area: "Signature Hydrafacial", singleSession: "£120", course: "£540 (6 sessions)" },
     { area: "Deluxe Hydrafacial", singleSession: "£150", course: "£675 (6 sessions)", note: "Includes LED therapy" },
     { area: "Platinum Hydrafacial", singleSession: "£200", course: "£900 (6 sessions)", note: "Includes lymphatic drainage" },
-    { area: "Hydrafacial + Chemical Peel", singleSession: "£180", course: "£810 (6 sessions)" },
-    { area: "Express Hydrafacial", singleSession: "£80", course: "£360 (6 sessions)", note: "30-minute treatment" }
+    { area: "Hydrafacial + Chemical Peel", singleSession: "£180", course: "£810 (6 sessions)" }
+  ];
+
+  const idealCandidates = [
+    "Want an instant glow before a special event",
+    "Have dull, congested, or dehydrated skin",
+    "Struggle with blackheads or enlarged pores",
+    "Looking for a gentle anti-aging treatment",
+    "Have sensitive skin that can't tolerate harsh peels",
+    "Want to maintain healthy, radiant skin long-term"
+  ];
+
+  const considerations = [
+    {
+      title: "Pre-Event Glow",
+      description: "Hydrafacial is perfect for weddings, parties, or photo shoots. Book 1-3 days before your event for maximum radiance."
+    },
+    {
+      title: "Acne-Prone Skin",
+      description: "We add salicylic acid boosters to target congestion and active breakouts. Safe and effective for oily, acne-prone skin."
+    },
+    {
+      title: "Sensitive Skin",
+      description: "The gentle vortex technology makes Hydrafacial suitable for rosacea and easily irritated skin types."
+    }
+  ];
+
+  const phases: Array<{ phase: string; icon: "before" | "during" | "after"; items: string[] }> = [
+    {
+      phase: "Before Treatment",
+      icon: "before",
+      items: [
+        "Arrive with clean, makeup-free skin",
+        "Avoid retinoids for 48 hours prior",
+        "No sun exposure for 24 hours before"
+      ]
+    },
+    {
+      phase: "During Treatment",
+      icon: "during",
+      items: [
+        "30-90 minute session depending on type",
+        "Relaxing, spa-like experience",
+        "No pain—just a gentle suction sensation"
+      ]
+    },
+    {
+      phase: "After Treatment",
+      icon: "after",
+      items: [
+        "Immediate glow visible",
+        "Apply SPF before leaving clinic",
+        "Makeup can be applied immediately"
+      ]
+    }
+  ];
+
+  const resultsTimeline = [
+    { session: "1 Session", result: "Instant glow and hydration" },
+    { session: "3 Sessions", result: "Improved texture and clarity" },
+    { session: "6 Sessions", result: "Long-term radiance and reduced pores" }
   ];
 
   const faqs = [
@@ -134,7 +282,7 @@ const Hydrafacials = () => {
         title="Hydrafacial East London | Instant Glow | No Downtime | Book Now"
         description="Experience the ultimate Hydrafacial in East London at Laser Light Skin Clinic. Deep cleansing, extraction, and hydration in one session. Walk out glowing. Book today."
         canonicalUrl="https://laserlightskinclinic.co.uk/hydrafacial-east-london"
-        structuredData={structuredData}
+        structuredData={[serviceSchema, faqSchema]}
       />
       
       <Header />
@@ -145,6 +293,15 @@ const Hydrafacials = () => {
           title="Hydrafacial East London"
           subtitle="Deep Cleanse. Extract. Hydrate. Glow."
           description="The ultimate facial treatment that cleanses, exfoliates, and hydrates your skin in just 45 minutes. Walk out with an instant glow and zero downtime."
+          secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+        />
+        
+        <QuickStatsBar stats={stats} />
+        
+        <WhatIsSection
+          title="What is a Hydrafacial?"
+          content={whatIsContent}
+          highlightText="Hydrafacial is the only facial treatment that delivers instant, visible results with zero downtime—making it the perfect pre-event glow treatment."
         />
         
         <BenefitsList
@@ -168,17 +325,39 @@ const Hydrafacials = () => {
           certifications={["FDA Cleared", "CE Marked"]}
         />
         
-        <PricingTable
-          title="Hydrafacial Pricing"
-          subtitle="Choose the treatment that's right for you"
-          prices={prices}
-          disclaimer="New clients receive 25% off their first treatment. All Hydrafacials include a personalized skin analysis and aftercare advice."
+        <div id="pricing">
+          <PricingTable
+            title="Hydrafacial Pricing"
+            subtitle="Choose the treatment that's right for you"
+            prices={prices}
+            disclaimer="New clients receive 25% off their first treatment. All Hydrafacials include a personalized skin analysis and aftercare advice."
+          />
+        </div>
+        
+        <WhoIsThisFor
+          title="Is Hydrafacial Right for You?"
+          intro="Hydrafacial is suitable for virtually everyone, but you'll see the best results if you:"
+          idealCandidates={idealCandidates}
+          considerations={considerations}
+        />
+        
+        <WhatToExpect
+          title="Your Hydrafacial Experience"
+          phases={phases}
+          resultsTimeline={resultsTimeline}
         />
         
         <ServiceFAQ
           title="Hydrafacial FAQs"
           subtitle="Your questions answered"
           faqs={faqs}
+        />
+        
+        <BeforeAfterGallery
+          title="Real Results from Real Clients"
+          description="See the visible difference a Hydrafacial makes"
+          ctaText="See More on Instagram"
+          ctaLink="https://instagram.com/laserlightskinclinic"
         />
         
         <ServiceCTA
