@@ -11,7 +11,10 @@ import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { Zap, Shield, Droplets, Heart } from "lucide-react";
+import ivDripSetup from "@/assets/iv-drip-setup.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const IVDrips = () => {
   const serviceSchema = {
@@ -265,6 +268,7 @@ const IVDrips = () => {
           subtitle="100% Absorption. Instant Results. Medical-Grade Wellness."
           description="Boost energy, strengthen immunity, and achieve radiant skin with our medically supervised IV vitamin infusions. Feel the difference from the inside out."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={ivDripSetup}
         />
         
         <QuickStatsBar stats={stats} />
@@ -313,6 +317,11 @@ const IVDrips = () => {
           title="IV Drip FAQs"
           subtitle="Your questions answered"
           faqs={faqs}
+        />
+        
+        <ResultsShowcase
+          title="Real Results from Real Clients"
+          description="Experience the difference of 100% nutrient absorption"
         />
         
         <ServiceCTA

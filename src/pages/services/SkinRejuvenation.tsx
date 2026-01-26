@@ -11,9 +11,11 @@ import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
-import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Sun, Sparkles, Shield, Clock } from "lucide-react";
+import skinTexture from "@/assets/skin-texture.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const SkinRejuvenation = () => {
   const serviceSchema = {
@@ -270,6 +272,7 @@ const SkinRejuvenation = () => {
           subtitle="Turn Back the Clock. Reveal Your Best Skin."
           description="Reduce sun damage, fine lines, and uneven skin tone with our advanced multi-modality skin rejuvenation treatments. Customized plans for lasting results."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         <QuickStatsBar stats={stats} />
@@ -299,6 +302,7 @@ const SkinRejuvenation = () => {
           description="We don't rely on a single technology—we combine multiple advanced treatments to address all aspects of skin aging. From laser and IPL for pigmentation, to microneedling for texture, to peels for radiance, we create a comprehensive plan tailored to your unique skin."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
+          deviceImage={skinTexture}
         />
         
         <div id="pricing">
@@ -329,11 +333,9 @@ const SkinRejuvenation = () => {
           faqs={faqs}
         />
         
-        <BeforeAfterGallery
+        <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible improvement in skin tone, texture, and radiance"
-          ctaText="See More on Instagram"
-          ctaLink="https://instagram.com/laserlightskinclinic"
         />
         
         <ServiceCTA

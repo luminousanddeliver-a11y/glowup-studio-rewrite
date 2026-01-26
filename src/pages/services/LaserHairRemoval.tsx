@@ -11,9 +11,11 @@ import { TabbedPricingTable } from "@/components/services/TabbedPricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
-import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, PiggyBank } from "lucide-react";
+import laserDevice from "@/assets/laser-device.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const LaserHairRemoval = () => {
   // Structured Data for SEO
@@ -306,6 +308,7 @@ const LaserHairRemoval = () => {
           subtitle="Achieve permanent hair reduction in just 6-8 sessions using the revolutionary Lynton Motus AY system. Safe for all skin types, including dark skin."
           description="Book your free consultation today and say goodbye to shaving and waxing forever."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         {/* Section 2: Quick Stats */}
@@ -340,6 +343,7 @@ const LaserHairRemoval = () => {
           description="The Lynton Motus AY is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
+          deviceImage={laserDevice}
         />
         
         {/* Section 7: Pricing */}
@@ -377,12 +381,10 @@ const LaserHairRemoval = () => {
           faqs={faqs}
         />
         
-        {/* Section 11: Before/After Gallery */}
-        <BeforeAfterGallery
+        {/* Section 11: Results Showcase */}
+        <ResultsShowcase
           title="Real Results from Real Clients"
-          description="See the permanent hair reduction our clients have achieved with the Lynton Motus AY"
-          ctaText="See More Results on Instagram"
-          ctaLink="https://instagram.com"
+          description="Join thousands of satisfied clients who have achieved permanent hair reduction with our pain-free laser technology."
         />
         
         {/* Section 12: Final CTA */}

@@ -11,9 +11,11 @@ import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
-import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Award, Sparkles, Shield, RefreshCw } from "lucide-react";
+import microneedlingDevice from "@/assets/microneedling-device.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const SkinPenMicroneedling = () => {
   const serviceSchema = {
@@ -279,6 +281,7 @@ const SkinPenMicroneedling = () => {
           subtitle="Transform Scars. Boost Collagen. Naturally."
           description="The FDA-cleared collagen induction therapy that dramatically reduces acne scars, fine lines, and improves skin texture. Safe for all skin types."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         <QuickStatsBar stats={stats} />
@@ -308,6 +311,7 @@ const SkinPenMicroneedling = () => {
           description="SkinPen Precision is the first microneedling device cleared by the FDA for clinical use. Its adjustable needle depth (0.25-2.5mm), single-use sterile cartridges, and precision engineering ensure consistent, safe, and effective results that at-home devices simply cannot replicate."
           features={technologyFeatures}
           certifications={["FDA Cleared", "CE Marked", "TGA Approved"]}
+          deviceImage={microneedlingDevice}
         />
         
         <div id="pricing">
@@ -338,11 +342,9 @@ const SkinPenMicroneedling = () => {
           faqs={faqs}
         />
         
-        <BeforeAfterGallery
+        <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the dramatic improvement in acne scars and skin texture"
-          ctaText="See More on Instagram"
-          ctaLink="https://instagram.com/laserlightskinclinic"
         />
         
         <ServiceCTA

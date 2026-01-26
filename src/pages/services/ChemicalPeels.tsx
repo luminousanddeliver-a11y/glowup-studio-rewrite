@@ -10,9 +10,11 @@ import { PricingTable } from "@/components/services/PricingTable";
 import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
-import { BeforeAfterGallery } from "@/components/services/BeforeAfterGallery";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { Sparkles, Layers, Clock, Shield } from "lucide-react";
+import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const ChemicalPeels = () => {
   const serviceSchema = {
@@ -266,6 +268,7 @@ const ChemicalPeels = () => {
           subtitle="Reveal Fresher, Clearer, Brighter Skin."
           description="Medical-grade chemical peels to treat acne, pigmentation, and dull skin. AlumierMD professional solutions for visible results."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         <QuickStatsBar stats={stats} />
@@ -316,11 +319,9 @@ const ChemicalPeels = () => {
           faqs={faqs}
         />
         
-        <BeforeAfterGallery
+        <ResultsShowcase
           title="Real Results from Real Clients"
           description="See the visible improvement in skin clarity and tone"
-          ctaText="See More on Instagram"
-          ctaLink="https://instagram.com/laserlightskinclinic"
         />
         
         <ServiceCTA

@@ -11,7 +11,10 @@ import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { Award, Target, Palette, CheckCircle } from "lucide-react";
+import electrolysisDevice from "@/assets/electrolysis-device.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const Electrolysis = () => {
   const serviceSchema = {
@@ -268,6 +271,7 @@ const Electrolysis = () => {
           subtitle="The Only Truly Permanent Solution. For All Hair Colors."
           description="FDA-approved permanent hair removal that works on grey, blonde, white, and red hair. Precision treatment for lasting results."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={consultationRoom}
         />
         
         <QuickStatsBar stats={stats} />
@@ -316,6 +320,11 @@ const Electrolysis = () => {
           title="Electrolysis FAQs"
           subtitle="Your questions answered"
           faqs={faqs}
+        />
+        
+        <ResultsShowcase
+          title="Real Results from Real Clients"
+          description="Join clients who achieved truly permanent hair removal"
         />
         
         <ServiceCTA

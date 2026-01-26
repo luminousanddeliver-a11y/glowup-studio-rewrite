@@ -11,7 +11,10 @@ import { WhoIsThisFor } from "@/components/services/WhoIsThisFor";
 import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { Zap, Shield, Sparkles, Atom } from "lucide-react";
+import coldPlasmaDevice from "@/assets/cold-plasma-device.jpg";
+import consultationRoom from "@/assets/consultation-room.jpg";
 
 const ColdPlasma = () => {
   const serviceSchema = {
@@ -268,6 +271,7 @@ const ColdPlasma = () => {
           subtitle="The 4th State of Matter. For Revolutionary Skin Results."
           description="Harness the power of cold atmospheric plasma to sterilize acne bacteria, boost product absorption 120x, and stimulate natural collagen production."
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
+          backgroundImage={coldPlasmaDevice}
         />
         
         <QuickStatsBar stats={stats} />
@@ -316,6 +320,11 @@ const ColdPlasma = () => {
           title="Cold Plasma FAQs"
           subtitle="Your questions answered"
           faqs={faqs}
+        />
+        
+        <ResultsShowcase
+          title="Real Results from Real Clients"
+          description="Experience the science-backed skin transformation"
         />
         
         <ServiceCTA
