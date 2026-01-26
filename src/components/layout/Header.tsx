@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,6 +32,7 @@ const navLinks = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-50 bg-card shadow-card">
@@ -60,10 +61,12 @@ export const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 {services.map((service) => (
-                  <DropdownMenuItem key={service.href} asChild>
-                    <Link to={service.href} className="w-full">
-                      {service.name}
-                    </Link>
+                  <DropdownMenuItem 
+                    key={service.href} 
+                    onClick={() => navigate(service.href)}
+                    className="cursor-pointer"
+                  >
+                    {service.name}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
