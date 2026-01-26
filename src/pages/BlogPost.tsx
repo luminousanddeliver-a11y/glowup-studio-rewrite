@@ -8,7 +8,7 @@ import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 
 const BlogPost = () => {
@@ -233,15 +233,51 @@ const BlogPost = () => {
         {/* Related Posts Section */}
         <RelatedPosts currentSlug={post.slug} category={post.category} />
 
+        {/* Related Services - Internal Linking for SEO */}
+        <section className="bg-muted/50 py-12 md:py-16">
+          <div className="container-custom max-w-4xl">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-heading text-xl md:text-2xl font-semibold text-foreground mb-6 text-center"
+            >
+              Explore Our Treatments
+            </motion.h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham" },
+                { name: "Hydrafacials", href: "/hydrafacial-east-london" },
+                { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
+                { name: "View All Prices", href: "/prices" },
+              ].map((service, index) => (
+                <motion.a
+                  key={service.name}
+                  href={service.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="bg-card p-4 rounded-lg text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span className="font-body text-sm font-medium text-foreground hover:text-primary transition-colors">
+                    {service.name}
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="bg-secondary py-12 md:py-16">
+        <section className="bg-primary py-12 md:py-16">
           <div className="container-custom max-w-4xl text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5 }}
-              className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4"
+              className="font-heading text-2xl md:text-3xl font-semibold text-primary-foreground mb-4"
             >
               Ready to Start Your Transformation?
             </motion.h2>
@@ -250,7 +286,7 @@ const BlogPost = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-body text-muted-foreground mb-6 max-w-2xl mx-auto"
+              className="font-body text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
             >
               Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
             </motion.p>
@@ -259,15 +295,27 @@ const BlogPost = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button 
                 asChild 
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-body h-14 px-8"
               >
                 <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
-                  Book an Appointment
+                  Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+              <Button 
+                asChild 
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8"
+              >
+                <a href="tel:02085981200">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Us Now
                 </a>
               </Button>
             </motion.div>

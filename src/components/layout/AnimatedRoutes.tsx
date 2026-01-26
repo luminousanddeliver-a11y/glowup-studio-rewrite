@@ -46,6 +46,8 @@ import HopiEarCandling from "@/pages/services/HopiEarCandling";
 import AdvancedElectrolysis from "@/pages/services/AdvancedElectrolysis";
 import MillionDollarFacial from "@/pages/services/MillionDollarFacial";
 import AdvancedPeels from "@/pages/services/AdvancedPeels";
+import LaserHairRemovalEastLondon from "@/pages/services/LaserHairRemovalEastLondon";
+import LyntonMotusAYLaser from "@/pages/services/LyntonMotusAYLaser";
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -88,6 +90,8 @@ export const AnimatedRoutes = () => {
         <Route path="/advanced-electrolysis-dagenham" element={<PageTransition><AdvancedElectrolysis /></PageTransition>} />
         <Route path="/million-dollar-facial-dagenham" element={<PageTransition><MillionDollarFacial /></PageTransition>} />
         <Route path="/advanced-peels-dagenham" element={<PageTransition><AdvancedPeels /></PageTransition>} />
+        <Route path="/laser-hair-removal-east-london" element={<PageTransition><LaserHairRemovalEastLondon /></PageTransition>} />
+        <Route path="/lynton-motus-ay-laser" element={<PageTransition><LyntonMotusAYLaser /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />

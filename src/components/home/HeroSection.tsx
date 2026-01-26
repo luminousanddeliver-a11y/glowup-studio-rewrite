@@ -1,9 +1,10 @@
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Star } from "lucide-react";
+import { ArrowRight, Shield, Star, Phone, CheckCircle } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import heroClinicNew from "@/assets/hero-clinic-new.png";
+import { GOOGLE_MAPS_REVIEWS_URL } from "@/lib/constants";
 
 export const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -40,32 +41,59 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              NHS-Approved Laser & Skin Clinic in Dagenham
+              Pain-Free Laser Hair Removal in <span className="text-primary">Dagenham</span>
             </motion.h1>
 
             <motion.p 
-              className="font-body text-lg text-muted-foreground mb-6 max-w-xl mx-auto lg:mx-0"
+              className="font-body text-lg text-muted-foreground mb-4 max-w-xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              East London's <strong className="text-gold">only clinic with the Quanta Thunder Series</strong> for advanced tattoo removal. NHS-approved, pain-free treatments with the Lynton Motus AY laser in Dagenham.
+              Permanent results in 6-8 sessions. <strong className="text-foreground">Safe for all skin types</strong>, including darker skin tones. NHS-approved technology trusted by 250+ happy clients.
             </motion.p>
 
-            {/* Offer Badge */}
+            {/* Trust Signals - Visible without scrolling */}
             <motion.div 
-              className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-6"
+              className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+            >
+              <div className="flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium">
+                <Shield className="h-4 w-4" />
+                <span>NHS Approved</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium">
+                <CheckCircle className="h-4 w-4" />
+                <span>Pain-Free Guaranteed</span>
+              </div>
+              <a 
+                href={GOOGLE_MAPS_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-gold/10 text-gold px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gold/20 transition-colors"
+              >
+                <Star className="h-4 w-4 fill-current" />
+                <span>4.9★ (250+ Reviews)</span>
+              </a>
+            </motion.div>
+
+            {/* Pricing Anchor */}
+            <motion.div 
+              className="inline-flex items-center gap-2 bg-secondary text-foreground px-4 py-2 rounded-lg mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              <Star className="h-4 w-4 fill-current" />
-              <span className="font-body font-semibold">25% Off for New Clients</span>
+              <span className="font-body text-sm">Treatments from</span>
+              <span className="font-heading font-bold text-xl text-primary">£80</span>
+              <span className="bg-gold text-gold-foreground text-xs font-bold px-2 py-0.5 rounded-full">25% OFF</span>
             </motion.div>
 
-            {/* CTAs */}
+            {/* Primary CTAs */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -73,10 +101,10 @@ export const HeroSection = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-12 px-6 text-base"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-base shadow-lg"
               >
                 <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
-                  Book an Appointment
+                  Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -84,10 +112,35 @@ export const HeroSection = () => {
                 asChild 
                 variant="outline"
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-12 px-6 text-base"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-base"
               >
-                <a href="#services">Learn More</a>
+                <a href="/prices">View Prices</a>
               </Button>
+            </motion.div>
+
+            {/* Secondary CTAs - Micro-commitments */}
+            <motion.div 
+              className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <a 
+                href="tel:02085981200"
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="h-4 w-4" />
+                <span>Call: 0208 598 1200</span>
+              </a>
+              <span className="text-border hidden sm:inline">|</span>
+              <a 
+                href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                Free Patch Test Available
+              </a>
             </motion.div>
 
             {/* Stats with divider */}
@@ -101,7 +154,7 @@ export const HeroSection = () => {
                 {[
                   { value: "250+", label: "Happy Clients" },
                   { value: "6+", label: "Years Experience" },
-                  { value: "5★", label: "Rated Clinic" }
+                  { value: "All Skin", label: "Types Treated" }
                 ].map((stat, index) => (
                   <motion.div 
                     key={stat.label}
@@ -134,7 +187,7 @@ export const HeroSection = () => {
             >
               <OptimizedImage 
                 src={heroClinicNew} 
-                alt="Modern aesthetic clinic treatment room with professional equipment"
+                alt="Pain-free laser hair removal treatment at Laser Light Skin Clinic Dagenham"
                 className="w-full"
                 priority={true}
                 objectFit="cover"
@@ -150,9 +203,9 @@ export const HeroSection = () => {
             >
               <div className="flex items-center gap-2 mb-2">
                 <Shield className="h-5 w-5 flex-shrink-0" />
-                <span className="font-semibold text-base">NHS Approved</span>
+                <span className="font-semibold text-base">NHS Approved Clinic</span>
               </div>
-              <div className="text-sm opacity-90 leading-snug">FDA-certified technology for safe, effective treatments</div>
+              <div className="text-sm opacity-90 leading-snug">Lynton Motus AY laser—FDA certified & pain-free</div>
             </motion.div>
           </motion.div>
         </div>
