@@ -1,9 +1,11 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ShoppingBag, Plus, Minus } from "lucide-react";
+import { ShoppingBag, Plus, Minus, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 
 interface ProductCardProps {
   id: string;
@@ -28,11 +30,43 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { addToRecentlyViewed } = useRecentlyViewed();
   const imageRef = useRef<HTMLDivElement>(null);
+  const hasTracked = useRef(false);
 
   const isOnSale = salePrice !== null && salePrice < price;
   const displayPrice = salePrice ?? price;
   const savings = isOnSale ? ((price - salePrice!) / price) * 100 : 0;
+  const isWishlisted = isInWishlist(id);
+
+  // Track product view for recently viewed
+  useEffect(() => {
+    if (!hasTracked.current) {
+      addToRecentlyViewed({
+        id,
+        name,
+        slug,
+        price,
+        salePrice,
+        category,
+        imageUrl,
+      });
+      hasTracked.current = true;
+    }
+  }, [id, name, slug, price, salePrice, category, imageUrl, addToRecentlyViewed]);
+
+  const handleToggleWishlist = () => {
+    toggleWishlist({
+      id,
+      name,
+      slug,
+      price,
+      salePrice,
+      category,
+      imageUrl,
+    });
+  };
 
   const handleAddToCart = () => {
     addToCart(
@@ -91,6 +125,19 @@ export const ProductCard = ({
             </motion.div>
           )}
         </div>
+
+        {/* Wishlist Button */}
+        <motion.button
+          onClick={handleToggleWishlist}
+          className="absolute top-3 right-3 w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-md hover:bg-card transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+        >
+          <Heart 
+            className={`w-5 h-5 transition-colors ${isWishlisted ? 'text-accent fill-accent' : 'text-muted-foreground'}`}
+          />
+        </motion.button>
       </div>
 
       {/* Content */}

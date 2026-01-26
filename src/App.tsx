@@ -5,7 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { CartProvider } from "@/contexts/CartContext";
+import { WishlistProvider } from "@/contexts/WishlistContext";
 import { CartDrawer } from "@/components/shop/CartDrawer";
+import { WishlistDrawer } from "@/components/shop/WishlistDrawer";
 import { FlyingCartAnimation } from "@/components/shop/FlyingCartAnimation";
 import { AnimatedRoutes } from "@/components/layout/AnimatedRoutes";
 
@@ -15,15 +17,18 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <CartDrawer />
-          <FlyingCartAnimation />
-          <BrowserRouter>
-            <AnimatedRoutes />
-          </BrowserRouter>
-        </TooltipProvider>
+        <WishlistProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <CartDrawer />
+            <WishlistDrawer />
+            <FlyingCartAnimation />
+            <BrowserRouter>
+              <AnimatedRoutes />
+            </BrowserRouter>
+          </TooltipProvider>
+        </WishlistProvider>
       </CartProvider>
     </QueryClientProvider>
   </HelmetProvider>
