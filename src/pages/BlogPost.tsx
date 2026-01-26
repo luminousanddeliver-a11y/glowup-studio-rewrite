@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -193,6 +194,9 @@ const BlogPost = () => {
             />
           </div>
         </article>
+
+        {/* Related Posts Section */}
+        <RelatedPosts currentSlug={post.slug} category={post.category} />
 
         {/* CTA Section */}
         <section className="bg-secondary py-12 md:py-16">
