@@ -26,9 +26,9 @@ const ColdPlasma = () => {
       "name": "Laser Light Skin Clinic",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "6 Church Elm Lane",
+        "streetAddress": "125 Becontree Avenue",
         "addressLocality": "Dagenham",
-        "postalCode": "RM10 9RR",
+        "postalCode": "RM8 2UJ",
         "addressCountry": "GB"
       },
       "telephone": "+442085981200"
