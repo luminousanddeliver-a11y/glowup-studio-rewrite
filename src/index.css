@@ -14,13 +14,16 @@
 
 @layer base {
   :root {
-    /* Primary Colors */
-    --primary: 210 100% 24%; /* #003D7A - Medical Blue */
+    /* Primary Colors - Client Brand Dark Teal */
+    --primary: 176 71% 36%; /* #1c9e98 - Dark Teal */
     --primary-foreground: 0 0% 100%;
 
-    /* Accent Colors - Updated to client brand teal #00BCD4 */
-    --accent: 187 100% 42%; /* #00BCD4 - Brand Teal */
+    /* Accent Colors - Client Brand Medium Teal */
+    --accent: 176 54% 50%; /* #3dc0ba - Medium Teal */
     --accent-foreground: 0 0% 100%;
+
+    /* Light Teal for backgrounds and highlights */
+    --accent-light: 186 67% 68%; /* #76dce6 */
 
     /* Promotional Red for banners and urgent CTAs */
     --promo: 350 100% 50%; /* #FF1744 - Promotional Red */
@@ -56,27 +59,29 @@
     /* Borders & Inputs */
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 187 100% 42%;
+    --ring: 176 54% 50%;
 
     --radius: 0.5rem;
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 210 100% 24%;
+    --sidebar-primary: 176 71% 36%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 187 100% 42%;
+    --sidebar-accent: 176 54% 50%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 187 100% 42%;
+    --sidebar-ring: 176 54% 50%;
   }
 
   .dark {
-    --primary: 210 100% 24%;
+    --primary: 176 71% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --accent: 187 100% 42%;
+    --accent: 176 54% 55%;
     --accent-foreground: 0 0% 100%;
+
+    --accent-light: 186 67% 72%;
 
     --background: 0 0% 7%;
     --foreground: 0 0% 98%;
@@ -104,16 +109,16 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 187 100% 42%;
+    --ring: 176 54% 55%;
 
     --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 187 100% 42%;
+    --sidebar-primary: 176 54% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 100% 24%;
+    --sidebar-accent: 176 71% 40%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 187 100% 42%;
+    --sidebar-ring: 176 54% 55%;
   }
 }
 
