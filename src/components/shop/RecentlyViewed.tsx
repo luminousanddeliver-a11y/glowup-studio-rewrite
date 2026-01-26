@@ -110,6 +110,7 @@ export const RecentlyViewed = () => {
                 category={product.category}
                 description={null}
                 imageUrl={product.imageUrl}
+                showCompare={false}
               />
             </motion.div>
           ))}
