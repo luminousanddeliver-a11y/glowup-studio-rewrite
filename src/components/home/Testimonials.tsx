@@ -27,7 +27,7 @@ const testimonials = [
   },
 ];
 
-export const Testimonials = forwardRef<HTMLElement, object>((_, ref) => {
+export const Testimonials = forwardRef<HTMLElement, object>(function Testimonials(_, ref) {
   return (
     <section ref={ref} className="section-padding bg-background relative overflow-hidden">
       <div className="container-custom">
@@ -165,5 +165,3 @@ export const Testimonials = forwardRef<HTMLElement, object>((_, ref) => {
     </section>
   );
 });
-
-Testimonials.displayName = "Testimonials";
