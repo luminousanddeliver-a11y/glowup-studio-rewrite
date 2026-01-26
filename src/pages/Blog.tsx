@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const Blog = () => {
   const { data: posts, isLoading } = useQuery({
@@ -50,7 +51,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
         title="Skincare & Treatment Advice | Laser Light Skin Clinic Blog"
         description="Expert tips on laser hair removal, Hydrafacials, IV drips, and advanced skin treatments. Get answers to your aesthetic questions from Dagenham's NHS-approved clinic."
@@ -184,6 +185,7 @@ const Blog = () => {
         </section>
       </main>
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

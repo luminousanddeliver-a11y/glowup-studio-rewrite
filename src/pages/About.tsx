@@ -10,6 +10,7 @@ import consultationRoom from "@/assets/consultation-room.jpg";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { TeamSection } from "@/components/about/TeamSection";
 import { CertificationsBar } from "@/components/about/CertificationsBar";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const About = () => {
   const organizationSchema = {
@@ -72,7 +73,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
         title="About Us | NHS-Approved Laser Clinic Dagenham | Laser Light"
         description="Learn about Laser Light Skin Clinic - Dagenham's trusted NHS-approved laser aesthetics clinic with 20+ years experience. Level 4 qualified therapists serving East London."
@@ -297,6 +298,7 @@ const About = () => {
         </section>
       </main>
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };
