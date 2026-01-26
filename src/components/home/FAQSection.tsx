@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -39,36 +40,62 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-hidden">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-foreground mb-4">
             Your Questions Answered: Safety, Pain, and Results
           </h2>
           <p className="font-body text-lg text-muted-foreground">
             We believe in transparency. Here are the answers to the most common questions our clients ask before booking.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
+        <motion.div 
+          className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="font-heading text-left text-foreground hover:text-primary">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-body text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+              >
+                <AccordionItem value={`item-${index}`}>
+                  <AccordionTrigger className="font-heading text-left text-foreground hover:text-primary">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="font-body text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="text-center mt-10">
+        <motion.div 
+          className="text-center mt-10"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
           <Button
             asChild
             variant="outline"
@@ -76,7 +103,7 @@ export const FAQSection = () => {
           >
             <a href="/faq">View All FAQs</a>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
