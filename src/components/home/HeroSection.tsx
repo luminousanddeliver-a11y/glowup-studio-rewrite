@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Star } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import heroClinicNew from "@/assets/hero-clinic-new.png";
 
 export const HeroSection = () => {
@@ -131,12 +132,12 @@ export const HeroSection = () => {
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <img 
+              <OptimizedImage 
                 src={heroClinicNew} 
                 alt="Modern aesthetic clinic treatment room with professional equipment"
-                className="w-full h-auto object-cover"
-                loading="eager"
-                fetchPriority="high"
+                className="w-full"
+                priority={true}
+                objectFit="cover"
               />
             </motion.div>
             

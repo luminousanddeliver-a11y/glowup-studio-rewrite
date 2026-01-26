@@ -176,7 +176,7 @@ export const Header = () => {
                         {category.name}
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
-                        <DropdownMenuItem key={service.href} asChild className="bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent">
+                        <DropdownMenuItem key={service.href} asChild className="bg-transparent focus:bg-transparent focus:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground">
                           <a 
                             href={service.href} 
                             className={cn(
