@@ -1,5 +1,6 @@
 import { Shield, Sparkles, MapPin } from "lucide-react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 import treatmentRoom from "@/assets/treatment-room.jpg";
 
 const differentiators = [
@@ -22,11 +23,17 @@ const differentiators = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
-          <div className="relative">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={treatmentRoom} 
@@ -37,46 +44,68 @@ export const WhyChooseUs = () => {
               />
             </div>
             {/* Floating Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-4 rounded-xl shadow-lg hidden md:block">
+            <motion.div 
+              className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-4 rounded-xl shadow-lg hidden md:block"
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            >
               <div className="font-heading text-2xl font-bold">6+</div>
               <div className="font-body text-sm">Years Experience</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Content Side */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {/* Header */}
-            <div className="mb-8">
+            <motion.div 
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <h2 className="text-foreground mb-4">
                 The Laser Light Difference
               </h2>
               <p className="font-body text-lg text-muted-foreground">
                 We combine medical-grade safety with cutting-edge technology and local expertise to deliver results you can trust.
               </p>
-            </div>
+            </motion.div>
 
             {/* Cards Stack */}
             <div className="space-y-4">
-              {differentiators.map((item) => (
-                <Card
+              {differentiators.map((item, index) => (
+                <motion.div
                   key={item.title}
-                  className="bg-card border-border shadow-card group hover:shadow-card-hover transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                 >
-                  <div className="flex items-start gap-4 p-6">
-                    <div className="w-14 h-14 shrink-0 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                      <item.icon className="h-7 w-7 text-primary" />
+                  <Card className="bg-card border-border shadow-card group hover:shadow-card-hover transition-all duration-300">
+                    <div className="flex items-start gap-4 p-6">
+                      <div className="w-14 h-14 shrink-0 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                        <item.icon className="h-7 w-7 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-foreground mb-2">{item.title}</h3>
+                        <p className="font-body text-muted-foreground text-sm">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-foreground mb-2">{item.title}</h3>
-                      <p className="font-body text-muted-foreground text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
