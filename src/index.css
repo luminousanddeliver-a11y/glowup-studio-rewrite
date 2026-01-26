@@ -153,4 +153,41 @@
   .container-custom {
     @apply container mx-auto px-4 md:px-6 lg:px-8;
   }
+
+  /* Mobile-optimized touch targets - minimum 44px */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .touch-target-lg {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Smooth scroll for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Better tap highlight for mobile */
+  @media (hover: none) {
+    button, a, [role="button"] {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .active-scale {
+      @apply active:scale-[0.98] transition-transform;
+    }
+  }
+
+  /* Prevent text size adjustment on orientation change */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 }

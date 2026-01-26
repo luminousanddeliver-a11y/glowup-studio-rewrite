@@ -167,22 +167,24 @@ export const ServicesGrid = () => {
               </h3>
               
               {/* Services Grid */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
                 {category.services.map((service) => (
                   <a
                     key={service.name}
                     href={service.href}
-                    className="group bg-card p-5 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                    className="group bg-card p-4 md:p-5 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 active:scale-[0.99] touch-manipulation min-h-[88px] flex flex-col justify-between"
                   >
-                    <h4 className="font-heading text-base font-medium text-foreground mb-2 group-hover:text-accent transition-colors">
-                      {service.name}
-                    </h4>
-                    <p className="font-body text-sm text-muted-foreground mb-3 line-clamp-2">
-                      {service.description}
-                    </p>
-                    <span className="inline-flex items-center font-body text-sm text-accent">
+                    <div>
+                      <h4 className="font-heading text-base font-medium text-foreground mb-1.5 md:mb-2 group-hover:text-accent transition-colors">
+                        {service.name}
+                      </h4>
+                      <p className="font-body text-sm text-muted-foreground line-clamp-2">
+                        {service.description}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center font-body text-sm text-accent mt-2 md:mt-3">
                       Learn More
-                      <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-1 h-4 w-4 md:h-3 md:w-3 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </a>
                 ))}
