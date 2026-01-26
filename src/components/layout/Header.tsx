@@ -95,6 +95,13 @@ const navLinks = [
 // Routes with dark/teal hero backgrounds that need light text
 const darkHeroRoutes = ['/prices', '/blog', '/contact', '/about', '/academy', '/gift-vouchers'];
 
+// Check if current route is a service page (these have light gradient backgrounds)
+const isServicePage = (pathname: string) => {
+  return serviceCategories.some(category =>
+    category.services.some(service => pathname === service.href)
+  );
+};
+
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -103,11 +110,9 @@ export const Header = () => {
   const { wishlistCount, setIsWishlistOpen, wishlistBounce } = useWishlist();
   const location = useLocation();
 
-  // Check if current route has a dark hero background
-  const hasDarkHero = darkHeroRoutes.some(route => location.pathname.startsWith(route)) ||
-    serviceCategories.some(category =>
-      category.services.some(service => location.pathname === service.href)
-    );
+  // Check if current route has a dark hero background (NOT service pages - they have light gradients)
+  const hasDarkHero = darkHeroRoutes.some(route => location.pathname.startsWith(route)) && 
+    !isServicePage(location.pathname);
 
   // Determine text color based on scroll state and background
   const navTextColor = !isCompact && hasDarkHero ? "text-white" : "text-foreground";
@@ -139,18 +144,21 @@ export const Header = () => {
       <ScrollProgress />
       <PromoBanner />
       <motion.header 
-        className={cn(
-          "sticky top-0 z-50 transition-colors duration-300",
-          isCompact 
-            ? "bg-card/95 backdrop-blur-md" 
-            : "bg-transparent"
-        )}
+        className="sticky top-0 z-50"
+        initial={false}
         animate={{ 
+          backgroundColor: isCompact 
+            ? "rgba(255, 255, 255, 0.95)"
+            : "rgba(255, 255, 255, 0)",
+          backdropFilter: isCompact ? "blur(12px)" : "blur(0px)",
           boxShadow: isCompact 
             ? "0 4px 20px rgba(0,0,0,0.1)" 
             : "0 0 0 rgba(0,0,0,0)" 
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ 
+          duration: 0.4, 
+          ease: [0.4, 0, 0.2, 1]
+        }}
       >
         <div className="container-custom">
           <motion.div 
