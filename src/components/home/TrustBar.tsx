@@ -1,10 +1,10 @@
-import { Shield, Star, Sparkles, Percent } from "lucide-react";
+import { Shield, Star, Sparkles, Factory } from "lucide-react";
 import { motion } from "framer-motion";
 
 const trustItems = [
   {
     icon: Shield,
-    title: "NHS Approved",
+    title: "NHS & FDA Approved",
     description: "Medical-grade standards",
   },
   {
@@ -18,15 +18,15 @@ const trustItems = [
     description: "Lynton Motus AY",
   },
   {
-    icon: Percent,
-    title: "25% Off New Clients",
-    description: "Limited time offer",
+    icon: Factory,
+    title: "Made in Britain",
+    description: "Lynton Lasers certified",
   },
 ];
 
 export const TrustBar = () => {
   return (
-    <section className="bg-secondary py-8 md:py-10 overflow-hidden">
+    <section className="bg-secondary border-t border-border/50 py-10 md:py-12 overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {trustItems.map((item, index) => (
