@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Palette, Calendar, Shield, Sparkles } from "lucide-react";
 import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -423,6 +424,7 @@ const TattooRemoval = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

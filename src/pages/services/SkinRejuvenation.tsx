@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Sun, Sparkles, Shield, Clock } from "lucide-react";
 import skinTexture from "@/assets/skin-texture.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -373,6 +374,7 @@ const SkinRejuvenation = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

@@ -11,6 +11,7 @@ import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Heart, Sparkles, RefreshCw, Zap, Moon, Leaf } from "lucide-react";
 import massageSetup from "@/assets/massage-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -270,6 +271,7 @@ const Massage = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

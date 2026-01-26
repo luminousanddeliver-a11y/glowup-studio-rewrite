@@ -14,6 +14,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Zap, Shield, Sparkles, Atom } from "lucide-react";
 import coldPlasmaDevice from "@/assets/cold-plasma-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -362,6 +363,7 @@ const ColdPlasma = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

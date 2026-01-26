@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Sparkles, RefreshCw, Target, Layers, Zap } from "lucide-react";
 import laserResurfacingDevice from "@/assets/laser-resurfacing-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -379,6 +380,7 @@ const LaserResurfacing = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

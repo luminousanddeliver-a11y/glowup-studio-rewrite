@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Sparkles, Shield, Users } from "lucide-react";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -29,9 +30,9 @@ const Hydrafacials = () => {
       "name": "Laser Light Skin Clinic",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "6 Church Elm Lane",
+        "streetAddress": "125 Becontree Avenue",
         "addressLocality": "Dagenham",
-        "postalCode": "RM10 9RR",
+        "postalCode": "RM8 2UJ",
         "addressCountry": "GB"
       },
       "telephone": "+442085981200"
@@ -419,6 +420,7 @@ const Hydrafacials = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

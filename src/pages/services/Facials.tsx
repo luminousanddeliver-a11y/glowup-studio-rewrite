@@ -14,6 +14,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Sun, Droplets, Gem, Star } from "lucide-react";
 import facialsSetup from "@/assets/facials-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -370,6 +371,7 @@ const Facials = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

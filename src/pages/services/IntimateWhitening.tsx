@@ -14,6 +14,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Shield, Heart, Sparkles, Lock } from "lucide-react";
 import intimateCareProducts from "@/assets/intimate-care-products.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -361,6 +362,7 @@ const IntimateWhitening = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

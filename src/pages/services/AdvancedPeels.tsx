@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Award, Sparkles, Shield, Clock, Sun, Droplets, Target, RefreshCw } from "lucide-react";
 import chemicalPeelProducts from "@/assets/chemical-peel-products.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -40,7 +41,7 @@ const AdvancedPeels = () => {
       "name": "Laser Light Skin Clinic",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "125 Becontree Ave",
+        "streetAddress": "125 Becontree Avenue",
         "addressLocality": "Dagenham",
         "postalCode": "RM8 2UJ",
         "addressCountry": "GB"
@@ -374,6 +375,7 @@ const AdvancedPeels = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

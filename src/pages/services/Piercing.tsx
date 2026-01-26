@@ -13,6 +13,7 @@ import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Star, CheckCircle, Gem, ShieldCheck } from "lucide-react";
 import piercingSetup from "@/assets/piercing-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -317,6 +318,7 @@ const Piercing = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };

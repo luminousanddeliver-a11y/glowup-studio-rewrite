@@ -37,8 +37,8 @@ const Index = () => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 51.5432,
-      "longitude": 0.1258
+      "latitude": 51.5545814,
+      "longitude": 0.1173976
     },
     "openingHoursSpecification": [
       {
@@ -49,6 +49,7 @@ const Index = () => {
       }
     ],
     "sameAs": [
+      "https://www.google.com/maps/place/Laser+Light+Skin+Clinic/@51.5545221,0.1175882,17z",
       "https://www.facebook.com/laserlightskinclinic",
       "https://www.instagram.com/laserlightskinclinic"
     ],

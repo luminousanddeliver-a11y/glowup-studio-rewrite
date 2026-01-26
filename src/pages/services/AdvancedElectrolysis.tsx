@@ -15,6 +15,7 @@ import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, Target, Sparkles, Zap, CheckCircle, RefreshCw, Eye } from "lucide-react";
 import advancedElectrolysisDevice from "@/assets/advanced-electrolysis-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -355,6 +356,7 @@ const AdvancedElectrolysis = () => {
       </main>
       
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };
