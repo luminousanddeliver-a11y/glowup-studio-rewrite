@@ -1,10 +1,20 @@
-import { Check } from "lucide-react";
+import { Check, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import laserDevice from "@/assets/laser-device.jpg";
-import skinTexture from "@/assets/skin-texture.jpg";
+import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
 
-const technologies = [
+interface Technology {
+  image: string;
+  name: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  exclusive?: boolean;
+  exclusiveBadge?: string;
+}
+
+const technologies: Technology[] = [
   {
     image: laserDevice,
     name: "Lynton Motus AY",
@@ -18,15 +28,18 @@ const technologies = [
     ],
   },
   {
-    image: skinTexture,
-    name: "Quanta Thunder",
+    image: tattooRemovalDevice,
+    name: "Quanta Thunder Series",
     tagline: "Advanced Tattoo Removal",
-    description: "The multi-wavelength system that removes all ink colors in fewer sessions than traditional lasers.",
+    exclusive: true,
+    exclusiveBadge: "Only in East London",
+    description: "We're the ONLY clinic in East London offering the Quanta Thunder Series—the revolutionary multi-wavelength system that removes ALL ink colors in 50% fewer sessions than traditional lasers.",
     features: [
-      "Removes all ink colors",
-      "Minimal scarring",
-      "Fewer sessions required",
-      "Precision targeting",
+      "Exclusive to our clinic in East London",
+      "Removes ALL ink colors including stubborn blues & greens",
+      "50% fewer sessions than traditional lasers",
+      "Minimal scarring with precision targeting",
+      "FDA Cleared & CE Marked",
     ],
   },
 ];
@@ -56,15 +69,27 @@ export const TechnologyShowcase = () => {
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
-              className="bg-card rounded-2xl overflow-hidden shadow-card"
+              className={`bg-card rounded-2xl overflow-hidden shadow-card relative ${tech.exclusive ? 'ring-2 ring-gold' : ''}`}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
+              {/* Exclusive Badge */}
+              {tech.exclusive && (
+                <motion.div 
+                  className="absolute top-4 right-4 z-10 bg-gold text-gold-foreground px-3 py-1.5 rounded-full font-body font-bold text-xs shadow-lg flex items-center gap-1.5"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Award className="h-3.5 w-3.5" />
+                  {tech.exclusiveBadge}
+                </motion.div>
+              )}
+              
               {/* Visual Header with Image */}
               <motion.div 
-                className="h-56 overflow-hidden"
+                className="h-56 overflow-hidden relative"
                 initial={{ scale: 1.1 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}

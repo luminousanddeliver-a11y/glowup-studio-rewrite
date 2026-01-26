@@ -1,9 +1,16 @@
-import { Shield, Sparkles, MapPin } from "lucide-react";
+import { Shield, Sparkles, MapPin, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import treatmentRoom from "@/assets/treatment-room.jpg";
 
-const differentiators = [
+interface Differentiator {
+  icon: typeof Shield;
+  title: string;
+  description: string;
+  highlight?: boolean;
+}
+
+const differentiators: Differentiator[] = [
   {
     icon: Shield,
     title: "NHS-Approved Safety",
@@ -18,6 +25,12 @@ const differentiators = [
     icon: MapPin,
     title: "Level 4 Qualified Experts",
     description: "Our team of local, Level 4 qualified therapists have extensive experience treating East London's diverse skin types.",
+  },
+  {
+    icon: Award,
+    title: "Exclusive Technology",
+    description: "We're the ONLY clinic in East London with the Quanta Thunder Series—the world's most advanced multi-wavelength tattoo removal system.",
+    highlight: true,
   },
 ];
 
@@ -89,13 +102,22 @@ export const WhyChooseUs = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                 >
-                  <Card className="bg-card border-border shadow-card group hover:shadow-card-hover transition-all duration-300">
+                  <Card className={`bg-card border-border shadow-card group hover:shadow-card-hover transition-all duration-300 ${item.highlight ? 'ring-2 ring-gold relative overflow-visible' : ''}`}>
+                    {item.highlight && (
+                      <motion.span 
+                        className="absolute -top-3 left-6 bg-gold text-gold-foreground text-xs font-bold px-3 py-1 rounded-full"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        ★ EXCLUSIVE
+                      </motion.span>
+                    )}
                     <div className="flex items-start gap-4 p-6">
-                      <div className="w-14 h-14 shrink-0 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                        <item.icon className="h-7 w-7 text-primary" />
+                      <div className={`w-14 h-14 shrink-0 rounded-full flex items-center justify-center transition-colors ${item.highlight ? 'bg-gold/10 group-hover:bg-gold/20' : 'bg-primary/5 group-hover:bg-primary/10'}`}>
+                        <item.icon className={`h-7 w-7 ${item.highlight ? 'text-gold' : 'text-primary'}`} />
                       </div>
                       <div>
-                        <h3 className="text-foreground mb-2">{item.title}</h3>
+                        <h3 className={`mb-2 ${item.highlight ? 'text-gold' : 'text-foreground'}`}>{item.title}</h3>
                         <p className="font-body text-muted-foreground text-sm">
                           {item.description}
                         </p>

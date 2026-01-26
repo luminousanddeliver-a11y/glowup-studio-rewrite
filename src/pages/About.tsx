@@ -121,7 +121,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                The only 5-star NHS-approved laser clinic in East London, trusted by over 250+ clients for pain-free, medical-grade treatments.
+                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 250+ clients for pain-free, medical-grade treatments.
               </motion.p>
             </motion.div>
           </div>
@@ -146,7 +146,7 @@ const About = () => {
                     We're proud to be NHS-approved, meaning our clinic meets the strictest safety and hygiene standards set by the National Health Service. This approval isn't just a badge – it's our commitment to your safety and wellbeing.
                   </p>
                   <p>
-                    Our investment in cutting-edge technology, including the Lynton Motus AY and Quanta Thunder Series lasers, reflects our dedication to delivering the best possible results with maximum comfort.
+                    Our investment in cutting-edge technology, including the Lynton Motus AY for pain-free laser hair removal and the <strong>exclusive Quanta Thunder Series for advanced tattoo removal</strong>—technology only available at our clinic in East London—reflects our dedication to delivering the best possible results with maximum comfort.
                   </p>
                 </div>
               </motion.div>
