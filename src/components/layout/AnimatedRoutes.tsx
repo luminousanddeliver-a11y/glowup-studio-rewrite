@@ -6,6 +6,7 @@ import { PageTransition } from "./PageTransition";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import Shop from "@/pages/Shop";
+import ProductDetail from "@/pages/ProductDetail";
 import Checkout from "@/pages/Checkout";
 import OrderConfirmation from "@/pages/OrderConfirmation";
 import OrderCancelled from "@/pages/OrderCancelled";
@@ -54,6 +55,7 @@ export const AnimatedRoutes = () => {
         <Route path="/gift-vouchers" element={<PageTransition><GiftVouchers /></PageTransition>} />
         <Route path="/academy" element={<PageTransition><Academy /></PageTransition>} />
         <Route path="/shop" element={<PageTransition><Shop /></PageTransition>} />
+        <Route path="/shop/:slug" element={<PageTransition><ProductDetail /></PageTransition>} />
         <Route path="/checkout" element={<PageTransition><Checkout /></PageTransition>} />
         <Route path="/order-confirmation" element={<PageTransition><OrderConfirmation /></PageTransition>} />
         <Route path="/order-cancelled" element={<PageTransition><OrderCancelled /></PageTransition>} />
