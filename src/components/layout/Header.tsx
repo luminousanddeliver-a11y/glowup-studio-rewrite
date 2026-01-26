@@ -165,7 +165,7 @@ export const Header = () => {
                 )}
               </button>
               
-              <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-12 px-6">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-12 px-6">
                 <a href="/contact">Book Consultation</a>
               </Button>
             </div>
@@ -259,7 +259,7 @@ export const Header = () => {
                   <span className="font-body font-medium">0208 598 1200</span>
                 </a>
 
-                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 w-full mt-3 text-base font-semibold active:scale-[0.99] touch-manipulation">
+                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 w-full mt-3 text-base font-semibold active:scale-[0.99] touch-manipulation">
                   <a href="/contact">Book Consultation</a>
                 </Button>
               </nav>

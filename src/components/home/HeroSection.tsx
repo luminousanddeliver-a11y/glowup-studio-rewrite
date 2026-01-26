@@ -23,14 +23,14 @@ export const HeroSection = () => {
           {/* Content */}
           <div className="text-center lg:text-left">
             {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
               <Shield className="h-4 w-4" />
               <span className="font-body text-sm font-semibold">NHS-Approved Clinic</span>
             </div>
 
             <h1 className="text-foreground mb-6 leading-tight">
               NHS-Approved Laser & Skin Clinic in{" "}
-              <span className="text-accent">Dagenham, East London</span>
+              <span className="text-primary">Dagenham, East London</span>
             </h1>
 
             <p className="font-body text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
@@ -48,7 +48,7 @@ export const HeroSection = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-lg"
               >
                 <a href="#contact">
                   Book Free Consultation & Get 25% Off
@@ -68,15 +68,15 @@ export const HeroSection = () => {
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-8 mt-10">
               <div className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="font-heading text-3xl font-semibold text-primary">250+</div>
+                <div className="font-heading text-3xl font-semibold text-foreground">250+</div>
                 <div className="font-body text-sm text-muted-foreground">5-Star Reviews</div>
               </div>
               <div className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="font-heading text-3xl font-semibold text-primary">10+</div>
+                <div className="font-heading text-3xl font-semibold text-foreground">10+</div>
                 <div className="font-body text-sm text-muted-foreground">Treatments</div>
               </div>
               <div className="text-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="font-heading text-3xl font-semibold text-primary">6+</div>
+                <div className="font-heading text-3xl font-semibold text-foreground">6+</div>
                 <div className="font-body text-sm text-muted-foreground">Years Experience</div>
               </div>
             </div>

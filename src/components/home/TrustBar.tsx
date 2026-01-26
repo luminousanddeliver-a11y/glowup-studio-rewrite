@@ -33,8 +33,8 @@ export const TrustBar = () => {
               key={item.title}
               className="flex flex-col items-center text-center"
             >
-              <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-3">
-                <item.icon className="h-7 w-7 text-accent" />
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                <item.icon className="h-7 w-7 text-primary" />
               </div>
               <h4 className="font-heading text-sm md:text-base font-medium text-foreground">
                 {item.title}

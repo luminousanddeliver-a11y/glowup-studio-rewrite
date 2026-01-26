@@ -3,21 +3,21 @@ import { ArrowRight, Gift } from "lucide-react";
 
 export const OfferBanner = () => {
   return (
-    <section className="bg-accent py-16 md:py-20">
+    <section className="bg-primary py-16 md:py-20">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto">
           {/* Icon */}
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-accent-foreground/10 flex items-center justify-center">
-            <Gift className="w-8 h-8 text-accent-foreground" />
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-foreground/10 flex items-center justify-center">
+            <Gift className="w-8 h-8 text-primary-foreground" />
           </div>
 
           {/* Headline */}
-          <h2 className="text-accent-foreground mb-4">
+          <h2 className="text-primary-foreground mb-4">
             New Client Exclusive: Get 25% Off Your First Treatment!
           </h2>
 
           {/* Description */}
-          <p className="font-body text-lg text-accent-foreground/90 mb-8 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             As a welcome to the Laser Light Skin Clinic family, we are offering all new clients 25% off their first treatment course. This is a limited-time offer to experience the Dagenham difference.
           </p>
 
