@@ -263,12 +263,19 @@ const IVDrips = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="Wellness From Within"
-          title="IV Drips & Vitamin Infusions"
+          trustBadge="Nurse Administered"
+          title="IV Drips & Vitamin Infusions East London"
+          titleAccent="East London"
           subtitle="100% Absorption. Instant Results. Medical-Grade Wellness."
-          description="Boost energy, strengthen immunity, and achieve radiant skin with our medically supervised IV vitamin infusions. Feel the difference from the inside out."
+          description="Boost energy, strengthen immunity, and achieve radiant skin with medically supervised IV vitamin infusions."
+          badge="Wellness From Within"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={ivDripSetup}
+          stats={[
+            { value: "100%", label: "Absorption" },
+            { value: "Instant", label: "Energy" },
+            { value: "Medical", label: "Grade" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />

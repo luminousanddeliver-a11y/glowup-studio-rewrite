@@ -266,12 +266,19 @@ const Electrolysis = () => {
       
       <main className="flex-1">
         <ServiceHero
-          badge="FDA Approved Permanent"
-          title="Electrolysis Hair Removal"
+          trustBadge="FDA Approved Method"
+          title="Electrolysis Hair Removal Dagenham"
+          titleAccent="Dagenham"
           subtitle="The Only Truly Permanent Solution. For All Hair Colors."
           description="FDA-approved permanent hair removal that works on grey, blonde, white, and red hair. Precision treatment for lasting results."
+          badge="Works on Grey Hair"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          stats={[
+            { value: "Truly", label: "Permanent" },
+            { value: "All Hair", label: "Colors" },
+            { value: "Precision", label: "Treatment" }
+          ]}
         />
         
         <QuickStatsBar stats={stats} />
