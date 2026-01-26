@@ -85,8 +85,8 @@ export const ServiceHero = ({
   description,
   badge,
   trustBadge,
-  primaryCtaText = "Book Free Consultation",
-  primaryCtaHref = "#contact",
+  primaryCtaText = "Book an Appointment",
+  primaryCtaHref = "https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true",
   secondaryCta,
   showPhoneCta = true,
   backgroundImage,
@@ -201,7 +201,7 @@ export const ServiceHero = ({
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
               >
-                <a href={primaryCtaHref}>
+                <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}>
                   <Calendar className="mr-2 h-5 w-5" />
                   {primaryCtaText}
                 </a>

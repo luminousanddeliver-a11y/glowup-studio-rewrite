@@ -195,7 +195,7 @@ export const Header = () => {
               </button>
               
               <Button asChild className={`bg-primary hover:bg-primary/90 text-primary-foreground font-body px-6 transition-all duration-200 ${isCompact ? 'h-10' : 'h-12'}`}>
-                <a href="/contact">Book Consultation</a>
+                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
               </Button>
             </div>
 
@@ -289,7 +289,7 @@ export const Header = () => {
                 </a>
 
                 <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 w-full mt-3 text-base font-semibold active:scale-[0.99] touch-manipulation">
-                  <a href="/contact">Book Consultation</a>
+                  <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
                 </Button>
               </nav>
             </div>

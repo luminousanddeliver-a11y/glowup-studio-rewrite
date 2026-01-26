@@ -261,8 +261,8 @@ const BlogPost = () => {
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8"
               >
-                <a href="/contact">
-                  Book Free Consultation
+                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                  Book an Appointment
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>

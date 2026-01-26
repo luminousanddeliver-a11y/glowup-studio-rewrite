@@ -177,8 +177,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Contact Us | Laser Light Skin Clinic Dagenham | Book Consultation"
-        description="Contact Laser Light Skin Clinic in Dagenham. Call 0208 598 1200 or 07949 501 777. Book your free consultation for laser hair removal and skin treatments."
+        title="Contact Us | Laser Light Skin Clinic Dagenham | Book Appointment"
+        description="Contact Laser Light Skin Clinic in Dagenham. Call 0208 598 1200 or 07949 501 777. Book an appointment for laser hair removal and skin treatments."
         canonicalUrl="https://laserlightskinclinic.co.uk/contact"
         structuredData={contactPageSchema}
       />
