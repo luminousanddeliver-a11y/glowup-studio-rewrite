@@ -9,16 +9,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const services = [
-  { name: "Laser Hair Removal", href: "/services/laser-hair-removal" },
-  { name: "Hydrafacials", href: "/services/hydrafacials" },
-  { name: "Skin Rejuvenation", href: "/services/skin-rejuvenation" },
-  { name: "Chemical Peels", href: "/services/chemical-peels" },
-  { name: "Electrolysis", href: "/services/electrolysis" },
-  { name: "SkinPen Microneedling", href: "/services/microneedling" },
-  { name: "IV Drips & Infusions", href: "/services/iv-drips" },
-  { name: "Tattoo Removal", href: "/services/tattoo-removal" },
-  { name: "Cold Plasma Treatments", href: "/services/cold-plasma" },
-  { name: "Intimate V-Whitening", href: "/services/intimate-whitening" },
+  { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham" },
+  { name: "Hydrafacials", href: "/hydrafacial-east-london" },
+  { name: "Tattoo Removal", href: "/tattoo-removal-east-london" },
+  { name: "Skin Rejuvenation", href: "/skin-rejuvenation-dagenham" },
+  { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham" },
+  { name: "Chemical Peels", href: "/chemical-peels-dagenham" },
+  { name: "IV Drips & Infusions", href: "/iv-drips-east-london" },
+  { name: "Electrolysis", href: "/electrolysis-hair-removal-dagenham" },
+  { name: "Cold Plasma Treatments", href: "/cold-plasma-treatment-dagenham" },
+  { name: "Intimate V-Whitening", href: "/intimate-whitening-london" },
 ];
 
 const navLinks = [
