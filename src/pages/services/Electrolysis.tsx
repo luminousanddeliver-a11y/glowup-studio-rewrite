@@ -272,7 +272,7 @@ const Electrolysis = () => {
           trustBadge="FDA Approved Method"
           title="Electrolysis Hair Removal Dagenham"
           titleAccent="Dagenham"
-          subtitle="The Only Truly Permanent Solution. For All Hair Colors."
+          subtitle="The Only FDA-Approved Permanent Hair Removal"
           description="FDA-approved permanent hair removal that works on grey, blonde, white, and red hair. Precision treatment for lasting results."
           badge="Works on Grey Hair"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

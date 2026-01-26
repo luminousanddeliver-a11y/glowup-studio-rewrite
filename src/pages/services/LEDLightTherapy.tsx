@@ -250,7 +250,7 @@ const LEDLightTherapy = () => {
           trustBadge="Non-Invasive Treatment"
           title="LED Light Therapy in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Harness the Power of Light for Beautiful Skin"
+          subtitle="Heal Acne. Reduce Wrinkles. No Pain. No Downtime."
           description="Painless phototherapy for acne, anti-aging, and inflammation. No downtime, no discomfort—just results."
           badge="From £50 Per Session"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

@@ -259,7 +259,7 @@ const MillionDollarFacial = () => {
           trustBadge="Celebrity Favourite"
           title="Million Dollar Facial in Dagenham"
           titleAccent="Dagenham"
-          subtitle="The Ultimate Luxury Skin Transformation"
+          subtitle="The Red Carpet Treatment for Flawless Skin"
           description="Experience the A-list facial loved by celebrities worldwide. 90 minutes of pure luxury combining microneedling, LED therapy, and oxygen infusion for red carpet-ready skin."
           badge="Instant Glow Results"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

@@ -238,7 +238,7 @@ const Piercing = () => {
           trustBadge="Clinical Piercing Environment"
           title="Professional Ear Piercing in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Safe, Sterile Piercing for All Ages"
+          subtitle="Express Yourself with Safe, Professional Piercing"
           description="Get your ears pierced in a clean, clinical environment by trained professionals. Hypoallergenic jewelry included."
           badge="Both Lobes Just £25"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

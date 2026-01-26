@@ -259,7 +259,7 @@ export const ServiceHero = ({
                 >
                   <OptimizedImage 
                     src={displayImage} 
-                    alt={title}
+                    alt={`${title} treatment at Laser Light Skin Clinic Dagenham${floatingBadge?.title ? ` - ${floatingBadge.title}` : ''}`}
                     className="w-full aspect-[4/3] object-cover"
                     priority={true}
                     objectFit="cover"

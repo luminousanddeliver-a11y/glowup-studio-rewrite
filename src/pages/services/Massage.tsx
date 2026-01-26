@@ -205,7 +205,7 @@ const Massage = () => {
           trustBadge="Qualified Massage Therapists"
           title="Professional Massage Therapy in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Swedish, Deep Tissue & Hot Stone Massage"
+          subtitle="Release Tension. Restore Balance. Feel Amazing."
           description="Escape the everyday with therapeutic massage. Relieve tension, reduce stress, and restore your wellbeing in our tranquil treatment rooms."
           badge="From £40"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

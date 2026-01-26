@@ -249,7 +249,7 @@ const Facials = () => {
           trustBadge="Premium Skincare Experience"
           title="Professional Facials in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Including the Famous Million Dollar Facial"
+          subtitle="Professional Care for Skin That Looks and Feels Amazing"
           description="Bespoke treatments tailored to your skin's unique needs. From deep cleansing to red-carpet luxury, experience professional skincare at its finest."
           badge="From £45"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

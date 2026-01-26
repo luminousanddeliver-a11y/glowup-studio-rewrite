@@ -287,7 +287,7 @@ const LaserResurfacing = () => {
           trustBadge="Medical-Grade Technology"
           title="Laser Skin Resurfacing in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Transform Your Skin with Fractional Laser Technology"
+          subtitle="Resurface Your Skin. Reveal a Smoother You."
           description="Dramatically reduce acne scars, wrinkles, and sun damage. Stimulate collagen production for lasting rejuvenation."
           badge="Free Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}

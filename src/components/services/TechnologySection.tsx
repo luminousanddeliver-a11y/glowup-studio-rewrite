@@ -9,6 +9,7 @@ interface TechnologySectionProps {
   features: string[];
   certifications?: string[];
   deviceImage?: string;
+  deviceImageAlt?: string;
 }
 
 export const TechnologySection = ({
@@ -19,6 +20,7 @@ export const TechnologySection = ({
   features,
   certifications,
   deviceImage,
+  deviceImageAlt,
 }: TechnologySectionProps) => {
   return (
     <section className="section-padding bg-background">
@@ -146,7 +148,7 @@ export const TechnologySection = ({
                 <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                   <img 
                     src={deviceImage} 
-                    alt={technologyName}
+                    alt={deviceImageAlt || `${technologyName} device at Laser Light Skin Clinic Dagenham`}
                     className="w-full h-full object-cover"
                   />
                 </div>

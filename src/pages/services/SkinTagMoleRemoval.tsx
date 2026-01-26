@@ -271,7 +271,7 @@ const SkinTagMoleRemoval = () => {
           trustBadge="Safe Professional Removal"
           title="Skin Tag & Mole Removal in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Quick, Safe Removal of Unwanted Lesions"
+          subtitle="Quick Removal. Clear Skin. Permanent Results."
           description="Expert removal of skin tags, moles, warts, and milia using advanced electrolysis and cryotherapy techniques. Minimal scarring, fast healing."
           badge="Skin Tags From £50"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
