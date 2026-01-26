@@ -45,11 +45,11 @@ const Shop = () => {
 
       <main className="min-h-screen bg-background pb-20">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-16 lg:py-24">
+        <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-10 lg:py-14">
           <div className="container-custom text-center">
             <PageBreadcrumb 
               items={[{ label: "Shop" }]} 
-              className="mb-6 justify-center"
+              className="mb-4 justify-center"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}

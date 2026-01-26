@@ -92,6 +92,9 @@ const navLinks = [
   { name: "About", href: "/about" },
 ];
 
+// Routes with dark/teal hero backgrounds that need light text
+const darkHeroRoutes = ['/prices', '/blog', '/contact', '/about', '/academy', '/gift-vouchers'];
+
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -99,6 +102,17 @@ export const Header = () => {
   const { cartCount, setIsCartOpen, cartBounce } = useCart();
   const { wishlistCount, setIsWishlistOpen, wishlistBounce } = useWishlist();
   const location = useLocation();
+
+  // Check if current route has a dark hero background
+  const hasDarkHero = darkHeroRoutes.some(route => location.pathname.startsWith(route)) ||
+    serviceCategories.some(category =>
+      category.services.some(service => location.pathname === service.href)
+    );
+
+  // Determine text color based on scroll state and background
+  const navTextColor = !isCompact && hasDarkHero ? "text-white" : "text-foreground";
+  const navActiveColor = !isCompact && hasDarkHero ? "text-white font-semibold" : "text-accent font-medium";
+  const navHoverColor = !isCompact && hasDarkHero ? "hover:text-white/80" : "hover:text-accent";
 
   // Check if a nav link is active
   const isActiveLink = (href: string) => {
@@ -144,12 +158,12 @@ export const Header = () => {
             animate={{ height: isCompact ? 64 : 80 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            {/* Logo */}
+            {/* Logo - apply brightness filter on dark backgrounds */}
             <a href="/" className="flex items-center">
               <motion.img 
                 src={logo} 
                 alt="Laser Light Skin Clinic" 
-                className="w-auto"
+                className={cn("w-auto transition-all duration-300", !isCompact && hasDarkHero && "brightness-0 invert")}
                 animate={{ height: isCompact ? 40 : 56 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
               />
@@ -162,13 +176,14 @@ export const Header = () => {
                 <DropdownMenuTrigger className={cn(
                   "flex items-center gap-1 font-body transition-colors relative group",
                   isServicesActive 
-                    ? "text-accent font-medium" 
-                    : "text-foreground hover:text-accent"
+                    ? navActiveColor 
+                    : cn(navTextColor, navHoverColor)
                 )}>
                   <span className="relative">
                     Services
                     <span className={cn(
-                      "absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                      "absolute -bottom-1 left-0 h-0.5 rounded-full transition-all duration-300 ease-out",
+                      !isCompact && hasDarkHero ? "bg-white" : "bg-accent",
                       isServicesActive ? "w-full" : "w-0 group-hover:w-full"
                     )} />
                   </span>
@@ -220,13 +235,14 @@ export const Header = () => {
                   className={cn(
                     "font-body transition-colors relative py-1 group",
                     isActiveLink(link.href)
-                      ? "text-accent font-medium"
-                      : "text-foreground hover:text-accent"
+                      ? navActiveColor
+                      : cn(navTextColor, navHoverColor)
                   )}
                 >
                   {link.name}
                   <span className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                    "absolute -bottom-1 left-0 h-0.5 rounded-full transition-all duration-300 ease-out",
+                    !isCompact && hasDarkHero ? "bg-white" : "bg-accent",
                     isActiveLink(link.href) ? "w-full" : "w-0 group-hover:w-full"
                   )} />
                 </a>
@@ -237,12 +253,18 @@ export const Header = () => {
             <div className="hidden lg:flex items-center gap-4">
               <a 
                 href="tel:02085981200" 
-                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors relative group py-1"
+                className={cn(
+                  "flex items-center gap-2 transition-colors relative group py-1",
+                  navTextColor, navHoverColor
+                )}
               >
                 <Phone className="h-4 w-4" />
                 <span className="font-body relative">
                   0208 598 1200
-                  <span className="absolute -bottom-1 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out w-0 group-hover:w-full" />
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 h-0.5 rounded-full transition-all duration-300 ease-out w-0 group-hover:w-full",
+                    !isCompact && hasDarkHero ? "bg-white" : "bg-accent"
+                  )} />
                 </span>
               </a>
 
@@ -250,7 +272,7 @@ export const Header = () => {
               <WishlistPreviewTooltip>
                 <button
                   onClick={() => setIsWishlistOpen(true)}
-                  className="relative p-2 text-foreground hover:text-accent transition-colors"
+                  className={cn("relative p-2 transition-colors", navTextColor, navHoverColor)}
                   aria-label="Open wishlist"
                 >
                   <motion.div
@@ -276,7 +298,7 @@ export const Header = () => {
               <CartPreviewTooltip>
                 <button
                   onClick={() => setIsCartOpen(true)}
-                  className="relative p-2 text-foreground hover:text-accent transition-colors"
+                  className={cn("relative p-2 transition-colors", navTextColor, navHoverColor)}
                   aria-label="Open cart"
                 >
                   <motion.div
@@ -308,7 +330,7 @@ export const Header = () => {
               {/* Mobile Wishlist Icon */}
               <button
                 onClick={() => setIsWishlistOpen(true)}
-                className="relative p-3 text-foreground hover:text-accent transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
+                className={cn("relative p-3 transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", navTextColor, navHoverColor)}
                 aria-label="Open wishlist"
               >
                 <motion.div
@@ -332,7 +354,7 @@ export const Header = () => {
               {/* Mobile Cart Icon */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative p-3 text-foreground hover:text-accent transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
+                className={cn("relative p-3 transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", navTextColor, navHoverColor)}
                 aria-label="Open cart"
                 data-cart-icon="true"
               >
@@ -355,15 +377,15 @@ export const Header = () => {
               </button>
               
               <button
-                className="p-3 touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
+                className={cn("p-3 touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", navTextColor)}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
                 aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? (
-                  <X className="h-7 w-7 text-foreground" />
+                  <X className="h-7 w-7" />
                 ) : (
-                  <Menu className="h-7 w-7 text-foreground" />
+                  <Menu className="h-7 w-7" />
                 )}
               </button>
             </div>

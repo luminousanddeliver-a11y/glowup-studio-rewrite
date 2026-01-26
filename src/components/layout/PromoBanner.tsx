@@ -22,7 +22,7 @@ export const PromoBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-promo text-promo-foreground py-2 px-4 relative z-[60]">
+    <div className="bg-promo/90 backdrop-blur-sm text-promo-foreground py-2 px-4 relative z-[60]">
       <div className="container-custom flex items-center justify-center">
         <p className="font-body text-sm md:text-base font-semibold text-center">
           🎉 <span className="uppercase tracking-wide">25% OFF FOR ALL NEW CLIENTS</span> – 
