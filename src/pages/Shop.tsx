@@ -46,7 +46,7 @@ const Shop = () => {
 
       <main className="min-h-screen bg-background pb-20">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-primary/5 to-accent/5 -mt-[80px] pt-[100px] lg:pt-[110px] pb-10 lg:pb-14">
+        <section className="bg-gradient-to-br from-primary/5 to-accent/5 -mt-[80px] pt-[88px] lg:pt-[92px] pb-8 lg:pb-10">
           <div className="container-custom text-center">
             <PageBreadcrumb 
               items={[{ label: "Shop" }]} 
