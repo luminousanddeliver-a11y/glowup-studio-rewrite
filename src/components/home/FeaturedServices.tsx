@@ -62,8 +62,10 @@ export const FeaturedServices = () => {
               <div className="aspect-square overflow-hidden">
                 <img 
                   src={service.image} 
-                  alt={service.title}
+                  alt={`${service.title} treatment at Laser Light Skin Clinic Dagenham`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <CardHeader className="pb-4">

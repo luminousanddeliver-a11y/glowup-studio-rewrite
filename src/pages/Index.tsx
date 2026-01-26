@@ -63,6 +63,7 @@ const Index = () => {
         title="Laser Hair Removal & Skin Clinic Dagenham | 25% Off New Clients"
         description="Get pain-free laser hair removal, Hydrafacials, and advanced skin treatments in Dagenham, East London. NHS-approved clinic with 20+ years experience. Book your free consultation today!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
+        keywords="laser hair removal dagenham, skin clinic east london, hydrafacial dagenham, tattoo removal east london, NHS approved clinic"
         structuredData={localBusinessSchema}
       />
       

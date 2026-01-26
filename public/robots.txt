@@ -1,3 +1,6 @@
+# Laser Light Skin Clinic - Robots.txt
+# https://laserlightskinclinic.co.uk
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,13 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://laserlightskinclinic.co.uk/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow admin and private paths (if any in future)
+Disallow: /api/
+Disallow: /_/
