@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroClinic from "@/assets/hero-clinic.jpg";
 import { GOOGLE_MAPS_REVIEWS_URL } from "@/lib/constants";
+import { forwardRef } from "react";
 
 const testimonials = [
   {
@@ -26,9 +27,9 @@ const testimonials = [
   },
 ];
 
-export const Testimonials = () => {
+export const Testimonials = forwardRef<HTMLElement, object>((_, ref) => {
   return (
-    <section className="section-padding bg-background relative overflow-hidden">
+    <section ref={ref} className="section-padding bg-background relative overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
@@ -163,4 +164,6 @@ export const Testimonials = () => {
       </div>
     </section>
   );
-};
+});
+
+Testimonials.displayName = "Testimonials";

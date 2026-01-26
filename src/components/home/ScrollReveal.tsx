@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, forwardRef } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -30,16 +30,17 @@ const getAnimatePosition = (direction: string) => {
   }
 };
 
-export const ScrollReveal = ({ 
+export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(({ 
   children, 
   className = "", 
   delay = 0,
   direction = "up",
   duration = 0.6,
   once = true,
-}: ScrollRevealProps) => {
+}, ref) => {
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={getInitialPosition(direction)}
       whileInView={getAnimatePosition(direction)}
@@ -53,4 +54,6 @@ export const ScrollReveal = ({
       {children}
     </motion.div>
   );
-};
+});
+
+ScrollReveal.displayName = "ScrollReveal";
