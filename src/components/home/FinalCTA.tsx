@@ -32,7 +32,7 @@ export const FinalCTA = () => {
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
+              className="bg-card text-primary hover:bg-card/90 font-body h-14 px-8 text-lg"
             >
               <a href="https://widget.fresha.com" target="_blank" rel="noopener noreferrer">
                 Book Your Free Consultation
