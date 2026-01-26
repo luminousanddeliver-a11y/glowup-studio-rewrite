@@ -26,12 +26,12 @@ export const HeroSection = () => {
             </div>
 
             <h1 className="text-foreground mb-6 leading-tight">
-              Pain-Free Laser Hair Removal & Skin Treatments in{" "}
+              NHS-Approved Laser & Skin Clinic in{" "}
               <span className="text-accent">Dagenham, East London</span>
             </h1>
 
             <p className="font-body text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Achieve permanently smooth skin and a flawless complexion with our NHS-approved, medical-grade technology. Book your free consultation today.
+              The only 5-star clinic in East London with pain-free Lynton Motus AY laser technology. Medically graded, FDA-approved, and trusted by over 250+ clients.
             </p>
 
             {/* Offer Badge */}

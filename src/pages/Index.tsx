@@ -11,6 +11,9 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { OfferBanner } from "@/components/home/OfferBanner";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { AwardsSection } from "@/components/home/AwardsSection";
+import { BookingForm } from "@/components/home/BookingForm";
+import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 
 const Index = () => {
   const localBusinessSchema = {
@@ -64,9 +67,10 @@ const Index = () => {
       />
       
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pb-20 lg:pb-0">
         <HeroSection />
         <TrustBar />
+        <AwardsSection />
         <FeaturedServices />
         <WhyChooseUs />
         <TechnologyShowcase />
@@ -74,9 +78,11 @@ const Index = () => {
         <ServicesGrid />
         <OfferBanner />
         <FAQSection />
+        <BookingForm />
         <FinalCTA />
       </main>
       <Footer />
+      <MobileStickyButton />
     </div>
   );
 };
