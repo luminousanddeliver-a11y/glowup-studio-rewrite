@@ -16,6 +16,8 @@ import Contact from "./pages/Contact";
 import Prices from "./pages/Prices";
 import GiftVouchers from "./pages/GiftVouchers";
 import Academy from "./pages/Academy";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import LaserHairRemoval from "./pages/services/LaserHairRemoval";
 import Hydrafacials from "./pages/services/Hydrafacials";
 import TattooRemoval from "./pages/services/TattooRemoval";
@@ -82,6 +84,8 @@ const App = () => (
               <Route path="/massage-dagenham" element={<Massage />} />
               <Route path="/hopi-ear-candling-dagenham" element={<HopiEarCandling />} />
               <Route path="/advanced-electrolysis-dagenham" element={<AdvancedElectrolysis />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
