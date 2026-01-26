@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import treatmentRoom from "@/assets/treatment-room.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { TeamSection } from "@/components/about/TeamSection";
+import { CertificationsBar } from "@/components/about/CertificationsBar";
 
 const About = () => {
   const organizationSchema = {
@@ -178,6 +180,9 @@ const About = () => {
           </div>
         </section>
 
+        {/* Meet Our Team */}
+        <TeamSection />
+
         {/* Our Values */}
         <section className="section-padding bg-secondary">
           <div className="container-custom">
@@ -223,39 +228,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Certifications */}
-        <section className="section-padding bg-primary text-primary-foreground">
-          <div className="container-custom">
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="mb-4">Our Certifications & Accreditations</h2>
-              <p className="text-lg text-primary-foreground/80 font-body max-w-2xl mx-auto">
-                We hold the highest industry certifications, ensuring you receive safe, effective treatments from qualified professionals.
-              </p>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {certifications.map((cert, index) => (
-                <motion.div 
-                  key={cert}
-                  className="flex items-center gap-3 bg-primary-foreground/10 p-4 rounded-lg"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ duration: 0.3, delay: index * 0.08 }}
-                >
-                  <CheckCircle className="h-5 w-5 text-accent shrink-0" />
-                  <span className="font-body">{cert}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Certifications Bar */}
+        <CertificationsBar />
 
         {/* Reviews Summary */}
         <section className="section-padding bg-background">

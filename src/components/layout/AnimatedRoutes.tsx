@@ -41,6 +41,8 @@ import Piercing from "@/pages/services/Piercing";
 import Massage from "@/pages/services/Massage";
 import HopiEarCandling from "@/pages/services/HopiEarCandling";
 import AdvancedElectrolysis from "@/pages/services/AdvancedElectrolysis";
+import MillionDollarFacial from "@/pages/services/MillionDollarFacial";
+import AdvancedPeels from "@/pages/services/AdvancedPeels";
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -81,6 +83,8 @@ export const AnimatedRoutes = () => {
         <Route path="/massage-dagenham" element={<PageTransition><Massage /></PageTransition>} />
         <Route path="/hopi-ear-candling-dagenham" element={<PageTransition><HopiEarCandling /></PageTransition>} />
         <Route path="/advanced-electrolysis-dagenham" element={<PageTransition><AdvancedElectrolysis /></PageTransition>} />
+        <Route path="/million-dollar-facial-dagenham" element={<PageTransition><MillionDollarFacial /></PageTransition>} />
+        <Route path="/advanced-peels-dagenham" element={<PageTransition><AdvancedPeels /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

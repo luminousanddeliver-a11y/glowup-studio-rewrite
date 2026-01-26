@@ -154,8 +154,13 @@ export const ProductCard = ({
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-            <ShoppingBag className="w-16 h-16 text-muted-foreground/30" />
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 via-accent/10 to-primary/5 p-6">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-3">
+              <ShoppingBag className="w-10 h-10 text-primary/40" />
+            </div>
+            <p className="font-heading text-sm text-muted-foreground/60 text-center">
+              Product Image<br />Coming Soon
+            </p>
           </div>
         )}
         
