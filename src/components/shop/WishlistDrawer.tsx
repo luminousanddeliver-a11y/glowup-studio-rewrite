@@ -12,7 +12,7 @@ import { useWishlist } from "@/contexts/WishlistContext";
 import { useCart } from "@/contexts/CartContext";
 
 export const WishlistDrawer = () => {
-  const { wishlistItems, wishlistCount, isWishlistOpen, setIsWishlistOpen, removeFromWishlist } = useWishlist();
+  const { wishlistItems, wishlistCount, isWishlistOpen, setIsWishlistOpen, removeFromWishlist, clearWishlist } = useWishlist();
   const { addToCart } = useCart();
 
   const handleAddToCart = (item: typeof wishlistItems[0]) => {
@@ -26,6 +26,21 @@ export const WishlistDrawer = () => {
       imageUrl: item.imageUrl,
     });
     removeFromWishlist(item.id);
+  };
+
+  const handleMoveAllToCart = () => {
+    wishlistItems.forEach((item) => {
+      addToCart({
+        id: item.id,
+        name: item.name,
+        slug: item.slug,
+        price: item.price,
+        salePrice: item.salePrice,
+        category: item.category,
+        imageUrl: item.imageUrl,
+      });
+    });
+    clearWishlist();
   };
 
   return (
@@ -133,6 +148,13 @@ export const WishlistDrawer = () => {
 
             {/* Footer */}
             <div className="border-t border-border pt-4 mt-4 space-y-2">
+              <Button
+                onClick={handleMoveAllToCart}
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-body"
+              >
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Move All to Cart ({wishlistCount})
+              </Button>
               <Button
                 variant="outline"
                 onClick={() => setIsWishlistOpen(false)}

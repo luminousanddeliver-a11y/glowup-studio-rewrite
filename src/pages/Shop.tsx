@@ -8,6 +8,7 @@ import { ProductGrid } from "@/components/shop/ProductGrid";
 import { CategoryFilter } from "@/components/shop/CategoryFilter";
 import { CartDrawer } from "@/components/shop/CartDrawer";
 import { RecentlyViewed } from "@/components/shop/RecentlyViewed";
+import { CompareBar } from "@/components/shop/CompareBar";
 
 const categories = ["Serums", "Moisturizers", "Sun Protection", "Eye Care", "Exfoliators"];
 
@@ -24,7 +25,7 @@ const Shop = () => {
       <Header />
       <CartDrawer />
 
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background pb-20">
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-16 lg:py-24">
           <div className="container-custom text-center">
@@ -126,6 +127,9 @@ const Shop = () => {
           </div>
         </section>
       </main>
+
+      {/* Compare Bar - Fixed at bottom */}
+      <CompareBar />
 
       <Footer />
     </>

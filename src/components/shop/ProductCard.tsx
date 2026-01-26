@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ShoppingBag, Plus, Minus, Heart } from "lucide-react";
+import { ShoppingBag, Plus, Minus, Heart, Scale, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
+import { useCompare } from "@/contexts/CompareContext";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 
 interface ProductCardProps {
@@ -16,6 +17,8 @@ interface ProductCardProps {
   category: string;
   description: string | null;
   imageUrl: string | null;
+  ingredients?: string | null;
+  onQuickView?: () => void;
 }
 
 export const ProductCard = ({
@@ -27,10 +30,13 @@ export const ProductCard = ({
   category,
   description,
   imageUrl,
+  ingredients,
+  onQuickView,
 }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
+  const { isInCompare, toggleCompare, compareCount, maxCompareItems } = useCompare();
   const { addToRecentlyViewed } = useRecentlyViewed();
   const imageRef = useRef<HTMLDivElement>(null);
   const hasTracked = useRef(false);
@@ -39,6 +45,8 @@ export const ProductCard = ({
   const displayPrice = salePrice ?? price;
   const savings = isOnSale ? ((price - salePrice!) / price) * 100 : 0;
   const isWishlisted = isInWishlist(id);
+  const isComparing = isInCompare(id);
+  const canAddToCompare = compareCount < maxCompareItems || isComparing;
 
   // Track product view for recently viewed
   useEffect(() => {
@@ -56,7 +64,8 @@ export const ProductCard = ({
     }
   }, [id, name, slug, price, salePrice, category, imageUrl, addToRecentlyViewed]);
 
-  const handleToggleWishlist = () => {
+  const handleToggleWishlist = (e: React.MouseEvent) => {
+    e.stopPropagation();
     toggleWishlist({
       id,
       name,
@@ -68,7 +77,24 @@ export const ProductCard = ({
     });
   };
 
-  const handleAddToCart = () => {
+  const handleToggleCompare = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!canAddToCompare) return;
+    toggleCompare({
+      id,
+      name,
+      slug,
+      price,
+      salePrice,
+      category,
+      description,
+      imageUrl,
+      ingredients,
+    });
+  };
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
     addToCart(
       {
         id,
@@ -80,9 +106,15 @@ export const ProductCard = ({
         imageUrl,
       },
       quantity,
-      imageRef.current // Pass the image element for flying animation
+      imageRef.current
     );
     setQuantity(1);
+  };
+
+  const handleQuickView = () => {
+    if (onQuickView) {
+      onQuickView();
+    }
   };
 
   return (
@@ -92,7 +124,8 @@ export const ProductCard = ({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -5 }}
-      className="group bg-card rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300"
+      className="group bg-card rounded-xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 cursor-pointer"
+      onClick={handleQuickView}
     >
       {/* Image */}
       <div ref={imageRef} className="relative aspect-square bg-muted overflow-hidden">
@@ -126,23 +159,53 @@ export const ProductCard = ({
           )}
         </div>
 
-        {/* Wishlist Button */}
-        <motion.button
-          onClick={handleToggleWishlist}
-          className="absolute top-3 right-3 w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-md hover:bg-card transition-colors"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
-        >
-          <Heart 
-            className={`w-5 h-5 transition-colors ${isWishlisted ? 'text-accent fill-accent' : 'text-muted-foreground'}`}
-          />
-        </motion.button>
+        {/* Action Buttons */}
+        <div className="absolute top-3 right-3 flex flex-col gap-2">
+          {/* Wishlist Button */}
+          <motion.button
+            onClick={handleToggleWishlist}
+            className="w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-md hover:bg-card transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+          >
+            <Heart 
+              className={`w-5 h-5 transition-colors ${isWishlisted ? 'text-accent fill-accent' : 'text-muted-foreground'}`}
+            />
+          </motion.button>
+
+          {/* Compare Button */}
+          <motion.button
+            onClick={handleToggleCompare}
+            className={`w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-md transition-colors ${
+              !canAddToCompare ? 'opacity-50 cursor-not-allowed' : 'hover:bg-card'
+            }`}
+            whileHover={canAddToCompare ? { scale: 1.1 } : {}}
+            whileTap={canAddToCompare ? { scale: 0.9 } : {}}
+            aria-label={isComparing ? "Remove from compare" : "Add to compare"}
+          >
+            <Scale 
+              className={`w-5 h-5 transition-colors ${isComparing ? 'text-accent' : 'text-muted-foreground'}`}
+            />
+          </motion.button>
+        </div>
+
+        {/* Quick View Overlay */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileHover={{ scale: 1 }}
+            className="flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg"
+          >
+            <Eye className="w-4 h-4 text-foreground" />
+            <span className="font-body text-sm font-medium text-foreground">Quick View</span>
+          </motion.div>
+        </div>
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-3">
-        <h3 className="font-heading text-lg font-semibold text-foreground line-clamp-1">
+      <div className="p-4 space-y-3" onClick={(e) => e.stopPropagation()}>
+        <h3 className="font-heading text-lg font-semibold text-foreground line-clamp-1 cursor-pointer hover:text-accent transition-colors" onClick={handleQuickView}>
           {name}
         </h3>
         
@@ -168,7 +231,7 @@ export const ProductCard = ({
         <div className="flex items-center gap-2">
           <div className="flex items-center border border-border rounded-md">
             <button
-              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              onClick={(e) => { e.stopPropagation(); setQuantity(Math.max(1, quantity - 1)); }}
               className="p-2 hover:bg-muted transition-colors"
               aria-label="Decrease quantity"
             >
@@ -176,7 +239,7 @@ export const ProductCard = ({
             </button>
             <span className="w-8 text-center font-body text-sm">{quantity}</span>
             <button
-              onClick={() => setQuantity(quantity + 1)}
+              onClick={(e) => { e.stopPropagation(); setQuantity(quantity + 1); }}
               className="p-2 hover:bg-muted transition-colors"
               aria-label="Increase quantity"
             >
