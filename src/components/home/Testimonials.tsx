@@ -34,8 +34,10 @@ export const Testimonials = () => {
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={heroClinic} 
-                alt="Modern clinic interior" 
+                alt="Modern clinic interior at Laser Light Skin Clinic Dagenham" 
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Floating Stats Badge */}

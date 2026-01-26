@@ -118,6 +118,10 @@ const BlogPost = () => {
         title={post.meta_title || `${post.title} | Laser Light Skin Clinic`}
         description={post.meta_description || post.excerpt || ""}
         canonicalUrl={`https://laserlightskinclinic.co.uk/blog/${post.slug}`}
+        ogType="article"
+        publishedTime={post.published_at || undefined}
+        modifiedTime={post.updated_at || undefined}
+        keywords={post.target_keyword || undefined}
         structuredData={articleSchema}
       />
       

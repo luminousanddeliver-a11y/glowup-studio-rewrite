@@ -5,12 +5,15 @@ import heroClinic from "@/assets/hero-clinic.jpg";
 export const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image - Priority load for LCP */}
       <div className="absolute inset-0">
         <img 
           src={heroClinic} 
-          alt="Modern aesthetic clinic treatment room" 
+          alt="Modern aesthetic clinic treatment room with advanced laser equipment" 
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
       </div>

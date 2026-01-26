@@ -30,8 +30,10 @@ export const WhyChooseUs = () => {
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={treatmentRoom} 
-                alt="Luxury treatment room with ambient lighting" 
+                alt="Luxury treatment room with ambient lighting at Laser Light Skin Clinic" 
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Floating Badge */}
