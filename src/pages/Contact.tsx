@@ -187,7 +187,7 @@ const Contact = () => {
       <Header />
       <main className="flex-1 overflow-hidden">
         {/* Hero */}
-        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[112px] pb-16">
+        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[100px] lg:pt-[110px] pb-12">
           <div className="container-custom">
             <motion.div 
               className="max-w-2xl"

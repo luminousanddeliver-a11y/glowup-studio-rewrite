@@ -395,8 +395,8 @@ const Prices = () => {
       
       <Header />
       <main className="flex-1 pb-20 lg:pb-0">
-        {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground -mt-[80px] pt-[96px] pb-16 lg:pb-20">
+      {/* Hero Section */}
+      <section className="bg-primary text-primary-foreground -mt-[80px] pt-[100px] lg:pt-[110px] pb-12 lg:pb-16">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
