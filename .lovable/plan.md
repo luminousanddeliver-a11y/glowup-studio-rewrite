@@ -1,223 +1,282 @@
 
-# Service Hero Redesign Plan
+# Comprehensive Website Improvement Plan
 
-## Overview
-Redesign the `ServiceHero` component across all service pages (excluding Gift Vouchers and Academy) to create a more visually impactful, split-layout design that better matches service-specific content with proper imagery and improved styling.
-
----
-
-## Current Issues Identified
-
-| Issue | Current State | Impact |
-|-------|---------------|--------|
-| Generic Background | Most pages use `consultationRoom` image | Doesn't showcase the specific treatment |
-| Full-bleed Background | Image covers entire section as background | Reduces visual hierarchy and image focus |
-| Right Column Empty | Content is left-aligned, right column unused | Wastes valuable screen real estate |
-| No Visible Image | Image hidden behind heavy gradient overlay | Users can't see the treatment/equipment |
-| Stats Placement | Stats floating on transparent background | Less polished than homepage design |
+This plan addresses all the issues and improvements across four phases, prioritizing critical fixes first, then SEO, UX/UI enhancements, and final polish.
 
 ---
 
-## New Design Concept
+## Phase 1: Critical Fixes (Showstoppers)
 
-Based on the reference image and homepage `HeroSection` pattern, the redesigned service hero will feature:
+### 1.1 Fix the "View All FAQs" Broken Link
+**Issue**: The "View All FAQs" button on the homepage links to `/faq`, but this route doesn't exist, causing a 404 error.
 
+**Solution**: Create a dedicated FAQ page or redirect to an existing section.
+
+**Files to Create/Modify**:
+- Create `src/pages/FAQ.tsx` - A comprehensive FAQ page with all clinic questions
+- Update `src/components/layout/AnimatedRoutes.tsx` - Add the `/faq` route
+- Update `src/components/home/FAQSection.tsx` - Ensure link works correctly
+
+**FAQ Page Structure**:
 ```text
-┌────────────────────────────────────────────────────────────┐
-│  Header (transparent, blends in)                           │
-├────────────────────────────────────────────────────────────┤
-│  Breadcrumbs: Home > Services > Laser Hair Removal         │
-├─────────────────────────────┬──────────────────────────────┤
-│                             │                              │
-│  [NHS Badge]                │   ┌──────────────────────┐   │
-│                             │   │                      │   │
-│  Pain-Free Laser Hair       │   │   Service-Specific   │   │
-│  Removal in Dagenham        │   │   Device/Treatment   │   │
-│                             │   │      Image           │   │
-│  Subtitle text here...      │   │                      │   │
-│  Description text...        │   │   (Rounded corners)  │   │
-│                             │   └──────────────────────┘   │
-│  [★ 25% Off Badge]          │                              │
-│                             │   ┌──────────────────────┐   │
-│  [Book Appointment] [View]  │   │  Floating NHS Badge  │   │
-│                             │   │  or Trust Indicator  │   │
-│  ─────────────────────      │   └──────────────────────┘   │
-│  6-8     Pain-Free   All    │                              │
-│  Sessions Guaranteed Skin   │                              │
-│                             │                              │
-└─────────────────────────────┴──────────────────────────────┘
+- Hero section with breadcrumbs
+- General Clinic FAQs (from homepage)
+- Service-Specific FAQs organized by category
+- CTA to book consultation
 ```
 
 ---
 
-## Technical Implementation
+### 1.2 Verify All Image Assets
+**Status**: Images already exist in `src/assets/`:
+- Hero: `hero-clinic-new.png` (in use)
+- Services: `laser-device.jpg`, `hydrafacial-device.jpg`, `microneedling-device.jpg`, `tattoo-removal-device.jpg` (in use)
+- All 28 device/treatment images exist
 
-### Step 1: Redesign ServiceHero Component
+**Action**: Audit all service pages to ensure each uses its specific device image via the new `heroImage` prop (completed in previous update).
 
-**File**: `src/components/services/ServiceHero.tsx`
+---
 
-**Key Changes**:
-1. **Split-Layout with Visible Image**: Replace background image with a dedicated image column (like homepage `HeroSection`)
-2. **Add `heroImage` Prop**: New prop for the visible service image (separate from background)
-3. **Rounded Image Container**: Match homepage style with rounded corners and shadow
-4. **Floating Badge**: NHS/Trust badge floating over the image corner
-5. **Better Stats Styling**: Bottom border with inline stats like homepage
-6. **Parallax Effect**: Subtle scroll-based movement on the image
-7. **Decorative Element**: Add the teal bar accent from homepage
-8. **Light Background**: Use `bg-background` instead of overlaid background image
+### 1.3 Link Audit & URL Standardization
+**Current State**: URLs already follow SEO-friendly patterns like:
+- `/laser-hair-removal-dagenham`
+- `/hydrafacial-east-london`
+- `/tattoo-removal-east-london`
 
-**New Props Interface**:
-```typescript
-interface ServiceHeroProps {
-  title: string;
-  titleAccent?: string;
-  subtitle: string;
-  description: string;
-  badge?: string;                    // Offer badge (e.g., "25% Off")
-  trustBadge?: string;               // Top badge (e.g., "NHS-Approved")
-  primaryCtaText?: string;
-  primaryCtaHref?: string;
-  secondaryCta?: SecondaryCTA;
-  showPhoneCta?: boolean;
-  heroImage: string;                 // NEW: Visible image on right side
-  floatingBadge?: {                  // NEW: Badge that floats over image
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-  };
-  stats?: HeroStat[];
-  breadcrumbs?: BreadcrumbItemType[];
-}
+**Action**: Verify all internal links in:
+- Navigation menu (`Header.tsx`)
+- Homepage FeaturedServices (`FeaturedServices.tsx`)
+- ServicesGrid (`ServicesGrid.tsx`)
+- Footer (`Footer.tsx`)
+
+---
+
+## Phase 2: SEO & Conversion Optimization
+
+### 2.1 Fix Homepage H1 & Meta Description
+**Current State**:
+- H1: "Advanced Laser & Skin Treatments" 
+- Meta: 167 chars (truncated in search results)
+
+**Change To**:
+- H1: "NHS-Approved Laser & Skin Clinic in Dagenham"
+- Meta: "East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, advanced tattoo removal, Hydrafacials & more. NHS-approved. Book now!" (155 chars)
+
+**Files to Modify**:
+- `src/components/home/HeroSection.tsx` - Update H1 text
+- `src/pages/Index.tsx` - Update meta description in SEOHead
+
+---
+
+### 2.2 Implement Full Schema Markup
+**Current State**: LocalBusiness schema exists on homepage, but needs enhancement.
+
+**Changes**:
+
+| Page Type | Current Schema | Add/Change |
+|-----------|----------------|------------|
+| Homepage | LocalBusiness | Change to MedicalClinic + add FAQPage |
+| Service Pages | Service + FAQPage | Already implemented |
+| Shop Products | Missing | Add Product schema |
+| Blog Posts | Article | Already implemented |
+
+**Files to Modify**:
+- `src/pages/Index.tsx` - Change LocalBusiness to MedicalClinic, add FAQPage schema
+- `src/pages/Shop.tsx` - Add Product schema for shop items
+- `src/pages/ProductDetail.tsx` - Add detailed Product schema
+
+---
+
+### 2.3 Enhance Service Page Hero Subheadlines
+**Current State**: Subheadlines are feature-focused.
+**Improvement**: Make them benefit-driven with outcome focus.
+
+**Example Changes**:
+
+| Service | Current | Improved |
+|---------|---------|----------|
+| Laser Hair Removal | "Permanent hair reduction in just 6-8 sessions..." | "Experience the freedom of permanently smooth skin. Our NHS-approved Lynton Motus AY technology is guaranteed pain-free and delivers visible results in just 6-8 sessions." |
+| Tattoo Removal | "Advanced multi-wavelength technology..." | "Remove any ink color completely with East London's ONLY Quanta Thunder laser. Fewer sessions, minimal scarring, and results you'll love." |
+
+**Files to Modify**: All 24 service pages in `src/pages/services/`
+
+---
+
+### 2.4 Add Technology Spotlight Sections
+**Current State**: TechnologySection component exists but not used on all relevant pages.
+
+**Action**: Ensure each major service page includes the TechnologySection with:
+- Device image
+- Key benefits (2-3 bullet points)
+- Certifications
+
+**Already Implemented For**:
+- Laser Hair Removal (Lynton Motus AY)
+- Tattoo Removal (Quanta Thunder)
+- SkinPen Microneedling
+
+**Add To**:
+- Hydrafacials page
+- Cold Plasma page
+- LED Light Therapy page
+
+---
+
+## Phase 3: UX/UI & Visual Improvements
+
+### 3.1 Enhance Homepage CTA Hierarchy
+**Current State**: Both CTAs have similar visual weight (one primary, one outline)
+**Status**: Already correctly implemented:
+- Primary: `bg-primary` solid background
+- Secondary: `variant="outline"` with border
+
+**Verification**: Check that contrast is sufficient. No changes needed.
+
+---
+
+### 3.2 Improve Trust Badge Section
+**Issue**: "5-Star Reviews" is currently clickable (links to Google Maps).
+
+**Recommendation**: Keep it clickable (good for conversions) but ensure visual consistency.
+
+**Current Implementation**: Already fixed - the reviews badge is clickable with hover state.
+
+**Minor Adjustment**: Ensure even spacing between badges on mobile.
+
+**File to Modify**: `src/components/home/TrustBar.tsx` - Fine-tune gap classes
+
+---
+
+### 3.3 Add/Verify Hover Effects
+**Current State**: Many components already have hover effects:
+- Service cards: `hover:shadow-xl hover:-translate-y-2`
+- Buttons: `hover:bg-primary/90`
+- Links: `group-hover:translate-x-1`
+
+**Audit Needed**: Verify all interactive elements have hover states:
+- FeaturedServices cards
+- ServicesGrid cards
+- Blog cards
+- Team member cards
+
+---
+
+### 3.4 Enhance Contact Page
+**Current State**: Already includes:
+- Interactive Google Map embed
+- Parking & Transport Information section
+- Form with validation
+
+**Improvements Needed**:
+- Make required field indicators more prominent (add red asterisk styling)
+- Add visual emphasis to required fields
+
+**File to Modify**: `src/pages/Contact.tsx` - Update Label styling for required fields
+
+---
+
+### 3.5 Enhance About Page
+**Current State**: Already includes:
+- TeamSection with silhouette avatars (Halal-compliant)
+- CertificationsBar with logo badges
+
+**Status**: Already implemented as per memory context.
+
+---
+
+### 3.6 Add Floating "Write a Review" Button
+**New Feature**: Add a floating action button that links to Google review submission.
+
+**Files to Create/Modify**:
+- Create `src/components/common/FloatingReviewButton.tsx`
+- Add to relevant pages (Index, About, Contact)
+
+**Design**:
+```text
+Position: Fixed, bottom-right (above mobile sticky bar)
+Style: Gold accent, subtle pulse animation
+Icon: Star + "Leave Review"
+Link: Google Maps review URL
 ```
 
 ---
 
-### Step 2: Update All Service Pages (22 Pages)
+## Phase 4: Final Polish & Pre-Launch Checks
 
-Each service page will be updated to use the new `heroImage` prop with appropriate device/treatment imagery.
+### 4.1 Review Copy for Tone & Clarity
+**Action**: Audit all page copy to ensure:
+- Benefit-focused language
+- No jargon
+- Consistent professional tone
+- Local targeting (Dagenham, East London)
 
-**Image Mapping by Service**:
-
-| Service Page | Current Image | New Hero Image |
-|--------------|---------------|----------------|
-| LaserHairRemoval | consultationRoom | laser-device.jpg |
-| TattooRemoval | consultationRoom | tattoo-removal-device.jpg |
-| Hydrafacials | consultationRoom | hydrafacial-device.jpg |
-| ChemicalPeels | consultationRoom | chemical-peel-products.jpg |
-| Facials | consultationRoom | facials-setup.jpg |
-| LEDLightTherapy | consultationRoom | led-therapy-device.jpg |
-| Microneedling | consultationRoom | microneedling-device.jpg |
-| Injectables | consultationRoom | injectables-device.jpg |
-| PigmentationTreatment | consultationRoom | pigmentation-device.jpg |
-| VeinRemoval | consultationRoom | vein-removal-device.jpg |
-| SkinTagMoleRemoval | consultationRoom | skin-tag-removal-device.jpg |
-| Electrolysis | consultationRoom | electrolysis-device.jpg |
-| AdvancedElectrolysis | consultationRoom | advanced-electrolysis-device.jpg |
-| LaserResurfacing | consultationRoom | laser-resurfacing-device.jpg |
-| SkinAnalysis | consultationRoom | skin-analysis-device.jpg |
-| Massage | consultationRoom | massage-setup.jpg |
-| Piercing | consultationRoom | piercing-setup.jpg |
-| HopiEarCandling | consultationRoom | hopi-candles.jpg |
-| IVDrips | ivDripSetup | iv-drip-setup.jpg (keep) |
-| IntimateWhitening | intimateCareProducts | intimate-care-products.jpg (keep) |
-| ColdPlasma | coldPlasmaDevice | cold-plasma-device.jpg (keep) |
-| MillionDollarFacial | consultationRoom | microneedling-device.jpg |
-| AdvancedPeels | consultationRoom | chemical-peel-products.jpg |
-| SkinRejuvenation | consultationRoom | skin-texture.jpg |
+This is a manual review task.
 
 ---
 
-### Step 3: Component Structure
+### 4.2 Mobile Responsiveness Check
+**Current State**: Site uses responsive Tailwind classes throughout.
+- Mobile sticky button implemented on all pages
+- Click-to-call phone numbers already work
 
-```typescript
-// New ServiceHero layout structure
-<section className="bg-background py-16 md:py-20 lg:py-24 overflow-hidden">
-  <div className="container-custom">
-    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-      
-      {/* Left: Content (appears second on mobile) */}
-      <div className="text-center lg:text-left order-2 lg:order-1">
-        {/* Breadcrumbs */}
-        {/* Decorative teal bar */}
-        {/* Trust Badge */}
-        {/* H1 Title with accent */}
-        {/* Subtitle */}
-        {/* Description */}
-        {/* Offer Badge */}
-        {/* CTA Buttons */}
-        {/* Stats with top border */}
-      </div>
-      
-      {/* Right: Image (appears first on mobile) */}
-      <div className="relative order-1 lg:order-2">
-        {/* Rounded image with shadow */}
-        {/* Floating NHS/Trust badge */}
-      </div>
-      
-    </div>
-  </div>
-</section>
-```
+**Verification Tasks**:
+- Test hamburger menu functionality
+- Verify all buttons are tap-friendly (min 44px height)
+- Check text readability at 320px width
 
 ---
 
-## Visual Enhancements
+### 4.3 Image SEO: Add/Verify Alt Text
+**Current State**: Many images have descriptive alt text, but need full audit.
 
-### Animation System
-- **Content slide-in**: Left content slides from left (-30px)
-- **Image slide-in**: Image slides from right (+30px)
-- **Staggered animations**: Elements animate in sequence (0.1s delays)
-- **Parallax image**: Subtle vertical movement on scroll (-50px)
-- **Badge pop-in**: Scale and fade animation with spring bounce
+**Action**: Review all img tags across:
+- Hero images
+- Service device images
+- Blog featured images
+- Team/About images
 
-### Styling Improvements
-- **Teal accent bar**: 48px wide, 4px tall decorative element
-- **Rounded image**: 2xl border radius with shadow-lg
-- **Floating badge**: Positioned at -bottom-8 right-4 with shadow-xl
-- **Stats divider**: Top border with proper spacing
-- **Background**: Clean white/light background instead of overlaid image
+**Example Improvements**:
 
----
-
-## Files to Modify
-
-| File | Action |
-|------|--------|
-| `src/components/services/ServiceHero.tsx` | **Major rewrite** - new layout matching homepage |
-| `src/pages/services/LaserHairRemoval.tsx` | Update to use new props |
-| `src/pages/services/TattooRemoval.tsx` | Update to use new props |
-| `src/pages/services/Hydrafacials.tsx` | Update to use new props |
-| `src/pages/services/ChemicalPeels.tsx` | Update to use new props |
-| `src/pages/services/Facials.tsx` | Update to use new props |
-| `src/pages/services/LEDLightTherapy.tsx` | Update to use new props |
-| `src/pages/services/SkinPenMicroneedling.tsx` | Update to use new props |
-| `src/pages/services/Injectables.tsx` | Update to use new props |
-| `src/pages/services/PigmentationTreatment.tsx` | Update to use new props |
-| `src/pages/services/VeinRemoval.tsx` | Update to use new props |
-| `src/pages/services/SkinTagMoleRemoval.tsx` | Update to use new props |
-| `src/pages/services/Electrolysis.tsx` | Update to use new props |
-| `src/pages/services/AdvancedElectrolysis.tsx` | Update to use new props |
-| `src/pages/services/LaserResurfacing.tsx` | Update to use new props |
-| `src/pages/services/SkinAnalysis.tsx` | Update to use new props |
-| `src/pages/services/Massage.tsx` | Update to use new props |
-| `src/pages/services/Piercing.tsx` | Update to use new props |
-| `src/pages/services/HopiEarCandling.tsx` | Update to use new props |
-| `src/pages/services/IVDrips.tsx` | Update to use new props |
-| `src/pages/services/IntimateWhitening.tsx` | Update to use new props |
-| `src/pages/services/ColdPlasma.tsx` | Update to use new props |
-| `src/pages/services/MillionDollarFacial.tsx` | Update to use new props |
-| `src/pages/services/AdvancedPeels.tsx` | Update to use new props |
-| `src/pages/services/SkinRejuvenation.tsx` | Update to use new props |
+| Image | Current Alt | Improved Alt |
+|-------|-------------|--------------|
+| Hero | "Modern aesthetic clinic..." | "Laser Light Skin Clinic treatment room in Dagenham with professional laser equipment" |
+| Laser Device | `{service.title} treatment...` | "Lynton Motus AY pain-free laser hair removal machine at Laser Light Skin Clinic" |
 
 ---
 
-## Expected Outcome
+## Summary of Files to Create
 
-After implementation:
-- Each service page will have a **visible, prominent image** showcasing the treatment device or setup
-- **Consistent design language** with the homepage hero section
-- **Better visual hierarchy** with split-layout content organization
-- **Service-specific imagery** that helps users understand what treatment looks like
-- **Improved mobile experience** with image appearing first, then content
-- **Professional floating badges** for trust signals like "NHS Approved"
-- **Smooth animations** for engaging user experience
+| File | Purpose |
+|------|---------|
+| `src/pages/FAQ.tsx` | Comprehensive FAQ page |
+| `src/components/common/FloatingReviewButton.tsx` | Floating review CTA |
+
+## Summary of Files to Modify
+
+| File | Changes |
+|------|---------|
+| `src/components/layout/AnimatedRoutes.tsx` | Add /faq route |
+| `src/pages/Index.tsx` | Update meta description, add MedicalClinic schema, add FAQPage schema |
+| `src/components/home/HeroSection.tsx` | Update H1 to match SEO title |
+| `src/components/home/TrustBar.tsx` | Fine-tune mobile spacing |
+| `src/pages/Contact.tsx` | Enhance required field styling |
+| `src/pages/ProductDetail.tsx` | Add Product schema |
+| Multiple service pages | Update subheadlines to be benefit-driven |
+
+---
+
+## Technical Approach
+
+### Priority Order:
+1. **Fix /faq broken link** (immediate 404 fix)
+2. **Update homepage H1 and meta** (SEO critical)
+3. **Add MedicalClinic + FAQPage schema** (SEO)
+4. **Add FloatingReviewButton** (conversion)
+5. **Enhance Contact form required fields** (UX)
+6. **Audit and improve service subheadlines** (SEO/conversion)
+
+### Estimated Implementation:
+- Phase 1: 2-3 changes
+- Phase 2: 5-6 changes
+- Phase 3: 3-4 changes
+- Phase 4: Verification/audit tasks
