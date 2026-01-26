@@ -1,14 +1,32 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Calendar } from "lucide-react";
+import { Phone, Calendar, ChevronDown } from "lucide-react";
+
+interface SecondaryCTA {
+  text: string;
+  href: string;
+}
 
 interface ServiceHeroProps {
   title: string;
   subtitle: string;
   description: string;
   badge?: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCta?: SecondaryCTA;
+  showPhoneCta?: boolean;
 }
 
-export const ServiceHero = ({ title, subtitle, description, badge }: ServiceHeroProps) => {
+export const ServiceHero = ({
+  title,
+  subtitle,
+  description,
+  badge,
+  primaryCtaText = "Book Free Consultation",
+  primaryCtaHref = "#contact",
+  secondaryCta,
+  showPhoneCta = true,
+}: ServiceHeroProps) => {
   return (
     <section className="relative bg-gradient-to-br from-primary to-primary/90 text-primary-foreground section-padding">
       <div className="container-custom">
@@ -35,23 +53,39 @@ export const ServiceHero = ({ title, subtitle, description, badge }: ServiceHero
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
             >
-              <a href="#contact">
+              <a href={primaryCtaHref}>
                 <Calendar className="mr-2 h-5 w-5" />
-                Book Free Consultation
+                {primaryCtaText}
               </a>
             </Button>
             
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8 text-lg"
-            >
-              <a href="tel:02085981200">
-                <Phone className="mr-2 h-5 w-5" />
-                0208 598 1200
-              </a>
-            </Button>
+            {secondaryCta && (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8 text-lg"
+              >
+                <a href={secondaryCta.href}>
+                  <ChevronDown className="mr-2 h-5 w-5" />
+                  {secondaryCta.text}
+                </a>
+              </Button>
+            )}
+            
+            {showPhoneCta && !secondaryCta && (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body h-14 px-8 text-lg"
+              >
+                <a href="tel:02085981200">
+                  <Phone className="mr-2 h-5 w-5" />
+                  0208 598 1200
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </div>
