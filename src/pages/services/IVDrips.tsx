@@ -271,6 +271,10 @@ const IVDrips = () => {
           badge="Wellness From Within"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={ivDripSetup}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "IV Drips" }
+          ]}
           stats={[
             { value: "100%", label: "Absorption" },
             { value: "Instant", label: "Energy" },

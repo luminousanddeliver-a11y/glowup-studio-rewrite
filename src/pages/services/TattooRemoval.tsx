@@ -302,6 +302,10 @@ const TattooRemoval = () => {
           badge="All Colors Removed"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Tattoo Removal" }
+          ]}
           stats={[
             { value: "All", label: "Ink Colors" },
             { value: "Minimal", label: "Scarring" },

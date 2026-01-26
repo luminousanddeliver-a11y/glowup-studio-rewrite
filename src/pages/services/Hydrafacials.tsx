@@ -299,6 +299,10 @@ const Hydrafacials = () => {
           badge="Most Popular Facial"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Hydrafacials" }
+          ]}
           stats={[
             { value: "45 Min", label: "Treatment" },
             { value: "Zero", label: "Downtime" },

@@ -251,6 +251,10 @@ const Facials = () => {
           badge="From £45"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Facials" }
+          ]}
           stats={[
             { value: "45-90", label: "Minutes" },
             { value: "Bespoke", label: "Treatment" },

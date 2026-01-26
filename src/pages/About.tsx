@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Award, Shield, Heart, Users, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -93,6 +94,10 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              <PageBreadcrumb 
+                items={[{ label: "About" }]} 
+                className="mb-4"
+              />
               <motion.span 
                 className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full font-body text-sm mb-6"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -102,7 +107,7 @@ const About = () => {
                 <Award className="h-4 w-4" />
                 Est. 2004 • 20+ Years Experience
               </motion.span>
-              <motion.h1 
+              <motion.h1
                 className="text-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

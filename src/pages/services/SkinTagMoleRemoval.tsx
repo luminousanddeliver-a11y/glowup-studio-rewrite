@@ -262,6 +262,10 @@ const SkinTagMoleRemoval = () => {
           badge="Skin Tags From £50"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Skin Tag & Mole Removal" }
+          ]}
           stats={[
             { value: "5-15", label: "Minutes" },
             { value: "Single", label: "Session" },

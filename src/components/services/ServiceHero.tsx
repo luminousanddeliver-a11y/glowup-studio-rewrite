@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Calendar, ChevronDown, Shield, Star } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "framer-motion";
+import { PageBreadcrumb, BreadcrumbItemType } from "@/components/layout/PageBreadcrumb";
 
 interface SecondaryCTA {
   text: string;
@@ -27,6 +28,7 @@ interface ServiceHeroProps {
   showPhoneCta?: boolean;
   backgroundImage?: string;
   stats?: HeroStat[];
+  breadcrumbs?: BreadcrumbItemType[];
 }
 
 // Animated counter component
@@ -89,6 +91,7 @@ export const ServiceHero = ({
   showPhoneCta = true,
   backgroundImage,
   stats,
+  breadcrumbs,
 }: ServiceHeroProps) => {
   // Split title by accent if provided
   const renderTitle = () => {
@@ -128,6 +131,11 @@ export const ServiceHero = ({
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
+            {/* Breadcrumbs */}
+            {breadcrumbs && breadcrumbs.length > 0 && (
+              <PageBreadcrumb items={breadcrumbs} variant="light" className="mb-4 justify-center lg:justify-start" />
+            )}
+            
             {/* Trust Badge */}
             {trustBadge && (
               <motion.div

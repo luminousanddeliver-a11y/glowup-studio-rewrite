@@ -197,6 +197,10 @@ const SkinAnalysis = () => {
           badge="Complimentary With Any Treatment"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Skin Analysis" }
+          ]}
           stats={[
             { value: "30-45", label: "Minutes" },
             { value: "Multi", label: "Spectrum" },

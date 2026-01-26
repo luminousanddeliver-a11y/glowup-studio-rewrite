@@ -278,6 +278,10 @@ const LaserResurfacing = () => {
           badge="Free Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Laser Resurfacing" }
+          ]}
           stats={[
             { value: "3-6", label: "Sessions" },
             { value: "Long", label: "Lasting" },

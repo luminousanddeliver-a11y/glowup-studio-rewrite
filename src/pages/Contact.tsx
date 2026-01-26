@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -193,6 +194,11 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              <PageBreadcrumb 
+                items={[{ label: "Contact" }]} 
+                variant="dark"
+                className="mb-4"
+              />
               <h1 className="mb-4">Get in Touch</h1>
               <p className="text-lg text-primary-foreground/80 font-body">
                 Ready to start your journey to beautiful skin? Contact us today for a free consultation.

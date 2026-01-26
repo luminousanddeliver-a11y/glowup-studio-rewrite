@@ -274,6 +274,10 @@ const Electrolysis = () => {
           badge="Works on Grey Hair"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Electrolysis" }
+          ]}
           stats={[
             { value: "Truly", label: "Permanent" },
             { value: "All Hair", label: "Colors" },

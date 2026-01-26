@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -137,16 +138,14 @@ const BlogPost = () => {
         {/* Hero Section */}
         <section className="bg-primary py-12 md:py-20">
           <div className="container-custom max-w-4xl">
-            <motion.a
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-              href="/blog" 
-              className="inline-flex items-center text-primary-foreground/80 hover:text-accent transition-colors mb-6 font-body text-sm"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </motion.a>
+            <PageBreadcrumb 
+              items={[
+                { label: "Blog", href: "/blog" },
+                { label: post.title }
+              ]} 
+              variant="dark"
+              className="mb-6"
+            />
             
             {post.category && (
               <motion.span

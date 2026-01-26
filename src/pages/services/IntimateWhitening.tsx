@@ -274,6 +274,10 @@ const IntimateWhitening = () => {
           badge="Discreet & Professional"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={intimateCareProducts}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Intimate Whitening" }
+          ]}
           stats={[
             { value: "Discreet", label: "& Private" },
             { value: "Medical", label: "Grade" },

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 
 const OrderConfirmation = () => {
   const [searchParams] = useSearchParams();
@@ -21,6 +22,13 @@ const OrderConfirmation = () => {
 
       <main className="min-h-screen bg-background py-16 lg:py-24">
         <div className="container-custom max-w-2xl">
+          <PageBreadcrumb 
+            items={[
+              { label: "Shop", href: "/shop" },
+              { label: "Order Confirmation" }
+            ]} 
+            className="mb-8"
+          />
           <div className="text-center">
             {/* Success Icon */}
             <motion.div

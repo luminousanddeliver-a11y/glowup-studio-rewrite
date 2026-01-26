@@ -259,6 +259,10 @@ const VeinRemoval = () => {
           badge="Results in 1-3 Sessions"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Vein Removal" }
+          ]}
           stats={[
             { value: "15-30", label: "Minutes" },
             { value: "1-3", label: "Sessions" },

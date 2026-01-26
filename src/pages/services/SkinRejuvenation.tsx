@@ -275,6 +275,10 @@ const SkinRejuvenation = () => {
           badge="Anti-Aging & Radiance"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Skin Rejuvenation" }
+          ]}
           stats={[
             { value: "Sun Damage", label: "Corrected" },
             { value: "Fine Lines", label: "Reduced" },

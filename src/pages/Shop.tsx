@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { ProductGrid } from "@/components/shop/ProductGrid";
 import { CategoryFilter } from "@/components/shop/CategoryFilter";
 import { CartDrawer } from "@/components/shop/CartDrawer";
@@ -26,6 +27,10 @@ const Shop = () => {
         {/* Hero */}
         <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-16 lg:py-24">
           <div className="container-custom text-center">
+            <PageBreadcrumb 
+              items={[{ label: "Shop" }]} 
+              className="mb-6 justify-center"
+            />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -260,6 +260,10 @@ const PigmentationTreatment = () => {
           badge="Free Skin Analysis"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Pigmentation Treatment" }
+          ]}
           stats={[
             { value: "Multiple", label: "Options" },
             { value: "All Skin", label: "Types" },

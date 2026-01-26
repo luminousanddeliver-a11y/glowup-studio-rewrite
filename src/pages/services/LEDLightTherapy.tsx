@@ -252,6 +252,10 @@ const LEDLightTherapy = () => {
           badge="From £50 Per Session"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "LED Light Therapy" }
+          ]}
           stats={[
             { value: "20-30", label: "Minutes" },
             { value: "Zero", label: "Downtime" },

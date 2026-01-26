@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Award, Users, Clock, CheckCircle, Phone, Mail } from "lucide-react";
 
@@ -128,6 +129,11 @@ const Academy = () => {
               transition={{ duration: 0.5 }}
               className="max-w-3xl"
             >
+              <PageBreadcrumb 
+                items={[{ label: "Academy" }]} 
+                variant="dark"
+                className="mb-4"
+              />
               <div className="flex items-center gap-2 mb-4">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}

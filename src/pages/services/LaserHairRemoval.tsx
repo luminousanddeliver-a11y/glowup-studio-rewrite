@@ -311,6 +311,10 @@ const LaserHairRemoval = () => {
           badge="25% Off First Course"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Laser Hair Removal" }
+          ]}
           stats={[
             { value: "6-8", label: "Sessions" },
             { value: "Pain-Free", label: "Guaranteed" },

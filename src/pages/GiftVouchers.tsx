@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { Gift, Phone, Mail, Heart, Sparkles, Star } from "lucide-react";
 
@@ -95,6 +96,11 @@ const GiftVouchers = () => {
               transition={{ duration: 0.5 }}
               className="max-w-2xl mx-auto"
             >
+              <PageBreadcrumb 
+                items={[{ label: "Gift Vouchers" }]} 
+                variant="dark"
+                className="mb-6 justify-center"
+              />
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}

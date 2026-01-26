@@ -227,6 +227,10 @@ const HopiEarCandling = () => {
           badge="From £45"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Hopi Ear Candling" }
+          ]}
           stats={[
             { value: "45-60", label: "Minutes" },
             { value: "Natural", label: "Therapy" },
