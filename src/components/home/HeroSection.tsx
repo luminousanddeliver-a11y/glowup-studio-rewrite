@@ -6,9 +6,9 @@ export const HeroSection = () => {
   return (
     <section className="bg-background py-16 md:py-20 lg:py-24">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Content */}
-          <div className="text-center lg:text-left">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Content - appears second on mobile, first on desktop */}
+          <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Decorative teal bar */}
             <div className="w-12 h-1 bg-primary mb-6 mx-auto lg:mx-0" />
 
@@ -68,8 +68,8 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right: Image with NHS Badge */}
-          <div className="relative">
+          {/* Image - appears first on mobile, second on desktop */}
+          <div className="relative order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <img 
                 src={heroClinicNew} 
