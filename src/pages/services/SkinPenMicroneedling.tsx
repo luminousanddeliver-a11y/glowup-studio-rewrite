@@ -284,6 +284,10 @@ const SkinPenMicroneedling = () => {
           badge="Natural Collagen Boost"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "SkinPen Microneedling" }
+          ]}
           stats={[
             { value: "Acne Scars", label: "Reduced" },
             { value: "All Skin", label: "Types Safe" },

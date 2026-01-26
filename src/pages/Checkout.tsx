@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { CheckoutForm } from "@/components/shop/CheckoutForm";
 import { OrderSummary } from "@/components/shop/OrderSummary";
 import { CartDrawer } from "@/components/shop/CartDrawer";
@@ -63,22 +64,19 @@ const Checkout = () => {
 
       <main className="min-h-screen bg-background py-8 lg:py-12">
         <div className="container-custom">
-          {/* Back Link */}
+          {/* Breadcrumb */}
           <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Button
-              variant="ghost"
-              asChild
-              className="mb-6 font-body"
-            >
-              <a href="/shop">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Shop
-              </a>
-            </Button>
+            <PageBreadcrumb 
+              items={[
+                { label: "Shop", href: "/shop" },
+                { label: "Checkout" }
+              ]} 
+              className="mb-6"
+            />
           </motion.div>
 
           <motion.h1

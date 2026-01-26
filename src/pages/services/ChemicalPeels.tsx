@@ -271,6 +271,10 @@ const ChemicalPeels = () => {
           badge="Skin Resurfacing"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Chemical Peels" }
+          ]}
           stats={[
             { value: "Clearer", label: "Skin" },
             { value: "Multiple", label: "Peel Types" },

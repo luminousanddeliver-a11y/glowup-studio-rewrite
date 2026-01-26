@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Phone } from "lucide-react";
@@ -140,6 +141,11 @@ const Prices = () => {
               transition={{ duration: 0.5 }}
               className="max-w-3xl"
             >
+              <PageBreadcrumb 
+                items={[{ label: "Prices" }]} 
+                variant="dark"
+                className="mb-4"
+              />
               <h1 className="mb-4">Treatment Prices</h1>
               <p className="text-lg text-primary-foreground/80 font-body">
                 Transparent pricing for all our services. New clients receive 25% off their first treatment course.

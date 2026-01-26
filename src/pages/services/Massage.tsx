@@ -196,6 +196,10 @@ const Massage = () => {
           badge="From £40"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Massage" }
+          ]}
           stats={[
             { value: "30-90", label: "Minutes" },
             { value: "Multiple", label: "Styles" },

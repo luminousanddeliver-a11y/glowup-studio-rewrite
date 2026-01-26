@@ -229,6 +229,10 @@ const Piercing = () => {
           badge="Both Lobes Just £25"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Ear Piercing" }
+          ]}
           stats={[
             { value: "5-10", label: "Minutes" },
             { value: "Sterile", label: "Procedure" },

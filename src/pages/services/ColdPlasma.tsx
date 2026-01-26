@@ -274,6 +274,10 @@ const ColdPlasma = () => {
           badge="Cutting-Edge Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={coldPlasmaDevice}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Cold Plasma" }
+          ]}
           stats={[
             { value: "120x", label: "Absorption" },
             { value: "Bacteria", label: "Sterilized" },

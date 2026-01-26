@@ -254,6 +254,10 @@ const AdvancedElectrolysis = () => {
           badge="15-Minute Sessions From £50"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Advanced Electrolysis" }
+          ]}
           stats={[
             { value: "Precision", label: "Treatment" },
             { value: "Minimal", label: "Scarring" },

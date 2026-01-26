@@ -292,6 +292,10 @@ const Injectables = () => {
           badge="Free Consultation Available"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
+          breadcrumbs={[
+            { label: "Services", href: "/prices" },
+            { label: "Injectables" }
+          ]}
           stats={[
             { value: "15-30", label: "Minutes" },
             { value: "Natural", label: "Results" },

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { supabase } from "@/integrations/supabase/client";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -62,6 +63,11 @@ const Blog = () => {
         {/* Hero Section */}
         <section className="bg-primary py-16 md:py-24">
           <div className="container-custom text-center">
+            <PageBreadcrumb 
+              items={[{ label: "Blog" }]} 
+              variant="dark"
+              className="mb-6 justify-center"
+            />
             <motion.h1
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
