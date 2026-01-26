@@ -67,17 +67,21 @@ const serviceCategories = [
       { name: "Ear Piercing", href: "/ear-piercing-dagenham" },
     ],
   },
+  {
+    name: "More",
+    services: [
+      { name: "Gift Vouchers", href: "/gift-vouchers" },
+      { name: "Academy", href: "/academy" },
+    ],
+  },
 ];
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Prices", href: "/prices" },
   { name: "Shop", href: "/shop" },
+  { name: "Prices", href: "/prices" },
   { name: "Blog", href: "/blog" },
-  { name: "Gift Vouchers", href: "/gift-vouchers" },
-  { name: "Academy", href: "/academy" },
   { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about" },
 ];
 
 export const Header = () => {
@@ -126,19 +130,12 @@ export const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6">
-              <a 
-                href="/" 
-                className="font-body text-foreground hover:text-accent transition-colors"
-              >
-                Home
-              </a>
-
-              {/* Services Mega Dropdown */}
+              {/* Services Mega Dropdown - First */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 font-body text-foreground hover:text-accent transition-colors">
                   Services <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[600px] p-4 grid grid-cols-3 gap-4">
+                <DropdownMenuContent className="w-[700px] p-4 grid grid-cols-3 gap-4">
                   {serviceCategories.map((category) => (
                     <div key={category.name} className="space-y-2">
                       <DropdownMenuLabel className="text-accent font-heading text-sm">
@@ -159,7 +156,7 @@ export const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {navLinks.slice(1).map((link) => (
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -234,18 +231,7 @@ export const Header = () => {
           {mobileMenuOpen && (
             <div className="lg:hidden py-4 border-t border-border max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain">
               <nav className="flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="font-body text-foreground hover:text-accent hover:bg-accent/5 transition-colors py-3.5 px-2 rounded-lg min-h-[48px] flex items-center active:bg-accent/10 touch-manipulation"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                
-                {/* Mobile Services Accordion */}
+                {/* Mobile Services Accordion - First */}
                 <div className="py-2 px-2">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
@@ -279,6 +265,18 @@ export const Header = () => {
                     </div>
                   )}
                 </div>
+
+                {/* Other nav links */}
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="font-body text-foreground hover:text-accent hover:bg-accent/5 transition-colors py-3.5 px-2 rounded-lg min-h-[48px] flex items-center active:bg-accent/10 touch-manipulation"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ))}
 
                 <a 
                   href="tel:02085981200" 
