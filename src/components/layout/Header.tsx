@@ -171,30 +171,31 @@ export const Header = () => {
             </div>
 
             {/* Mobile Menu Button & Cart */}
-            <div className="lg:hidden flex items-center gap-2">
+            <div className="lg:hidden flex items-center gap-1">
               {/* Mobile Cart Icon */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative p-2 text-foreground hover:text-accent transition-colors"
+                className="relative p-3 text-foreground hover:text-accent transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
                 aria-label="Open cart"
               >
-                <ShoppingBag className="h-5 w-5" />
+                <ShoppingBag className="h-6 w-6" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  <span className="absolute top-1.5 right-1.5 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                     {cartCount > 9 ? "9+" : cartCount}
                   </span>
                 )}
               </button>
               
               <button
-                className="p-2"
+                className="p-3 touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? (
-                  <X className="h-6 w-6 text-foreground" />
+                  <X className="h-7 w-7 text-foreground" />
                 ) : (
-                  <Menu className="h-6 w-6 text-foreground" />
+                  <Menu className="h-7 w-7 text-foreground" />
                 )}
               </button>
             </div>
@@ -202,13 +203,13 @@ export const Header = () => {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-border max-h-[70vh] overflow-y-auto">
-              <nav className="flex flex-col gap-2">
+            <div className="lg:hidden py-4 border-t border-border max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain">
+              <nav className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
-                    className="font-body text-foreground hover:text-accent transition-colors py-2"
+                    className="font-body text-foreground hover:text-accent hover:bg-accent/5 transition-colors py-3.5 px-2 rounded-lg min-h-[48px] flex items-center active:bg-accent/10 touch-manipulation"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
@@ -216,28 +217,28 @@ export const Header = () => {
                 ))}
                 
                 {/* Mobile Services Accordion */}
-                <div className="py-2">
+                <div className="py-2 px-2">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="flex items-center justify-between w-full font-body font-semibold text-foreground"
+                    className="flex items-center justify-between w-full font-body font-semibold text-foreground min-h-[48px] py-2 touch-manipulation"
                   >
                     Services
-                    <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`h-5 w-5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
                   {mobileServicesOpen && (
-                    <div className="mt-3 space-y-4">
+                    <div className="mt-2 space-y-3 pb-2">
                       {serviceCategories.map((category) => (
-                        <div key={category.name} className="pl-4">
-                          <span className="font-body font-medium text-accent text-sm">
+                        <div key={category.name} className="pl-2">
+                          <span className="font-body font-medium text-accent text-sm block py-1">
                             {category.name}
                           </span>
-                          <div className="mt-1 flex flex-col gap-1 pl-3">
+                          <div className="flex flex-col gap-0.5 pl-3 border-l-2 border-accent/20">
                             {category.services.map((service) => (
                               <a
                                 key={service.href}
                                 href={service.href}
-                                className="font-body text-sm text-muted-foreground hover:text-accent transition-colors py-1"
+                                className="font-body text-sm text-muted-foreground hover:text-accent active:bg-accent/5 transition-colors py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
                                 {service.name}
@@ -252,13 +253,13 @@ export const Header = () => {
 
                 <a 
                   href="tel:02085981200" 
-                  className="flex items-center gap-2 text-foreground py-2"
+                  className="flex items-center gap-3 text-foreground py-3.5 px-2 rounded-lg min-h-[48px] hover:bg-accent/5 active:bg-accent/10 touch-manipulation"
                 >
-                  <Phone className="h-4 w-4" />
-                  <span className="font-body">0208 598 1200</span>
+                  <Phone className="h-5 w-5" />
+                  <span className="font-body font-medium">0208 598 1200</span>
                 </a>
 
-                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-12 w-full mt-2">
+                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 w-full mt-3 text-base font-semibold active:scale-[0.99] touch-manipulation">
                   <a href="/contact">Book Consultation</a>
                 </Button>
               </nav>

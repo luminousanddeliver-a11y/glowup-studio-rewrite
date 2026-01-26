@@ -152,7 +152,7 @@ export const BookingForm = () => {
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card">
+          <div className="bg-card rounded-2xl p-5 md:p-8 shadow-card">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                 <FormField
@@ -163,11 +163,13 @@ export const BookingForm = () => {
                       <FormLabel className="font-body text-foreground">Full Name *</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                           <Input 
                             {...field} 
                             placeholder="Your full name" 
-                            className="pl-10 h-12 font-body"
+                            className="pl-11 h-14 font-body text-base"
+                            autoComplete="name"
+                            autoCapitalize="words"
                           />
                         </div>
                       </FormControl>
@@ -184,12 +186,15 @@ export const BookingForm = () => {
                       <FormLabel className="font-body text-foreground">Email Address *</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                           <Input 
                             {...field} 
                             type="email"
+                            inputMode="email"
                             placeholder="your@email.com" 
-                            className="pl-10 h-12 font-body"
+                            className="pl-11 h-14 font-body text-base"
+                            autoComplete="email"
+                            autoCapitalize="off"
                           />
                         </div>
                       </FormControl>
@@ -206,12 +211,14 @@ export const BookingForm = () => {
                       <FormLabel className="font-body text-foreground">Phone Number *</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                           <Input 
                             {...field} 
                             type="tel"
+                            inputMode="tel"
                             placeholder="07XXX XXX XXX" 
-                            className="pl-10 h-12 font-body"
+                            className="pl-11 h-14 font-body text-base"
+                            autoComplete="tel"
                           />
                         </div>
                       </FormControl>
@@ -228,7 +235,7 @@ export const BookingForm = () => {
                       <FormLabel className="font-body text-foreground">Service of Interest *</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger className="h-12 font-body">
+                          <SelectTrigger className="h-14 font-body text-base">
                             <SelectValue placeholder="Select a treatment" />
                           </SelectTrigger>
                         </FormControl>
@@ -255,7 +262,7 @@ export const BookingForm = () => {
                         <Textarea 
                           {...field} 
                           placeholder="Tell us about your concerns or any questions..."
-                          className="min-h-[100px] font-body resize-none"
+                          className="min-h-[120px] font-body text-base resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -266,7 +273,7 @@ export const BookingForm = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-body text-lg"
+                  className="w-full h-16 bg-accent hover:bg-accent/90 text-accent-foreground font-body text-lg font-semibold active:scale-[0.99] transition-all touch-manipulation"
                 >
                   {isSubmitting ? (
                     "Sending..."
