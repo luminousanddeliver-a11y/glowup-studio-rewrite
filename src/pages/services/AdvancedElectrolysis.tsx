@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Target, Sparkles, Zap, CheckCircle, RefreshCw, Eye } from "lucide-react";
 import advancedElectrolysisDevice from "@/assets/advanced-electrolysis-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -326,9 +328,24 @@ const AdvancedElectrolysis = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "Had a skin tag on my neck for years. Gone in one session! Wish I'd done it sooner.", initials: "MJ", treatment: "Skin Tag Removal", rating: 5 },
+            { quote: "The milia under my eyes were really bothering me. They removed them perfectly.", initials: "KC", treatment: "Milia Removal", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Clear, Blemish-Free Skin"
           description="See how quickly and effectively unwanted blemishes can be removed. Book your assessment today."
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Skin Tag & Mole Removal", href: "/skin-tag-mole-removal-dagenham", description: "For larger lesions" },
+            { name: "Red Vein Removal", href: "/vein-removal-dagenham", description: "Treat visible veins" },
+            { name: "Electrolysis", href: "/electrolysis-dagenham", description: "Permanent hair removal" }
+          ]}
         />
         
         <ServiceCTA

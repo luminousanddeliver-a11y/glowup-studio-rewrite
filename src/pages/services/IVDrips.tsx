@@ -12,6 +12,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Zap, Shield, Droplets, Heart } from "lucide-react";
 import ivDripSetup from "@/assets/iv-drip-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -330,9 +332,24 @@ const IVDrips = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "I was exhausted before my wedding. One IV drip and I felt like a new person!", initials: "EB", treatment: "Energy Boost IV", rating: 5 },
+            { quote: "The glow drip is amazing - my skin looks so much healthier after just one session.", initials: "TD", treatment: "Glow IV Drip", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="Experience the difference of 100% nutrient absorption"
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Combine with Hydrafacial for ultimate glow" },
+            { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Enhance your wellness routine" },
+            { name: "Facials", href: "/facials-dagenham", description: "Complete your skin transformation" }
+          ]}
         />
         
         <ServiceCTA

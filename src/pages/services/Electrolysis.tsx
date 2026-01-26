@@ -12,6 +12,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Award, Target, Palette, CheckCircle } from "lucide-react";
 import electrolysisDevice from "@/assets/electrolysis-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -333,9 +335,24 @@ const Electrolysis = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "Finally found a solution for my grey chin hairs. Electrolysis is the only thing that works!", initials: "JH", treatment: "Electrolysis - Chin", rating: 5 },
+            { quote: "Finished my laser course but had some stubborn hairs left. Electrolysis got rid of them permanently.", initials: "PA", treatment: "Post-Laser Touch-Up", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Real Results from Real Clients"
           description="Join clients who achieved truly permanent hair removal"
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Laser Hair Removal", href: "/laser-hair-removal-dagenham", description: "For larger areas with dark hair" },
+            { name: "Advanced Electrolysis", href: "/advanced-electrolysis-dagenham", description: "For skin tags, milia and blood spots" },
+            { name: "Skin Analysis", href: "/skin-analysis-dagenham", description: "Understand your skin's needs" }
+          ]}
         />
         
         <ServiceCTA

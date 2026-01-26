@@ -13,6 +13,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Sun, Zap, RefreshCw, CheckCircle } from "lucide-react";
 import ledDevice from "@/assets/led-therapy-device.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -324,9 +326,24 @@ const LEDLightTherapy = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "My acne has reduced so much since starting LED therapy. It's so relaxing too!", initials: "LR", treatment: "Blue LED Course", rating: 5 },
+            { quote: "I add LED after every facial now. My skin just looks so much healthier.", initials: "TP", treatment: "LED Add-On", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Gentle Yet Effective Results"
           description="LED therapy proves that powerful results don't require harsh treatments. Book a session to experience the difference."
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Facials", href: "/facials-dagenham", description: "Combine LED with any facial" },
+            { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "Enhance peel healing with LED" },
+            { name: "SkinPen Microneedling", href: "/skinpen-microneedling-dagenham", description: "Boost microneedling recovery" }
+          ]}
         />
         
         <ServiceCTA

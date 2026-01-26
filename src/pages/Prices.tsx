@@ -734,7 +734,7 @@ const Prices = () => {
                   Book Free Consultation
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground">
                 <a href="tel:02085981200">
                   <Phone className="h-4 w-4 mr-2" />
                   0208 598 1200

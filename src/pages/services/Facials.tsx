@@ -12,6 +12,8 @@ import { WhatToExpect } from "@/components/services/WhatToExpect";
 import { ServiceFAQ } from "@/components/services/ServiceFAQ";
 import { ResultsShowcase } from "@/components/services/ResultsShowcase";
 import { ServiceCTA } from "@/components/services/ServiceCTA";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { Timer, Shield, Users, Award, Sparkles, Heart, Sun, Droplets, Gem, Star } from "lucide-react";
 import facialsSetup from "@/assets/facials-setup.jpg";
 import consultationRoom from "@/assets/consultation-room.jpg";
@@ -341,9 +343,24 @@ const Facials = () => {
           faqs={faqs}
         />
         
+        <ServiceTestimonial 
+          testimonials={[
+            { quote: "The Million Dollar Facial is worth every penny! My skin was glowing for days.", initials: "LT", treatment: "Million Dollar Facial", rating: 5 },
+            { quote: "I've tried facials everywhere but nothing compares. The deep cleanse is incredible.", initials: "NC", treatment: "Deep Cleansing Facial", rating: 5 }
+          ]} 
+        />
+        
         <ResultsShowcase
           title="Glowing Results"
           description="Our clients leave with radiant, refreshed skin. Book your facial and experience the difference."
+        />
+        
+        <RelatedServices 
+          services={[
+            { name: "Hydrafacials", href: "/hydrafacials-dagenham", description: "Our most popular facial treatment" },
+            { name: "Chemical Peels", href: "/chemical-peels-dagenham", description: "For deeper skin renewal" },
+            { name: "LED Light Therapy", href: "/led-light-therapy-dagenham", description: "Add LED for enhanced results" }
+          ]}
         />
         
         <ServiceCTA
