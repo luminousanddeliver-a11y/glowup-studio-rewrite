@@ -21,26 +21,27 @@ const TattooRemoval = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Tattoo Removal East London",
+    "name": "Tattoo Removal East London - Quanta Thunder Series",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Laser Light Skin Clinic",
+      "description": "The ONLY clinic in East London offering the Quanta Thunder Series for advanced tattoo removal",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "6 Church Elm Lane",
+        "streetAddress": "125 Becontree Avenue",
         "addressLocality": "Dagenham",
-        "postalCode": "RM10 9RR",
+        "postalCode": "RM8 2UJ",
         "addressCountry": "GB"
       },
       "telephone": "+442085981200"
     },
-    "description": "Professional laser tattoo removal in East London using the Quanta Q-Plus C. Remove unwanted tattoos safely with our NHS-approved technology.",
+    "description": "East London's ONLY clinic with the Quanta Thunder Series. Professional laser tattoo removal using the world's most advanced multi-wavelength system. Remove ALL ink colors in 50% fewer sessions.",
     "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
     "offers": {
       "@type": "Offer",
       "price": "50",
       "priceCurrency": "GBP",
-      "description": "Tattoo removal starting from £50 per session"
+      "description": "Tattoo removal starting from £50 per session - exclusive Quanta Thunder technology"
     }
   };
 
@@ -101,7 +102,7 @@ const TattooRemoval = () => {
   const whatIsContent = [
     "Laser tattoo removal uses concentrated light energy to break down ink particles trapped in your skin. The laser delivers ultra-short pulses that pass harmlessly through the outer skin layer and target the ink beneath. When the ink absorbs this energy, it shatters into tiny fragments.",
     "Your body's immune system then naturally flushes away these broken-down particles through the lymphatic system over the following weeks. This is why sessions are spaced 6-8 weeks apart—to give your body time to eliminate the ink and your skin time to heal.",
-    "At Laser Light Skin Clinic, we use the Quanta Q-Plus C—a medical-grade Q-switched laser system with multiple wavelengths. This means we can effectively target all ink colors, including stubborn blues and greens that older lasers can't remove."
+    "At Laser Light Skin Clinic, we're the ONLY clinic in East London offering the revolutionary Quanta Thunder Series—a medical-grade multi-wavelength laser system. This exclusive technology means we can effectively target ALL ink colors, including stubborn blues and greens, in 50% fewer sessions than traditional lasers."
   ];
 
   const benefits = [
@@ -284,8 +285,8 @@ const TattooRemoval = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Tattoo Removal East London | All Colors | Safe for Dark Skin"
-        description="Professional laser tattoo removal in East London. Remove all ink colors including stubborn blues and greens. Safe for dark skin. Free consultation at Laser Light Skin Clinic."
+        title="Tattoo Removal East London | Only Quanta Thunder Clinic | All Colors"
+        description="East London's ONLY clinic with the Quanta Thunder Series. Remove ALL ink colors including stubborn blues & greens in 50% fewer sessions. Safe for dark skin. Free consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk/tattoo-removal-east-london"
         structuredData={[serviceSchema, faqSchema]}
       />
@@ -294,12 +295,12 @@ const TattooRemoval = () => {
       
       <main className="flex-1">
         <ServiceHero
-          trustBadge="Medical-Grade Laser"
+          trustBadge="★ Only Quanta Thunder in East London"
           title="Tattoo Removal East London"
           titleAccent="East London"
-          subtitle="Erase the Past. Embrace Your Future."
-          description="Advanced Q-switched laser safely removes all ink colors—including stubborn blues and greens—with minimal scarring risk."
-          badge="All Colors Removed"
+          subtitle="The ONLY Quanta Thunder Clinic in East London"
+          description="Remove ALL ink colors—including stubborn blues and greens—in 50% fewer sessions with our exclusive Quanta Thunder Series technology."
+          badge="Exclusive Technology"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           backgroundImage={consultationRoom}
           breadcrumbs={[
@@ -307,9 +308,9 @@ const TattooRemoval = () => {
             { label: "Tattoo Removal" }
           ]}
           stats={[
-            { value: "All", label: "Ink Colors" },
-            { value: "Minimal", label: "Scarring" },
-            { value: "Cover-Up", label: "Ready" }
+            { value: "Only", label: "In East London" },
+            { value: "50%", label: "Fewer Sessions" },
+            { value: "All", label: "Ink Colors" }
           ]}
         />
         
@@ -318,7 +319,7 @@ const TattooRemoval = () => {
         <WhatIsSection
           title="How Does Laser Tattoo Removal Work?"
           content={whatIsContent}
-          highlightText="The Quanta Q-Plus C is one of the most advanced tattoo removal lasers available—capable of removing even the most stubborn multi-colored tattoos."
+          highlightText="We're the ONLY clinic in East London with the Quanta Thunder Series—the world's most advanced multi-wavelength tattoo removal system capable of removing even the most stubborn multi-colored tattoos in 50% fewer sessions."
         />
         
         <BenefitsList
@@ -334,12 +335,12 @@ const TattooRemoval = () => {
         />
         
         <TechnologySection
-          title="The Technology Behind Complete Removal"
-          subtitle="Why we use the Quanta Q-Plus C"
-          technologyName="Quanta Q-Plus C"
-          description="The Quanta Q-Plus C is a medical-grade Q-switched laser system that delivers ultra-short nanosecond pulses to shatter ink particles without damaging surrounding tissue. With multiple wavelengths (1064nm, 532nm, and optional Ruby 694nm), it effectively targets all tattoo colors on all skin types."
+          title="Exclusive Technology - Only in East London"
+          subtitle="Why we're the only choice for advanced tattoo removal"
+          technologyName="Quanta Thunder Series"
+          description="We're the ONLY clinic in East London offering the revolutionary Quanta Thunder Series—a medical-grade multi-wavelength laser system that delivers ultra-short pulses to shatter ink particles without damaging surrounding tissue. With multiple wavelengths, it effectively targets ALL tattoo colors on all skin types in 50% fewer sessions than traditional lasers."
           features={technologyFeatures}
-          certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
+          certifications={["NHS Approved", "CE Marked", "FDA Cleared", "Exclusive to East London"]}
           deviceImage={tattooRemovalDevice}
         />
         

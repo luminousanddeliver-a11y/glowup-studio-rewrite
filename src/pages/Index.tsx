@@ -6,6 +6,7 @@ import { TrustBar } from "@/components/home/TrustBar";
 import { FeaturedServices } from "@/components/home/FeaturedServices";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { TechnologyShowcase } from "@/components/home/TechnologyShowcase";
+import { ExclusiveTechnologyBanner } from "@/components/home/ExclusiveTechnologyBanner";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { OfferBanner } from "@/components/home/OfferBanner";
@@ -61,10 +62,10 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Laser Hair Removal & Skin Clinic Dagenham | 25% Off New Clients"
-        description="Get pain-free laser hair removal, Hydrafacials, and advanced skin treatments in Dagenham, East London. NHS-approved clinic with 20+ years experience. Book an appointment today!"
+        title="Laser Hair Removal & Skin Clinic Dagenham | Only Quanta Thunder in East London"
+        description="East London's ONLY clinic with the Quanta Thunder Series for advanced tattoo removal. Pain-free laser hair removal, Hydrafacials & skin treatments. NHS-approved. 25% off new clients!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
-        keywords="laser hair removal dagenham, skin clinic east london, hydrafacial dagenham, tattoo removal east london, NHS approved clinic"
+        keywords="laser hair removal dagenham, quanta thunder east london, tattoo removal east london, skin clinic dagenham, hydrafacial, NHS approved clinic"
         structuredData={localBusinessSchema}
       />
       
@@ -82,6 +83,9 @@ const Index = () => {
           <TechnologyShowcase />
         </ScrollReveal>
         <ScrollReveal>
+          <ExclusiveTechnologyBanner />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
           <Testimonials />
         </ScrollReveal>
         <ScrollReveal delay={0.1}>

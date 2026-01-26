@@ -49,7 +49,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Professional laser treatments and skincare solutions in Dagenham, East London. NHS-approved, FDA-certified technology with pain-free Lynton Motus AY laser.
+              East London's <strong className="text-gold">only clinic with the Quanta Thunder Series</strong> for advanced tattoo removal. NHS-approved, pain-free treatments with the Lynton Motus AY laser in Dagenham.
             </motion.p>
 
             {/* Offer Badge */}

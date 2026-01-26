@@ -1,4 +1,4 @@
-import { Shield, Star, Sparkles, Factory } from "lucide-react";
+import { Shield, Star, Sparkles, Award } from "lucide-react";
 import { motion } from "framer-motion";
 
 const trustItems = [
@@ -18,9 +18,10 @@ const trustItems = [
     description: "Lynton Motus AY",
   },
   {
-    icon: Factory,
-    title: "Made in Britain",
-    description: "Lynton Lasers certified",
+    icon: Award,
+    title: "Exclusive Technology",
+    description: "Only Quanta Thunder in East London",
+    highlight: true,
   },
 ];
 
@@ -32,22 +33,31 @@ export const TrustBar = () => {
           {trustItems.map((item, index) => (
             <motion.div
               key={item.title}
-              className="flex flex-col items-center text-center"
+              className={`flex flex-col items-center text-center ${(item as any).highlight ? 'relative' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
+              {(item as any).highlight && (
+                <motion.span 
+                  className="absolute -top-2 bg-gold text-gold-foreground text-[10px] font-bold px-2 py-0.5 rounded-full"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  EXCLUSIVE
+                </motion.span>
+              )}
               <motion.div 
-                className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3"
+                className={`w-14 h-14 rounded-full flex items-center justify-center mb-3 ${(item as any).highlight ? 'bg-gold/20' : 'bg-primary/10'}`}
                 initial={{ scale: 0.8 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.08 + 0.1 }}
               >
-                <item.icon className="h-7 w-7 text-primary" />
+                <item.icon className={`h-7 w-7 ${(item as any).highlight ? 'text-gold' : 'text-primary'}`} />
               </motion.div>
-              <h4 className="font-heading text-sm md:text-base font-medium text-foreground">
+              <h4 className={`font-heading text-sm md:text-base font-medium ${(item as any).highlight ? 'text-gold' : 'text-foreground'}`}>
                 {item.title}
               </h4>
               <p className="font-body text-xs md:text-sm text-muted-foreground">
