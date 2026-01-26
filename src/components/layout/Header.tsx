@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,29 +32,25 @@ const navLinks = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleServiceClick = (href: string) => {
-    window.location.href = href;
-  };
-
   return (
     <header className="sticky top-0 z-50 bg-card shadow-card">
       <div className="container-custom">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <span className="font-heading text-xl font-semibold text-primary">
               Laser Light Skin Clinic
             </span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link 
-              to="/" 
+            <a 
+              href="/" 
               className="font-body text-foreground hover:text-accent transition-colors"
             >
               Home
-            </Link>
+            </a>
 
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -66,23 +61,24 @@ export const Header = () => {
                 {services.map((service) => (
                   <DropdownMenuItem 
                     key={service.href} 
-                    onClick={() => handleServiceClick(service.href)}
-                    className="cursor-pointer"
+                    asChild
                   >
-                    {service.name}
+                    <a href={service.href} className="cursor-pointer w-full">
+                      {service.name}
+                    </a>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
             {navLinks.slice(1).map((link) => (
-              <Link
+              <a
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 className="font-body text-foreground hover:text-accent transition-colors"
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -119,28 +115,28 @@ export const Header = () => {
           <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   className="font-body text-foreground hover:text-accent transition-colors py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
               
               <div className="py-2">
                 <span className="font-body font-semibold text-foreground">Services</span>
                 <div className="mt-2 flex flex-col gap-2 pl-4">
                   {services.map((service) => (
-                    <Link
+                    <a
                       key={service.href}
-                      to={service.href}
+                      href={service.href}
                       className="font-body text-muted-foreground hover:text-accent transition-colors py-1"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {service.name}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>

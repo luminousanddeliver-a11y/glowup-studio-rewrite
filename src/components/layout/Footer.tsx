@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
 const quickLinks = [
@@ -8,14 +7,6 @@ const quickLinks = [
   { name: "Shop", href: "/shop" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
-];
-
-const services = [
-  { name: "Laser Hair Removal", href: "/services/laser-hair-removal" },
-  { name: "Hydrafacials", href: "/services/hydrafacials" },
-  { name: "Tattoo Removal", href: "/services/tattoo-removal" },
-  { name: "SkinPen Microneedling", href: "/services/microneedling" },
-  { name: "IV Drips & Infusions", href: "/services/iv-drips" },
 ];
 
 export const Footer = () => {
@@ -42,12 +33,12 @@ export const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    to={link.href}
+                  <a
+                    href={link.href}
                     className="font-body text-background/80 hover:text-accent transition-colors"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -140,18 +131,18 @@ export const Footer = () => {
               © {new Date().getFullYear()} Laser Light Skin Clinic. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link 
-                to="/privacy-policy" 
+              <a 
+                href="/privacy-policy" 
                 className="font-body text-background/60 text-sm hover:text-accent transition-colors"
               >
                 Privacy Policy
-              </Link>
-              <Link 
-                to="/terms" 
+              </a>
+              <a 
+                href="/terms" 
                 className="font-body text-background/60 text-sm hover:text-accent transition-colors"
               >
                 Terms & Conditions
-              </Link>
+              </a>
             </div>
           </div>
         </div>
