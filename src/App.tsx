@@ -11,6 +11,11 @@ import Shop from "./pages/Shop";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import OrderCancelled from "./pages/OrderCancelled";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Prices from "./pages/Prices";
+import GiftVouchers from "./pages/GiftVouchers";
+import Academy from "./pages/Academy";
 import LaserHairRemoval from "./pages/services/LaserHairRemoval";
 import Hydrafacials from "./pages/services/Hydrafacials";
 import TattooRemoval from "./pages/services/TattooRemoval";
@@ -34,6 +39,11 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/prices" element={<Prices />} />
+              <Route path="/gift-vouchers" element={<GiftVouchers />} />
+              <Route path="/academy" element={<Academy />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order-confirmation" element={<OrderConfirmation />} />
