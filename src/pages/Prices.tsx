@@ -5,7 +5,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck } from "lucide-react";
+import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck, Star, Zap, Crown, Heart } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { PricesStickyButton } from "@/components/prices/PricesStickyButton";
 
@@ -320,6 +320,58 @@ const categoryLabels: Record<string, string> = {
   "wellness": "Wellness",
 };
 
+interface PopularPackage {
+  name: string;
+  description: string;
+  originalPrice: string;
+  packagePrice: string;
+  savings: string;
+  includes: string[];
+  icon: typeof Star;
+  badge?: string;
+}
+
+const popularPackages: PopularPackage[] = [
+  {
+    name: "Full Body Laser Package",
+    description: "Complete hair-free transformation for women",
+    originalPrice: "£2,100",
+    packagePrice: "£1,575",
+    savings: "Save £525",
+    includes: ["Full Legs", "Full Arms", "Underarms", "Brazilian", "Full Face"],
+    icon: Crown,
+    badge: "Best Seller"
+  },
+  {
+    name: "Bridal Glow Package",
+    description: "Look radiant on your special day",
+    originalPrice: "£580",
+    packagePrice: "£450",
+    savings: "Save £130",
+    includes: ["HydraFacial Platinum", "LED Light Therapy", "Dermaplaning", "Underarm Laser"],
+    icon: Heart,
+    badge: "Most Popular"
+  },
+  {
+    name: "Anti-Ageing Transformation",
+    description: "Turn back the clock with our premium treatments",
+    originalPrice: "£850",
+    packagePrice: "£680",
+    savings: "Save £170",
+    includes: ["Profhilo (2 sessions)", "Cold Plasma Face", "SkinPen Microneedling"],
+    icon: Sparkles
+  },
+  {
+    name: "Men's Grooming Package",
+    description: "Complete body grooming for men",
+    originalPrice: "£1,440",
+    packagePrice: "£1,080",
+    savings: "Save £360",
+    includes: ["Full Back (6 sessions)", "Chest & Stomach (6 sessions)", "Beard Line (6 sessions)"],
+    icon: Zap
+  }
+];
+
 const Prices = () => {
   const isMobile = useIsMobile();
   
@@ -392,6 +444,97 @@ const Prices = () => {
                 </div>
               ))}
             </motion.div>
+          </div>
+        </section>
+
+        {/* Most Popular Packages */}
+        <section className="py-12 lg:py-16 bg-secondary">
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-foreground mb-3">Most Popular Packages</h2>
+              <p className="text-muted-foreground font-body max-w-2xl mx-auto">
+                Save more with our specially curated treatment bundles. Combine your favourite treatments at exclusive package prices.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {popularPackages.map((pkg, index) => (
+                <motion.div
+                  key={pkg.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden group relative"
+                >
+                  {pkg.badge && (
+                    <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-xs font-bold px-2.5 py-1 rounded-full z-10">
+                      {pkg.badge}
+                    </div>
+                  )}
+                  
+                  {/* Header */}
+                  <div className="bg-primary p-5 text-primary-foreground">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 bg-primary-foreground/20 rounded-lg">
+                        <pkg.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-heading font-bold text-lg leading-tight">{pkg.name}</h3>
+                    </div>
+                    <p className="text-primary-foreground/80 text-sm font-body">{pkg.description}</p>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-5">
+                    {/* Pricing */}
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-2xl font-heading font-bold text-foreground">{pkg.packagePrice}</span>
+                      <span className="text-muted-foreground line-through text-sm">{pkg.originalPrice}</span>
+                      <span className="text-accent font-semibold text-sm">{pkg.savings}</span>
+                    </div>
+                    
+                    {/* Includes */}
+                    <div className="space-y-2 mb-5">
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Package includes:</p>
+                      <ul className="space-y-1.5">
+                        {pkg.includes.map((item, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm font-body text-foreground">
+                            <Star className="h-3 w-3 text-accent flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* CTA */}
+                    <Button 
+                      asChild 
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                    >
+                      <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                        Book Package
+                      </a>
+                    </Button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-center text-muted-foreground text-sm font-body mt-8"
+            >
+              💡 Can't find what you need? Call us on <a href="tel:02085981200" className="text-accent hover:underline font-medium">0208 598 1200</a> for a custom package quote.
+            </motion.p>
           </div>
         </section>
 
