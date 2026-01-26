@@ -180,13 +180,19 @@ export const Header = () => {
                           <a 
                             href={service.href} 
                             className={cn(
-                              "cursor-pointer w-full text-sm py-1.5 transition-colors",
+                              "cursor-pointer w-full text-sm py-1.5 transition-colors group/item relative",
                               location.pathname === service.href
                                 ? "text-accent font-medium bg-accent/5"
                                 : "hover:text-accent"
                             )}
                           >
-                            {service.name}
+                            <span className="relative">
+                              {service.name}
+                              <span className={cn(
+                                "absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                                location.pathname === service.href ? "w-full" : "w-0 group-hover/item:w-full"
+                              )} />
+                            </span>
                           </a>
                         </DropdownMenuItem>
                       ))}
