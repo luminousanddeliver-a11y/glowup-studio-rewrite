@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, Clock, ArrowLeft, ArrowRight, Phone, User, Share2, BookOpen } from "lucide-react";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { TableOfContents } from "@/components/blog/TableOfContents";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -58,14 +58,10 @@ const BlogPost = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
-          <section className="bg-primary -mt-[80px] pt-[100px] md:pt-[108px] pb-12">
-            <div className="container-custom max-w-4xl">
-              <Skeleton className="h-8 w-32 mb-4" />
-              <Skeleton className="h-12 w-full mb-4" />
-              <Skeleton className="h-6 w-48" />
-            </div>
+          <section className="relative h-[60vh] bg-muted -mt-[80px]">
+            <Skeleton className="absolute inset-0" />
           </section>
-          <section className="section-padding">
+          <section className="py-12">
             <div className="container-custom max-w-4xl space-y-4">
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-full" />
@@ -149,11 +145,11 @@ const BlogPost = () => {
       
       <Header />
       <main className="flex-1">
-        {/* Premium Hero Section with Full-Width Image */}
-        <section className="relative -mt-[80px] pt-[80px]">
+        {/* Premium Hero Section with Full-Width Image - seamless blend with navbar */}
+        <section className="relative -mt-[80px]">
           {/* Hero Image with Overlay */}
           {post.featured_image && (
-            <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+            <div className="relative h-[55vh] md:h-[65vh] lg:h-[75vh] overflow-hidden">
               <motion.img 
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
@@ -162,22 +158,27 @@ const BlogPost = () => {
                 alt={post.title}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
+              {/* Gradient Overlay - darker for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-black/40 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-transparent" />
             </div>
           )}
           
+          {/* Fallback if no image */}
+          {!post.featured_image && (
+            <div className="relative h-[40vh] bg-gradient-to-br from-primary to-primary/80" />
+          )}
+          
           {/* Content Overlay positioned at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 pb-8 md:pb-12">
-            <div className="container-custom max-w-4xl">
+          <div className="absolute bottom-0 left-0 right-0 pb-10 md:pb-14">
+            <div className="container-custom max-w-5xl">
               <PageBreadcrumb 
                 items={[
                   { label: "Blog", href: "/blog" },
                   { label: post.title }
                 ]} 
                 variant="dark"
-                className="mb-4 opacity-80"
+                className="mb-3"
               />
               
               <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -209,7 +210,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-[1.1] drop-shadow-lg"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-[1.1] drop-shadow-lg max-w-4xl"
               >
                 {post.title}
               </motion.h1>
@@ -235,7 +236,7 @@ const BlogPost = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="border-b border-border bg-card/50"
         >
-          <div className="container-custom max-w-4xl py-4">
+          <div className="container-custom max-w-5xl py-4">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <span className="flex items-center gap-2">
@@ -262,55 +263,67 @@ const BlogPost = () => {
           </div>
         </motion.section>
 
-        {/* Article Content - Premium Typography */}
+        {/* Article Content with TOC Sidebar */}
         <article className="py-12 md:py-16">
-          <div className="container-custom max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="prose prose-lg lg:prose-xl max-w-none font-body
-                /* Headings */
-                prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
-                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:relative prose-h2:pl-4
-                prose-h2:before:content-[''] prose-h2:before:absolute prose-h2:before:left-0 prose-h2:before:top-0 prose-h2:before:bottom-0 prose-h2:before:w-1 prose-h2:before:bg-gradient-to-b prose-h2:before:from-primary prose-h2:before:to-accent prose-h2:before:rounded-full
-                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-primary
-                
-                /* Paragraphs */
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:mb-6
-                prose-p:first-of-type:text-lg prose-p:first-of-type:md:text-xl prose-p:first-of-type:text-foreground prose-p:first-of-type:font-medium prose-p:first-of-type:leading-relaxed
-                
-                /* Links */
-                prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-4 prose-a:decoration-primary/50 hover:prose-a:decoration-primary hover:prose-a:text-primary/80
-                
-                /* Strong & Emphasis */
-                prose-strong:text-foreground prose-strong:font-bold
-                prose-em:text-foreground
-                
-                /* Lists */
-                prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-ul:my-6 prose-ol:my-6
-                prose-li:text-base prose-li:md:text-lg prose-li:mb-3 prose-li:pl-2
-                prose-li:marker:text-primary prose-li:marker:font-bold
-                
-                /* Images */
-                prose-img:rounded-2xl prose-img:shadow-xl prose-img:my-10 prose-img:ring-1 prose-img:ring-border
-                
-                /* Blockquotes */
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary/5 prose-blockquote:to-transparent
-                prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8
-                prose-blockquote:text-foreground prose-blockquote:font-medium prose-blockquote:not-italic
-                prose-blockquote:text-lg
-                
-                /* Tables */
-                prose-table:rounded-xl prose-table:overflow-hidden prose-table:shadow-md prose-table:border prose-table:border-border
-                prose-th:bg-primary prose-th:text-primary-foreground prose-th:py-3 prose-th:px-4 prose-th:text-left prose-th:font-semibold
-                prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-border
-                prose-tr:even:bg-muted/30
-                
-                /* Code */
-                prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-primary prose-code:font-mono prose-code:text-sm"
-              dangerouslySetInnerHTML={{ __html: post.content || "" }}
-            />
+          <div className="container-custom max-w-6xl">
+            <div className="flex gap-12">
+              {/* Main Content */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="flex-1 max-w-3xl mx-auto xl:mx-0"
+              >
+                <div 
+                  className="prose prose-lg lg:prose-xl max-w-none font-body
+                    /* Headings */
+                    prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
+                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:relative prose-h2:pl-4
+                    prose-h2:before:content-[''] prose-h2:before:absolute prose-h2:before:left-0 prose-h2:before:top-0 prose-h2:before:bottom-0 prose-h2:before:w-1 prose-h2:before:bg-gradient-to-b prose-h2:before:from-primary prose-h2:before:to-accent prose-h2:before:rounded-full
+                    prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-primary
+                    
+                    /* Paragraphs */
+                    prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:mb-6
+                    prose-p:first-of-type:text-lg prose-p:first-of-type:md:text-xl prose-p:first-of-type:text-foreground prose-p:first-of-type:font-medium prose-p:first-of-type:leading-relaxed
+                    
+                    /* Links */
+                    prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-4 prose-a:decoration-primary/50 hover:prose-a:decoration-primary hover:prose-a:text-primary/80
+                    
+                    /* Strong & Emphasis */
+                    prose-strong:text-foreground prose-strong:font-bold
+                    prose-em:text-foreground
+                    
+                    /* Lists */
+                    prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-ul:my-6 prose-ol:my-6
+                    prose-li:text-base prose-li:md:text-lg prose-li:mb-3 prose-li:pl-2
+                    prose-li:marker:text-primary prose-li:marker:font-bold
+                    
+                    /* Images */
+                    prose-img:rounded-2xl prose-img:shadow-xl prose-img:my-10 prose-img:ring-1 prose-img:ring-border
+                    
+                    /* Blockquotes */
+                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary/5 prose-blockquote:to-transparent
+                    prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8
+                    prose-blockquote:text-foreground prose-blockquote:font-medium prose-blockquote:not-italic
+                    prose-blockquote:text-lg
+                    
+                    /* Tables */
+                    prose-table:rounded-xl prose-table:overflow-hidden prose-table:shadow-md prose-table:border prose-table:border-border
+                    prose-th:bg-primary prose-th:text-primary-foreground prose-th:py-3 prose-th:px-4 prose-th:text-left prose-th:font-semibold
+                    prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-border
+                    prose-tr:even:bg-muted/30
+                    
+                    /* Code */
+                    prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-primary prose-code:font-mono prose-code:text-sm"
+                  dangerouslySetInnerHTML={{ __html: post.content || "" }}
+                />
+              </motion.div>
+
+              {/* Table of Contents Sidebar */}
+              <aside className="w-72 flex-shrink-0">
+                <TableOfContents content={post.content || ""} />
+              </aside>
+            </div>
           </div>
         </article>
 
