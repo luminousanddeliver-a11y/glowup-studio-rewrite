@@ -197,7 +197,7 @@ const BlogPost = () => {
         <section className="relative -mt-[80px]">
           {/* Hero Image with Premium Overlays */}
           {post.featured_image && (
-            <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+            <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
               <motion.img 
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
@@ -207,19 +207,19 @@ const BlogPost = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Multi-layer gradient for premium depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-black/30" />
             </div>
           )}
           
           {/* Fallback if no image */}
           {!post.featured_image && (
-            <div className="relative h-[35vh] bg-gradient-to-br from-primary via-primary/90 to-primary/70" />
+            <div className="relative h-[30vh] bg-gradient-to-br from-primary via-primary/90 to-primary/70 pt-[80px]" />
           )}
           
           {/* Content Overlay - Positioned at bottom, flush with image */}
-          <div className="absolute bottom-0 left-0 right-0 pb-6 md:pb-8">
+          <div className="absolute bottom-0 left-0 right-0 pb-4 md:pb-6">
             <div className="container-custom max-w-5xl">
               {/* Breadcrumb */}
               <PageBreadcrumb 
@@ -228,17 +228,17 @@ const BlogPost = () => {
                   { label: post.title }
                 ]} 
                 variant="dark"
-                className="mb-4"
+                className="mb-3"
               />
               
               {/* Category and Reading Time Badges */}
-              <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
                 {post.category && (
                   <motion.span
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-3 py-1.5 rounded-full font-body text-xs font-semibold uppercase tracking-wide shadow-lg"
+                    className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-2.5 py-1 rounded-full font-body text-xs font-semibold uppercase tracking-wide shadow-lg"
                   >
                     <BookOpen className="h-3 w-3" />
                     {post.category}
@@ -248,7 +248,7 @@ const BlogPost = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.15 }}
-                  className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white px-3 py-1.5 rounded-full font-body text-xs font-medium shadow-lg"
+                  className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white px-2.5 py-1 rounded-full font-body text-xs font-medium shadow-lg"
                 >
                   <Clock className="h-3 w-3" />
                   {readingTime} min read
@@ -260,7 +260,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-[1.1] max-w-4xl"
+                className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-[1.15] max-w-4xl"
                 style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
               >
                 {post.title}
@@ -272,7 +272,7 @@ const BlogPost = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="font-body text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed"
+                  className="font-body text-sm md:text-base text-white/90 max-w-2xl leading-relaxed line-clamp-2"
                   style={{ textShadow: '0 1px 10px rgba(0,0,0,0.3)' }}
                 >
                   {post.excerpt}
@@ -329,11 +329,11 @@ const BlogPost = () => {
         </div>
 
         {/* Article Content with Floating Share & TOC Sidebar */}
-        <article className="py-10 md:py-14">
+        <article className="py-8 md:py-12">
           <div className="container-custom max-w-7xl">
-            <div className="flex gap-6 lg:gap-10">
-              {/* Floating Social Share - Left Side */}
-              <div className="w-14 flex-shrink-0">
+            <div className="flex gap-4 lg:gap-8">
+              {/* Floating Social Share - Left Side (hidden on mobile) */}
+              <div className="w-12 flex-shrink-0 hidden md:block">
                 <SocialShareButtons title={post.title} url={currentUrl} />
               </div>
 
@@ -345,47 +345,47 @@ const BlogPost = () => {
                 className="flex-1 min-w-0 max-w-3xl"
               >
                 <div 
-                  className="prose prose-lg lg:prose-xl max-w-none font-body
+                  className="prose prose-base md:prose-lg max-w-none font-body
                     /* Premium Headings with Accent */
                     prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
-                    prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:md:text-3xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:relative prose-h2:pl-5
+                    prose-h2:text-lg prose-h2:sm:text-xl prose-h2:md:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:relative prose-h2:pl-4
                     prose-h2:before:content-[''] prose-h2:before:absolute prose-h2:before:left-0 prose-h2:before:top-0 prose-h2:before:bottom-0 prose-h2:before:w-1 prose-h2:before:bg-gradient-to-b prose-h2:before:from-primary prose-h2:before:to-accent prose-h2:before:rounded-full
-                    prose-h3:text-lg prose-h3:sm:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-primary
+                    prose-h3:text-base prose-h3:sm:text-lg prose-h3:md:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-h3:text-primary
                     
-                    /* Premium Paragraph Styling */
-                    prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:mb-5
-                    prose-p:first-of-type:text-lg prose-p:first-of-type:md:text-xl prose-p:first-of-type:text-foreground prose-p:first-of-type:font-medium prose-p:first-of-type:leading-relaxed
+                    /* Improved Paragraph Styling - Less essay-like */
+                    prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-sm prose-p:md:text-base prose-p:mb-4
+                    prose-p:first-of-type:text-base prose-p:first-of-type:md:text-lg prose-p:first-of-type:text-foreground prose-p:first-of-type:font-medium prose-p:first-of-type:leading-relaxed
                     
                     /* Links with Underline Animation */
                     prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-4 prose-a:decoration-primary/50 hover:prose-a:decoration-primary hover:prose-a:text-primary/80 prose-a:transition-colors
                     
                     /* Strong & Emphasis */
-                    prose-strong:text-foreground prose-strong:font-bold
+                    prose-strong:text-foreground prose-strong:font-semibold
                     prose-em:text-foreground
                     
-                    /* Premium Lists */
-                    prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-ul:my-6 prose-ol:my-6
-                    prose-li:text-base prose-li:md:text-lg prose-li:mb-2 prose-li:pl-1
+                    /* Premium Lists - More scannable */
+                    prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-ul:my-4 prose-ol:my-4
+                    prose-li:text-sm prose-li:md:text-base prose-li:mb-1.5 prose-li:pl-1
                     prose-li:marker:text-primary prose-li:marker:font-bold
                     
                     /* Premium Images with Shadow */
-                    prose-img:rounded-2xl prose-img:shadow-2xl prose-img:my-8 prose-img:ring-1 prose-img:ring-border/50
+                    prose-img:rounded-xl prose-img:shadow-xl prose-img:my-6 prose-img:ring-1 prose-img:ring-border/50
                     
                     /* Premium Blockquotes */
                     prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary/5 prose-blockquote:to-transparent
-                    prose-blockquote:rounded-r-2xl prose-blockquote:py-5 prose-blockquote:px-6 prose-blockquote:my-8
+                    prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-5 prose-blockquote:my-6
                     prose-blockquote:text-foreground prose-blockquote:font-medium prose-blockquote:not-italic
-                    prose-blockquote:text-base prose-blockquote:md:text-lg
+                    prose-blockquote:text-sm prose-blockquote:md:text-base
                     prose-blockquote:shadow-sm
                     
                     /* Premium Tables */
-                    prose-table:rounded-xl prose-table:overflow-hidden prose-table:shadow-lg prose-table:border prose-table:border-border
-                    prose-th:bg-primary prose-th:text-primary-foreground prose-th:py-3 prose-th:px-4 prose-th:text-left prose-th:font-semibold
-                    prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-border
+                    prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-lg prose-table:border prose-table:border-border prose-table:text-sm
+                    prose-th:bg-primary prose-th:text-primary-foreground prose-th:py-2.5 prose-th:px-3 prose-th:text-left prose-th:font-semibold prose-th:text-sm
+                    prose-td:py-2.5 prose-td:px-3 prose-td:border-b prose-td:border-border
                     prose-tr:even:bg-muted/30
                     
                     /* Code Styling */
-                    prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-primary prose-code:font-mono prose-code:text-sm"
+                    prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-primary prose-code:font-mono prose-code:text-xs"
                   dangerouslySetInnerHTML={{ __html: post.content || "" }}
                 />
 
@@ -394,22 +394,22 @@ const BlogPost = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="mt-10 p-6 md:p-8 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-2xl border border-primary/20"
+                  className="mt-8 p-5 md:p-6 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-xl border border-primary/20"
                 >
-                  <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <h3 className="font-heading text-lg md:text-xl font-bold text-foreground mb-2">
                     Ready to Get Started?
                   </h3>
-                  <p className="font-body text-muted-foreground mb-5">
+                  <p className="font-body text-sm text-muted-foreground mb-4">
                     Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
                   </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Button asChild size="lg" className="font-semibold">
+                  <div className="flex flex-col sm:flex-row gap-2.5">
+                    <Button asChild size="default" className="font-semibold w-full sm:w-auto">
                       <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
                         Book Free Consultation
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                    <Button asChild variant="outline" size="lg">
+                    <Button asChild variant="outline" size="default" className="w-full sm:w-auto">
                       <a href="tel:02085981200">
                         <Phone className="mr-2 h-4 w-4" />
                         Call Now
@@ -417,10 +417,41 @@ const BlogPost = () => {
                     </Button>
                   </div>
                 </motion.div>
+
+                {/* Mobile Social Share */}
+                <div className="mt-6 flex items-center justify-center gap-3 md:hidden">
+                  <span className="text-sm text-muted-foreground">Share:</span>
+                  <div className="flex gap-2">
+                    <a 
+                      href={`https://wa.me/?text=${encodeURIComponent(post.title + ' ' + currentUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-[#25D366] text-white hover:opacity-80 transition-opacity"
+                    >
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <a 
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-[#1877F2] text-white hover:opacity-80 transition-opacity"
+                    >
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a 
+                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(currentUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-foreground text-background hover:opacity-80 transition-opacity"
+                    >
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Table of Contents Sidebar - Right Side */}
-              <aside className="w-72 flex-shrink-0 hidden xl:block">
+              <aside className="w-64 flex-shrink-0 hidden xl:block">
                 <TableOfContents content={post.content || ""} />
               </aside>
             </div>
