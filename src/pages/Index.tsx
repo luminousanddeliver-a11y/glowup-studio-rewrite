@@ -19,32 +19,66 @@ import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
 
 const Index = () => {
-  // MedicalClinic schema with AggregateRating
+  // MedicalClinic + LocalBusiness combined schema with AggregateRating
   const medicalClinicSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
+    "@type": ["MedicalClinic", "LocalBusiness", "MedicalBusiness"],
     "name": "Laser Light Skin Clinic",
     "image": "https://laserlightskinclinic.co.uk/logo.png",
     "@id": "https://laserlightskinclinic.co.uk",
     "url": "https://laserlightskinclinic.co.uk",
     "telephone": "+442085981200",
+    "email": "info@laserlightskinclinic.co.uk",
     "priceRange": "££",
     "medicalSpecialty": ["Dermatology", "Cosmetic Medicine"],
+    "description": "NHS-approved laser and skin clinic in Dagenham, East London. Specializing in pain-free laser hair removal, tattoo removal, Hydrafacials, and advanced skin treatments. Safe for all skin types.",
+    "slogan": "Pain-Free Laser Hair Removal in Dagenham",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Dagenham"
+      },
+      {
+        "@type": "City",
+        "name": "East London"
+      },
+      {
+        "@type": "City",
+        "name": "Barking"
+      },
+      {
+        "@type": "City",
+        "name": "Romford"
+      },
+      {
+        "@type": "City",
+        "name": "Ilford"
+      }
+    ],
     "availableService": [
       {
         "@type": "MedicalProcedure",
         "name": "Laser Hair Removal",
-        "procedureType": "https://schema.org/CosmeticProcedure"
+        "procedureType": "https://schema.org/CosmeticProcedure",
+        "description": "Pain-free permanent hair reduction using NHS-approved Lynton Motus AY laser. Safe for all skin types."
       },
       {
         "@type": "MedicalProcedure",
         "name": "Tattoo Removal",
-        "procedureType": "https://schema.org/CosmeticProcedure"
+        "procedureType": "https://schema.org/CosmeticProcedure",
+        "description": "Complete tattoo removal with East London's ONLY Quanta Thunder laser."
       },
       {
         "@type": "MedicalProcedure",
         "name": "Hydrafacial",
-        "procedureType": "https://schema.org/CosmeticProcedure"
+        "procedureType": "https://schema.org/CosmeticProcedure",
+        "description": "Deep cleanse, exfoliate, and hydrate with medical-grade Hydrafacial technology."
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "SkinPen Microneedling",
+        "procedureType": "https://schema.org/CosmeticProcedure",
+        "description": "FDA-cleared SkinPen Precision for acne scars and collagen boosting."
       }
     ],
     "address": {
@@ -79,6 +113,25 @@ const Index = () => {
       "reviewCount": "250",
       "bestRating": "5",
       "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Laser Light Skin Clinic Treatments",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Laser Hair Removal"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "GBP",
+            "price": "80",
+            "minPrice": "80"
+          }
+        }
+      ]
     }
   };
 
@@ -125,6 +178,14 @@ const Index = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your free consultation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Laser Light Skin Clinic located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are located at 125 Becontree Avenue, Dagenham RM8 2UJ, East London. We serve clients from Dagenham, Barking, Romford, Ilford, and the wider East London area."
         }
       }
     ]

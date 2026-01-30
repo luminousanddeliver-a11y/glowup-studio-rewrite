@@ -3,6 +3,8 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { ServiceCardSkeleton } from "@/components/ui/ServiceCardSkeleton";
 import laserDevice from "@/assets/laser-device.jpg";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
 import microneedlingDevice from "@/assets/microneedling-device.jpg";
@@ -46,6 +48,14 @@ const services = [
 ];
 
 export const FeaturedServices = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate image loading for skeleton demo
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="services" className="section-padding bg-background overflow-hidden">
       <div className="container-custom">
@@ -71,7 +81,10 @@ export const FeaturedServices = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service, index) => (
+          {isLoading ? (
+            <ServiceCardSkeleton count={4} />
+          ) : (
+            services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
@@ -143,7 +156,8 @@ export const FeaturedServices = () => {
                 </CardFooter>
               </Card>
             </motion.div>
-          ))}
+          ))
+          )}
         </div>
 
         {/* Bottom CTA */}
