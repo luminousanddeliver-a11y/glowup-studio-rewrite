@@ -193,11 +193,11 @@ const BlogPost = () => {
       
       <Header />
       <main className="flex-1">
-        {/* Premium Hero Section - Seamless blend with navbar */}
+        {/* Premium Hero Section - Seamless blend with navbar, NO gap */}
         <section className="relative -mt-[80px]">
           {/* Hero Image with Premium Overlays */}
           {post.featured_image && (
-            <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
+            <div className="relative h-[35vh] md:h-[40vh] lg:h-[45vh] overflow-hidden">
               <motion.img 
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
@@ -207,38 +207,38 @@ const BlogPost = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Multi-layer gradient for premium depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-black/40" />
             </div>
           )}
           
           {/* Fallback if no image */}
           {!post.featured_image && (
-            <div className="relative h-[30vh] bg-gradient-to-br from-primary via-primary/90 to-primary/70 pt-[80px]" />
+            <div className="relative h-[25vh] bg-gradient-to-br from-primary via-primary/90 to-primary/70 pt-[80px]" />
           )}
           
-          {/* Content Overlay - Positioned at bottom, flush with image */}
-          <div className="absolute bottom-0 left-0 right-0 pb-4 md:pb-6">
+          {/* Content Overlay - Positioned to start immediately after navbar padding */}
+          <div className="absolute inset-0 flex flex-col justify-end pt-[80px] pb-3 md:pb-4">
             <div className="container-custom max-w-5xl">
-              {/* Breadcrumb */}
+              {/* Breadcrumb - Immediately visible */}
               <PageBreadcrumb 
                 items={[
                   { label: "Blog", href: "/blog" },
                   { label: post.title }
                 ]} 
                 variant="dark"
-                className="mb-3"
+                className="mb-2"
               />
               
               {/* Category and Reading Time Badges */}
-              <div className="flex flex-wrap items-center gap-2 mb-3">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
                 {post.category && (
                   <motion.span
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-2.5 py-1 rounded-full font-body text-xs font-semibold uppercase tracking-wide shadow-lg"
+                    className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-2 py-0.5 rounded-full font-body text-xs font-semibold uppercase tracking-wide shadow-lg"
                   >
                     <BookOpen className="h-3 w-3" />
                     {post.category}
@@ -248,32 +248,32 @@ const BlogPost = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.15 }}
-                  className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white px-2.5 py-1 rounded-full font-body text-xs font-medium shadow-lg"
+                  className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white px-2 py-0.5 rounded-full font-body text-xs font-medium shadow-lg"
                 >
                   <Clock className="h-3 w-3" />
                   {readingTime} min read
                 </motion.span>
               </div>
               
-              {/* Title with Text Shadow for Readability */}
+              {/* Title - Compact with text shadow */}
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-[1.15] max-w-4xl"
-                style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
+                className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 leading-tight max-w-4xl"
+                style={{ textShadow: '0 2px 20px rgba(0,0,0,0.6)' }}
               >
                 {post.title}
               </motion.h1>
               
-              {/* Excerpt */}
+              {/* Excerpt - Hidden on mobile for compact view */}
               {post.excerpt && (
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="font-body text-sm md:text-base text-white/90 max-w-2xl leading-relaxed line-clamp-2"
-                  style={{ textShadow: '0 1px 10px rgba(0,0,0,0.3)' }}
+                  className="font-body text-sm text-white/85 max-w-2xl leading-relaxed line-clamp-2 hidden sm:block"
+                  style={{ textShadow: '0 1px 10px rgba(0,0,0,0.4)' }}
                 >
                   {post.excerpt}
                 </motion.p>
