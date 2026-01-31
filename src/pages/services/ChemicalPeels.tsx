@@ -310,7 +310,7 @@ const ChemicalPeels = () => {
             title="Chemical Peel Pricing"
             subtitle="Choose the peel that's right for you"
             prices={prices}
-            disclaimer="Course packages recommended for pigmentation and scarring concerns. New clients receive 25% off first treatment."
+            disclaimer="Course packages recommended for pigmentation and scarring concerns. Free consultation included. Interest-free payment options available."
           />
         </div>
         

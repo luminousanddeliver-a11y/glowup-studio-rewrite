@@ -26,7 +26,7 @@ const generalFaqs = [
   },
   {
     question: "How much does a treatment cost?",
-    answer: "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. New clients also receive 25% off their first treatment course.",
+    answer: "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. We offer flexible payment options and interest-free plans.",
   },
   {
     question: "Is the laser safe for dark skin?",

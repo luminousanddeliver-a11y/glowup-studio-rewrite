@@ -88,7 +88,7 @@ export const HeroSection = () => {
             >
               <span className="font-body text-sm">Treatments from</span>
               <span className="font-heading font-bold text-xl text-primary">£80</span>
-              <span className="bg-gold text-gold-foreground text-xs font-bold px-2 py-0.5 rounded-full">25% OFF</span>
+              <span className="bg-accent text-accent-foreground text-xs font-bold px-2 py-0.5 rounded-full">Free Patch Test</span>
             </motion.div>
 
             {/* Primary CTAs */}

@@ -414,20 +414,15 @@ const Prices = () => {
                 Transparent, competitive pricing for all our treatments. No hidden fees.
               </p>
               
-              {/* Offer Banner */}
+              {/* Trust Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="inline-block"
+                className="inline-flex items-center gap-2 bg-accent/20 text-primary-foreground rounded-lg px-6 py-3 font-body"
               >
-                <motion.div
-                  animate={{ scale: [1, 1.02, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="bg-accent text-accent-foreground rounded-lg px-6 py-3 font-heading font-bold text-lg shadow-lg"
-                >
-                  🎉 25% OFF for All New Clients
-                </motion.div>
+                <Shield className="w-5 h-5" />
+                <span className="font-semibold">NHS Approved • Interest-Free Payment Plans Available</span>
               </motion.div>
             </motion.div>
 
