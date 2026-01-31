@@ -1,43 +1,76 @@
 
+# Fix Plan: Remove Promo Banner & Fix Footer Quick Links Scroll
 
-# Fix Plan: Scroll-to-Top Navigation & Enhanced Services Dropdown
-
-## Issue 1: Links Open to Middle of Page
-
-**Problem:** The "What brings you in today?" buttons and "Discover the HydraFacial" button navigate to service pages but don't scroll to the top - they open at whatever scroll position the browser was at.
-
-**Root Cause:** React Router's `<Link>` component performs client-side navigation which preserves scroll position. Pages open in the middle because the homepage was scrolled down when clicking.
-
-### Solution
-
-Convert `<Link>` components to `<a>` tags with `onClick={() => window.scrollTo(0, 0)}` to force scroll to top on navigation.
-
-**File: `src/components/home/TreatmentFinder.tsx`**
-- Line 79-80: Replace `<Link to={treatment.href}>` with `<a href={treatment.href} onClick={() => window.scrollTo(0, 0)}>`
-- Line 123: Update closing tag from `</Link>` to `</a>`
-
-**File: `src/components/home/PainPointSection.tsx`**
-- Lines 113-116: Replace `<Link to="/hydrafacial-east-london">` with `<a href="/hydrafacial-east-london" onClick={() => window.scrollTo(0, 0)}>`
+This plan addresses removing the 25% discount banner and fixing the Quick Links navigation in the footer.
 
 ---
 
-## Issue 2: Services Dropdown Styling Enhancement
+## Issue 1: Remove the Red 25% Promo Banner
 
-**Current State:** The dropdown already has glass styling but can be improved for better visual appeal and brand consistency.
+**Problem:** A red promotional banner displaying "25% OFF FOR ALL NEW CLIENTS" appears at the top of pages. Per business policy, discount promotions have been removed.
 
-**File: `src/components/layout/Header.tsx`**
+**File:** `src/components/layout/Header.tsx`
 
-**Current (Line 210):**
+**Fix:** Remove the PromoBanner import and component usage.
+
+```text
+Line 19: Remove import:
+import { PromoBanner } from "./PromoBanner";
+
+Line 153: Remove component:
+<PromoBanner />
 ```
-bg-gradient-to-br from-white/98 via-white/95 to-primary/5 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset]
+
+---
+
+## Issue 2: Footer Quick Links Don't Scroll to Top
+
+**Problem:** The Quick Links in the footer (Home, About Us, Services, etc.) use React Router's `<Link>` component which preserves scroll position - pages open at whatever scroll position you were at.
+
+**File:** `src/components/layout/Footer.tsx`
+
+**Fix:** Convert Quick Links from `<Link>` to `<a>` tags with scroll-to-top handlers.
+
+```text
+Lines 65-70: Change from:
+<Link
+  to={link.href}
+  className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
+>
+  {link.name}
+</Link>
+
+To:
+<a
+  href={link.href}
+  onClick={() => window.scrollTo(0, 0)}
+  className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
+>
+  {link.name}
+</a>
 ```
 
-**Enhanced Styling:**
-- Keep the current glass effect (it's already well-implemented)
-- Add subtle animation on menu items for better interactivity
-- Ensure proper contrast for readability
+Also update the logo link (Line 33) to scroll to top:
+```text
+<Link to="/" className="inline-block mb-4">
 
-The current implementation looks good - no changes needed unless you want a different aesthetic.
+To:
+<a href="/" onClick={() => window.scrollTo(0, 0)} className="inline-block mb-4">
+```
+
+---
+
+## Issue 3: Cross-Browser & Mobile Optimization
+
+**Current Status:** The site is already well-optimized:
+- Uses React with Vite (modern, efficient bundling)
+- Tailwind CSS with responsive classes (`sm:`, `md:`, `lg:`)
+- Standard HTML/CSS features compatible with Edge, Safari, Chrome
+- Mobile-first responsive design throughout
+- Touch-friendly button sizes (min 48px tap targets)
+- Proper viewport meta tag in index.html
+
+**No additional changes needed** - the technology stack is inherently cross-browser compatible.
 
 ---
 
@@ -45,14 +78,13 @@ The current implementation looks good - no changes needed unless you want a diff
 
 | File | Lines | Change |
 |------|-------|--------|
-| `TreatmentFinder.tsx` | 3, 79, 123 | Remove Link import, convert to `<a>` with scroll-to-top |
-| `PainPointSection.tsx` | 4, 113-116 | Remove Link import, convert to `<a>` with scroll-to-top |
+| `Header.tsx` | 19, 153 | Remove PromoBanner import and usage |
+| `Footer.tsx` | 3, 33, 65-70 | Remove Link import, convert to `<a>` with scroll-to-top |
 
 ---
 
 ## Expected Results
 
-1. **Treatment Finder buttons:** Clicking any service button scrolls to top of the destination page
-2. **HydraFacial button:** Clicking scrolls to top of the HydraFacial page
-3. **Services dropdown:** Maintains current premium glass styling (already implemented)
-
+1. **Promo Banner:** The red 25% discount banner will no longer appear
+2. **Quick Links:** All footer links will scroll to the top of the destination page
+3. **Cross-Browser:** Site continues to work on all modern browsers (already compatible)
