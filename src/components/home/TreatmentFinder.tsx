@@ -6,26 +6,31 @@ const treatments = [
     icon: Zap,
     label: "Laser Hair Removal",
     href: "/laser-hair-removal-dagenham",
+    price: "From £80",
   },
   {
     icon: Eraser,
     label: "Tattoo Removal",
     href: "/tattoo-removal-east-london",
+    price: "From £50",
   },
   {
     icon: Droplets,
     label: "HydraFacial",
     href: "/hydrafacial-east-london",
+    price: "From £90",
   },
   {
     icon: Sparkles,
     label: "Chemical Peels",
     href: "/chemical-peels-dagenham",
+    price: "From £75",
   },
   {
     icon: Scissors,
     label: "Skin Tag Removal",
     href: "/skin-tag-mole-removal-dagenham",
+    price: "From £40",
   },
   {
     icon: LayoutGrid,
@@ -120,6 +125,11 @@ export const TreatmentFinder = () => {
                 `}>
                   {treatment.label}
                 </span>
+                {treatment.price && (
+                  <span className="relative font-body text-xs text-muted-foreground mt-1">
+                    {treatment.price}
+                  </span>
+                )}
               </a>
             </motion.div>
           ))}
