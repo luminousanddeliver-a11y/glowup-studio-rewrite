@@ -1,144 +1,150 @@
 
-# Homepage Hero & Footer Bug Fix Plan
+# Homepage and Footer Bug Fix Plan
 
-This plan addresses four issues reported by the user:
-1. "Book Free Consultation" button not visible on hover
-2. Mobile trust bar - 5th box text is cut off/unreadable
-3. Footer content hidden behind the MobileStickyButton
-4. No animation on hero background image
-
----
-
-## Issue 1: Book Free Consultation Button Hover State
-
-**Problem:** The outline button has `text-white` by default and `hover:bg-white hover:text-foreground`. The button appears invisible because it has no visible background in its default state (just a border).
-
-**File:** `src/components/home/HeroSectionNew.tsx`
-
-**Fix (Line 101-110):**
-```jsx
-// Current
-<Button 
-  variant="outline"
-  className="border-white/40 text-white hover:bg-white hover:text-foreground ..."
->
-
-// Fixed - Add a semi-transparent background for visibility
-<Button 
-  variant="outline"
-  className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground ..."
->
-```
-
-This adds a subtle white background so the button is always visible, and on hover it becomes solid white.
+This plan addresses four issues:
+1. Mobile footer credit hidden behind "Leave a Review" button
+2. Desktop trust bar "Only in East London" not blending
+3. Mobile PremierSection button overflow
+4. Homepage-only navbar transparency
 
 ---
 
-## Issue 2: Mobile Trust Bar - Text Truncation
+## Issue 1: Footer Agency Credit Hidden
 
-**Problem:** The 5-item trust bar uses a 2-column grid on mobile, causing the 5th item to appear alone and text gets truncated.
+**Problem:** The "Website Created, Powered, and Managed by L&D Digital" text is obscured by the FloatingReviewButton on mobile.
 
-**File:** `src/components/home/HeroSectionNew.tsx`
-
-**Fix (Multiple lines):**
-1. Remove `truncate` from label text (line 200)
-2. Remove `truncate block` from sublabel (line 209)
-3. Allow text to wrap naturally with `flex-wrap` or smaller font sizes
-4. Make the 5th item span full width on mobile for better readability
-
-```jsx
-// Trust bar grid - make 5th item full width on mobile
-<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
-  {trustItems.map((item, index) => (
-    <motion.div
-      key={item.label}
-      className={index === 4 ? "col-span-2 sm:col-span-1" : ""}  // 5th item spans 2 cols on mobile
-    >
-      ...
-    </motion.div>
-  ))}
-</div>
-
-// Also remove truncate classes and use text-wrap
-<span className="font-heading text-xs md:text-sm font-medium text-white">
-  {item.label}
-</span>
-<span className="text-[10px] md:text-xs text-white/60 block">
-  {item.sublabel}
-</span>
-```
-
----
-
-## Issue 3: Footer Hidden Behind MobileStickyButton
-
-**Problem:** The MobileStickyButton is a fixed element at the bottom of the screen. The footer content gets hidden behind it on mobile.
+**Root Cause:** 
+- Footer has `pb-24` padding for the MobileStickyButton (~80px height)
+- FloatingReviewButton is positioned at `bottom-24` (96px) on mobile
+- Agency credit row sits at the bottom but gets covered
 
 **File:** `src/components/layout/Footer.tsx`
 
-**Fix:** Add bottom padding to the footer's bottom bar section to account for the sticky button height (~80px).
-
-```jsx
-// Current (line 184-185)
-<div className="border-t border-background/10">
-  <div className="container-custom py-6">
-
-// Fixed - Add mobile-only bottom padding
-<div className="border-t border-background/10">
-  <div className="container-custom py-6 pb-24 lg:pb-6">
+**Fix:** Increase bottom padding to account for both sticky elements:
 ```
-
-This adds `pb-24` (96px) padding on mobile/tablet and resets to `pb-6` on desktop (lg breakpoint) where the sticky button isn't shown.
+Line ~185: Change pb-24 to pb-32 (128px) on mobile
+"py-6 pb-24 lg:pb-6" → "py-6 pb-32 lg:pb-6"
+```
 
 ---
 
-## Issue 4: No Hero Image Animation
+## Issue 2: Desktop Trust Bar - "Only in East London" Not Blending
 
-**Problem:** The hero background image is static with no entrance animation.
+**Problem:** The 5th trust bar item (exclusive variant) uses `bg-white/10` which appears washed out compared to other items using colored backgrounds.
 
 **File:** `src/components/home/HeroSectionNew.tsx`
 
-**Fix:** Convert the background image div to a motion.div with a subtle zoom animation.
-
+**Fix (Lines ~183):** Update the exclusive variant to use a tinted background that blends better:
 ```jsx
-// Current (lines 45-55)
-<div 
-  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: `url(${heroClinicNew})` }}
->
-  ...
-</div>
+// Current
+${item.variant === 'exclusive' ? 'bg-white/10 hover:bg-white/20 border border-gold/30' : ''}
 
-// Fixed - Add motion with subtle zoom/fade animation
-<motion.div 
-  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: `url(${heroClinicNew})` }}
-  initial={{ scale: 1.1, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{ duration: 1.2, ease: "easeOut" }}
->
-  ...
-</motion.div>
+// Fixed - Use gold-tinted background for better visual consistency
+${item.variant === 'exclusive' ? 'bg-gold/15 hover:bg-gold/25 border border-gold/40' : ''}
 ```
 
-This creates a Ken Burns-style zoom out effect as the hero loads, making it more visually engaging.
+Also update the icon container (line ~192):
+```jsx
+// Current
+${item.variant === 'exclusive' ? 'bg-gold/20' : ''}
+
+// Fixed - Stronger gold tint
+${item.variant === 'exclusive' ? 'bg-gold/30' : ''}
+```
+
+---
+
+## Issue 3: Mobile PremierSection Button Overflow
+
+**Problem:** The "Book Your Free, No-Obligation Consultation" button text is too long and extends outside its container on mobile.
+
+**File:** `src/components/home/PremierSection.tsx`
+
+**Fix (Lines 67-76):** Allow text to wrap on mobile and reduce horizontal padding:
+```jsx
+// Current
+<Button
+  asChild
+  size="lg"
+  className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-6 text-base"
+>
+
+// Fixed - Allow text wrapping on mobile
+<Button
+  asChild
+  size="lg"
+  className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-4 md:px-6 text-sm md:text-base whitespace-normal text-center"
+>
+```
+
+---
+
+## Issue 4: Homepage-Only Navbar Transparency
+
+**Problem:** User wants the navbar to be fully transparent (no background, shadow, blur) on the homepage only, with the hero extending behind it.
+
+**File:** `src/components/layout/Header.tsx`
+
+**Changes:**
+
+1. **Add homepage detection (around line 116):**
+```jsx
+// Add this after the existing darkHeroRoutes check
+const isHomepage = location.pathname === '/';
+```
+
+2. **Update the header animation (lines 150-165):**
+```jsx
+<motion.header 
+  className="sticky top-0 z-50"
+  initial={false}
+  animate={{ 
+    backgroundColor: isCompact 
+      ? "rgba(255, 255, 255, 0.95)"
+      : isHomepage 
+        ? "rgba(0, 0, 0, 0)"  // Fully transparent on homepage
+        : "rgba(255, 255, 255, 0)",
+    backdropFilter: isCompact 
+      ? "blur(12px)" 
+      : "none",  // No blur when not compact
+    boxShadow: isCompact 
+      ? "0 4px 20px rgba(0,0,0,0.1)" 
+      : "none"  // No shadow when not compact
+  }}
+  transition={{ 
+    duration: 0.4, 
+    ease: [0.4, 0, 0.2, 1]
+  }}
+>
+```
+
+3. **Update text color logic for homepage (around line 122):**
+```jsx
+// Current
+const hasDarkHero = darkHeroRoutes.some(route => location.pathname.startsWith(route)) && 
+  !isServicePage(location.pathname);
+
+// Fixed - Include homepage in dark hero check
+const hasDarkHero = (isHomepage || darkHeroRoutes.some(route => location.pathname.startsWith(route))) && 
+  !isServicePage(location.pathname);
+```
 
 ---
 
 ## Summary of Changes
 
-| File | Change | Lines Affected |
-|------|--------|----------------|
-| `HeroSectionNew.tsx` | Add `bg-white/10` to outline button | ~101-110 |
-| `HeroSectionNew.tsx` | Remove text truncation, add `col-span-2` for 5th item | ~155-217 |
-| `HeroSectionNew.tsx` | Add motion animation to background image | ~45-55 |
-| `Footer.tsx` | Add `pb-24 lg:pb-6` to bottom bar | ~185 |
+| File | Change | Purpose |
+|------|--------|---------|
+| `Footer.tsx` | `pb-24` → `pb-32` | Prevent overlap with FloatingReviewButton |
+| `HeroSectionNew.tsx` | `bg-white/10` → `bg-gold/15` | Better blending for "Exclusive" box |
+| `PremierSection.tsx` | Add `whitespace-normal`, adjust padding | Fix button text overflow |
+| `Header.tsx` | Add `isHomepage` check, modify animation | Fully transparent navbar on homepage |
 
 ---
 
 ## Expected Results
 
-1. **Button Fix:** "Book Free Consultation" button will have a subtle glass-like background and be visible at all times
-2. **Trust Bar Fix:** All 5 items will be fully readable on mobile, with the 5th item centered at full width
-3. **Footer Fix:** All footer content including agency credit will be visible above the sticky CTA buttons
-4. **Animation Fix:** Hero background will have an elegant zoom-out entrance animation
+1. **Footer:** Agency credit fully visible above both MobileStickyButton and FloatingReviewButton
+2. **Trust Bar:** "Only in East London" box has consistent gold-tinted background matching other items
+3. **PremierSection:** Button text wraps properly on mobile, staying within bounds
+4. **Navbar:** Homepage shows hero image extending fully behind a transparent navbar; navbar becomes opaque on scroll
