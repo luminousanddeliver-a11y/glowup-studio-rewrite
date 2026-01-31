@@ -1,90 +1,117 @@
 
-# Fix Plan: Remove Promo Banner & Fix Footer Quick Links Scroll
+# Homepage Optimization Plan: Inform, Convert & SEO
 
-This plan addresses removing the 25% discount banner and fixing the Quick Links navigation in the footer.
+Based on your customer research, I've analyzed the current homepage against the target audience and customer journey. Here's what needs to change.
 
 ---
 
-## Issue 1: Remove the Red 25% Promo Banner
+## Current Assessment
 
-**Problem:** A red promotional banner displaying "25% OFF FOR ALL NEW CLIENTS" appears at the top of pages. Per business policy, discount promotions have been removed.
+### What's Working Well
+- Treatment Finder has all 5 top services (Laser, Tattoo, HydraFacial, Peels, Skin Tags)
+- Premier Section targets Redbridge & Havering specifically
+- Mobile sticky buttons for easy booking
+- Trust signals (NHS-approved, 4.9 rating, pain-free)
 
-**File:** `src/components/layout/Header.tsx`
+### What's Missing or Broken
+1. **SEO Schema**: Missing Newham, Essex, and Epping in `areaServed`
+2. **Brand Name Error**: Trust Section says "Glow-Up Studio" instead of "Laser Light Skin Clinic"
+3. **No Pricing Visible**: Customers come for pricing info but no prices shown on homepage
+4. **Skin Tag NHS Pain Point**: Not highlighted that NHS doesn't cover this
 
-**Fix:** Remove the PromoBanner import and component usage.
+---
+
+## Changes Required
+
+### 1. Fix SEO Schema - Add Missing Areas
+**File:** `src/pages/Index.tsx`
+
+Add Newham, Essex, and Epping to the `areaServed` array to improve local search rankings for these customer-heavy areas.
 
 ```text
-Line 19: Remove import:
-import { PromoBanner } from "./PromoBanner";
+Add to areaServed (lines 31-38):
+- { "@type": "City", "name": "Newham" }
+- { "@type": "City", "name": "Essex" }
+- { "@type": "City", "name": "Epping" }
+```
 
-Line 153: Remove component:
-<PromoBanner />
+Also update the FAQ answer about location to include these areas.
+
+---
+
+### 2. Fix Brand Name in Trust Section
+**File:** `src/components/home/TrustSection.tsx`
+
+Line 69 currently says "Glow-Up Studio" - should be "Laser Light".
+
+```text
+Current: "Why East London & Essex Trust Glow-Up Studio"
+Fix to: "Why East London & Essex Trust Laser Light"
 ```
 
 ---
 
-## Issue 2: Footer Quick Links Don't Scroll to Top
+### 3. Add Pricing to Treatment Finder Cards
+**File:** `src/components/home/TreatmentFinder.tsx`
 
-**Problem:** The Quick Links in the footer (Home, About Us, Services, etc.) use React Router's `<Link>` component which preserves scroll position - pages open at whatever scroll position you were at.
-
-**File:** `src/components/layout/Footer.tsx`
-
-**Fix:** Convert Quick Links from `<Link>` to `<a>` tags with scroll-to-top handlers.
+Customers visit to get pricing information. Add starting prices to each treatment card to satisfy this immediately.
 
 ```text
-Lines 65-70: Change from:
-<Link
-  to={link.href}
-  className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
->
-  {link.name}
-</Link>
-
-To:
-<a
-  href={link.href}
-  onClick={() => window.scrollTo(0, 0)}
-  className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
->
-  {link.name}
-</a>
+treatments array - add price field:
+- Laser Hair Removal: "From £80"
+- Tattoo Removal: "From £50"
+- HydraFacial: "From £90"
+- Chemical Peels: "From £75"
+- Skin Tag Removal: "From £40"
 ```
 
-Also update the logo link (Line 33) to scroll to top:
-```text
-<Link to="/" className="inline-block mb-4">
-
-To:
-<a href="/" onClick={() => window.scrollTo(0, 0)} className="inline-block mb-4">
-```
+Display the price below each treatment label in the card.
 
 ---
 
-## Issue 3: Cross-Browser & Mobile Optimization
+### 4. Add Skin Tag NHS Pain Point Section
+**File:** `src/components/home/PainPointSection.tsx` (or new component)
 
-**Current Status:** The site is already well-optimized:
-- Uses React with Vite (modern, efficient bundling)
-- Tailwind CSS with responsive classes (`sm:`, `md:`, `lg:`)
-- Standard HTML/CSS features compatible with Edge, Safari, Chrome
-- Mobile-first responsive design throughout
-- Touch-friendly button sizes (min 48px tap targets)
-- Proper viewport meta tag in index.html
+Create a dedicated section highlighting that the NHS provide or cover cosmetic skin tag removal - position Laser Light as the solution/ we provide skin tag removal . This addresses a common customer pain point.
 
-**No additional changes needed** - the technology stack is inherently cross-browser compatible.
+Key messaging:
+- "NHS Won't Remove Your Skin Tags?"
+- "Professional, same-day removal from £40"
+- "No GP referral needed"
 
 ---
 
-## Summary of Changes
+### 5. Update Constants with New Service Areas
+**File:** `src/lib/constants.ts`
 
-| File | Lines | Change |
-|------|-------|--------|
-| `Header.tsx` | 19, 153 | Remove PromoBanner import and usage |
-| `Footer.tsx` | 3, 33, 65-70 | Remove Link import, convert to `<a>` with scroll-to-top |
+Add Newham, Essex, Epping to `CLINIC_INFO.areaServed` for site-wide consistency.
 
 ---
 
-## Expected Results
+## Summary of Files to Edit
 
-1. **Promo Banner:** The red 25% discount banner will no longer appear
-2. **Quick Links:** All footer links will scroll to the top of the destination page
-3. **Cross-Browser:** Site continues to work on all modern browsers (already compatible)
+| File | Change |
+|------|--------|
+| `src/pages/Index.tsx` | Add Newham, Essex, Epping to SEO schema |
+| `src/components/home/TrustSection.tsx` | Fix brand name to "Laser Light" |
+| `src/components/home/TreatmentFinder.tsx` | Add "From £XX" pricing to each card |
+| `src/lib/constants.ts` | Add new areas to areaServed |
+| `src/components/home/PainPointSection.tsx` | Add Skin Tag NHS pain point OR create new section |
+
+---
+
+## Expected Outcomes
+
+1. **Better Local SEO**: Newham, Essex, Epping customers will find the clinic in search results
+2. **Higher Conversion**: Pricing visible immediately satisfies customer curiosity
+3. **Skin Tag Bookings**: NHS pain point messaging will drive consultations
+4. **Brand Consistency**: Correct clinic name throughout
+
+---
+
+## Technical Notes
+
+- All changes maintain existing responsive/mobile-first design
+- SEO schema changes improve Google rich snippets
+- Pricing display uses same card styling for consistency
+- No new dependencies required
