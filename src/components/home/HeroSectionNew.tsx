@@ -180,7 +180,7 @@ export const HeroSectionNew = () => {
                       ${item.variant === 'primary' ? 'bg-primary/20 hover:bg-primary/30' : ''}
                       ${item.variant === 'gold' ? 'bg-gold/20 hover:bg-gold/30' : ''}
                       ${item.variant === 'accent' ? 'bg-accent/20 hover:bg-accent/30' : ''}
-                      ${item.variant === 'exclusive' ? 'bg-white/10 hover:bg-white/20 border border-gold/30' : ''}
+                      ${item.variant === 'exclusive' ? 'bg-gold/15 hover:bg-gold/25 border border-gold/40' : ''}
                       ${item.href ? 'cursor-pointer' : ''}
                     `}
                   >
@@ -189,7 +189,7 @@ export const HeroSectionNew = () => {
                       ${item.variant === 'primary' ? 'bg-primary/30' : ''}
                       ${item.variant === 'gold' ? 'bg-gold/30' : ''}
                       ${item.variant === 'accent' ? 'bg-accent/30' : ''}
-                      ${item.variant === 'exclusive' ? 'bg-gold/20' : ''}
+                      ${item.variant === 'exclusive' ? 'bg-gold/30' : ''}
                     `}>
                       <item.icon className={`
                         h-4 w-4
