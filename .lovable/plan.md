@@ -1,189 +1,166 @@
 
-# Comprehensive SEO, UI/UX & Blog Enhancement Plan
+# Remove 25% Discount - Comprehensive Cleanup Plan
 
-## ✅ COMPLETED
-
-This plan addresses **3 major areas**: Blog improvements, UX enhancements with parallax/skeleton loading, and the comprehensive SEO audit you provided.
+This plan removes all traces of the 25% discount promotion across the site while ensuring the UI remains visually appealing with alternative value propositions.
 
 ---
 
-## Overview
+## Files Requiring Changes
 
-### Priority 1: Blog Fixes (Immediate)
-- Fix hero section spacing (empty space above breadcrumb)
-- Enhance article readability and premium feel
-- Ensure reading time and social sharing work correctly
-
-### Priority 2: UX Enhancements
-- Add parallax scrolling to hero backgrounds
-- Add skeleton loading states with shimmer animations
-- Add loading placeholders for products/content
-
-### Priority 3: SEO Improvements (Critical)
-- Add MedicalBusiness + LocalBusiness JSON-LD schema
-- Add FAQ schema to homepage and service pages
-- Optimize H1/H2 hierarchy for search intent
-- Enhance above-the-fold hero section
-- Add sticky mobile CTA
+| File | Change Type | Replacement Strategy |
+|------|-------------|---------------------|
+| `src/components/home/OfferBanner.tsx` | **Remove or Redesign** | Transform into "Free Consultation" or "Why Choose Us" banner |
+| `src/components/home/HeroSection.tsx` | Edit | Replace "25% OFF" badge with "Free Patch Test" |
+| `src/components/home/BookingFormWizard.tsx` | Edit | Replace discount badge with trust signal |
+| `src/components/home/BookingForm.tsx` | Edit | Replace discount badge with trust signal |
+| `src/pages/Prices.tsx` | Edit | Remove banner, update SEO description |
+| `src/pages/FAQ.tsx` | Edit | Update FAQ answer about pricing |
+| `src/pages/Index.tsx` | Edit | Update FAQ schema and remove OfferBanner |
+| `src/pages/services/LaserHairRemovalEastLondon.tsx` | Edit | Remove all discount mentions |
+| `src/pages/services/Hydrafacials.tsx` | Edit | Update disclaimer |
+| `src/pages/services/ChemicalPeels.tsx` | Edit | Update disclaimer |
+| `src/pages/services/SkinPenMicroneedling.tsx` | Edit | Update disclaimer |
+| `src/pages/services/MillionDollarFacial.tsx` | Edit | Update disclaimer |
 
 ---
 
-## Detailed Implementation
+## Detailed Changes
 
-### Part 1: Blog Post Fixes
+### 1. Homepage (Index.tsx)
 
-**File: `src/pages/BlogPost.tsx`**
+**Remove OfferBanner component from imports and usage**
 
-1. **Hero Section Spacing Fix**
-   - Change hero container from `-mt-[80px]` to flush positioning
-   - Reduce minimum height from `40vh` to `35vh` on mobile
-   - Reposition content overlay to eliminate gap above breadcrumb
-   - Add `pt-[80px]` padding to account for navbar height
+The OfferBanner is entirely about the 25% discount. I'll remove it from the homepage and replace its position with either nothing or the existing content will flow better without it.
 
-2. **Premium Article Styling Enhancements**
-   - Add visual separators between major sections (decorative dividers)
-   - Implement "Key Takeaways" info cards for scannability
-   - Add pullquote styling for highlighted text
-   - Improve image captions and figure styling
-   - Add numbered step indicators for how-to content
-   - Implement callout boxes for tips and warnings
-
-3. **Typography Improvements**
-   - Increase line-height for body text (1.75-1.8)
-   - Add proper drop caps for first paragraph
-   - Implement better spacing between paragraphs
-   - Add subtle background color bands for section variety
-
-**Verification**: Reading time calculation (`src/lib/readingTime.ts`) and social sharing (`src/components/blog/SocialShareButtons.tsx`) are already implemented correctly.
-
----
-
-### Part 2: Parallax & Skeleton Loading
-
-**File: `src/components/home/HeroSection.tsx`**
-- Already has parallax (using `useScroll` and `useTransform`)
-- Will enhance with more depth layers
-
-**File: `src/components/services/ServiceHero.tsx`**
-- Already has parallax via `imageY` transform
-- Will add background layer parallax for more depth
-
-**New File: `src/components/ui/HeroSkeleton.tsx`**
+**Update FAQ Schema**
 ```text
-Skeleton structure:
-+----------------------------------+
-|  [shimmer badge]                 |
-|  [shimmer title - wide]          |
-|  [shimmer subtitle - medium]     |
-|  [shimmer description - narrow]  |
-|  [shimmer buttons row]           |
-+----------------------------------+
+Change: "New clients also receive 25% off their first treatment course."
+To: "We offer transparent pricing and flexible payment options."
 ```
 
-**File: `src/components/home/FeaturedServices.tsx`**
-- Add skeleton loading state for service cards
-- Implement shimmer animation on cards
-
-**File: `src/components/shop/ProductGrid.tsx`**
-- Already has skeleton loading (lines 109-127)
-- Will enhance with shimmer animation (already using `Skeleton` component with shimmer)
-
 ---
 
-### Part 3: SEO Implementation
+### 2. Hero Section (HeroSection.tsx)
 
-#### 3.1 Structured Data (Critical)
-
-**File: `src/pages/Index.tsx`**
-- Add `MedicalBusiness` + `LocalBusiness` combined schema
-- Add `AggregateRating` for reviews
-- Add `areaServed` for local SEO
-
-```text
-Schema structure:
-{
-  "@type": ["MedicalBusiness", "LocalBusiness"],
-  "name": "Laser Light Skin Clinic",
-  "medicalSpecialty": "Dermatology",
-  "address": {...},
-  "aggregateRating": {...},
-  "areaServed": ["Dagenham", "East London"],
-  ...
-}
+**Current (line 91):**
+```jsx
+<span className="bg-gold text-gold-foreground text-xs font-bold px-2 py-0.5 rounded-full">25% OFF</span>
 ```
 
-**File: `src/pages/Index.tsx`**
-- Add `FAQPage` schema with common questions
-
-#### 3.2 H1/H2 Optimization
-
-**File: `src/components/home/HeroSection.tsx`**
-- Current H1: "Pain-Free Laser Hair Removal in Dagenham" - this is good!
-- Already optimized for local search intent
-
-**File: Other sections**
-- Ensure H2s include keywords:
-  - "NHS-Approved Laser Hair Removal Clinic"
-  - "Safe Laser Hair Removal for All Skin Tones"
-
-#### 3.3 Above-the-Fold Hero Optimization
-
-**File: `src/components/home/HeroSection.tsx`**
-Already has:
-- Primary CTA: "Book Free Consultation"
-- Secondary CTA: "View Prices"
-- Trust signals: NHS Approved, Pain-Free Guaranteed, Reviews
-- Pricing anchor: "From £80"
-- Additional: Phone number, Patch test link
-
-The hero section is already well-optimized based on my review!
-
-#### 3.4 Sticky Mobile CTA
-
-**New File: `src/components/home/MobileStickyButton.tsx`**
-- Already exists! Shows "Call Now" and "Book Appointment"
-- Fixed at bottom on mobile screens
-- Will ensure it's included on all key pages
-
----
-
-## Files to Create/Modify
-
-| File | Action | Purpose |
-|------|--------|---------|
-| `src/pages/BlogPost.tsx` | Modify | Fix hero spacing, enhance article styling |
-| `src/components/ui/HeroSkeleton.tsx` | Create | Reusable hero skeleton component |
-| `src/components/ui/ServiceCardSkeleton.tsx` | Create | Service card loading skeleton |
-| `src/components/home/FeaturedServices.tsx` | Modify | Add skeleton loading state |
-| `src/pages/Index.tsx` | Modify | Add comprehensive JSON-LD schemas |
-| `src/index.css` | Modify | Add premium article CSS utilities |
-
----
-
-## Technical Notes
-
-### Blog Hero Spacing Fix
-The issue is the content overlay positioning. The current structure:
-```text
-<section className="-mt-[80px]">
-  <div className="h-[40vh]">image</div>
-  <div className="absolute bottom-0">content</div>
-</section>
+**Replace with:**
+```jsx
+<span className="bg-accent text-accent-foreground text-xs font-bold px-2 py-0.5 rounded-full">Free Patch Test</span>
 ```
 
-Will change to ensure content starts immediately after image without gap.
-
-### Schema Implementation
-Will add to `SEOHead` component and render as inline `<script type="application/ld+json">` for each page type.
-
-### Skeleton Animation
-Already have shimmer CSS in `src/index.css` (lines 186-216). Skeleton component uses `skeleton-shimmer` class.
+This maintains the visual badge but promotes a valuable, non-discount offering.
 
 ---
 
-## Expected Outcomes
+### 3. Booking Form Wizard (BookingFormWizard.tsx)
 
-1. **Blog**: No visible gap between navbar and breadcrumb; articles look premium with visual hierarchy
-2. **Loading**: Smooth shimmer animations during data fetch
-3. **SEO**: Rich results eligibility for FAQs, local business, and medical clinic
-4. **Conversion**: Trust signals visible above-the-fold, sticky mobile CTA on all pages
+**Current (lines 259-272):**
+```jsx
+<motion.div className="inline-flex items-center gap-3 bg-gradient-to-r from-accent...">
+  <span className="font-body font-bold text-lg">25% Off for New Clients!</span>
+</motion.div>
+```
+
+**Replace with:**
+```jsx
+<motion.div className="inline-flex items-center gap-3 bg-gradient-to-r from-accent...">
+  <span className="font-body font-bold text-lg">Free Consultation & Patch Test</span>
+</motion.div>
+```
+
+Keeps the eye-catching animated badge but promotes free consultation instead.
+
+---
+
+### 4. Booking Form (BookingForm.tsx)
+
+**Same change as above** - Replace "25% Off for New Clients!" with "Free Consultation & Patch Test"
+
+---
+
+### 5. Prices Page (Prices.tsx)
+
+**SEO Description:**
+```text
+Change: "25% off for new clients."
+To: "Flexible payment options available."
+```
+
+**Remove the pulsing offer banner (lines 417-431)**
+Replace with a static trust badge:
+```jsx
+<div className="inline-flex items-center gap-2 bg-accent/20 text-accent-foreground rounded-lg px-6 py-3 font-body">
+  <Shield className="w-5 h-5" />
+  NHS Approved • Interest-Free Payment Plans Available
+</div>
+```
+
+---
+
+### 6. FAQ Page (FAQ.tsx)
+
+**Update answer:**
+```text
+Change: "New clients also receive 25% off their first treatment course."
+To: "We offer flexible payment options and interest-free plans."
+```
+
+---
+
+### 7. Laser Hair Removal East London Page
+
+**Multiple changes needed:**
+
+1. **Schema (line 49):** Remove "25% off first treatment course for new clients"
+2. **FAQ Schema (line 78):** Remove "25% off" mention
+3. **FAQ answers (line 197):** Remove "New clients get 25% off"
+4. **SEO description (line 246):** Remove "25% off new clients!"
+5. **Hero badge (line 261):** Change from "25% Off First Course" to "Free Consultation"
+6. **Pricing banner (lines 309-311):** Remove offer banner or replace with "Book Your Free Consultation"
+
+---
+
+### 8. Service Pages (Hydrafacials, ChemicalPeels, SkinPenMicroneedling, MillionDollarFacial)
+
+**Update disclaimer text pattern:**
+```text
+Change: "New clients receive 25% off first treatment."
+To: "Free consultation included. Interest-free payment options available."
+```
+
+---
+
+## Visual Replacement Strategy
+
+Instead of just removing elements, I'll replace with value propositions that don't involve discounts:
+
+| Removed | Replacement |
+|---------|-------------|
+| "25% OFF" badge | "Free Patch Test" badge |
+| "25% Off for New Clients!" | "Free Consultation & Patch Test" |
+| Discount mention in FAQ | Flexible payment options |
+| Offer banner on Prices page | NHS Approved trust signal |
+| OfferBanner component | Remove from homepage (cleaner flow) |
+
+---
+
+## Implementation Order
+
+1. **Update FAQ/Schema text** - Quick text changes
+2. **Update hero and booking form badges** - Visual consistency
+3. **Update service page disclaimers** - 5 files with similar changes
+4. **Remove/redesign OfferBanner** - Remove from Index.tsx imports
+5. **Update Prices page** - Replace pulsing banner with trust signal
+
+---
+
+## Expected Outcome
+
+- All 25% discount references removed
+- UI maintains visual appeal with alternative badges and trust signals
+- Value propositions shift to: Free Consultation, Free Patch Test, NHS Approved, Interest-Free Payment Plans
+- No broken layouts or empty spaces
