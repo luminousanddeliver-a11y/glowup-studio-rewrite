@@ -40,7 +40,7 @@ const trustItems = [
 
 export const HeroSectionNew = () => {
   return (
-    <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
+    <section className="-mt-[80px] pt-[80px] relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
       {/* Background Image with Ken Burns animation */}
       <motion.div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
