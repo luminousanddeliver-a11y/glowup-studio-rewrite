@@ -40,7 +40,7 @@ const trustItems = [
 
 export const HeroSectionNew = () => {
   return (
-    <section className="-mt-[80px] pt-[80px] relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
+    <section className="-mt-[80px] pt-[80px] relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Ken Burns animation */}
       <motion.div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -167,7 +167,7 @@ export const HeroSectionNew = () => {
               return (
                 <motion.div
                   key={item.label}
-                  className={index === 4 ? "col-span-2 sm:col-span-1" : ""}
+                  className={index === 4 ? "col-span-2 sm:col-span-1 lg:col-span-1" : ""}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
@@ -175,7 +175,7 @@ export const HeroSectionNew = () => {
                   <ItemWrapper
                     {...wrapperProps}
                     className={`
-                      flex items-center gap-2 px-3 py-3 md:py-2.5 rounded-xl backdrop-blur-sm min-h-[60px] md:min-h-0
+                      flex items-center gap-2 px-3 py-3 md:py-2.5 rounded-xl backdrop-blur-sm min-h-[60px] md:min-h-0 h-full
                       transition-all duration-300 group
                       ${item.variant === 'primary' ? 'bg-primary/20 hover:bg-primary/30' : ''}
                       ${item.variant === 'gold' ? 'bg-gold/20 hover:bg-gold/30' : ''}
@@ -200,17 +200,17 @@ export const HeroSectionNew = () => {
                       `} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1 flex-wrap">
-                        <span className="font-heading text-xs md:text-sm font-medium text-white">
+                      <div className="flex items-center gap-1">
+                        <span className="font-heading text-xs md:text-sm font-medium text-white whitespace-nowrap">
                           {item.label}
                         </span>
                         {item.variant === 'exclusive' && (
-                          <span className="px-1.5 py-0.5 bg-gold text-black text-[10px] font-bold rounded uppercase">
+                          <span className="px-1 py-0.5 bg-gold text-black text-[9px] font-bold rounded uppercase leading-none">
                             Exclusive
                           </span>
                         )}
                       </div>
-                      <span className="text-[10px] md:text-xs text-white/60 block">
+                      <span className="text-[10px] md:text-xs text-white/60 block truncate">
                         {item.sublabel}
                       </span>
                     </div>
