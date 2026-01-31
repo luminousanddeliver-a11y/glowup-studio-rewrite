@@ -11,7 +11,7 @@ export const FloatingReviewButton = () => {
       href={writeReviewUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-24 right-4 sm:bottom-8 sm:right-5 md:bottom-6 md:right-6 z-50 flex items-center gap-2 bg-gold text-gold-foreground px-4 py-3 rounded-full shadow-lg hover:bg-gold/90 transition-colors group"
+      className="fixed bottom-28 right-4 sm:bottom-28 md:bottom-24 lg:bottom-6 lg:right-6 z-50 flex items-center gap-2 bg-gold text-gold-foreground px-4 py-3 rounded-full shadow-lg hover:bg-gold/90 transition-colors group"
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}

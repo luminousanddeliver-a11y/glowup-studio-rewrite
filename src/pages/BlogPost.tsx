@@ -197,14 +197,14 @@ const BlogPost = () => {
         <section className="relative -mt-[80px]">
           {/* Hero Image with Premium Overlays */}
           {post.featured_image && (
-            <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
+            <div className="relative h-[35vh] md:h-[40vh] lg:h-[45vh] overflow-hidden">
               <motion.img 
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 src={post.featured_image} 
                 alt={post.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
               {/* Multi-layer gradient for premium depth */}
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
@@ -219,7 +219,7 @@ const BlogPost = () => {
           )}
           
           {/* Content Overlay - Positioned to start immediately after navbar padding */}
-          <div className="absolute inset-0 flex flex-col justify-end pb-3 md:pb-4">
+          <div className="absolute inset-0 flex flex-col justify-end pb-4 md:pb-6 pt-[88px]">
             <div className="container-custom max-w-5xl">
               {/* Breadcrumb - Immediately visible */}
               <PageBreadcrumb 
