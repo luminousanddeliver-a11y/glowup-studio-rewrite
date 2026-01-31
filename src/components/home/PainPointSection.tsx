@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
 
 const benefits = [
@@ -110,10 +109,10 @@ export const PainPointSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body min-h-[52px] px-8 text-base shadow-lg shadow-primary/20"
               >
-                <Link to="/hydrafacial-east-london">
+                <a href="/hydrafacial-east-london" onClick={() => window.scrollTo(0, 0)}>
                   Discover the HydraFacial
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
             </motion.div>
           </div>

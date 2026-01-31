@@ -1,6 +1,5 @@
 import { Zap, Eraser, Droplets, Sparkles, Scissors, LayoutGrid } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const treatments = [
   {
@@ -76,8 +75,9 @@ export const TreatmentFinder = () => {
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
-              <Link
-                to={treatment.href}
+              <a
+                href={treatment.href}
+                onClick={() => window.scrollTo(0, 0)}
                 className={`
                   relative flex flex-col items-center justify-center 
                   p-6 md:p-8 rounded-2xl 
@@ -120,7 +120,7 @@ export const TreatmentFinder = () => {
                 `}>
                   {treatment.label}
                 </span>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>
