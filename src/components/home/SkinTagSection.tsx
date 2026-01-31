@@ -48,7 +48,7 @@ export const SkinTagSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               The NHS doesn't cover cosmetic skin tag removal. We provide professional, same-day removal from just{" "}
-              <strong className="text-foreground">£40</strong>.
+              <strong className="text-foreground">£50</strong>.
             </motion.p>
 
             {/* Benefits List */}
