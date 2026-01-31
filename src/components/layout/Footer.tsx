@@ -182,7 +182,7 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-background/10">
-        <div className="container-custom py-6">
+        <div className="container-custom py-6 pb-24 lg:pb-6">
           <div className="flex flex-col gap-4">
             {/* Main footer row */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
