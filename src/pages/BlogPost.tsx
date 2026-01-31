@@ -194,10 +194,10 @@ const BlogPost = () => {
       <Header />
       <main className="flex-1">
         {/* Premium Hero Section - Seamless blend with navbar, NO gap */}
-        <section className="relative -mt-[80px]">
+        <section className="relative -mt-[80px] pt-[80px]">
           {/* Hero Image with Premium Overlays */}
           {post.featured_image && (
-            <div className="relative h-[35vh] md:h-[40vh] lg:h-[45vh] overflow-hidden">
+            <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
               <motion.img 
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
@@ -219,7 +219,7 @@ const BlogPost = () => {
           )}
           
           {/* Content Overlay - Positioned to start immediately after navbar padding */}
-          <div className="absolute inset-0 flex flex-col justify-end pt-[80px] pb-3 md:pb-4">
+          <div className="absolute inset-0 flex flex-col justify-end pb-3 md:pb-4">
             <div className="container-custom max-w-5xl">
               {/* Breadcrumb - Immediately visible */}
               <PageBreadcrumb 
