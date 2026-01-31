@@ -16,7 +16,6 @@ import { useWishlist } from "@/contexts/WishlistContext";
 import { CartPreviewTooltip } from "@/components/shop/CartPreviewTooltip";
 import { WishlistPreviewTooltip } from "@/components/shop/WishlistPreviewTooltip";
 import { CartBounceIndicator } from "@/components/shop/FlyingCartAnimation";
-import { PromoBanner } from "./PromoBanner";
 import { ScrollProgress } from "./ScrollProgress";
 import logo from "@/assets/logo.png";
 import { cn } from "@/lib/utils";
@@ -150,8 +149,7 @@ export const Header = () => {
   return (
     <>
       <ScrollProgress />
-      <PromoBanner />
-      <motion.header 
+      <motion.header
         className="sticky top-0 z-50"
         initial={false}
         animate={{ 
