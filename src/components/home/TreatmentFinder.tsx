@@ -38,57 +38,83 @@ const treatments = [
 
 export const TreatmentFinder = () => {
   return (
-    <section className="py-12 md:py-16 bg-secondary">
-      <div className="container-custom">
+    <section className="py-14 md:py-20 bg-secondary relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+      
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+        backgroundSize: '24px 24px'
+      }} />
+
+      <div className="container-custom relative z-10">
         {/* Headline */}
-        <motion.h2 
-          className="text-center text-foreground mb-8 md:mb-10"
+        <motion.div 
+          className="text-center mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
         >
-          What brings you in today?
-        </motion.h2>
+          <h2 className="text-foreground mb-3">
+            What brings you in today?
+          </h2>
+          <p className="font-body text-muted-foreground max-w-md mx-auto">
+            Select your treatment to learn more and view pricing
+          </p>
+        </motion.div>
 
         {/* 2x3 Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto">
           {treatments.map((treatment, index) => (
             <motion.div
               key={treatment.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
             >
               <Link
                 to={treatment.href}
                 className={`
-                  flex flex-col items-center justify-center 
-                  p-5 md:p-6 rounded-xl 
+                  relative flex flex-col items-center justify-center 
+                  p-6 md:p-8 rounded-2xl 
                   bg-card border border-border 
-                  shadow-sm hover:shadow-md 
+                  shadow-sm hover:shadow-xl 
                   transition-all duration-300 
-                  group min-h-[120px] md:min-h-[140px]
-                  ${treatment.isViewAll ? 'border-primary/30 bg-primary/5' : ''}
+                  group min-h-[140px] md:min-h-[160px]
+                  hover:-translate-y-1
+                  ${treatment.isViewAll ? 'border-primary/40 bg-gradient-to-br from-primary/5 to-primary/10' : ''}
                 `}
               >
+                {/* Hover gradient */}
                 <div className={`
-                  w-12 h-12 md:w-14 md:h-14 rounded-full 
-                  flex items-center justify-center mb-3
-                  transition-colors duration-300
+                  absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300
                   ${treatment.isViewAll 
-                    ? 'bg-primary/10 group-hover:bg-primary/20' 
-                    : 'bg-accent/10 group-hover:bg-accent/20'
+                    ? 'bg-gradient-to-br from-primary/10 to-primary/5' 
+                    : 'bg-gradient-to-br from-accent/5 to-transparent'
+                  }
+                `} />
+                
+                <div className={`
+                  relative w-14 h-14 md:w-16 md:h-16 rounded-2xl 
+                  flex items-center justify-center mb-4
+                  transition-all duration-300
+                  shadow-sm group-hover:shadow-md
+                  ${treatment.isViewAll 
+                    ? 'bg-primary/10 group-hover:bg-primary/20 group-hover:scale-110' 
+                    : 'bg-accent/10 group-hover:bg-accent/20 group-hover:scale-110'
                   }
                 `}>
                   <treatment.icon className={`
-                    h-6 w-6 md:h-7 md:w-7 
+                    h-7 w-7 md:h-8 md:w-8 transition-transform duration-300
                     ${treatment.isViewAll ? 'text-primary' : 'text-accent'}
                   `} />
                 </div>
                 <span className={`
-                  font-heading text-sm md:text-base font-medium text-center
+                  relative font-heading text-sm md:text-base font-medium text-center leading-tight
                   ${treatment.isViewAll ? 'text-primary' : 'text-foreground'}
                   group-hover:text-primary transition-colors
                 `}>
