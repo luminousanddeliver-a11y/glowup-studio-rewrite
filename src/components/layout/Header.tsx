@@ -207,7 +207,7 @@ export const Header = () => {
                   </span>
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[580px] p-5 grid grid-cols-2 gap-x-8 gap-y-5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200 bg-white/95 backdrop-blur-xl border border-border/50 shadow-2xl">
+                <DropdownMenuContent className="w-[580px] p-5 grid grid-cols-2 gap-x-8 gap-y-5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200 bg-gradient-to-br from-white/98 via-white/95 to-primary/5 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset] rounded-xl">
                   {serviceCategories.map((category, categoryIndex) => (
                     <motion.div 
                       key={category.name} 
@@ -411,7 +411,7 @@ export const Header = () => {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-border max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain">
+            <div className="lg:hidden py-4 border-t border-white/20 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-gradient-to-b from-white/98 to-white/95 backdrop-blur-2xl">
               <nav className="flex flex-col gap-1">
                 {/* Mobile Services Accordion - First */}
                 <div className="py-2 px-2">
