@@ -41,10 +41,13 @@ const trustItems = [
 export const HeroSectionNew = () => {
   return (
     <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div 
+      {/* Background Image with Ken Burns animation */}
+      <motion.div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroClinicNew})` }}
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 md:from-black/70 md:via-black/50 md:to-transparent" />
@@ -52,7 +55,7 @@ export const HeroSectionNew = () => {
         {/* Decorative orbs */}
         <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-50" />
         <div className="absolute bottom-20 left-10 w-48 h-48 bg-accent/20 rounded-full blur-3xl opacity-50" />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="container-custom relative z-10 py-20 md:py-24 lg:py-28">
@@ -102,7 +105,7 @@ export const HeroSectionNew = () => {
                 asChild 
                 variant="outline"
                 size="lg"
-                className="border-white/40 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
+                className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
               >
                 <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
                   Book Free Consultation
@@ -151,7 +154,7 @@ export const HeroSectionNew = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {/* Mobile: 2-row grid */}
+          {/* Mobile: 2-row grid, 5th item spans full width */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
             {trustItems.map((item, index) => {
               const ItemWrapper = item.href ? 'a' : 'div';
@@ -164,6 +167,7 @@ export const HeroSectionNew = () => {
               return (
                 <motion.div
                   key={item.label}
+                  className={index === 4 ? "col-span-2 sm:col-span-1" : ""}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
@@ -195,9 +199,9 @@ export const HeroSectionNew = () => {
                         ${item.variant === 'exclusive' ? 'text-gold' : ''}
                       `} />
                     </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1">
-                        <span className="font-heading text-xs md:text-sm font-medium text-white truncate">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1 flex-wrap">
+                        <span className="font-heading text-xs md:text-sm font-medium text-white">
                           {item.label}
                         </span>
                         {item.variant === 'exclusive' && (
@@ -206,7 +210,7 @@ export const HeroSectionNew = () => {
                           </span>
                         )}
                       </div>
-                      <span className="text-[10px] md:text-xs text-white/60 truncate block">
+                      <span className="text-[10px] md:text-xs text-white/60 block">
                         {item.sublabel}
                       </span>
                     </div>
