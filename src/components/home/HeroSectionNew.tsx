@@ -199,13 +199,13 @@ export const HeroSectionNew = () => {
                         ${item.variant === 'exclusive' ? 'text-gold' : ''}
                       `} />
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="font-heading text-xs md:text-sm font-medium text-white whitespace-nowrap">
+                    <div className="min-w-0 flex-1 overflow-hidden">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-heading text-xs md:text-sm font-medium text-white truncate">
                           {item.label}
                         </span>
                         {item.variant === 'exclusive' && (
-                          <span className="px-1 py-0.5 bg-gold text-black text-[9px] font-bold rounded uppercase leading-none">
+                          <span className="flex-shrink-0 px-1.5 py-0.5 bg-gold text-black text-[8px] md:text-[9px] font-bold rounded uppercase leading-none">
                             Exclusive
                           </span>
                         )}
