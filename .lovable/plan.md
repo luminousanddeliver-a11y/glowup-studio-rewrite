@@ -1,150 +1,96 @@
 
-# Homepage and Footer Bug Fix Plan
 
-This plan addresses four issues:
-1. Mobile footer credit hidden behind "Leave a Review" button
-2. Desktop trust bar "Only in East London" not blending
-3. Mobile PremierSection button overflow
-4. Homepage-only navbar transparency
+# Homepage and Footer Fix Plan
+
+This plan addresses four issues with CSS-focused modifications:
 
 ---
 
-## Issue 1: Footer Agency Credit Hidden
+## Issue 1: Homepage Navbar Transparency
 
-**Problem:** The "Website Created, Powered, and Managed by L&D Digital" text is obscured by the FloatingReviewButton on mobile.
+**Current State:** The Header already has the correct logic for homepage transparency (rgba(0,0,0,0), no blur, no shadow when not scrolled). The implementation is already correct in Header.tsx lines 157-166.
 
-**Root Cause:** 
-- Footer has `pb-24` padding for the MobileStickyButton (~80px height)
-- FloatingReviewButton is positioned at `bottom-24` (96px) on mobile
-- Agency credit row sits at the bottom but gets covered
-
-**File:** `src/components/layout/Footer.tsx`
-
-**Fix:** Increase bottom padding to account for both sticky elements:
-```
-Line ~185: Change pb-24 to pb-32 (128px) on mobile
-"py-6 pb-24 lg:pb-6" → "py-6 pb-32 lg:pb-6"
-```
+**Verification:** The navbar is already fully transparent on the homepage. No changes needed here as it's already implemented correctly per your previous request.
 
 ---
 
-## Issue 2: Desktop Trust Bar - "Only in East London" Not Blending
+## Issue 2: Desktop Trust Bar - "Only in East London" Box Size
 
-**Problem:** The 5th trust bar item (exclusive variant) uses `bg-white/10` which appears washed out compared to other items using colored backgrounds.
+**Problem:** The 5th box doesn't visually match the size of other boxes on desktop. Looking at the reference image, all 5 boxes should have consistent sizing.
 
 **File:** `src/components/home/HeroSectionNew.tsx`
 
-**Fix (Lines ~183):** Update the exclusive variant to use a tinted background that blends better:
-```jsx
-// Current
-${item.variant === 'exclusive' ? 'bg-white/10 hover:bg-white/20 border border-gold/30' : ''}
+**Fix:** The "exclusive" variant currently has a border which makes it appear smaller/different. Remove the additional border styling and ensure consistent background opacity.
 
-// Fixed - Use gold-tinted background for better visual consistency
+```
+Line 183: Change from:
 ${item.variant === 'exclusive' ? 'bg-gold/15 hover:bg-gold/25 border border-gold/40' : ''}
+
+To:
+${item.variant === 'exclusive' ? 'bg-gold/20 hover:bg-gold/30' : ''}
 ```
 
-Also update the icon container (line ~192):
-```jsx
-// Current
-${item.variant === 'exclusive' ? 'bg-gold/20' : ''}
-
-// Fixed - Stronger gold tint
-${item.variant === 'exclusive' ? 'bg-gold/30' : ''}
-```
+This removes the border and uses the same opacity pattern (20%/30%) as other variants.
 
 ---
 
-## Issue 3: Mobile PremierSection Button Overflow
+## Issue 3: Mobile Trust Bar - "4.9★ Rating" and "All Skin Types" Box Sizes
 
-**Problem:** The "Book Your Free, No-Obligation Consultation" button text is too long and extends outside its container on mobile.
+**Problem:** These boxes appear cramped on mobile with text getting squeezed.
 
-**File:** `src/components/home/PremierSection.tsx`
+**File:** `src/components/home/HeroSectionNew.tsx`
 
-**Fix (Lines 67-76):** Allow text to wrap on mobile and reduce horizontal padding:
-```jsx
-// Current
-<Button
-  asChild
-  size="lg"
-  className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-6 text-base"
->
+**Fix:** Increase the padding and ensure consistent min-height for mobile boxes.
 
-// Fixed - Allow text wrapping on mobile
-<Button
-  asChild
-  size="lg"
-  className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-4 md:px-6 text-sm md:text-base whitespace-normal text-center"
->
 ```
+Line 178: Change from:
+flex items-center gap-2 px-3 py-2.5 rounded-xl backdrop-blur-sm
+
+To:
+flex items-center gap-2 px-3 py-3 md:py-2.5 rounded-xl backdrop-blur-sm min-h-[60px] md:min-h-0
+```
+
+This adds more vertical padding on mobile (py-3) and a minimum height to ensure boxes look consistent.
 
 ---
 
-## Issue 4: Homepage-Only Navbar Transparency
+## Issue 4: Footer Agency Credit Hidden Behind "Leave a Review" Button
 
-**Problem:** User wants the navbar to be fully transparent (no background, shadow, blur) on the homepage only, with the hero extending behind it.
+**Problem:** The "Website Created, Powered, and Managed by L&D Digital" text is still covered by the FloatingReviewButton even with `pb-32`.
 
-**File:** `src/components/layout/Header.tsx`
+**Analysis:**
+- MobileStickyButton: ~80px height (fixed at bottom-0)
+- FloatingReviewButton: positioned at `bottom-24` (96px) + button height ~48px = ~144px from bottom
+- Current footer padding: `pb-32` = 128px - still not enough
 
-**Changes:**
+**File:** `src/components/layout/Footer.tsx`
 
-1. **Add homepage detection (around line 116):**
-```jsx
-// Add this after the existing darkHeroRoutes check
-const isHomepage = location.pathname === '/';
+**Fix:** Increase the mobile bottom padding from `pb-32` to `pb-40` (160px).
+
 ```
+Line 185: Change from:
+<div className="container-custom py-6 pb-32 lg:pb-6">
 
-2. **Update the header animation (lines 150-165):**
-```jsx
-<motion.header 
-  className="sticky top-0 z-50"
-  initial={false}
-  animate={{ 
-    backgroundColor: isCompact 
-      ? "rgba(255, 255, 255, 0.95)"
-      : isHomepage 
-        ? "rgba(0, 0, 0, 0)"  // Fully transparent on homepage
-        : "rgba(255, 255, 255, 0)",
-    backdropFilter: isCompact 
-      ? "blur(12px)" 
-      : "none",  // No blur when not compact
-    boxShadow: isCompact 
-      ? "0 4px 20px rgba(0,0,0,0.1)" 
-      : "none"  // No shadow when not compact
-  }}
-  transition={{ 
-    duration: 0.4, 
-    ease: [0.4, 0, 0.2, 1]
-  }}
->
-```
-
-3. **Update text color logic for homepage (around line 122):**
-```jsx
-// Current
-const hasDarkHero = darkHeroRoutes.some(route => location.pathname.startsWith(route)) && 
-  !isServicePage(location.pathname);
-
-// Fixed - Include homepage in dark hero check
-const hasDarkHero = (isHomepage || darkHeroRoutes.some(route => location.pathname.startsWith(route))) && 
-  !isServicePage(location.pathname);
+To:
+<div className="container-custom py-6 pb-40 lg:pb-6">
 ```
 
 ---
 
 ## Summary of Changes
 
-| File | Change | Purpose |
-|------|--------|---------|
-| `Footer.tsx` | `pb-24` → `pb-32` | Prevent overlap with FloatingReviewButton |
-| `HeroSectionNew.tsx` | `bg-white/10` → `bg-gold/15` | Better blending for "Exclusive" box |
-| `PremierSection.tsx` | Add `whitespace-normal`, adjust padding | Fix button text overflow |
-| `Header.tsx` | Add `isHomepage` check, modify animation | Fully transparent navbar on homepage |
+| File | Line | Change |
+|------|------|--------|
+| `HeroSectionNew.tsx` | 183 | Remove border from "exclusive" variant, use consistent `bg-gold/20` |
+| `HeroSectionNew.tsx` | 178 | Add `py-3 md:py-2.5 min-h-[60px] md:min-h-0` for mobile padding |
+| `Footer.tsx` | 185 | Increase bottom padding: `pb-32` to `pb-40` |
 
 ---
 
 ## Expected Results
 
-1. **Footer:** Agency credit fully visible above both MobileStickyButton and FloatingReviewButton
-2. **Trust Bar:** "Only in East London" box has consistent gold-tinted background matching other items
-3. **PremierSection:** Button text wraps properly on mobile, staying within bounds
-4. **Navbar:** Homepage shows hero image extending fully behind a transparent navbar; navbar becomes opaque on scroll
+1. **Navbar:** Already correctly implemented - fully transparent on homepage
+2. **Trust Bar (Desktop):** "Only in East London" box will blend seamlessly with other boxes (same styling pattern)
+3. **Trust Bar (Mobile):** "4.9★ Rating" and "All Skin Types" will have more breathing room with consistent heights
+4. **Footer:** Agency credit text will be fully visible above both the FloatingReviewButton and MobileStickyButton
+
