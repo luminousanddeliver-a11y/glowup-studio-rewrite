@@ -1,6 +1,5 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import logoImage from "@/assets/logo.png";
 
 const quickLinks = [
@@ -30,13 +29,13 @@ export const Footer = () => {
             className="lg:pr-4"
           >
             {/* Logo */}
-            <Link to="/" className="inline-block mb-4">
+            <a href="/" onClick={() => window.scrollTo(0, 0)} className="inline-block mb-4">
               <img 
                 src={logoImage} 
                 alt="Laser Light Skin Clinic" 
                 className="h-12 w-auto brightness-0 invert"
               />
-            </Link>
+            </a>
             <p className="text-background/90 font-heading font-medium text-lg mb-2">
               Specialist Laser Aesthetics
             </p>
@@ -62,12 +61,13 @@ export const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.1 + index * 0.03 }}
                 >
-                  <Link
-                    to={link.href}
+                  <a
+                    href={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>
