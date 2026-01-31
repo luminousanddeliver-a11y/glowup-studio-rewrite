@@ -110,7 +110,7 @@ export const PainPointSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body min-h-[52px] px-8 text-base shadow-lg shadow-primary/20"
               >
-                <Link to="/services/hydrafacials">
+                <Link to="/hydrafacial-east-london">
                   Discover the HydraFacial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

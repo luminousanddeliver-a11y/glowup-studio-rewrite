@@ -190,24 +190,27 @@ export const Footer = () => {
                 © {new Date().getFullYear()} Laser Light Skin Clinic. All rights reserved.
               </p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <Link 
-                  to="/privacy-policy" 
+                <a 
+                  href="/privacy-policy" 
                   className="font-body text-background/60 text-sm hover:text-primary transition-colors"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   Privacy Policy
-                </Link>
-                <Link 
-                  to="/terms" 
+                </a>
+                <a 
+                  href="/terms" 
                   className="font-body text-background/60 text-sm hover:text-primary transition-colors"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   Terms & Conditions
-                </Link>
-                <Link 
-                  to="/faq" 
+                </a>
+                <a 
+                  href="/faq" 
                   className="font-body text-background/60 text-sm hover:text-primary transition-colors"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   FAQs
-                </Link>
+                </a>
               </div>
             </div>
             

@@ -99,7 +99,7 @@ export const LaserSpotlight = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-body min-h-[52px] px-8 text-base w-full sm:w-auto shadow-lg shadow-primary/20"
             >
-              <Link to="/services/laser-hair-removal">
+              <Link to="/laser-hair-removal-dagenham">
                 View Laser Pricing & Packages
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>

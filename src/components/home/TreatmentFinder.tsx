@@ -6,27 +6,27 @@ const treatments = [
   {
     icon: Zap,
     label: "Laser Hair Removal",
-    href: "/services/laser-hair-removal",
+    href: "/laser-hair-removal-dagenham",
   },
   {
     icon: Eraser,
     label: "Tattoo Removal",
-    href: "/services/tattoo-removal",
+    href: "/tattoo-removal-east-london",
   },
   {
     icon: Droplets,
     label: "HydraFacial",
-    href: "/services/hydrafacials",
+    href: "/hydrafacial-east-london",
   },
   {
     icon: Sparkles,
     label: "Chemical Peels",
-    href: "/services/chemical-peels",
+    href: "/chemical-peels-dagenham",
   },
   {
     icon: Scissors,
     label: "Skin Tag Removal",
-    href: "/services/skin-tag-mole-removal",
+    href: "/skin-tag-mole-removal-dagenham",
   },
   {
     icon: LayoutGrid,
