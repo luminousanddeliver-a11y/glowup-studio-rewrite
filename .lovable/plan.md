@@ -1,201 +1,144 @@
 
-# Homepage Visual Enhancement Plan
+# Homepage Hero & Footer Bug Fix Plan
 
-This plan addresses two key issues: (1) converting the hero image to a background, and (2) making the homepage more visually engaging with better detail and texture.
-
----
-
-## Issue 1: Hero Image as Background
-
-### Current State
-The hero image is displayed as a separate rounded card block above the content.
-
-### Solution
-Transform `HeroSectionNew.tsx` into a full-width hero with the clinic image as background with:
-- Dark gradient overlay for text readability
-- Content centered over the background
-- Different layouts for mobile (stacked) vs desktop (side-by-side text and badges)
-- Save the uploaded clinic image to assets
+This plan addresses four issues reported by the user:
+1. "Book Free Consultation" button not visible on hover
+2. Mobile trust bar - 5th box text is cut off/unreadable
+3. Footer content hidden behind the MobileStickyButton
+4. No animation on hero background image
 
 ---
 
-## Issue 2: Homepage Too Blank/Empty
+## Issue 1: Book Free Consultation Button Hover State
 
-### Problem Areas Identified
-1. Large white spaces between sections
-2. No visual texture or depth
-3. Trust bar too simple (only 3 items vs the 5-item reference shown)
-4. Sections lack visual separators
-5. No decorative elements
+**Problem:** The outline button has `text-white` by default and `hover:bg-white hover:text-foreground`. The button appears invisible because it has no visible background in its default state (just a border).
 
-### Enhancement Strategy
+**File:** `src/components/home/HeroSectionNew.tsx`
 
-**A. Expanded Trust Bar**
-Based on your reference image, enhance the trust bar to 5 items:
-- NHS & FDA Approved (Medical-grade safety)
-- 4.9★ Rating (250+ verified reviews)
-- Pain-Free Guaranteed (Lynton Motus AY laser)
-- All Skin Types (Including darker tones)
-- Only in East London [EXCLUSIVE badge] (Quanta Thunder laser)
+**Fix (Line 101-110):**
+```jsx
+// Current
+<Button 
+  variant="outline"
+  className="border-white/40 text-white hover:bg-white hover:text-foreground ..."
+>
 
-**B. Add Visual Depth to Sections**
-- Add subtle gradient backgrounds
-- Add decorative blur orbs
-- Add section dividers (wave shapes or diagonal cuts)
-
-**C. Enhanced Section Styling**
-- TreatmentFinder: Add subtle gradient background, decorative pattern
-- PainPointSection: Add an image or illustration alongside text on desktop
-- TrustSection: Add background texture, larger cards
-- LaserSpotlight: Add decorative elements
-- PremierSection: Already has background image - enhance overlay
-
----
-
-## Detailed File Changes
-
-### File 1: `src/components/home/HeroSectionNew.tsx`
-
-**Changes:**
-```text
-Before:
-+----------------------------------+
-|  [Image Card Block]              |
-|  Headline                        |
-|  Sub-headline                    |
-|  [CTA Buttons]                   |
-|  [3-item Trust Bar]              |
-+----------------------------------+
-
-After (Mobile):
-+----------------------------------+
-|  [Full Background Image]         |
-|  [Dark Gradient Overlay]         |
-|                                  |
-|     Headline                     |
-|     Sub-headline                 |
-|     [CTA Buttons stacked]        |
-|                                  |
-|  [5-item Trust Bar - 2 rows]     |
-+----------------------------------+
-
-After (Desktop):
-+----------------------------------+
-|        [Full Background Image]           |
-|        [Dark Gradient Overlay]           |
-|                                          |
-|   Content Left       |    Stats Right    |
-|   Headline           |    Key metrics    |
-|   Sub-headline       |    Trust icons    |
-|   [CTA Buttons]      |                   |
-|                                          |
-|   [5-item Trust Bar - horizontal]        |
-+----------------------------------+
+// Fixed - Add a semi-transparent background for visibility
+<Button 
+  variant="outline"
+  className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground ..."
+>
 ```
 
-**New Trust Bar (5 items):**
-1. `NHS & FDA Approved` - Shield icon, "Medical-grade safety"
-2. `4.9★ Rating` - Star icon, "250+ verified reviews"
-3. `Pain-Free Guaranteed` - Sparkles icon, "Lynton Motus AY laser"
-4. `All Skin Types` - Users icon, "Including darker tones"
-5. `Only in East London` - MapPin icon + EXCLUSIVE badge, "Quanta Thunder laser"
+This adds a subtle white background so the button is always visible, and on hover it becomes solid white.
 
 ---
 
-### File 2: `src/components/home/TreatmentFinder.tsx`
+## Issue 2: Mobile Trust Bar - Text Truncation
 
-**Changes:**
-- Add subtle gradient background pattern
-- Add decorative blur orbs in corners
-- Add slight box shadows to cards
-- Add hover scale effect for more interactivity
+**Problem:** The 5-item trust bar uses a 2-column grid on mobile, causing the 5th item to appear alone and text gets truncated.
 
----
+**File:** `src/components/home/HeroSectionNew.tsx`
 
-### File 3: `src/components/home/PainPointSection.tsx`
+**Fix (Multiple lines):**
+1. Remove `truncate` from label text (line 200)
+2. Remove `truncate block` from sublabel (line 209)
+3. Allow text to wrap naturally with `flex-wrap` or smaller font sizes
+4. Make the 5th item span full width on mobile for better readability
 
-**Changes:**
-- Add HydraFacial device image on desktop (side-by-side layout)
-- Keep mobile as centered text-only
-- Add decorative gradient orb
-- Add subtle pattern overlay
+```jsx
+// Trust bar grid - make 5th item full width on mobile
+<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
+  {trustItems.map((item, index) => (
+    <motion.div
+      key={item.label}
+      className={index === 4 ? "col-span-2 sm:col-span-1" : ""}  // 5th item spans 2 cols on mobile
+    >
+      ...
+    </motion.div>
+  ))}
+</div>
 
----
-
-### File 4: `src/components/home/TrustSection.tsx`
-
-**Changes:**
-- Add subtle background pattern/texture
-- Enlarge review cards with more prominent styling
-- Add decorative elements between sub-sections
-- Add gradient accent line under section header
-
----
-
-### File 5: `src/components/home/LaserSpotlight.tsx`
-
-**Changes:**
-- Add decorative blur orbs
-- Add subtle gradient background on desktop
-- Enhanced card styling for the image
-
----
-
-### File 6: `src/index.css` (New Utility Classes)
-
-**Add:**
-```css
-/* Decorative background patterns */
-.bg-pattern-dots { /* subtle dot pattern */ }
-.bg-pattern-grid { /* subtle grid pattern */ }
-
-/* Decorative blur orbs */
-.decorative-orb { /* floating gradient orbs */ }
-
-/* Section wave dividers */
-.section-wave-top { /* SVG wave at top */ }
-.section-wave-bottom { /* SVG wave at bottom */ }
+// Also remove truncate classes and use text-wrap
+<span className="font-heading text-xs md:text-sm font-medium text-white">
+  {item.label}
+</span>
+<span className="text-[10px] md:text-xs text-white/60 block">
+  {item.sublabel}
+</span>
 ```
 
 ---
 
-## New Asset
+## Issue 3: Footer Hidden Behind MobileStickyButton
 
-**Copy uploaded image to:** `src/assets/hero-clinic-new.png`
-(The uploaded clinic room image will be used as the hero background)
+**Problem:** The MobileStickyButton is a fixed element at the bottom of the screen. The footer content gets hidden behind it on mobile.
 
----
+**File:** `src/components/layout/Footer.tsx`
 
-## Visual Enhancements Summary
+**Fix:** Add bottom padding to the footer's bottom bar section to account for the sticky button height (~80px).
 
-| Section | Enhancement |
-|---------|-------------|
-| Hero | Full background image, 5-item trust bar, gradient overlay |
-| Treatment Finder | Decorative orbs, enhanced card shadows, hover effects |
-| Pain Point | Side-by-side image on desktop, decorative gradient |
-| Trust Section | Background texture, larger cards, accent lines |
-| Laser Spotlight | Decorative orbs, enhanced gradients |
-| Premier Section | Already good - minor polish |
-| Final CTA | Add subtle background pattern |
+```jsx
+// Current (line 184-185)
+<div className="border-t border-background/10">
+  <div className="container-custom py-6">
 
----
+// Fixed - Add mobile-only bottom padding
+<div className="border-t border-background/10">
+  <div className="container-custom py-6 pb-24 lg:pb-6">
+```
 
-## Mobile vs Desktop Layout Differences
-
-| Component | Mobile | Desktop |
-|-----------|--------|---------|
-| Hero | Centered text, stacked CTAs, 2-row trust bar | Split layout with stats, horizontal trust bar |
-| Treatment Finder | 2x3 grid | 3x2 grid (same) |
-| Pain Point | Text only, centered | Image + text side-by-side |
-| Trust Section | Stacked cards | 3-column cards |
-| Laser Spotlight | Image above text | Image left, text right |
+This adds `pb-24` (96px) padding on mobile/tablet and resets to `pb-6` on desktop (lg breakpoint) where the sticky button isn't shown.
 
 ---
 
-## Expected Outcomes
+## Issue 4: No Hero Image Animation
 
-1. **Hero Impact**: Full-screen background creates immediate visual impact
-2. **Trust Signals**: 5-item trust bar matches the reference design and adds credibility
-3. **Visual Depth**: Decorative elements eliminate the "empty white" feeling
-4. **Better UX**: Different mobile/desktop layouts optimize for each device
-5. **Premium Feel**: Enhanced styling appeals to the target Redbridge/Havering demographic
+**Problem:** The hero background image is static with no entrance animation.
+
+**File:** `src/components/home/HeroSectionNew.tsx`
+
+**Fix:** Convert the background image div to a motion.div with a subtle zoom animation.
+
+```jsx
+// Current (lines 45-55)
+<div 
+  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: `url(${heroClinicNew})` }}
+>
+  ...
+</div>
+
+// Fixed - Add motion with subtle zoom/fade animation
+<motion.div 
+  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: `url(${heroClinicNew})` }}
+  initial={{ scale: 1.1, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 1.2, ease: "easeOut" }}
+>
+  ...
+</motion.div>
+```
+
+This creates a Ken Burns-style zoom out effect as the hero loads, making it more visually engaging.
+
+---
+
+## Summary of Changes
+
+| File | Change | Lines Affected |
+|------|--------|----------------|
+| `HeroSectionNew.tsx` | Add `bg-white/10` to outline button | ~101-110 |
+| `HeroSectionNew.tsx` | Remove text truncation, add `col-span-2` for 5th item | ~155-217 |
+| `HeroSectionNew.tsx` | Add motion animation to background image | ~45-55 |
+| `Footer.tsx` | Add `pb-24 lg:pb-6` to bottom bar | ~185 |
+
+---
+
+## Expected Results
+
+1. **Button Fix:** "Book Free Consultation" button will have a subtle glass-like background and be visible at all times
+2. **Trust Bar Fix:** All 5 items will be fully readable on mobile, with the 5th item centered at full width
+3. **Footer Fix:** All footer content including agency credit will be visible above the sticky CTA buttons
+4. **Animation Fix:** Hero background will have an elegant zoom-out entrance animation
