@@ -65,8 +65,8 @@ export const TrustSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-foreground mb-3">
-            Why East London & Essex Trust <span className="text-primary">Glow-Up Studio</span>
+        <h2 className="text-foreground mb-3">
+            Why East London & Essex Trust <span className="text-primary">Laser Light</span>
           </h2>
           {/* Decorative line */}
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4" />

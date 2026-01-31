@@ -4,6 +4,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { HeroSectionNew } from "@/components/home/HeroSectionNew";
 import { TreatmentFinder } from "@/components/home/TreatmentFinder";
 import { PainPointSection } from "@/components/home/PainPointSection";
+import { SkinTagSection } from "@/components/home/SkinTagSection";
 import { TrustSection } from "@/components/home/TrustSection";
 import { LaserSpotlight } from "@/components/home/LaserSpotlight";
 import { PremierSection } from "@/components/home/PremierSection";
@@ -35,7 +36,10 @@ const Index = () => {
       { "@type": "City", "name": "Romford" },
       { "@type": "City", "name": "Ilford" },
       { "@type": "City", "name": "Redbridge" },
-      { "@type": "City", "name": "Havering" }
+      { "@type": "City", "name": "Havering" },
+      { "@type": "City", "name": "Newham" },
+      { "@type": "City", "name": "Essex" },
+      { "@type": "City", "name": "Epping" }
     ],
     "availableService": [
       {
@@ -170,7 +174,7 @@ const Index = () => {
         "name": "Where is Laser Light Skin Clinic located?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We are located at 125 Becontree Avenue, Dagenham RM8 2UJ, East London. We serve clients from Dagenham, Barking, Romford, Ilford, Redbridge, Havering, and the wider East London area."
+          "text": "We are located at 125 Becontree Avenue, Dagenham RM8 2UJ, East London. We serve clients from Dagenham, Barking, Romford, Ilford, Redbridge, Havering, Newham, Essex, Epping, and the wider East London area."
         }
       }
     ]
@@ -197,6 +201,11 @@ const Index = () => {
         {/* Section 3: Pain Point (HydraFacial) */}
         <ScrollReveal>
           <PainPointSection />
+        </ScrollReveal>
+        
+        {/* Section 3b: Skin Tag NHS Pain Point */}
+        <ScrollReveal delay={0.1}>
+          <SkinTagSection />
         </ScrollReveal>
         
         {/* Section 4: Build Confidence & Trust */}

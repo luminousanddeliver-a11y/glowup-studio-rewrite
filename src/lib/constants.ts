@@ -31,7 +31,7 @@ export const CLINIC_INFO = {
     saturday: "10:00 AM - 5:00 PM",
     sunday: "Closed",
   },
-  areaServed: ["Dagenham", "Barking", "Romford", "Ilford", "East London", "Stratford", "Canary Wharf"],
+  areaServed: ["Dagenham", "Barking", "Romford", "Ilford", "East London", "Stratford", "Canary Wharf", "Redbridge", "Havering", "Newham", "Essex", "Epping"],
 };
 
 // SEO-optimized service slugs
