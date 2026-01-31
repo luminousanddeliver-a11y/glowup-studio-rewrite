@@ -32,12 +32,14 @@ const Index = () => {
     "areaServed": [
       { "@type": "City", "name": "Dagenham" },
       { "@type": "City", "name": "East London" },
+      { "@type": "City", "name": "London" },
       { "@type": "City", "name": "Barking" },
       { "@type": "City", "name": "Romford" },
       { "@type": "City", "name": "Ilford" },
       { "@type": "City", "name": "Redbridge" },
       { "@type": "City", "name": "Havering" },
       { "@type": "City", "name": "Newham" },
+      { "@type": "City", "name": "Barking and Dagenham" },
       { "@type": "City", "name": "Essex" },
       { "@type": "City", "name": "Epping" }
     ],
@@ -186,7 +188,7 @@ const Index = () => {
         title="NHS-Approved Laser & Skin Clinic in Dagenham | Laser Light"
         description="East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, tattoo removal, Hydrafacials & more. NHS-approved. Book now!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
-        keywords="laser hair removal dagenham, tattoo removal east london, hydrafacial dagenham, skin clinic dagenham, NHS approved clinic, chemical peels, skin tag removal"
+        keywords="laser hair removal london, laser hair removal near me, tattoo removal london, hydrafacial london, skin clinic east london, laser clinic redbridge, laser clinic havering, skin tag removal essex, chemical peel newham, NHS approved skin clinic london, laser hair removal dagenham, tattoo removal east london"
         structuredData={[medicalClinicSchema, faqPageSchema]}
       />
       

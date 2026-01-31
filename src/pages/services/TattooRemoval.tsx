@@ -39,13 +39,24 @@ const TattooRemoval = () => {
       "telephone": "+442085981200"
     },
     "description": "East London's ONLY clinic with the Quanta Thunder Series. Professional laser tattoo removal using the world's most advanced multi-wavelength system. Remove ALL ink colors in 50% fewer sessions.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
     "offers": {
-      "@type": "Offer",
-      "price": "50",
+      "@type": "AggregateOffer",
+      "lowPrice": "50",
+      "highPrice": "1600",
       "priceCurrency": "GBP",
-      "description": "Tattoo removal starting from £50 per session - exclusive Quanta Thunder technology"
+      "offerCount": "7"
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://laserlightskinclinic.co.uk" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://laserlightskinclinic.co.uk/prices" },
+      { "@type": "ListItem", "position": 3, "name": "Tattoo Removal" }
+    ]
   };
 
   const faqSchema = {
@@ -324,7 +335,7 @@ const TattooRemoval = () => {
         title="Tattoo Removal East London | Only Quanta Thunder Clinic | All Colors"
         description="East London's ONLY clinic with the Quanta Thunder Series. Remove ALL ink colors including stubborn blues & greens in 50% fewer sessions. Safe for dark skin. Free consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk/tattoo-removal-east-london"
-        structuredData={[serviceSchema, faqSchema]}
+        structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
       
       <Header />

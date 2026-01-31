@@ -38,13 +38,24 @@ const Hydrafacials = () => {
       "telephone": "+442085981200"
     },
     "description": "Professional Hydrafacial treatments in East London. Deep cleansing, exfoliation, and hydration in one session. Instant glow with zero downtime.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
     "offers": {
-      "@type": "Offer",
-      "price": "120",
+      "@type": "AggregateOffer",
+      "lowPrice": "80",
+      "highPrice": "900",
       "priceCurrency": "GBP",
-      "description": "Signature Hydrafacial treatment"
+      "offerCount": "5"
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://laserlightskinclinic.co.uk" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://laserlightskinclinic.co.uk/prices" },
+      { "@type": "ListItem", "position": 3, "name": "Hydrafacials" }
+    ]
   };
 
   const faqSchema = {
@@ -320,7 +331,7 @@ const Hydrafacials = () => {
         title="Hydrafacial East London | Instant Glow | No Downtime | Book Now"
         description="Experience the ultimate Hydrafacial in East London at Laser Light Skin Clinic. Deep cleansing, extraction, and hydration in one session. Walk out glowing. Book today."
         canonicalUrl="https://laserlightskinclinic.co.uk/hydrafacial-east-london"
-        structuredData={[serviceSchema, faqSchema]}
+        structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
       
       <Header />

@@ -37,13 +37,24 @@ const ChemicalPeels = () => {
       "telephone": "+442085981200"
     },
     "description": "Medical-grade chemical peels in Dagenham for acne, pigmentation, and skin rejuvenation. AlumierMD professional peel solutions.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
     "offers": {
-      "@type": "Offer",
-      "price": "80",
+      "@type": "AggregateOffer",
+      "lowPrice": "80",
+      "highPrice": "810",
       "priceCurrency": "GBP",
-      "description": "Light Chemical Peel from £80"
+      "offerCount": "6"
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://laserlightskinclinic.co.uk" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://laserlightskinclinic.co.uk/prices" },
+      { "@type": "ListItem", "position": 3, "name": "Chemical Peels" }
+    ]
   };
 
   const faqSchema = {
@@ -259,7 +270,7 @@ const ChemicalPeels = () => {
         title="Chemical Peels Dagenham | Acne & Pigmentation | AlumierMD | Book Now"
         description="Medical-grade chemical peels in Dagenham for acne, pigmentation, and skin rejuvenation. AlumierMD professional solutions. Clearer, brighter skin. Book your consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk/chemical-peels-dagenham"
-        structuredData={[serviceSchema, faqSchema]}
+        structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
       
       <Header />
