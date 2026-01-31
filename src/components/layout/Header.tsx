@@ -155,12 +155,12 @@ export const Header = () => {
         className="sticky top-0 z-50"
         initial={false}
         animate={{ 
-          backgroundColor: isCompact 
+          backgroundColor: isCompact || mobileMenuOpen
             ? "rgba(255, 255, 255, 0.95)"
             : isHomepage
               ? "rgba(0, 0, 0, 0)"
               : "rgba(255, 255, 255, 0)",
-          backdropFilter: isCompact ? "blur(12px)" : "none",
+          backdropFilter: isCompact || mobileMenuOpen ? "blur(12px)" : "none",
           boxShadow: isCompact 
             ? "0 4px 20px rgba(0,0,0,0.1)" 
             : "none" 
@@ -181,7 +181,7 @@ export const Header = () => {
               <motion.img 
                 src={logo} 
                 alt="Laser Light Skin Clinic" 
-                className={cn("w-auto transition-all duration-300", !isCompact && hasDarkHero && "brightness-0 invert")}
+                className={cn("w-auto transition-all duration-300", !isCompact && hasDarkHero && !mobileMenuOpen && "brightness-0 invert")}
                 animate={{ height: isCompact ? 40 : 56 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
               />
@@ -207,7 +207,7 @@ export const Header = () => {
                   </span>
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[580px] p-5 grid grid-cols-2 gap-x-8 gap-y-5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
+                <DropdownMenuContent className="w-[580px] p-5 grid grid-cols-2 gap-x-8 gap-y-5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200 bg-white/95 backdrop-blur-xl border border-border/50 shadow-2xl">
                   {serviceCategories.map((category, categoryIndex) => (
                     <motion.div 
                       key={category.name} 
@@ -348,7 +348,7 @@ export const Header = () => {
               {/* Mobile Wishlist Icon */}
               <button
                 onClick={() => setIsWishlistOpen(true)}
-                className={cn("relative p-3 transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", navTextColor, navHoverColor)}
+                className={cn("relative p-3 transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", mobileMenuOpen ? "text-foreground" : navTextColor, navHoverColor)}
                 aria-label="Open wishlist"
               >
                 <motion.div
@@ -372,7 +372,7 @@ export const Header = () => {
               {/* Mobile Cart Icon */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className={cn("relative p-3 transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", navTextColor, navHoverColor)}
+                className={cn("relative p-3 transition-colors touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", mobileMenuOpen ? "text-foreground" : navTextColor, navHoverColor)}
                 aria-label="Open cart"
                 data-cart-icon="true"
               >
@@ -395,7 +395,7 @@ export const Header = () => {
               </button>
               
               <button
-                className={cn("p-3 touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", navTextColor)}
+                className={cn("p-3 touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", mobileMenuOpen ? "text-foreground" : navTextColor)}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
                 aria-expanded={mobileMenuOpen}
