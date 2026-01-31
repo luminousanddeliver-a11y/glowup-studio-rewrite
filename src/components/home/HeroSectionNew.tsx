@@ -175,12 +175,12 @@ export const HeroSectionNew = () => {
                   <ItemWrapper
                     {...wrapperProps}
                     className={`
-                      flex items-center gap-2 px-3 py-2.5 rounded-xl backdrop-blur-sm
+                      flex items-center gap-2 px-3 py-3 md:py-2.5 rounded-xl backdrop-blur-sm min-h-[60px] md:min-h-0
                       transition-all duration-300 group
                       ${item.variant === 'primary' ? 'bg-primary/20 hover:bg-primary/30' : ''}
                       ${item.variant === 'gold' ? 'bg-gold/20 hover:bg-gold/30' : ''}
                       ${item.variant === 'accent' ? 'bg-accent/20 hover:bg-accent/30' : ''}
-                      ${item.variant === 'exclusive' ? 'bg-gold/15 hover:bg-gold/25 border border-gold/40' : ''}
+                      ${item.variant === 'exclusive' ? 'bg-gold/20 hover:bg-gold/30' : ''}
                       ${item.href ? 'cursor-pointer' : ''}
                     `}
                   >
