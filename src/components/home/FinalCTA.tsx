@@ -1,24 +1,51 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Phone, Mail, MapPin, ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
-import skincareProducts from "@/assets/skincare-products.jpg";
+import { toast } from "sonner";
+
+const services = [
+  "Laser Hair Removal",
+  "Tattoo Removal",
+  "HydraFacial",
+  "Chemical Peels",
+  "Skin Tag Removal",
+  "Other",
+];
 
 export const FinalCTA = () => {
-  return (
-    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img 
-          src={skincareProducts} 
-          alt="Luxury skincare products" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-primary/90" />
-      </div>
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-      <div className="container-custom relative z-10">
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!name || !phone || !service) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate form submission - in production, this would call an API
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast.success("Thanks! We'll be in touch shortly.");
+    setName("");
+    setPhone("");
+    setService("");
+    setIsSubmitting(false);
+  };
+
+  return (
+    <section id="contact" className="py-12 md:py-16 bg-background">
+      <div className="container-custom">
         <motion.div 
-          className="text-center max-w-3xl mx-auto"
+          className="max-w-2xl mx-auto text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -26,55 +53,102 @@ export const FinalCTA = () => {
         >
           {/* Headline */}
           <motion.h2 
-            className="text-primary-foreground mb-4"
+            className="text-foreground mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Ready to Start Your Journey to Clearer, Smoother Skin?
+            Ready to <span className="text-primary">Glow Up?</span>
           </motion.h2>
 
-          {/* Description */}
-          <motion.p 
-            className="font-body text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
+          {/* Contact Info */}
+          <motion.div 
+            className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-8 text-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Our team of local, NHS-approved experts is here to guide you. Book a free, no-obligation consultation to discuss your goals.
-          </motion.p>
+            <a 
+              href="tel:02085981200"
+              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              <span>0208 598 1200</span>
+            </a>
+            <a 
+              href="mailto:info@laserlightskinclinic.co.uk"
+              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              <span>info@laserlightskinclinic.co.uk</span>
+            </a>
+            <div className="flex items-center justify-center gap-2 text-muted-foreground">
+              <MapPin className="h-4 w-4" />
+              <span>125 Becontree Avenue, Dagenham RM8 2UJ</span>
+            </div>
+          </motion.div>
 
-          {/* CTAs */}
+          {/* Quick Enquiry Form */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="bg-secondary rounded-2xl p-6 md:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-card text-primary hover:bg-card/90 font-body h-14 px-8 text-lg"
-            >
-              <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
-                Book an Appointment
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground font-body h-14 px-8 text-lg"
-            >
-              <a href="tel:02085981200">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Us: 0208 598 1200
-              </a>
-            </Button>
+            <h3 className="font-heading text-lg font-medium text-foreground mb-6">
+              Quick Enquiry
+            </h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="bg-card border-border h-12"
+                required
+              />
+              <Input
+                type="tel"
+                placeholder="Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="bg-card border-border h-12"
+                required
+              />
+              <Select value={service} onValueChange={setService} required>
+                <SelectTrigger className="bg-card border-border h-12">
+                  <SelectValue placeholder="Service of Interest" />
+                </SelectTrigger>
+                <SelectContent>
+                  {services.map((s) => (
+                    <SelectItem key={s} value={s}>{s}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Button 
+                type="submit"
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-body min-h-[48px] text-base"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Book Your Appointment Now
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </>
+                )}
+              </Button>
+            </form>
           </motion.div>
         </motion.div>
       </div>
