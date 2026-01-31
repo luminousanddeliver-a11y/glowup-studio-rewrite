@@ -49,7 +49,24 @@ const SkinTagMoleRemoval = () => {
       "telephone": "+442085981200"
     },
     "description": "Professional skin tag and mole removal in Dagenham using advanced electrolysis and cryotherapy. Safe, effective removal of skin lesions.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"]
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "30",
+      "highPrice": "200",
+      "priceCurrency": "GBP",
+      "offerCount": "8"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://laserlightskinclinic.co.uk" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://laserlightskinclinic.co.uk/prices" },
+      { "@type": "ListItem", "position": 3, "name": "Skin Tag & Mole Removal" }
+    ]
   };
 
   const quickStats = [
@@ -261,7 +278,7 @@ const SkinTagMoleRemoval = () => {
         title="Skin Tag & Mole Removal Dagenham | Quick Treatment | Book Now"
         description="Professional skin tag and mole removal in Dagenham. Quick, safe removal using advanced electrolysis. Skin tags from £50, moles from £100. Book consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/skin-tag-mole-removal-dagenham"
-        structuredData={structuredData}
+        structuredData={[structuredData, breadcrumbSchema]}
       />
       
       <Header />

@@ -38,12 +38,25 @@ const LaserHairRemoval = () => {
       },
       "telephone": "+442085981200"
     },
-    "description": "Pain-free laser hair removal in Dagenham using the Lynton Motus AY. Safe for all skin types including dark skin. NHS-approved clinic. 25% off for new clients.",
-    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London"],
+    "description": "Pain-free laser hair removal in Dagenham using the Lynton Motus AY. Safe for all skin types including dark skin. NHS-approved clinic serving London & East London.",
+    "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
     "offers": {
-      "@type": "Offer",
-      "description": "25% off first treatment course for new clients"
+      "@type": "AggregateOffer",
+      "lowPrice": "80",
+      "highPrice": "2400",
+      "priceCurrency": "GBP",
+      "offerCount": "15"
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://laserlightskinclinic.co.uk" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://laserlightskinclinic.co.uk/prices" },
+      { "@type": "ListItem", "position": 3, "name": "Laser Hair Removal" }
+    ]
   };
 
   // FAQ Schema for rich snippets
@@ -331,7 +344,7 @@ const LaserHairRemoval = () => {
         title="Pain-Free Laser Hair Removal Dagenham | NHS Approved | Book Free Consult"
         description="Get permanent hair reduction in 6-8 sessions with pain-free Lynton Motus AY laser. Safe for all skin types. NHS-approved clinic in Dagenham. 25% off for new clients!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
-        structuredData={[structuredData, faqSchema]}
+        structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />
       
       <Header />
