@@ -67,11 +67,11 @@ export const PremierSection = () => {
             <Button
               asChild
               size="lg"
-              className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-6 text-base"
+              className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-4 md:px-6 text-sm md:text-base whitespace-normal text-center"
             >
               <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
                 Book Your Free, No-Obligation Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
               </a>
             </Button>
           </motion.div>

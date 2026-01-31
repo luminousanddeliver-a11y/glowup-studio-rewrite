@@ -113,9 +113,13 @@ export const Header = () => {
   const { cartCount, setIsCartOpen, cartBounce } = useCart();
   const { wishlistCount, setIsWishlistOpen, wishlistBounce } = useWishlist();
   const location = useLocation();
+  
+  // Check if we're on the homepage
+  const isHomepage = location.pathname === '/';
 
   // Check if current route has a dark hero background (NOT service pages - they have light gradients)
-  const hasDarkHero = darkHeroRoutes.some(route => location.pathname.startsWith(route)) && 
+  // Include homepage in dark hero check for white text
+  const hasDarkHero = (isHomepage || darkHeroRoutes.some(route => location.pathname.startsWith(route))) && 
     !isServicePage(location.pathname);
 
   // Determine text color based on scroll state and background
@@ -153,11 +157,13 @@ export const Header = () => {
         animate={{ 
           backgroundColor: isCompact 
             ? "rgba(255, 255, 255, 0.95)"
-            : "rgba(255, 255, 255, 0)",
-          backdropFilter: isCompact ? "blur(12px)" : "blur(0px)",
+            : isHomepage
+              ? "rgba(0, 0, 0, 0)"
+              : "rgba(255, 255, 255, 0)",
+          backdropFilter: isCompact ? "blur(12px)" : "none",
           boxShadow: isCompact 
             ? "0 4px 20px rgba(0,0,0,0.1)" 
-            : "0 0 0 rgba(0,0,0,0)" 
+            : "none" 
         }}
         transition={{ 
           duration: 0.4, 
