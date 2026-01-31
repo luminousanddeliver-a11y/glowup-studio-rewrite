@@ -268,7 +268,7 @@ export const BookingFormWizard = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-foreground opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-accent-foreground"></span>
               </span>
-              <span className="font-body font-bold text-lg">25% Off for New Clients!</span>
+              <span className="font-body font-bold text-lg">Free Consultation & Patch Test</span>
             </motion.div>
           </motion.div>
 

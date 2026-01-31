@@ -46,7 +46,7 @@ const LaserHairRemovalEastLondon = () => {
       "@type": "Offer",
       "price": "80",
       "priceCurrency": "GBP",
-      "description": "25% off first treatment course for new clients"
+      "description": "Free consultation and patch test included"
     }
   };
 
@@ -75,7 +75,7 @@ const LaserHairRemovalEastLondon = () => {
         "name": "How much does laser hair removal cost in East London?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prices start from £80 per session. We offer 25% off for new clients and interest-free payment plans. A full course of 6-8 sessions provides permanent reduction."
+          "text": "Prices start from £80 per session. We offer free consultations and interest-free payment plans. A full course of 6-8 sessions provides permanent reduction."
         }
       }
     ]
@@ -194,7 +194,7 @@ const LaserHairRemovalEastLondon = () => {
     },
     {
       question: "How does your pricing compare to other East London clinics?",
-      answer: "We offer competitive, transparent pricing starting from £80 per session. Unlike some clinics, we use genuine medical-grade laser (not IPL), meaning you need fewer sessions for permanent results. New clients get 25% off."
+      answer: "We offer competitive, transparent pricing starting from £80 per session. Unlike some clinics, we use genuine medical-grade laser (not IPL), meaning you need fewer sessions for permanent results. Free consultation included."
     },
     {
       question: "Do you offer payment plans?",
@@ -243,7 +243,7 @@ const LaserHairRemovalEastLondon = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Laser Hair Removal East London | Pain-Free | From £80 | Book Free Consult"
-        description="East London's top-rated laser hair removal clinic. Pain-free Lynton Motus AY laser, safe for all skin types. Serving Barking, Romford, Ilford. 25% off new clients!"
+        description="East London's top-rated laser hair removal clinic. Pain-free Lynton Motus AY laser, safe for all skin types. Serving Barking, Romford, Ilford. Free consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-east-london"
         keywords="laser hair removal east london, laser hair removal barking, laser hair removal romford, laser hair removal ilford, pain free laser east london"
         structuredData={[structuredData, faqSchema]}
@@ -258,7 +258,7 @@ const LaserHairRemovalEastLondon = () => {
           titleAccent="East London"
           subtitle="East London's Leading Pain-Free Laser Clinic"
           description="Serving Barking, Romford, Ilford & all East London. Safe for all skin types. Book your free consultation today."
-          badge="25% Off First Course"
+          badge="Free Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
@@ -307,8 +307,8 @@ const LaserHairRemovalEastLondon = () => {
           subtitle="No hidden fees. From £80 per session."
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "25% OFF FOR NEW CLIENTS",
-            text: "Book Your Free Consultation"
+            highlight: "FREE CONSULTATION & PATCH TEST",
+            text: "Book Your Appointment Today"
           }}
           paymentOptions="Interest-free payment plans available. Spread the cost over 6-12 months."
         />

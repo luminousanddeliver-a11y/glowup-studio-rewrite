@@ -9,7 +9,7 @@ import { TechnologyShowcase } from "@/components/home/TechnologyShowcase";
 import { ExclusiveTechnologyBanner } from "@/components/home/ExclusiveTechnologyBanner";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { OfferBanner } from "@/components/home/OfferBanner";
+
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
@@ -161,7 +161,7 @@ const Index = () => {
         "name": "How much does a treatment cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. New clients also receive 25% off their first treatment course."
+          "text": "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. Flexible payment options and interest-free plans available."
         }
       },
       {
@@ -222,9 +222,6 @@ const Index = () => {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <ServicesGrid />
-        </ScrollReveal>
-        <ScrollReveal>
-          <OfferBanner />
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <FAQSection />

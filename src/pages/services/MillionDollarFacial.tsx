@@ -310,7 +310,7 @@ const MillionDollarFacial = () => {
             title="Million Dollar Facial Pricing"
             subtitle="Investment in luxury skin transformation"
             prices={prices}
-            disclaimer="Course packages recommended for maximum anti-aging benefits. New clients receive 25% off first treatment."
+            disclaimer="Course packages recommended for maximum anti-aging benefits. Free consultation included. Interest-free payment options available."
           />
         </div>
         
