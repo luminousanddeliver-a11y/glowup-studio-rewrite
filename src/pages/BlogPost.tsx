@@ -194,7 +194,7 @@ const BlogPost = () => {
       <Header />
       <main className="flex-1">
         {/* Premium Hero Section - Seamless blend with navbar, NO gap */}
-        <section className="relative -mt-[80px] pt-[80px]">
+        <section className="relative -mt-[80px]">
           {/* Hero Image with Premium Overlays */}
           {post.featured_image && (
             <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">

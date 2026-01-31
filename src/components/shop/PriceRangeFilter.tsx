@@ -84,29 +84,19 @@ export const PriceRangeFilter = ({
                 min={minPrice}
                 max={maxPrice}
                 step={1}
-                onValueChange={(value) => setLocalRange(value)}
+                onValueChange={(value) => setLocalRange([Math.min(value[0], value[1]), Math.max(value[0], value[1])])}
                 className="cursor-pointer"
               />
             </div>
             
             <div className="flex items-center justify-between text-sm">
-              <motion.div
-                key={localRange[0]}
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                className="bg-muted px-3 py-1.5 rounded-md font-body font-medium"
-              >
-                £{localRange[0]}
-              </motion.div>
+              <div className="bg-muted px-3 py-1.5 rounded-md font-body font-medium min-w-[60px] text-center">
+                £{Math.min(localRange[0], localRange[1])}
+              </div>
               <span className="text-muted-foreground">to</span>
-              <motion.div
-                key={localRange[1]}
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                className="bg-muted px-3 py-1.5 rounded-md font-body font-medium"
-              >
-                £{localRange[1]}
-              </motion.div>
+              <div className="bg-muted px-3 py-1.5 rounded-md font-body font-medium min-w-[60px] text-center">
+                £{Math.max(localRange[0], localRange[1])}
+              </div>
             </div>
           </div>
           
