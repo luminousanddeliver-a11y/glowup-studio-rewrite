@@ -1,19 +1,14 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { HeroSection } from "@/components/home/HeroSection";
-import { TrustBar } from "@/components/home/TrustBar";
-import { FeaturedServices } from "@/components/home/FeaturedServices";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { TechnologyShowcase } from "@/components/home/TechnologyShowcase";
-import { ExclusiveTechnologyBanner } from "@/components/home/ExclusiveTechnologyBanner";
-import { Testimonials } from "@/components/home/Testimonials";
-import { ServicesGrid } from "@/components/home/ServicesGrid";
-
+import { HeroSectionNew } from "@/components/home/HeroSectionNew";
+import { TreatmentFinder } from "@/components/home/TreatmentFinder";
+import { PainPointSection } from "@/components/home/PainPointSection";
+import { TrustSection } from "@/components/home/TrustSection";
+import { LaserSpotlight } from "@/components/home/LaserSpotlight";
+import { PremierSection } from "@/components/home/PremierSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
-
-import { BookingFormWizard } from "@/components/home/BookingFormWizard";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
@@ -32,28 +27,15 @@ const Index = () => {
     "priceRange": "££",
     "medicalSpecialty": ["Dermatology", "Cosmetic Medicine"],
     "description": "NHS-approved laser and skin clinic in Dagenham, East London. Specializing in pain-free laser hair removal, tattoo removal, Hydrafacials, and advanced skin treatments. Safe for all skin types.",
-    "slogan": "Pain-Free Laser Hair Removal in Dagenham",
+    "slogan": "Your Journey to Flawless Skin Starts Here",
     "areaServed": [
-      {
-        "@type": "City",
-        "name": "Dagenham"
-      },
-      {
-        "@type": "City",
-        "name": "East London"
-      },
-      {
-        "@type": "City",
-        "name": "Barking"
-      },
-      {
-        "@type": "City",
-        "name": "Romford"
-      },
-      {
-        "@type": "City",
-        "name": "Ilford"
-      }
+      { "@type": "City", "name": "Dagenham" },
+      { "@type": "City", "name": "East London" },
+      { "@type": "City", "name": "Barking" },
+      { "@type": "City", "name": "Romford" },
+      { "@type": "City", "name": "Ilford" },
+      { "@type": "City", "name": "Redbridge" },
+      { "@type": "City", "name": "Havering" }
     ],
     "availableService": [
       {
@@ -76,9 +58,15 @@ const Index = () => {
       },
       {
         "@type": "MedicalProcedure",
-        "name": "SkinPen Microneedling",
+        "name": "Chemical Peels",
         "procedureType": "https://schema.org/CosmeticProcedure",
-        "description": "FDA-cleared SkinPen Precision for acne scars and collagen boosting."
+        "description": "Professional chemical peels for skin rejuvenation and texture improvement."
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Skin Tag Removal",
+        "procedureType": "https://schema.org/CosmeticProcedure",
+        "description": "Safe, professional removal of skin tags and moles."
       }
     ],
     "address": {
@@ -120,10 +108,7 @@ const Index = () => {
       "itemListElement": [
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Laser Hair Removal"
-          },
+          "itemOffered": { "@type": "Service", "name": "Laser Hair Removal" },
           "priceSpecification": {
             "@type": "PriceSpecification",
             "priceCurrency": "GBP",
@@ -185,7 +170,7 @@ const Index = () => {
         "name": "Where is Laser Light Skin Clinic located?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We are located at 125 Becontree Avenue, Dagenham RM8 2UJ, East London. We serve clients from Dagenham, Barking, Romford, Ilford, and the wider East London area."
+          "text": "We are located at 125 Becontree Avenue, Dagenham RM8 2UJ, East London. We serve clients from Dagenham, Barking, Romford, Ilford, Redbridge, Havering, and the wider East London area."
         }
       }
     ]
@@ -195,40 +180,46 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="NHS-Approved Laser & Skin Clinic in Dagenham | Laser Light"
-        description="East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, advanced tattoo removal, Hydrafacials & more. NHS-approved. Book now!"
+        description="East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, tattoo removal, Hydrafacials & more. NHS-approved. Book now!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
-        keywords="laser hair removal dagenham, quanta thunder east london, tattoo removal east london, skin clinic dagenham, hydrafacial, NHS approved clinic"
+        keywords="laser hair removal dagenham, tattoo removal east london, hydrafacial dagenham, skin clinic dagenham, NHS approved clinic, chemical peels, skin tag removal"
         structuredData={[medicalClinicSchema, faqPageSchema]}
       />
       
       <Header />
       <main className="flex-1">
-        <HeroSection />
-        <TrustBar />
-        <ScrollReveal delay={0.1}>
-          <FeaturedServices />
-        </ScrollReveal>
+        {/* Section 1: The Hook */}
+        <HeroSectionNew />
+        
+        {/* Section 2: Treatment Finder */}
+        <TreatmentFinder />
+        
+        {/* Section 3: Pain Point (HydraFacial) */}
         <ScrollReveal>
-          <WhyChooseUs />
+          <PainPointSection />
         </ScrollReveal>
+        
+        {/* Section 4: Build Confidence & Trust */}
         <ScrollReveal delay={0.1}>
-          <TechnologyShowcase />
+          <TrustSection />
         </ScrollReveal>
+        
+        {/* Section 5: Spotlight on #1 Service */}
         <ScrollReveal>
-          <ExclusiveTechnologyBanner />
+          <LaserSpotlight />
         </ScrollReveal>
+        
+        {/* Section 6: Target High-Value Demographic */}
         <ScrollReveal delay={0.1}>
-          <Testimonials />
+          <PremierSection />
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <ServicesGrid />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        
+        {/* FAQ Section */}
+        <ScrollReveal>
           <FAQSection />
         </ScrollReveal>
-        <ScrollReveal>
-          <BookingFormWizard />
-        </ScrollReveal>
+        
+        {/* Section 7: Final CTA / Contact */}
         <ScrollReveal delay={0.1}>
           <FinalCTA />
         </ScrollReveal>
