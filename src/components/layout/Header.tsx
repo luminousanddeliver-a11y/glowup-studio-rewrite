@@ -431,13 +431,12 @@ export const Header = () => {
             </div>
           </motion.div>
 
-          {/* Mobile Navigation - Premium Glassmorphism */}
+          {/* Mobile Navigation - Clean edge-to-edge appearance */}
+          {/* REMOVED: border-t border-white/30 for cleaner look */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-white/30 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain
-              bg-white/20 backdrop-blur-xl
-              shadow-[0_8px_32px_rgba(0,0,0,0.15),0_4px_16px_rgba(28,158,152,0.12),inset_0_1px_1px_rgba(255,255,255,0.7)]
-              relative
-              before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none">
+            <div className="lg:hidden py-4 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain
+              bg-white/95 backdrop-blur-xl
+              shadow-lg">
               <nav className="flex flex-col gap-1">
                 {/* Mobile Services Accordion - First */}
                 <div className="py-2 px-2">
@@ -464,18 +463,23 @@ export const Header = () => {
                         className="overflow-hidden"
                       >
                         <div className="mt-2 space-y-1 pb-2">
-                          {serviceCategories.map((category) => (
-                            <div key={category.name}>
+                          {serviceCategories.map((category, categoryIndex) => (
+                            <motion.div 
+                              key={category.name}
+                              initial={{ opacity: 0, x: -15 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.05 * categoryIndex, duration: 0.2, ease: "easeOut" }}
+                            >
                               {/* Category Header - Clickable */}
                               <button
                                 onClick={() => setExpandedCategory(
                                   expandedCategory === category.name ? null : category.name
                                 )}
                                 className={cn(
-                                  "flex items-center justify-between w-full font-body font-semibold text-sm py-3 px-4 rounded-xl min-h-[44px] touch-manipulation transition-all duration-200",
+                                  "flex items-center justify-between w-full font-body font-semibold text-sm py-3 px-4 min-h-[44px] touch-manipulation transition-all duration-200",
                                   expandedCategory === category.name
-                                    ? "text-accent bg-white/70 backdrop-blur-md shadow-sm ring-1 ring-white/30"
-                                    : "text-accent hover:bg-white/50 hover:backdrop-blur-md active:scale-[0.98]"
+                                    ? "text-accent bg-accent/5"
+                                    : "text-accent hover:bg-gray-50 active:scale-[0.98]"
                                 )}
                               >
                                 <span className="flex items-center gap-2">
@@ -497,35 +501,40 @@ export const Header = () => {
                                     transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
                                     className="overflow-hidden"
                                   >
-                                    <div className="flex flex-col gap-1 pl-6 ml-2 border-l-2 border-accent/30">
-                                      {category.services.map((service) => (
-                                        'external' in service && service.external ? (
-                                          <a
-                                            key={service.href}
-                                            href={service.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 rounded-xl min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-white/50 hover:backdrop-blur-sm hover:shadow-sm active:scale-[0.98]"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                          >
-                                            {service.name}
-                                          </a>
-                                        ) : (
-                                          <a
-                                            key={service.href}
-                                            href={service.href}
-                                            className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 rounded-xl min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-white/50 hover:backdrop-blur-sm hover:shadow-sm active:scale-[0.98]"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                          >
-                                            {service.name}
-                                          </a>
-                                        )
+                                    <div className="flex flex-col gap-0.5 pl-6 ml-2 border-l-2 border-accent/20">
+                                      {category.services.map((service, serviceIndex) => (
+                                        <motion.div
+                                          key={service.href}
+                                          initial={{ opacity: 0, x: -10 }}
+                                          animate={{ opacity: 1, x: 0 }}
+                                          transition={{ delay: 0.03 * serviceIndex, duration: 0.15 }}
+                                        >
+                                          {'external' in service && service.external ? (
+                                            <a
+                                              href={service.href}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-gray-50 active:scale-[0.98]"
+                                              onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                              {service.name}
+                                            </a>
+                                          ) : (
+                                            <a
+                                              href={service.href}
+                                              className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-gray-50 active:scale-[0.98]"
+                                              onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                              {service.name}
+                                            </a>
+                                          )}
+                                        </motion.div>
                                       ))}
                                     </div>
                                   </motion.div>
                                 )}
                               </AnimatePresence>
-                            </div>
+                            </motion.div>
                           ))}
                         </div>
                       </motion.div>
