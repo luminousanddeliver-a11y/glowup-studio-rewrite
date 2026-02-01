@@ -84,10 +84,15 @@ export const FinalCTA = () => {
               <Mail className="h-4 w-4" />
               <span>info@laserlightskinclinic.co.uk</span>
             </a>
-            <div className="flex items-center justify-center gap-2 text-muted-foreground">
+            <a 
+              href="https://maps.google.com/?q=125+Becontree+Avenue,+Dagenham+RM8+2UJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
               <MapPin className="h-4 w-4" />
               <span>125 Becontree Avenue, Dagenham RM8 2UJ</span>
-            </div>
+            </a>
           </motion.div>
 
           {/* Quick Enquiry Form */}

@@ -97,10 +97,15 @@ export const Footer = () => {
                 <div className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                <span className="font-body text-background/80 text-sm">
+                <a 
+                  href="https://maps.google.com/?q=125+Becontree+Avenue,+Dagenham+RM8+2UJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-background/80 text-sm hover:text-primary transition-colors"
+                >
                   125 Becontree Ave,<br />
                   Dagenham RM8 2UJ
-                </span>
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center flex-shrink-0">

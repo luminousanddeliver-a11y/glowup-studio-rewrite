@@ -467,18 +467,17 @@ const Prices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden group relative"
+                  className="bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden group flex flex-col"
                 >
-                  {pkg.badge && (
-                    <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-xs font-bold px-2.5 py-1 rounded-full z-10">
-                      {pkg.badge}
-                    </div>
-                  )}
-                  
                   {/* Header */}
-                  <div className="bg-primary p-5 text-primary-foreground">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 bg-primary-foreground/20 rounded-lg">
+                  <div className="bg-primary p-5 text-primary-foreground relative">
+                    {pkg.badge && (
+                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-xs font-bold px-2.5 py-1 rounded-full z-10">
+                        {pkg.badge}
+                      </div>
+                    )}
+                    <div className="flex items-center gap-3 mb-2 pr-20">
+                      <div className="p-2 bg-primary-foreground/20 rounded-lg flex-shrink-0">
                         <pkg.icon className="h-5 w-5" />
                       </div>
                       <h3 className="font-heading font-bold text-lg leading-tight">{pkg.name}</h3>
@@ -487,7 +486,7 @@ const Prices = () => {
                   </div>
                   
                   {/* Content */}
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     {/* Pricing */}
                     <div className="flex items-baseline gap-2 mb-4">
                       <span className="text-2xl font-heading font-bold text-foreground">{pkg.packagePrice}</span>
@@ -496,7 +495,7 @@ const Prices = () => {
                     </div>
                     
                     {/* Includes */}
-                    <div className="space-y-2 mb-5">
+                    <div className="space-y-2 mb-5 flex-1">
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Package includes:</p>
                       <ul className="space-y-1.5">
                         {pkg.includes.map((item, i) => (
@@ -508,10 +507,10 @@ const Prices = () => {
                       </ul>
                     </div>
                     
-                    {/* CTA */}
+                    {/* CTA - Always at bottom */}
                     <Button 
                       asChild 
-                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold mt-auto"
                     >
                       <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
                         Book Package
