@@ -125,7 +125,7 @@ export const FinalCTA = () => {
                 required
               />
               <Select value={service} onValueChange={setService} required>
-                <SelectTrigger className="bg-card border-border h-12">
+                <SelectTrigger className="bg-card border-border h-12" aria-label="Select a service of interest">
                   <SelectValue placeholder="Service of Interest" />
                 </SelectTrigger>
                 <SelectContent>

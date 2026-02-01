@@ -185,8 +185,8 @@ export const Header = () => {
                 alt="Laser Light Skin Clinic"
                 width={88}
                 height={56}
-                className={cn("w-auto transition-all duration-300", !isCompact && hasDarkHero && !mobileMenuOpen && "brightness-0 invert")}
-                animate={{ height: isCompact ? 40 : 56 }}
+                className={cn("w-auto h-14 origin-left", !isCompact && hasDarkHero && !mobileMenuOpen && "brightness-0 invert")}
+                animate={{ scale: isCompact ? 0.714 : 1 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
               />
             </a>
