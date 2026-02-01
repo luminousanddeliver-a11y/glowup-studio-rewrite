@@ -1,72 +1,123 @@
 
-# ✅ COMPLETED: FAQ Schemas, Remove 25% Offers, Update Reviews & Mobile Performance
-
-**Status**: All tasks completed successfully
+# Plan: FAQ Schemas, Social Links, Academy & Mobile Fix
 
 ---
 
-## Summary of Changes Made
+## 1. FAQ Schemas Status
 
-### 1. ✅ Added FAQ Schema to SkinTagMoleRemoval.tsx
-- Added FAQPage structured data with 4 key questions
-- Updated SEOHead to include faqSchema in structuredData array
+All 4 service pages **already have FAQ schemas implemented**:
+- LaserHairRemoval.tsx - Lines 62-92 (3 FAQs)
+- TattooRemoval.tsx - Lines 62-100+ (5 FAQs)
+- Hydrafacials.tsx - Lines 61-100+ (5 FAQs)
+- ChemicalPeels.tsx - Lines 60-97 (4 FAQs)
 
-### 2. ✅ Removed All 25% Off References
-| File | Change |
-|------|--------|
-| `FAQSection.tsx` | Replaced with "flexible payment plans including 0% finance options" |
-| `LaserHairRemoval.tsx` | Changed badge to "Free Consultation", offerBanner to "FREE CONSULTATION & PATCH TEST" |
-| `SkinRejuvenation.tsx` | Replaced with "Free consultation available" |
-| `Facials.tsx` | Changed to "FREE CONSULTATION AVAILABLE" |
-| `Prices.tsx` | Removed 25% mention from meta description |
-
-### 3. ✅ Updated Review Count from 250+ to 290+
-Updated across 10 files:
-- `src/lib/constants.ts`
-- `src/components/home/TrustBar.tsx`
-- `src/pages/About.tsx` (3 places)
-- `src/components/home/HeroSectionNew.tsx` (2 places)
-- `src/components/home/HeroSection.tsx` (3 places)
-- `src/components/services/ServiceTestimonial.tsx`
-- `src/components/home/TrustSection.tsx`
-- `src/components/home/Testimonials.tsx` (2 places)
-- `src/pages/Contact.tsx` (2 places)
-
-### 4. ✅ Mobile Performance Optimization
-- Created `src/components/ui/ServicePageSkeleton.tsx` with shimmer loading skeleton
-- Updated `src/components/layout/AnimatedRoutes.tsx` with React.lazy() for all service pages
-- Core pages (Index, About, Contact, Prices, FAQ) load immediately
-- Service and shop pages lazy-load with skeleton fallback
+No changes needed for FAQ schemas.
 
 ---
 
-## Files Modified
+## 2. Update Social Media Links
 
-| File | Type of Change |
-|------|----------------|
-| `src/pages/services/SkinTagMoleRemoval.tsx` | Added FAQ schema |
-| `src/components/home/FAQSection.tsx` | Removed 25% |
-| `src/pages/services/LaserHairRemoval.tsx` | Removed 25% (3 places) |
-| `src/pages/services/SkinRejuvenation.tsx` | Removed 25% |
-| `src/pages/services/Facials.tsx` | Removed 25% |
-| `src/pages/Prices.tsx` | Removed 25% |
-| `src/lib/constants.ts` | 250+ → 290+ |
-| `src/components/home/TrustBar.tsx` | 250+ → 290+ |
-| `src/pages/About.tsx` | 250+ → 290+ |
-| `src/components/home/HeroSectionNew.tsx` | 250+ → 290+ |
-| `src/components/home/HeroSection.tsx` | 250+ → 290+ |
-| `src/components/services/ServiceTestimonial.tsx` | 250+ → 290+ |
-| `src/components/home/TrustSection.tsx` | 250+ → 290+ |
-| `src/components/home/Testimonials.tsx` | 250+ → 290+ |
-| `src/pages/Contact.tsx` | 250+ → 290+ |
-| `src/components/ui/ServicePageSkeleton.tsx` | **NEW** |
-| `src/components/layout/AnimatedRoutes.tsx` | Lazy loading |
+### Footer.tsx - Lines 140 & 151
+**Current:**
+```
+href="https://facebook.com"
+href="https://instagram.com"
+```
+**Update to:**
+```
+href="https://www.facebook.com/laserlightskinclinic"
+href="https://www.instagram.com/laserlightskinclinic"
+```
+
+### ResultsShowcase.tsx - Line 107
+**Current:**
+```
+instagramLink = "https://instagram.com/laserlightskinclinic"
+```
+**Update to:**
+```
+instagramLink = "https://www.instagram.com/laserlightskinclinic"
+```
+
+### Contact.tsx - Lines 92-95
+**Current (missing Facebook):**
+```javascript
+"sameAs": [
+  "https://www.google.com/...",
+  "https://www.instagram.com/laserlightskinclinic"
+]
+```
+**Update to:**
+```javascript
+"sameAs": [
+  "https://www.google.com/...",
+  "https://www.facebook.com/laserlightskinclinic",
+  "https://www.instagram.com/laserlightskinclinic"
+]
+```
+
+---
+
+## 3. Academy Link to External Site
+
+### Footer.tsx - Line 13
+**Current:**
+```javascript
+{ name: "Academy", href: "/academy" }
+```
+**Update to external link logic** - The quickLinks array is rendered with internal navigation. Need to handle external link separately or modify the link rendering.
+
+### Header.tsx - Line 83
+**Current:**
+```javascript
+{ name: "Academy", href: "/academy" }
+```
+**Update to:**
+```javascript
+{ name: "Academy", href: "https://labttraining.com/", external: true }
+```
+
+Both files need logic to handle external links with `target="_blank"` and `rel="noopener noreferrer"`.
+
+---
+
+## 4. LaserSpotlight Mobile Image Fix
+
+### LaserSpotlight.tsx - Line 27
+**Current:**
+```jsx
+<motion.div
+  className="order-2 lg:order-1"
+  ...
+>
+```
+**Update to hide on mobile:**
+```jsx
+<motion.div
+  className="hidden lg:block order-2 lg:order-1"
+  ...
+>
+```
+
+This removes the image on mobile where it looks out of place, showing only the text content and CTA.
+
+---
+
+## Summary of Files to Edit
+
+| File | Changes |
+|------|---------|
+| `src/components/layout/Footer.tsx` | Update Facebook & Instagram URLs, make Academy external |
+| `src/components/layout/Header.tsx` | Make Academy link external |
+| `src/components/services/ResultsShowcase.tsx` | Fix Instagram URL format |
+| `src/pages/Contact.tsx` | Add Facebook to sameAs schema |
+| `src/components/home/LaserSpotlight.tsx` | Hide image on mobile |
 
 ---
 
 ## Expected Results
 
-✅ **FAQ Rich Snippets**: SkinTagMoleRemoval page now has FAQPage schema for Google Q&A display
-✅ **Policy Compliance**: All 25% discount references removed per business policy  
-✅ **Accurate Social Proof**: Review count reflects actual 290+ Google reviews
-✅ **Faster Mobile**: Service pages code-split with progressive skeleton loading
+1. **Social Links**: All Facebook/Instagram links point to official clinic profiles
+2. **Academy**: Opens labttraining.com in new tab from header & footer
+3. **Mobile UX**: Laser spotlight section shows clean text-only layout on mobile
+4. **SEO**: Contact page schema includes both social profiles
