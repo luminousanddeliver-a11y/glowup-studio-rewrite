@@ -440,13 +440,16 @@ export const Header = () => {
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     className={cn(
-                      "flex items-center justify-between w-full font-body font-bold min-h-[48px] py-3 px-4 rounded-2xl touch-manipulation transition-all duration-200",
+                      "flex items-center justify-between w-full font-body font-bold min-h-[48px] py-3 px-4 touch-manipulation transition-all duration-200",
                       mobileServicesOpen
-                        ? "text-accent bg-white/80 backdrop-blur-md shadow-[0_2px_8px_rgba(28,158,152,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] ring-1 ring-white/40"
-                        : "text-gray-900 hover:bg-white/60 hover:backdrop-blur-md hover:shadow-sm active:scale-[0.98]"
+                        ? "text-accent bg-accent/5"
+                        : "text-gray-900 hover:bg-gray-50 active:scale-[0.98]"
                     )}
                   >
-                    Services
+                    <span className="flex items-center gap-3">
+                      <Sparkles className="h-5 w-5 text-accent/70" />
+                      Services
+                    </span>
                     <ChevronDown className={`h-5 w-5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
@@ -539,7 +542,7 @@ export const Header = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Main nav links with icons - staggered entrance */}
+                {/* Main nav links with icons - staggered entrance, no arrows */}
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.href}
@@ -548,7 +551,7 @@ export const Header = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.05 * (index + 1), duration: 0.25, ease: "easeOut" }}
                     className={cn(
-                      "flex items-center gap-3 font-body font-medium py-4 px-4 min-h-[52px] touch-manipulation transition-all duration-200 group border-b border-gray-100/60",
+                      "flex items-center gap-3 font-body font-medium py-4 px-4 min-h-[52px] touch-manipulation transition-all duration-200 group",
                       isActiveLink(link.href)
                         ? "text-accent"
                         : "text-gray-800 hover:text-accent active:bg-gray-50/50"
@@ -559,8 +562,7 @@ export const Header = () => {
                       "h-5 w-5 shrink-0 transition-colors",
                       isActiveLink(link.href) ? "text-accent" : "text-accent/70 group-hover:text-accent"
                     )} />
-                    <span className="flex-1">{link.name}</span>
-                    <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-accent transition-colors" />
+                    <span>{link.name}</span>
                   </motion.a>
                 ))}
 
