@@ -1,0 +1,80 @@
+{
+  "name": "Laser Light Skin Clinic - NHS-Approved Laser & Skin Treatments",
+  "short_name": "Laser Light Clinic",
+  "description": "NHS-approved laser hair removal & skin clinic in East London. Pain-free treatments for all skin types.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#1c9e98",
+  "orientation": "portrait-primary",
+  "categories": ["health", "medical", "beauty"],
+  "lang": "en-GB",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://storage.googleapis.com/gpt-engineer-file-uploads/vzi9VoYX9vVShyOdOZDAL6jdw6n2/uploads/1769465234508-laser-light-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://storage.googleapis.com/gpt-engineer-file-uploads/vzi9VoYX9vVShyOdOZDAL6jdw6n2/uploads/1769465234508-laser-light-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://storage.googleapis.com/gpt-engineer-file-uploads/vzi9VoYX9vVShyOdOZDAL6jdw6n2/social-images/social-1769465237172-laser-light-logo.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Appointment",
+      "short_name": "Book",
+      "description": "Book your free consultation",
+      "url": "/?action=book",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "View Prices",
+      "short_name": "Prices",
+      "description": "View our treatment prices",
+      "url": "/prices",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch with our clinic",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

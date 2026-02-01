@@ -13,32 +13,39 @@ import { CompareModal } from "@/components/shop/CompareModal";
 import { FlyingCartAnimation } from "@/components/shop/FlyingCartAnimation";
 import { AnimatedRoutes } from "@/components/layout/AnimatedRoutes";
 import { CookieConsent } from "@/components/common/CookieConsent";
+import { ErrorBoundary } from "@/components/common/ErrorBoundary";
+import { SkipToContent } from "@/components/common/SkipToContent";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <CartProvider>
-        <WishlistProvider>
-          <CompareProvider>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <CartDrawer />
-              <WishlistDrawer />
-              <CompareModal />
-              <FlyingCartAnimation />
-              <BrowserRouter>
-                <AnimatedRoutes />
-                <CookieConsent />
-              </BrowserRouter>
-            </TooltipProvider>
-          </CompareProvider>
-        </WishlistProvider>
-      </CartProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+  <ErrorBoundary>
+    <HelmetProvider>
+      <GoogleAnalytics />
+      <QueryClientProvider client={queryClient}>
+        <CartProvider>
+          <WishlistProvider>
+            <CompareProvider>
+              <TooltipProvider>
+                <Toaster />
+                <Sonner />
+                <CartDrawer />
+                <WishlistDrawer />
+                <CompareModal />
+                <FlyingCartAnimation />
+                <BrowserRouter>
+                  <SkipToContent />
+                  <AnimatedRoutes />
+                  <CookieConsent />
+                </BrowserRouter>
+              </TooltipProvider>
+            </CompareProvider>
+          </WishlistProvider>
+        </CartProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  </ErrorBoundary>
 );
 
 export default App;

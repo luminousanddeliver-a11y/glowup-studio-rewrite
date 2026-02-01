@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { organizationSchema, websiteSchema } from "@/components/seo/StructuredData";
 import { HeroSectionNew } from "@/components/home/HeroSectionNew";
 import { TreatmentFinder } from "@/components/home/TreatmentFinder";
 import { PainPointSection } from "@/components/home/PainPointSection";
@@ -189,7 +190,7 @@ const Index = () => {
         description="East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, tattoo removal, Hydrafacials & more. NHS-approved. Book now!"
         canonicalUrl="https://laserlightskinclinic.co.uk"
         keywords="laser hair removal london, laser hair removal near me, tattoo removal london, hydrafacial london, skin clinic east london, laser clinic redbridge, laser clinic havering, skin tag removal essex, chemical peel newham, NHS approved skin clinic london, laser hair removal dagenham, tattoo removal east london"
-        structuredData={[medicalClinicSchema, faqPageSchema]}
+        structuredData={[organizationSchema, websiteSchema, medicalClinicSchema, faqPageSchema]}
       />
       
       <Header />

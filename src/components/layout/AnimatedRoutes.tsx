@@ -4,15 +4,17 @@ import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "./PageTransition";
 import { ServicePageSkeleton } from "@/components/ui/ServicePageSkeleton";
 
-// Core pages - loaded immediately
+// Core pages - Index loaded immediately, others lazy loaded for optimal performance
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
-import FAQ from "@/pages/FAQ";
-import About from "@/pages/About";
-import Contact from "@/pages/Contact";
-import Prices from "@/pages/Prices";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsAndConditions from "@/pages/TermsAndConditions";
+
+// Core pages - lazy loaded
+const FAQ = lazy(() => import("@/pages/FAQ"));
+const About = lazy(() => import("@/pages/About"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const Prices = lazy(() => import("@/pages/Prices"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
 
 // Shop pages - lazy loaded
 const Shop = lazy(() => import("@/pages/Shop"));
@@ -59,14 +61,14 @@ export const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {/* Core pages - no suspense needed */}
+        {/* Core pages - Index loads immediately, others lazy loaded */}
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/prices" element={<PageTransition><Prices /></PageTransition>} />
-        <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
-        <Route path="/terms" element={<PageTransition><TermsAndConditions /></PageTransition>} />
-        <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+        <Route path="/about" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><About /></PageTransition></Suspense>} />
+        <Route path="/contact" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Contact /></PageTransition></Suspense>} />
+        <Route path="/prices" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Prices /></PageTransition></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><PrivacyPolicy /></PageTransition></Suspense>} />
+        <Route path="/terms" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><TermsAndConditions /></PageTransition></Suspense>} />
+        <Route path="/faq" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><FAQ /></PageTransition></Suspense>} />
         
         {/* Shop pages - with suspense */}
         <Route path="/gift-vouchers" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><GiftVouchers /></PageTransition></Suspense>} />
