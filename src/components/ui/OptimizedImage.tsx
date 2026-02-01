@@ -137,7 +137,7 @@ export const OptimizedImage = ({
           height={height}
           loading={priority ? "eager" : "lazy"}
           decoding={priority ? "sync" : "async"}
-          fetchpriority={priority ? "high" : "auto"}
+          fetchPriority={priority ? "high" : "auto"}
           onLoad={handleLoad}
           onError={handleError}
           style={imageStyle}
@@ -202,7 +202,7 @@ export const BlurUpImage = ({
 };
 
 // Picture element with multiple sources for better browser support
-interface ResponsiveImageProps extends OptimizedImageProps {
+interface ResponsiveImageProps extends Omit<OptimizedImageProps, 'srcSet'> {
   srcSet?: {
     webp?: string;
     jpg?: string;
@@ -262,7 +262,7 @@ export const ResponsiveImage = ({
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding={priority ? "sync" : "async"}
-          fetchpriority={priority ? "high" : "auto"}
+          fetchPriority={priority ? "high" : "auto"}
           onLoad={() => setIsLoading(false)}
           className={cn(
             "transition-opacity duration-300",
