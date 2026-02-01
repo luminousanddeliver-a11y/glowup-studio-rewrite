@@ -83,8 +83,8 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Filter Bar */}
-        <section className="py-4 border-b border-border sticky top-[64px] bg-background/98 backdrop-blur-md z-40">
+        {/* Filter Bar - Desktop sticky, Mobile scrolls normally */}
+        <section className="py-4 border-b border-border lg:sticky lg:top-[64px] bg-background/98 backdrop-blur-md z-40">
           <div className="container-custom">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               {/* Category Filter */}

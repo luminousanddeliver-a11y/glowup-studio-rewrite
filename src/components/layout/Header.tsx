@@ -442,58 +442,78 @@ export const Header = () => {
                     <ChevronDown className={`h-5 w-5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
-                  {mobileServicesOpen && (
-                    <div className="mt-2 space-y-1 pb-2">
-                      {serviceCategories.map((category) => (
-                        <div key={category.name}>
-                          {/* Category Header - Clickable */}
-                          <button
-                            onClick={() => setExpandedCategory(
-                              expandedCategory === category.name ? null : category.name
-                            )}
-                            className="flex items-center justify-between w-full font-body font-medium text-accent text-sm py-2.5 px-2 rounded hover:bg-accent/5 min-h-[44px] touch-manipulation"
-                          >
-                            <span className="flex items-center gap-2">
-                              <category.icon className="h-4 w-4" />
-                              {category.name}
-                            </span>
-                            <ChevronDown className={`h-4 w-4 transition-transform ${
-                              expandedCategory === category.name ? 'rotate-180' : ''
-                            }`} />
-                          </button>
-                          
-                          {/* Services List - Only shown when category is expanded */}
-                          {expandedCategory === category.name && (
-                            <div className="flex flex-col gap-0.5 pl-6 ml-2 border-l-2 border-accent/20">
-                              {category.services.map((service) => (
-                                'external' in service && service.external ? (
-                                  <a
-                                    key={service.href}
-                                    href={service.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
-                                    onClick={() => setMobileMenuOpen(false)}
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-2 space-y-1 pb-2">
+                          {serviceCategories.map((category) => (
+                            <div key={category.name}>
+                              {/* Category Header - Clickable */}
+                              <button
+                                onClick={() => setExpandedCategory(
+                                  expandedCategory === category.name ? null : category.name
+                                )}
+                                className="flex items-center justify-between w-full font-body font-medium text-accent text-sm py-2.5 px-2 rounded hover:bg-accent/5 min-h-[44px] touch-manipulation"
+                              >
+                                <span className="flex items-center gap-2">
+                                  <category.icon className="h-4 w-4" />
+                                  {category.name}
+                                </span>
+                                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                                  expandedCategory === category.name ? 'rotate-180' : ''
+                                }`} />
+                              </button>
+                              
+                              {/* Services List - Only shown when category is expanded */}
+                              <AnimatePresence>
+                                {expandedCategory === category.name && (
+                                  <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                                    className="overflow-hidden"
                                   >
-                                    {service.name}
-                                  </a>
-                                ) : (
-                                  <a
-                                    key={service.href}
-                                    href={service.href}
-                                    className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                  >
-                                    {service.name}
-                                  </a>
-                                )
-                              ))}
+                                    <div className="flex flex-col gap-0.5 pl-6 ml-2 border-l-2 border-accent/20">
+                                      {category.services.map((service) => (
+                                        'external' in service && service.external ? (
+                                          <a
+                                            key={service.href}
+                                            href={service.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                          >
+                                            {service.name}
+                                          </a>
+                                        ) : (
+                                          <a
+                                            key={service.href}
+                                            href={service.href}
+                                            className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                          >
+                                            {service.name}
+                                          </a>
+                                        )
+                                      ))}
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
                             </div>
-                          )}
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* Other nav links */}
