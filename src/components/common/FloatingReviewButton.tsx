@@ -17,7 +17,7 @@ export const FloatingReviewButton = () => {
       transition={{ delay: 2, duration: 0.4, ease: "easeOut" }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label="Write a Google Review for Laser Light Skin Clinic"
+      aria-label="Leave a Review"
     >
       <motion.div
         animate={{ 

@@ -101,7 +101,7 @@ export const HeroSectionNew = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-body min-h-[52px] px-8 text-base shadow-lg shadow-primary/25"
+                className="bg-primary hover:bg-primary/90 text-white font-body min-h-[52px] px-8 text-base shadow-lg shadow-primary/25"
               >
                 <a href="/prices">
                   View Treatments
