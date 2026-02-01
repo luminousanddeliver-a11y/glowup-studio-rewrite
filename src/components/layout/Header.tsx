@@ -80,7 +80,7 @@ const serviceCategories = [
     icon: Gift,
     services: [
       { name: "Gift Vouchers", href: "/gift-vouchers" },
-      { name: "Academy", href: "/academy" },
+      { name: "Academy", href: "https://labttraining.com/", external: true },
     ],
   },
 ];
@@ -220,23 +220,37 @@ export const Header = () => {
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
                         <DropdownMenuItem key={service.href} asChild className="p-0 focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-accent">
-                          <a 
-                            href={service.href} 
-                            className={cn(
-                              "cursor-pointer w-full text-sm py-1.5 px-2 -mx-2 rounded-md transition-all duration-200 group/item relative",
-                              location.pathname === service.href
-                                ? "text-accent font-medium bg-accent/5"
-                                : "text-foreground hover:text-accent hover:bg-muted"
-                            )}
-                          >
-                            <span className="relative">
-                              {service.name}
-                              <span className={cn(
-                                "absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
-                                location.pathname === service.href ? "w-full" : "w-0 group-hover/item:w-full"
-                              )} />
-                            </span>
-                          </a>
+                          {'external' in service && service.external ? (
+                            <a 
+                              href={service.href} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="cursor-pointer w-full text-sm py-1.5 px-2 -mx-2 rounded-md transition-all duration-200 group/item relative text-foreground hover:text-accent hover:bg-muted"
+                            >
+                              <span className="relative">
+                                {service.name}
+                                <span className="absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out w-0 group-hover/item:w-full" />
+                              </span>
+                            </a>
+                          ) : (
+                            <a 
+                              href={service.href} 
+                              className={cn(
+                                "cursor-pointer w-full text-sm py-1.5 px-2 -mx-2 rounded-md transition-all duration-200 group/item relative",
+                                location.pathname === service.href
+                                  ? "text-accent font-medium bg-accent/5"
+                                  : "text-foreground hover:text-accent hover:bg-muted"
+                              )}
+                            >
+                              <span className="relative">
+                                {service.name}
+                                <span className={cn(
+                                  "absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                                  location.pathname === service.href ? "w-full" : "w-0 group-hover/item:w-full"
+                                )} />
+                              </span>
+                            </a>
+                          )}
                         </DropdownMenuItem>
                       ))}
                     </motion.div>

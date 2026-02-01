@@ -22,9 +22,9 @@ export const LaserSpotlight = () => {
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-5xl mx-auto">
-          {/* Image */}
+          {/* Image - hidden on mobile */}
           <motion.div
-            className="order-2 lg:order-1"
+            className="hidden lg:block order-2 lg:order-1"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
