@@ -1,123 +1,111 @@
 
-# Plan: FAQ Schemas, Social Links, Academy & Mobile Fix
+# Plan: Nested Mobile Services Menu
 
 ---
 
-## 1. FAQ Schemas Status
+## Current Behavior
+When clicking "Services" on mobile, ALL categories and their services expand at once (lines 438-460), showing a very long list.
 
-All 4 service pages **already have FAQ schemas implemented**:
-- LaserHairRemoval.tsx - Lines 62-92 (3 FAQs)
-- TattooRemoval.tsx - Lines 62-100+ (5 FAQs)
-- Hydrafacials.tsx - Lines 61-100+ (5 FAQs)
-- ChemicalPeels.tsx - Lines 60-97 (4 FAQs)
-
-No changes needed for FAQ schemas.
+## Desired Behavior
+1. Click "Services" → Shows only category headers (Laser & Hair Removal, Facials & Skin, etc.)
+2. Click a category header → Expands to show services under that category
+3. Only one category can be expanded at a time (optional, but better UX)
 
 ---
 
-## 2. Update Social Media Links
+## Implementation
 
-### Footer.tsx - Lines 140 & 151
-**Current:**
-```
-href="https://facebook.com"
-href="https://instagram.com"
-```
-**Update to:**
-```
-href="https://www.facebook.com/laserlightskinclinic"
-href="https://www.instagram.com/laserlightskinclinic"
-```
+### 1. Add New State for Expanded Category
 
-### ResultsShowcase.tsx - Line 107
-**Current:**
-```
-instagramLink = "https://instagram.com/laserlightskinclinic"
-```
-**Update to:**
-```
-instagramLink = "https://www.instagram.com/laserlightskinclinic"
-```
+**File:** `src/components/layout/Header.tsx`
 
-### Contact.tsx - Lines 92-95
-**Current (missing Facebook):**
-```javascript
-"sameAs": [
-  "https://www.google.com/...",
-  "https://www.instagram.com/laserlightskinclinic"
-]
-```
-**Update to:**
-```javascript
-"sameAs": [
-  "https://www.google.com/...",
-  "https://www.facebook.com/laserlightskinclinic",
-  "https://www.instagram.com/laserlightskinclinic"
-]
+Add state to track which category is open (line ~110):
+```typescript
+const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 ```
 
 ---
 
-## 3. Academy Link to External Site
+### 2. Modify Mobile Services Section
 
-### Footer.tsx - Line 13
-**Current:**
-```javascript
-{ name: "Academy", href: "/academy" }
-```
-**Update to external link logic** - The quickLinks array is rendered with internal navigation. Need to handle external link separately or modify the link rendering.
+**File:** `src/components/layout/Header.tsx` (lines 438-460)
 
-### Header.tsx - Line 83
-**Current:**
-```javascript
-{ name: "Academy", href: "/academy" }
-```
-**Update to:**
-```javascript
-{ name: "Academy", href: "https://labttraining.com/", external: true }
-```
+Replace the current category display with nested accordions:
 
-Both files need logic to handle external links with `target="_blank"` and `rel="noopener noreferrer"`.
+```tsx
+{mobileServicesOpen && (
+  <div className="mt-2 space-y-1 pb-2">
+    {serviceCategories.map((category) => (
+      <div key={category.name}>
+        {/* Category Header - Clickable */}
+        <button
+          onClick={() => setExpandedCategory(
+            expandedCategory === category.name ? null : category.name
+          )}
+          className="flex items-center justify-between w-full font-body font-medium text-accent text-sm py-2.5 px-2 rounded hover:bg-accent/5 min-h-[44px] touch-manipulation"
+        >
+          <span className="flex items-center gap-2">
+            <category.icon className="h-4 w-4" />
+            {category.name}
+          </span>
+          <ChevronDown className={`h-4 w-4 transition-transform ${
+            expandedCategory === category.name ? 'rotate-180' : ''
+          }`} />
+        </button>
+        
+        {/* Services List - Only shown when category is expanded */}
+        {expandedCategory === category.name && (
+          <div className="flex flex-col gap-0.5 pl-6 ml-2 border-l-2 border-accent/20">
+            {category.services.map((service) => (
+              <a
+                key={service.href}
+                href={service.href}
+                className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {service.name}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+)}
+```
 
 ---
 
-## 4. LaserSpotlight Mobile Image Fix
+### 3. Reset Category State When Menu Closes
 
-### LaserSpotlight.tsx - Line 27
-**Current:**
-```jsx
-<motion.div
-  className="order-2 lg:order-1"
-  ...
->
+Add cleanup when mobile menu closes (in the menu toggle handler):
+```typescript
+const handleMobileMenuToggle = () => {
+  setMobileMenuOpen(!mobileMenuOpen);
+  if (mobileMenuOpen) {
+    setExpandedCategory(null);
+    setMobileServicesOpen(false);
+  }
+};
 ```
-**Update to hide on mobile:**
-```jsx
-<motion.div
-  className="hidden lg:block order-2 lg:order-1"
-  ...
->
-```
-
-This removes the image on mobile where it looks out of place, showing only the text content and CTA.
 
 ---
 
-## Summary of Files to Edit
+## Files to Edit
 
 | File | Changes |
 |------|---------|
-| `src/components/layout/Footer.tsx` | Update Facebook & Instagram URLs, make Academy external |
-| `src/components/layout/Header.tsx` | Make Academy link external |
-| `src/components/services/ResultsShowcase.tsx` | Fix Instagram URL format |
-| `src/pages/Contact.tsx` | Add Facebook to sameAs schema |
-| `src/components/home/LaserSpotlight.tsx` | Hide image on mobile |
+| `src/components/layout/Header.tsx` | Add `expandedCategory` state, refactor mobile services to nested accordion |
 
 ---
 
-## Expected Results
+## Expected Result
 
-1. **Social Links**: All Facebook/Instagram links point to official clinic profiles
-2. **Academy**: Opens labttraining.com in new tab from header & footer
-3. **Mobile UX**: Laser spotlight section shows clean text-only layout on mobile
-4. **SEO**: Contact page schema includes both social profiles
+**Before:**
+- Click Services → All 6 categories + 25+ services appear at once
+
+**After:**
+- Click Services → Only 6 category headers appear
+- Click "Laser & Hair Removal" → Shows 3 services under it
+- Click "Facials & Skin" → Collapses Laser, shows 6 facial services
+- Cleaner, more organized mobile navigation
