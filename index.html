@@ -14,21 +14,19 @@
     <meta name="theme-color" content="#1c9e98" />
     
     <!-- Preconnect to critical third-party origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://storage.googleapis.com" />
-    <link rel="preconnect" href="https://www.fresha.com" />
 
     <!-- DNS Prefetch for analytics and external resources -->
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.fresha.com" />
 
+    <!-- Preload critical hero image for LCP optimization -->
+    <link rel="preload" as="image" href="/src/assets/hero-clinic-new.png" type="image/png" fetchpriority="high" />
+    
     <!-- Preload critical assets -->
     <link rel="preload" href="/src/index.css" as="style" />
     <link rel="modulepreload" href="/src/main.tsx" />
-
-    <!-- Prefetch DNS for booking system -->
-    <link rel="dns-prefetch" href="https://www.fresha.com" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/gpt-engineer-file-uploads/vzi9VoYX9vVShyOdOZDAL6jdw6n2/uploads/1769465234508-laser-light-logo.png">

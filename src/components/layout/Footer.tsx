@@ -32,7 +32,9 @@ export const Footer = () => {
             <a href="/" onClick={() => window.scrollTo(0, 0)} className="inline-block mb-4">
               <img 
                 src={logoImage} 
-                alt="Laser Light Skin Clinic" 
+                alt="Laser Light Skin Clinic"
+                width={88}
+                height={48}
                 className="h-12 w-auto brightness-0 invert"
               />
             </a>
