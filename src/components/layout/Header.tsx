@@ -533,51 +533,50 @@ export const Header = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Main nav links with icons */}
-                {navLinks.map((link) => (
-                  <a
+                {/* Main nav links with icons - staggered entrance */}
+                {navLinks.map((link, index) => (
+                  <motion.a
                     key={link.href}
                     href={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * (index + 1), duration: 0.25, ease: "easeOut" }}
                     className={cn(
-                      "flex items-center gap-3 font-body font-medium py-3.5 px-4 rounded-2xl min-h-[52px] touch-manipulation transition-all duration-200 group",
+                      "flex items-center gap-3 font-body font-medium py-4 px-4 min-h-[52px] touch-manipulation transition-all duration-200 group border-b border-gray-100/60",
                       isActiveLink(link.href)
-                        ? "text-accent bg-white/80 backdrop-blur-md shadow-[0_2px_8px_rgba(28,158,152,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] ring-1 ring-white/40"
-                        : "text-gray-800 hover:text-accent hover:bg-white/60 hover:backdrop-blur-md active:scale-[0.98]"
+                        ? "text-accent"
+                        : "text-gray-800 hover:text-accent active:bg-gray-50/50"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className={cn(
-                      "w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0",
-                      isActiveLink(link.href) 
-                        ? "bg-accent/20" 
-                        : "bg-accent/10 group-hover:bg-accent/20"
-                    )}>
-                      <link.icon className="h-5 w-5 text-accent" />
-                    </span>
+                    <link.icon className={cn(
+                      "h-5 w-5 shrink-0 transition-colors",
+                      isActiveLink(link.href) ? "text-accent" : "text-accent/70 group-hover:text-accent"
+                    )} />
                     <span className="flex-1">{link.name}</span>
-                    <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-accent transition-colors" />
-                  </a>
+                    <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-accent transition-colors" />
+                  </motion.a>
                 ))}
 
-                {/* Divider */}
-                <div className="my-3 mx-4 border-t border-gray-200/60" />
-
-                {/* Contact Section Card */}
-                <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl p-4 mx-2 backdrop-blur-sm">
+                {/* Contact Section */}
+                <motion.div 
+                  className="pt-4 px-4 pb-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35, duration: 0.25, ease: "easeOut" }}
+                >
                   <a
                     href="tel:02085981200"
-                    className="flex items-center gap-3 text-gray-800 font-medium py-2 touch-manipulation group"
+                    className="flex items-center gap-3 text-gray-800 font-medium py-3 touch-manipulation group"
                   >
-                    <span className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center shadow-sm shrink-0 group-hover:bg-white transition-colors">
-                      <Phone className="h-5 w-5 text-accent" />
-                    </span>
+                    <Phone className="h-5 w-5 text-accent/70 group-hover:text-accent transition-colors" />
                     <span className="font-body font-bold">0208 598 1200</span>
                   </a>
 
                   <Button asChild className="w-full mt-3 h-14 text-base font-bold shadow-[0_4px_16px_rgba(28,158,152,0.3)] hover:shadow-[0_6px_20px_rgba(28,158,152,0.4)] active:scale-[0.98] touch-manipulation transition-all duration-200">
                     <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
                   </Button>
-                </div>
+                </motion.div>
               </nav>
             </div>
           )}
