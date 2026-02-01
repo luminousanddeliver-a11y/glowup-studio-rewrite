@@ -85,7 +85,7 @@ const Contact = () => {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "250",
+        "reviewCount": "290",
         "bestRating": "5",
         "worstRating": "1"
       },
@@ -352,7 +352,7 @@ const Contact = () => {
                       <span className="font-semibold text-foreground">4.9</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      <span className="font-medium">250+ Google Reviews</span>
+                      <span className="font-medium">290+ Google Reviews</span>
                       <span className="text-accent ml-2 group-hover:underline">Read reviews →</span>
                     </p>
                   </div>

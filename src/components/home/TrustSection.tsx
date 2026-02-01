@@ -141,7 +141,7 @@ export const TrustSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Read All 250+ Reviews
+                Read All 290+ Reviews
               </a>
             </Button>
           </motion.div>

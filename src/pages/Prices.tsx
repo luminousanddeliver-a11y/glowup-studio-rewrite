@@ -388,7 +388,7 @@ const Prices = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Prices | Laser Hair Removal & Skin Treatment Costs | Dagenham"
-        description="View our treatment prices for laser hair removal, HydraFacials, Botox, tattoo removal and more. 25% off for new clients. Transparent pricing at Laser Light Skin Clinic Dagenham, East London."
+        description="View our treatment prices for laser hair removal, HydraFacials, Botox, tattoo removal and more. Free consultation available. Transparent pricing at Laser Light Skin Clinic Dagenham."
         canonicalUrl="https://laserlightskinclinic.co.uk/prices"
         structuredData={priceSchema}
       />

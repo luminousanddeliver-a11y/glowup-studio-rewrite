@@ -318,8 +318,8 @@ const Facials = () => {
           subtitle="Invest in your skin with our range of professional treatments"
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "25% OFF FOR NEW CLIENTS",
-            text: "On Your First Facial"
+            highlight: "FREE CONSULTATION AVAILABLE",
+            text: "Book Your Facial Today"
           }}
           paymentOptions="Course packages offer excellent value for ongoing skin health."
           disclaimer="All facials include skin analysis and personalized home care recommendations."

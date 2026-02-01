@@ -37,7 +37,7 @@ const About = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "250"
+      "reviewCount": "290"
     }
   };
 
@@ -126,7 +126,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 250+ clients for pain-free, medical-grade treatments.
+                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 290+ clients for pain-free, medical-grade treatments.
               </motion.p>
             </motion.div>
           </div>
@@ -264,7 +264,7 @@ const About = () => {
                 4.9 / 5
               </motion.div>
               <p className="text-muted-foreground font-body mb-6">
-                Based on 250+ verified client reviews
+                Based on 290+ verified client reviews
               </p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>

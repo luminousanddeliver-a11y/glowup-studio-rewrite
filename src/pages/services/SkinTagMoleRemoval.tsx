@@ -69,6 +69,45 @@ const SkinTagMoleRemoval = () => {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will removing a skin tag hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There's a brief stinging sensation during treatment, but it's very quick. For larger or more sensitive areas, we can apply numbing cream beforehand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will the skin tag grow back?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A properly removed skin tag will not grow back. However, if you're prone to skin tags, new ones may develop in other areas over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can all moles be removed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We only remove moles that have been assessed as benign. Any suspicious moles (changing, asymmetric, irregular borders) should be examined by a doctor first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will there be scarring?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With professional removal and proper aftercare, scarring is minimal. Small skin tags typically heal with no visible scar. Larger lesions may leave a small mark."
+        }
+      }
+    ]
+  };
+
   const quickStats = [
     { value: "5-15 min", label: "Quick Treatment", icon: Timer },
     { value: "Single", label: "Session Usually", icon: Shield },
@@ -278,7 +317,7 @@ const SkinTagMoleRemoval = () => {
         title="Skin Tag & Mole Removal Dagenham | Quick Treatment | Book Now"
         description="Professional skin tag and mole removal in Dagenham. Quick, safe removal using advanced electrolysis. Skin tags from £50, moles from £100. Book consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/skin-tag-mole-removal-dagenham"
-        structuredData={[structuredData, breadcrumbSchema]}
+        structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />
       
       <Header />

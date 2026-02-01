@@ -23,7 +23,7 @@ export const CLINIC_INFO = {
     lat: 51.5545814,
     lng: 0.1173976,
   },
-  reviewCount: "250+",
+  reviewCount: "290+",
   rating: "4.9",
   yearsExperience: "6+",
   openingHours: {
