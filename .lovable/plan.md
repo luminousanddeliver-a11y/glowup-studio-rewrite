@@ -1,163 +1,142 @@
 
-# Plan: Improve Mobile Navigation UI/UX
+# Performance Optimization & Mobile Nav Enhancement Plan
+
+## Summary
+Based on Lighthouse analysis, the site has significant performance issues, particularly on mobile. The main culprit is the **2.5MB hero image** causing a **16.6s LCP on mobile**. This plan addresses critical performance issues and adds subtle hover backgrounds to mobile nav links.
+
+## Current Performance Scores (Mobile)
+| Metric | Current | Target |
+|--------|---------|--------|
+| LCP | 16.6s (Poor) | < 2.5s (Good) |
+| FCP | 2.2s (Moderate) | < 1.8s (Good) |
+| CLS | 0.143 (Needs Work) | < 0.1 (Good) |
+| TBT | 437ms (Moderate) | < 200ms (Good) |
 
 ---
 
-## Current Issues
+## Phase 1: Critical LCP Fix (Biggest Impact)
 
-Looking at the mobile menu, I've identified these UX problems:
-1. **Plain appearance** - Menu items lack visual distinction
-2. **Missing icons** - Only Services has visual context, other links are text-only
-3. **Cluttered layout** - Items blend together without clear separation
-4. **Weak visual hierarchy** - All items look the same priority
+### Problem
+The hero image `hero-clinic-new.png` is:
+- **2.5MB in size** (should be < 200KB)
+- Loaded via CSS `background-image` (not optimal for LCP)
+- Takes 10.2s to load on simulated mobile connection
 
----
+### Solution
+1. **Convert hero image to optimized WebP format** - ~90% size reduction
+2. **Replace CSS background-image with `<img>` tag** for proper LCP optimization
+3. **Add proper image attributes**:
+   - `fetchpriority="high"` for priority loading
+   - `loading="eager"` to prevent lazy loading
+   - Explicit `width` and `height` to prevent CLS
+4. **Add link preload** in index.html for the hero image
 
-## Proposed Improvements
-
-### 1. Add Icons to All Navigation Links
-
-Add recognizable icons to each nav item for quick scanning:
-
-| Link | Icon |
-|------|------|
-| Shop | ShoppingBag |
-| Prices | PoundSterling |
-| Blog | BookOpen |
-| Contact | Mail |
-| About | Users |
-
-### 2. Visual Section Separators
-
-Add subtle dividers between menu sections:
-- Navigation links section
-- Contact section (phone + book button)
-
-### 3. Improved Spacing & Typography
-
-- Increase gap between nav items from `gap-1` to `gap-2`
-- Add subtle background tint to each item for better touch target visibility
-- Use slightly larger text for main nav links
-
-### 4. Enhanced Visual Design
-
-- Add subtle left border accent on hover
-- Include small arrow/chevron icon to indicate links
-- Better active state indicators
-- Rounded card-style backgrounds for each section
-
-### 5. Contact Section Styling
-
-- Move phone and book button into a visually distinct "Contact" card
-- Add a subtle gradient background to make CTA stand out
+### Files to Modify
+- `src/components/home/HeroSectionNew.tsx` - Refactor to use `<img>` tag
+- `index.html` - Add preload link for hero image
+- `src/assets/hero-clinic-new.png` - Note: Convert to WebP externally
 
 ---
 
-## Technical Changes
+## Phase 2: Fix Layout Shifts (CLS)
 
-**File:** `src/components/layout/Header.tsx`
+### Problem
+CLS of 0.143 caused by:
+- Logo images lacking explicit dimensions
+- Web fonts loading and causing shifts
 
-### Import Additional Icons
+### Solution
+1. **Add explicit width/height to logo images** in Header and Footer
+2. **Add font-display: swap** to prevent invisible text during font load
+3. **Reserve space for fonts** using system font fallbacks
+
+### Files to Modify
+- `src/components/layout/Header.tsx` - Add logo dimensions
+- `src/components/layout/Footer.tsx` - Add logo dimensions
+- `src/index.css` - Ensure font-display: swap
+
+---
+
+## Phase 3: Remove Unused Preconnects
+
+### Problem
+Lighthouse warnings about unused preconnects:
+- fonts.googleapis.com (not used - using local fontsource)
+- fonts.gstatic.com (not used)
+- fresha.com (only used on button click)
+
+### Solution
+Remove unused preconnects from `index.html` to reduce connection overhead.
+
+### Files to Modify
+- `index.html` - Remove unused preconnects
+
+---
+
+## Phase 4: Mobile Nav Hover Backgrounds
+
+### Requirement
+Add subtle hover backgrounds to nav links in mobile menu.
+
+### Solution
+Add `hover:bg-gray-50` or `hover:bg-accent/5` classes to mobile nav items.
+
+### Files to Modify
+- `src/components/layout/Header.tsx` - Add hover states to mobile nav links
+
+---
+
+## Technical Implementation Details
+
+### HeroSectionNew.tsx Changes
+
+```text
+Before (CSS background-image):
+motion.div with style={{ backgroundImage: `url(${heroClinicNew})` }}
+
+After (proper <img> tag):
+- Absolute positioned <img> element
+- fetchPriority="high" 
+- loading="eager"
+- Explicit width/height attributes
+- object-fit: cover styling
+```
+
+### index.html Preload Addition
+```html
+<link rel="preload" as="image" href="/src/assets/hero-clinic-new.png" 
+      type="image/png" fetchpriority="high" />
+```
+
+### Logo Dimension Fix
+```html
+<!-- Add explicit width/height -->
+<img src={logo} width={88} height={56} ... />
+```
+
+### Mobile Nav Hover States
 ```typescript
-import { ShoppingBag, BookOpen, Mail, Users, PoundSterling } from "lucide-react";
-```
-
-### Update navLinks Array (around line 83)
-Add icons to each link object:
-```typescript
-const navLinks = [
-  { name: "Shop", href: "/shop", icon: ShoppingBag },
-  { name: "Prices", href: "/prices", icon: PoundSterling },
-  { name: "Blog", href: "/blog", icon: BookOpen },
-  { name: "Contact", href: "/contact", icon: Mail },
-  { name: "About", href: "/about", icon: Users },
-];
-```
-
-### Refactor Mobile Nav Section (lines 536-564)
-```tsx
-{/* Main nav links with icons */}
-{navLinks.map((link) => (
-  'external' in link && link.external ? (
-    <a
-      key={link.href}
-      href={link.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-3 font-body font-medium py-3.5 px-4 rounded-2xl min-h-[52px] touch-manipulation transition-all duration-200 text-gray-800 hover:text-accent hover:bg-accent/5 active:scale-[0.98] group"
-    >
-      <span className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-        <link.icon className="h-5 w-5 text-accent" />
-      </span>
-      <span className="flex-1">{link.name}</span>
-      <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-accent transition-colors" />
-    </a>
-  ) : (
-    <a
-      key={link.href}
-      href={link.href}
-      className={cn(
-        "flex items-center gap-3 font-body font-medium py-3.5 px-4 rounded-2xl min-h-[52px] touch-manipulation transition-all duration-200 group",
-        isActiveLink(link.href)
-          ? "text-accent bg-accent/10"
-          : "text-gray-800 hover:text-accent hover:bg-accent/5 active:scale-[0.98]"
-      )}
-      onClick={() => setMobileMenuOpen(false)}
-    >
-      <span className={cn(
-        "w-10 h-10 rounded-xl flex items-center justify-center transition-colors",
-        isActiveLink(link.href) ? "bg-accent/20" : "bg-accent/10 group-hover:bg-accent/20"
-      )}>
-        <link.icon className="h-5 w-5 text-accent" />
-      </span>
-      <span className="flex-1">{link.name}</span>
-      <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-accent transition-colors" />
-    </a>
-  )
-))}
-
-{/* Divider */}
-<div className="my-3 mx-4 border-t border-gray-200/60" />
-
-{/* Contact Section */}
-<div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl p-4 mx-2">
-  <a
-    href="tel:02085981200"
-    className="flex items-center gap-3 text-gray-800 font-medium py-2 touch-manipulation"
-  >
-    <span className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center shadow-sm">
-      <Phone className="h-5 w-5 text-accent" />
-    </span>
-    <span className="font-body font-bold">0208 598 1200</span>
-  </a>
-
-  <Button asChild className="w-full mt-3 h-14 text-base font-bold">
-    <a href="...">Book an Appointment</a>
-  </Button>
-</div>
+// Add to className:
+"hover:bg-gray-50/80 active:bg-gray-100/80"
 ```
 
 ---
 
-## Files to Edit
+## Expected Results After Implementation
 
-| File | Changes |
-|------|---------|
-| `src/components/layout/Header.tsx` | Add icons import, update navLinks with icons, refactor mobile nav layout |
+| Metric | Before | After (Est.) | Improvement |
+|--------|--------|--------------|-------------|
+| LCP | 16.6s | < 3s | ~80% faster |
+| FCP | 2.2s | < 1.8s | ~20% faster |
+| CLS | 0.143 | < 0.1 | Fixed |
+| TBT | 437ms | ~350ms | ~20% faster |
 
 ---
 
-## Expected Result
+## Important Notes
 
-**Before:**
-- Plain text links without icons
-- All items have same visual weight
-- Contact section blends with nav links
+1. **Image Conversion Required**: The hero image needs to be converted to WebP format. This should be done using an external tool (like Squoosh or ImageMagick) as Vite doesn't automatically convert images. For now, we'll optimize the loading pattern.
 
-**After:**
-- Each nav link has a distinctive icon in a tinted circle
-- Right chevron arrows indicate clickable links
-- Active page is visually highlighted
-- Contact section is separated with gradient background card
-- Better visual hierarchy and scannability
-- Larger touch targets with clear boundaries
+2. **Progressive Enhancement**: The hero will use the existing PNG but with proper loading attributes. When a WebP version is added, it can be swapped in.
+
+3. **Mobile-First Priority**: All changes prioritize mobile performance since that's where the biggest issues are.
