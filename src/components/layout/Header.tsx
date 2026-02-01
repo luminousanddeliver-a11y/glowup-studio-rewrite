@@ -540,7 +540,10 @@ export const Header = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+              </div>
+
+                {/* Divider after Services */}
+                <div className="mx-4 my-2 border-t border-gray-100" />
 
                 {/* Main nav links with icons - staggered entrance, no arrows */}
                 {navLinks.map((link, index) => (
@@ -566,8 +569,11 @@ export const Header = () => {
                   </motion.a>
                 ))}
 
+                {/* Divider before Contact */}
+                <div className="mx-4 my-2 border-t border-gray-100" />
+
                 {/* Contact Section */}
-                <motion.div 
+                <motion.div
                   className="pt-4 px-4 pb-2"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

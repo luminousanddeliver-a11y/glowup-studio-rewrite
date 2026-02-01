@@ -22,7 +22,6 @@ const queryClient = new QueryClient();
 const App = () => (
   <ErrorBoundary>
     <HelmetProvider>
-      <GoogleAnalytics />
       <QueryClientProvider client={queryClient}>
         <CartProvider>
           <WishlistProvider>
@@ -35,6 +34,7 @@ const App = () => (
                 <CompareModal />
                 <FlyingCartAnimation />
                 <BrowserRouter>
+                  <GoogleAnalytics />
                   <SkipToContent />
                   <AnimatedRoutes />
                   <CookieConsent />
