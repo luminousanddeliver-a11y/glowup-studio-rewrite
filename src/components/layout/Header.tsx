@@ -182,7 +182,9 @@ export const Header = () => {
             <a href="/" className="flex items-center">
               <motion.img 
                 src={logo} 
-                alt="Laser Light Skin Clinic" 
+                alt="Laser Light Skin Clinic"
+                width={88}
+                height={56}
                 className={cn("w-auto transition-all duration-300", !isCompact && hasDarkHero && !mobileMenuOpen && "brightness-0 invert")}
                 animate={{ height: isCompact ? 40 : 56 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
@@ -545,7 +547,7 @@ export const Header = () => {
                 {/* Divider after Services */}
                 <div className="mx-4 my-2 border-t border-gray-100" />
 
-                {/* Main nav links with icons - staggered entrance, no arrows */}
+                {/* Main nav links with icons - staggered entrance, hover backgrounds */}
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.href}
@@ -554,10 +556,10 @@ export const Header = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.05 * (index + 1), duration: 0.25, ease: "easeOut" }}
                     className={cn(
-                      "flex items-center gap-3 font-body font-medium py-4 px-4 min-h-[52px] touch-manipulation transition-all duration-200 group",
+                      "flex items-center gap-3 font-body font-medium py-4 px-4 mx-2 rounded-lg min-h-[52px] touch-manipulation transition-all duration-200 group",
                       isActiveLink(link.href)
-                        ? "text-accent"
-                        : "text-gray-800 hover:text-accent active:bg-gray-50/50"
+                        ? "text-accent bg-accent/5"
+                        : "text-gray-800 hover:text-accent hover:bg-gray-50/80 active:bg-gray-100/80"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
