@@ -104,7 +104,7 @@ export const ResultsShowcase = ({
   description,
   stats = defaultStats,
   testimonials = defaultTestimonials,
-  instagramLink = "https://instagram.com/laserlightskinclinic",
+  instagramLink = "https://www.instagram.com/laserlightskinclinic",
   instagramText = "See More Results on Instagram",
 }: ResultsShowcaseProps) => {
   const statIcons = [Star, Users, TrendingUp, Award];

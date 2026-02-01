@@ -10,10 +10,10 @@ const quickLinks = [
   { name: "Shop", href: "/shop" },
   { name: "Blog", href: "/blog" },
   { name: "Gift Vouchers", href: "/gift-vouchers" },
-  { name: "Academy", href: "/academy" },
+  { name: "Academy", href: "https://labttraining.com/", external: true },
   { name: "Contact", href: "/contact" },
   { name: "FAQs", href: "/faq" },
-];
+] as const;
 
 export const Footer = () => {
   return (
@@ -61,13 +61,24 @@ export const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.1 + index * 0.03 }}
                 >
-                  <a
-                    href={link.href}
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
-                  >
-                    {link.name}
-                  </a>
+                  {'external' in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="font-body text-sm text-background/70 hover:text-primary transition-colors inline-flex items-center gap-1"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -137,7 +148,7 @@ export const Footer = () => {
             <h4 className="font-heading text-lg font-semibold mb-5 text-background">Follow Us</h4>
             <div className="flex gap-3 mb-6">
               <motion.a
-                href="https://facebook.com"
+                href="https://www.facebook.com/laserlightskinclinic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
@@ -148,7 +159,7 @@ export const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </motion.a>
               <motion.a
-                href="https://instagram.com"
+                href="https://www.instagram.com/laserlightskinclinic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
