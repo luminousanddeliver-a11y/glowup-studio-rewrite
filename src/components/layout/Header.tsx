@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone, ShoppingBag, Zap, Sparkles, Wand2, Eraser, Heart, Gift } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Phone, ShoppingBag, Zap, Sparkles, Wand2, Eraser, Heart, Gift, PoundSterling, BookOpen, Mail, Users } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -86,11 +86,11 @@ const serviceCategories = [
 ];
 
 const navLinks = [
-  { name: "Shop", href: "/shop" },
-  { name: "Prices", href: "/prices" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
-  { name: "About", href: "/about" },
+  { name: "Shop", href: "/shop", icon: ShoppingBag },
+  { name: "Prices", href: "/prices", icon: PoundSterling },
+  { name: "Blog", href: "/blog", icon: BookOpen },
+  { name: "Contact", href: "/contact", icon: Mail },
+  { name: "About", href: "/about", icon: Users },
 ];
 
 // Routes with dark/teal hero backgrounds that need light text
@@ -533,34 +533,51 @@ export const Header = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Other nav links */}
+                {/* Main nav links with icons */}
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "font-body font-medium transition-all duration-200 py-3.5 px-4 rounded-2xl min-h-[48px] flex items-center touch-manipulation",
+                      "flex items-center gap-3 font-body font-medium py-3.5 px-4 rounded-2xl min-h-[52px] touch-manipulation transition-all duration-200 group",
                       isActiveLink(link.href)
-                        ? "text-accent font-semibold bg-white/80 backdrop-blur-md shadow-[0_2px_8px_rgba(28,158,152,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] ring-1 ring-white/40"
-                        : "text-gray-900 hover:text-accent hover:bg-white/60 hover:backdrop-blur-md hover:shadow-sm active:scale-[0.98]"
+                        ? "text-accent bg-white/80 backdrop-blur-md shadow-[0_2px_8px_rgba(28,158,152,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] ring-1 ring-white/40"
+                        : "text-gray-800 hover:text-accent hover:bg-white/60 hover:backdrop-blur-md active:scale-[0.98]"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {link.name}
+                    <span className={cn(
+                      "w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0",
+                      isActiveLink(link.href) 
+                        ? "bg-accent/20" 
+                        : "bg-accent/10 group-hover:bg-accent/20"
+                    )}>
+                      <link.icon className="h-5 w-5 text-accent" />
+                    </span>
+                    <span className="flex-1">{link.name}</span>
+                    <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-accent transition-colors" />
                   </a>
                 ))}
 
-                <a
-                  href="tel:02085981200"
-                  className="flex items-center gap-3 text-gray-900 font-medium py-3.5 px-4 rounded-2xl min-h-[48px] touch-manipulation transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-md hover:shadow-sm active:scale-[0.98]"
-                >
-                  <Phone className="h-5 w-5" />
-                  <span className="font-body font-bold">0208 598 1200</span>
-                </a>
+                {/* Divider */}
+                <div className="my-3 mx-4 border-t border-gray-200/60" />
 
-                <Button asChild className="bg-primary hover:bg-primary/95 text-primary-foreground font-body h-14 w-full mt-4 text-base font-bold active:scale-[0.98] touch-manipulation shadow-[0_4px_16px_rgba(28,158,152,0.3)] hover:shadow-[0_6px_20px_rgba(28,158,152,0.4)] transition-all duration-200">
-                  <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
-                </Button>
+                {/* Contact Section Card */}
+                <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl p-4 mx-2 backdrop-blur-sm">
+                  <a
+                    href="tel:02085981200"
+                    className="flex items-center gap-3 text-gray-800 font-medium py-2 touch-manipulation group"
+                  >
+                    <span className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center shadow-sm shrink-0 group-hover:bg-white transition-colors">
+                      <Phone className="h-5 w-5 text-accent" />
+                    </span>
+                    <span className="font-body font-bold">0208 598 1200</span>
+                  </a>
+
+                  <Button asChild className="w-full mt-3 h-14 text-base font-bold shadow-[0_4px_16px_rgba(28,158,152,0.3)] hover:shadow-[0_6px_20px_rgba(28,158,152,0.4)] active:scale-[0.98] touch-manipulation transition-all duration-200">
+                    <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                  </Button>
+                </div>
               </nav>
             </div>
           )}
