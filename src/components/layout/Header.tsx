@@ -153,19 +153,22 @@ export const Header = () => {
       <motion.header
         className="sticky top-0 z-50"
         initial={false}
-        animate={{ 
-          backgroundColor: isCompact || mobileMenuOpen
-            ? "rgba(255, 255, 255, 0.95)"
-            : isHomepage
-              ? "rgba(0, 0, 0, 0)"
-              : "rgba(255, 255, 255, 0)",
-          backdropFilter: isCompact || mobileMenuOpen ? "blur(12px)" : "none",
-          boxShadow: isCompact 
-            ? "0 4px 20px rgba(0,0,0,0.1)" 
-            : "none" 
+        animate={{
+          // FIXED: Mobile menu open uses transparent background to allow glassmorphism
+          backgroundColor: mobileMenuOpen
+            ? "rgba(255, 255, 255, 0.25)" // Mobile: transparent for glass effect
+            : isCompact
+              ? "rgba(255, 255, 255, 0.95)" // Desktop: solid on scroll
+              : isHomepage
+                ? "rgba(0, 0, 0, 0)" // Homepage: transparent
+                : "rgba(255, 255, 255, 0)", // Other pages: transparent
+          backdropFilter: isCompact || mobileMenuOpen ? "blur(20px)" : "none", // Stronger blur
+          boxShadow: isCompact
+            ? "0 4px 20px rgba(0,0,0,0.1)"
+            : "none"
         }}
-        transition={{ 
-          duration: 0.4, 
+        transition={{
+          duration: 0.4,
           ease: [0.4, 0, 0.2, 1]
         }}
       >
@@ -206,7 +209,7 @@ export const Header = () => {
                   </span>
                   <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[580px] p-5 grid grid-cols-2 gap-x-8 gap-y-5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200 bg-gradient-to-br from-white/98 via-white/95 to-primary/5 backdrop-blur-2xl border border-white/60 shadow-[0_8px_40px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.8)_inset] rounded-xl">
+                <DropdownMenuContent className="w-[600px] p-6 grid grid-cols-2 gap-x-10 gap-y-6 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-150 bg-white/40 backdrop-blur-xl border border-white/30 shadow-[0_8px_32px_rgba(28,158,152,0.2),0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] rounded-2xl">
                   {serviceCategories.map((category, categoryIndex) => (
                     <motion.div 
                       key={category.name} 
@@ -215,38 +218,38 @@ export const Header = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: categoryIndex * 0.03, duration: 0.2 }}
                     >
-                      <DropdownMenuLabel className="text-accent font-heading text-sm pb-1.5 mb-1 border-b border-accent/20 flex items-center gap-1.5">
-                        <category.icon className="h-3.5 w-3.5" />
+                      <DropdownMenuLabel className="text-accent font-heading text-sm pb-2 mb-2 border-b border-accent/20 flex items-center gap-2">
+                        <category.icon className="h-4 w-4 text-accent" />
                         {category.name}
                       </DropdownMenuLabel>
                       {category.services.map((service) => (
                         <DropdownMenuItem key={service.href} asChild className="p-0 focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-accent">
                           {'external' in service && service.external ? (
-                            <a 
-                              href={service.href} 
+                            <a
+                              href={service.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="cursor-pointer w-full text-sm py-1.5 px-2 -mx-2 rounded-md transition-all duration-200 group/item relative text-foreground hover:text-accent hover:bg-muted"
+                              className="cursor-pointer w-full text-sm py-2 px-3 -mx-2 rounded-lg transition-all duration-150 group/item relative text-foreground hover:text-accent hover:bg-white/60 hover:backdrop-blur-sm"
                             >
                               <span className="relative">
                                 {service.name}
-                                <span className="absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out w-0 group-hover/item:w-full" />
+                                <span className="absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-200 ease-out w-0 group-hover/item:w-full" />
                               </span>
                             </a>
                           ) : (
-                            <a 
-                              href={service.href} 
+                            <a
+                              href={service.href}
                               className={cn(
-                                "cursor-pointer w-full text-sm py-1.5 px-2 -mx-2 rounded-md transition-all duration-200 group/item relative",
+                                "cursor-pointer w-full text-sm py-2 px-3 -mx-2 rounded-lg transition-all duration-150 group/item relative",
                                 location.pathname === service.href
-                                  ? "text-accent font-medium bg-accent/5"
-                                  : "text-foreground hover:text-accent hover:bg-muted"
+                                  ? "text-accent font-medium bg-white/70 backdrop-blur-sm ring-1 ring-accent/30"
+                                  : "text-foreground hover:text-accent hover:bg-white/60 hover:backdrop-blur-sm"
                               )}
                             >
                               <span className="relative">
                                 {service.name}
                                 <span className={cn(
-                                  "absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-out",
+                                  "absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-200 ease-out",
                                   location.pathname === service.href ? "w-full" : "w-0 group-hover/item:w-full"
                                 )} />
                               </span>
@@ -428,15 +431,24 @@ export const Header = () => {
             </div>
           </motion.div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - Premium Glassmorphism */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-white/20 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-gradient-to-b from-white/98 to-white/95 backdrop-blur-2xl">
+            <div className="lg:hidden py-4 border-t border-white/30 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain
+              bg-white/20 backdrop-blur-xl
+              shadow-[0_8px_32px_rgba(0,0,0,0.15),0_4px_16px_rgba(28,158,152,0.12),inset_0_1px_1px_rgba(255,255,255,0.7)]
+              relative
+              before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none">
               <nav className="flex flex-col gap-1">
                 {/* Mobile Services Accordion - First */}
                 <div className="py-2 px-2">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="flex items-center justify-between w-full font-body font-semibold text-foreground min-h-[48px] py-2 touch-manipulation"
+                    className={cn(
+                      "flex items-center justify-between w-full font-body font-bold min-h-[48px] py-3 px-4 rounded-2xl touch-manipulation transition-all duration-200",
+                      mobileServicesOpen
+                        ? "text-accent bg-white/80 backdrop-blur-md shadow-[0_2px_8px_rgba(28,158,152,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] ring-1 ring-white/40"
+                        : "text-gray-900 hover:bg-white/60 hover:backdrop-blur-md hover:shadow-sm active:scale-[0.98]"
+                    )}
                   >
                     Services
                     <ChevronDown className={`h-5 w-5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
@@ -459,7 +471,12 @@ export const Header = () => {
                                 onClick={() => setExpandedCategory(
                                   expandedCategory === category.name ? null : category.name
                                 )}
-                                className="flex items-center justify-between w-full font-body font-medium text-accent text-sm py-2.5 px-2 rounded hover:bg-accent/5 min-h-[44px] touch-manipulation"
+                                className={cn(
+                                  "flex items-center justify-between w-full font-body font-semibold text-sm py-3 px-4 rounded-xl min-h-[44px] touch-manipulation transition-all duration-200",
+                                  expandedCategory === category.name
+                                    ? "text-accent bg-white/70 backdrop-blur-md shadow-sm ring-1 ring-white/30"
+                                    : "text-accent hover:bg-white/50 hover:backdrop-blur-md active:scale-[0.98]"
+                                )}
                               >
                                 <span className="flex items-center gap-2">
                                   <category.icon className="h-4 w-4" />
@@ -480,7 +497,7 @@ export const Header = () => {
                                     transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
                                     className="overflow-hidden"
                                   >
-                                    <div className="flex flex-col gap-0.5 pl-6 ml-2 border-l-2 border-accent/20">
+                                    <div className="flex flex-col gap-1 pl-6 ml-2 border-l-2 border-accent/30">
                                       {category.services.map((service) => (
                                         'external' in service && service.external ? (
                                           <a
@@ -488,7 +505,7 @@ export const Header = () => {
                                             href={service.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                                            className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 rounded-xl min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-white/50 hover:backdrop-blur-sm hover:shadow-sm active:scale-[0.98]"
                                             onClick={() => setMobileMenuOpen(false)}
                                           >
                                             {service.name}
@@ -497,7 +514,7 @@ export const Header = () => {
                                           <a
                                             key={service.href}
                                             href={service.href}
-                                            className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                                            className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 rounded-xl min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-white/50 hover:backdrop-blur-sm hover:shadow-sm active:scale-[0.98]"
                                             onClick={() => setMobileMenuOpen(false)}
                                           >
                                             {service.name}
@@ -522,10 +539,10 @@ export const Header = () => {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "font-body transition-colors py-3.5 px-2 rounded-lg min-h-[48px] flex items-center touch-manipulation",
+                      "font-body font-medium transition-all duration-200 py-3.5 px-4 rounded-2xl min-h-[48px] flex items-center touch-manipulation",
                       isActiveLink(link.href)
-                        ? "text-accent font-medium bg-accent/10"
-                        : "text-foreground hover:text-accent hover:bg-accent/5 active:bg-accent/10"
+                        ? "text-accent font-semibold bg-white/80 backdrop-blur-md shadow-[0_2px_8px_rgba(28,158,152,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] ring-1 ring-white/40"
+                        : "text-gray-900 hover:text-accent hover:bg-white/60 hover:backdrop-blur-md hover:shadow-sm active:scale-[0.98]"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -533,15 +550,15 @@ export const Header = () => {
                   </a>
                 ))}
 
-                <a 
-                  href="tel:02085981200" 
-                  className="flex items-center gap-3 text-foreground py-3.5 px-2 rounded-lg min-h-[48px] hover:bg-accent/5 active:bg-accent/10 touch-manipulation"
+                <a
+                  href="tel:02085981200"
+                  className="flex items-center gap-3 text-gray-900 font-medium py-3.5 px-4 rounded-2xl min-h-[48px] touch-manipulation transition-all duration-200 hover:bg-white/60 hover:backdrop-blur-md hover:shadow-sm active:scale-[0.98]"
                 >
                   <Phone className="h-5 w-5" />
-                  <span className="font-body font-medium">0208 598 1200</span>
+                  <span className="font-body font-bold">0208 598 1200</span>
                 </a>
 
-                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 w-full mt-3 text-base font-semibold active:scale-[0.99] touch-manipulation">
+                <Button asChild className="bg-primary hover:bg-primary/95 text-primary-foreground font-body h-14 w-full mt-4 text-base font-bold active:scale-[0.98] touch-manipulation shadow-[0_4px_16px_rgba(28,158,152,0.3)] hover:shadow-[0_6px_20px_rgba(28,158,152,0.4)] transition-all duration-200">
                   <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
                 </Button>
               </nav>
