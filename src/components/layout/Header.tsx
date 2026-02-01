@@ -108,6 +108,7 @@ const isServicePage = (pathname: string) => {
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const [isCompact, setIsCompact] = useState(false);
   const { cartCount, setIsCartOpen, cartBounce } = useCart();
   const { wishlistCount, setIsWishlistOpen, wishlistBounce } = useWishlist();
@@ -408,7 +409,13 @@ export const Header = () => {
               
               <button
                 className={cn("p-3 touch-manipulation min-h-[48px] min-w-[48px] flex items-center justify-center", mobileMenuOpen ? "text-foreground" : navTextColor)}
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                onClick={() => {
+                  if (mobileMenuOpen) {
+                    setExpandedCategory(null);
+                    setMobileServicesOpen(false);
+                  }
+                  setMobileMenuOpen(!mobileMenuOpen);
+                }}
                 aria-label="Toggle menu"
                 aria-expanded={mobileMenuOpen}
               >
@@ -436,24 +443,53 @@ export const Header = () => {
                   </button>
                   
                   {mobileServicesOpen && (
-                    <div className="mt-2 space-y-3 pb-2">
+                    <div className="mt-2 space-y-1 pb-2">
                       {serviceCategories.map((category) => (
-                        <div key={category.name} className="pl-2">
-                          <span className="font-body font-medium text-accent text-sm block py-1">
-                            {category.name}
-                          </span>
-                          <div className="flex flex-col gap-0.5 pl-3 border-l-2 border-accent/20">
-                            {category.services.map((service) => (
-                              <a
-                                key={service.href}
-                                href={service.href}
-                                className="font-body text-sm text-muted-foreground hover:text-accent active:bg-accent/5 transition-colors py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                {service.name}
-                              </a>
-                            ))}
-                          </div>
+                        <div key={category.name}>
+                          {/* Category Header - Clickable */}
+                          <button
+                            onClick={() => setExpandedCategory(
+                              expandedCategory === category.name ? null : category.name
+                            )}
+                            className="flex items-center justify-between w-full font-body font-medium text-accent text-sm py-2.5 px-2 rounded hover:bg-accent/5 min-h-[44px] touch-manipulation"
+                          >
+                            <span className="flex items-center gap-2">
+                              <category.icon className="h-4 w-4" />
+                              {category.name}
+                            </span>
+                            <ChevronDown className={`h-4 w-4 transition-transform ${
+                              expandedCategory === category.name ? 'rotate-180' : ''
+                            }`} />
+                          </button>
+                          
+                          {/* Services List - Only shown when category is expanded */}
+                          {expandedCategory === category.name && (
+                            <div className="flex flex-col gap-0.5 pl-6 ml-2 border-l-2 border-accent/20">
+                              {category.services.map((service) => (
+                                'external' in service && service.external ? (
+                                  <a
+                                    key={service.href}
+                                    href={service.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                    {service.name}
+                                  </a>
+                                ) : (
+                                  <a
+                                    key={service.href}
+                                    href={service.href}
+                                    className="font-body text-sm text-muted-foreground hover:text-accent py-2.5 px-2 rounded min-h-[44px] flex items-center touch-manipulation"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                    {service.name}
+                                  </a>
+                                )
+                              ))}
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
