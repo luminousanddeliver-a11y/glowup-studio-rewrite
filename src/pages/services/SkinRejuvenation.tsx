@@ -335,7 +335,7 @@ const SkinRejuvenation = () => {
             title="Skin Rejuvenation Pricing"
             subtitle="Investment in your skin's future"
             prices={prices}
-            disclaimer="New clients receive 25% off their first treatment. Course packages offer the best value and results. 0% finance options available."
+            disclaimer="Free consultation available. Course packages offer the best value and results. 0% finance options available."
           />
         </div>
         

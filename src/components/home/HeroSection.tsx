@@ -50,7 +50,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Permanent results in 6-8 sessions. <strong className="text-foreground">Safe for all skin types</strong>, including darker skin tones. NHS-approved technology trusted by 250+ happy clients.
+              Permanent results in 6-8 sessions. <strong className="text-foreground">Safe for all skin types</strong>, including darker skin tones. NHS-approved technology trusted by 290+ happy clients.
             </motion.p>
 
             {/* Trust Signals - Visible without scrolling */}
@@ -75,7 +75,7 @@ export const HeroSection = () => {
                 className="flex items-center gap-1.5 bg-gold/10 text-gold px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gold/20 transition-colors"
               >
                 <Star className="h-4 w-4 fill-current" />
-                <span>4.9★ (250+ Reviews)</span>
+                <span>4.9★ (290+ Reviews)</span>
               </a>
             </motion.div>
 
@@ -152,7 +152,7 @@ export const HeroSection = () => {
             >
               <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 {[
-                  { value: "250+", label: "Happy Clients" },
+                  { value: "290+", label: "Happy Clients" },
                   { value: "6+", label: "Years Experience" },
                   { value: "All Skin", label: "Types Treated" }
                 ].map((stat, index) => (

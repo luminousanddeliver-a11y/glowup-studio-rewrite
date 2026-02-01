@@ -104,7 +104,7 @@ export const ServiceTestimonial = ({
               ))}
             </div>
             <span className="font-body text-sm text-muted-foreground">
-              4.9 from 250+ Google Reviews
+              4.9 from 290+ Google Reviews
             </span>
             <span className="text-accent text-xs group-hover:underline">View →</span>
           </a>

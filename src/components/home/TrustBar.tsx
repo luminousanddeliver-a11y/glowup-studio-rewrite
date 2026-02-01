@@ -11,7 +11,7 @@ const trustItems = [
   {
     icon: Star,
     title: "4.9★ Rating",
-    description: "250+ verified reviews",
+    description: "290+ verified reviews",
     link: GOOGLE_MAPS_REVIEWS_URL,
   },
   {

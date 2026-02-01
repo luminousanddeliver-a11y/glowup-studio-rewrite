@@ -342,7 +342,7 @@ const LaserHairRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Pain-Free Laser Hair Removal Dagenham | NHS Approved | Book Free Consult"
-        description="Get permanent hair reduction in 6-8 sessions with pain-free Lynton Motus AY laser. Safe for all skin types. NHS-approved clinic in Dagenham. 25% off for new clients!"
+        description="Get permanent hair reduction in 6-8 sessions with pain-free Lynton Motus AY laser. Safe for all skin types. NHS-approved clinic in Dagenham. Free consultation - Book today!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
         structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />
@@ -357,7 +357,7 @@ const LaserHairRemoval = () => {
           titleAccent="Dagenham"
           subtitle="Experience the Freedom of Permanently Smooth Skin"
           description="Safe for all skin types including dark skin. Book your free consultation and say goodbye to shaving forever."
-          badge="25% Off First Course"
+          badge="Free Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
@@ -412,8 +412,8 @@ const LaserHairRemoval = () => {
           subtitle="No hidden fees. Book a free consultation for a personalized quote."
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "25% OFF ALL PACKAGES",
-            text: "Book Your Free Consultation"
+            highlight: "FREE CONSULTATION & PATCH TEST",
+            text: "Book Your Appointment Today"
           }}
           paymentOptions="Interest-free payment plans available. Spread the cost over 6-12 months."
           disclaimer="Prices may vary based on individual assessment. Course payments can be split with 0% finance options available."

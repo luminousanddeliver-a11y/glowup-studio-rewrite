@@ -63,7 +63,7 @@ export const Testimonials = forwardRef<HTMLElement, object>(function Testimonial
                 ))}
               </div>
               <div className="font-heading text-2xl font-bold text-foreground">4.9 / 5</div>
-              <div className="font-body text-sm text-muted-foreground">250+ Google Reviews</div>
+              <div className="font-body text-sm text-muted-foreground">290+ Google Reviews</div>
             </motion.div>
           </motion.div>
 
@@ -155,7 +155,7 @@ export const Testimonials = forwardRef<HTMLElement, object>(function Testimonial
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Read All 250+ Reviews
+                  Read All 290+ Reviews
                 </a>
               </Button>
             </motion.div>

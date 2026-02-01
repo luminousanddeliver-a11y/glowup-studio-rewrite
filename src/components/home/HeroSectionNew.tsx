@@ -14,7 +14,7 @@ const trustItems = [
   {
     icon: Star,
     label: "4.9★ Rating",
-    sublabel: "250+ verified reviews",
+    sublabel: "290+ verified reviews",
     variant: "gold" as const,
     href: GOOGLE_MAPS_REVIEWS_URL,
   },
@@ -127,7 +127,7 @@ export const HeroSectionNew = () => {
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <span className="block font-heading text-3xl font-bold text-primary">250+</span>
+                  <span className="block font-heading text-3xl font-bold text-primary">290+</span>
                   <span className="text-white/70 text-sm">5-Star Reviews</span>
                 </div>
                 <div className="text-center p-4 bg-white/5 rounded-xl">

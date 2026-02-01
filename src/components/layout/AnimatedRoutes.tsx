@@ -1,53 +1,57 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "./PageTransition";
+import { ServicePageSkeleton } from "@/components/ui/ServicePageSkeleton";
 
-// Pages
+// Core pages - loaded immediately
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import FAQ from "@/pages/FAQ";
-import Shop from "@/pages/Shop";
-import ProductDetail from "@/pages/ProductDetail";
-import Checkout from "@/pages/Checkout";
-import OrderConfirmation from "@/pages/OrderConfirmation";
-import OrderCancelled from "@/pages/OrderCancelled";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Prices from "@/pages/Prices";
-import GiftVouchers from "@/pages/GiftVouchers";
-import Academy from "@/pages/Academy";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsAndConditions from "@/pages/TermsAndConditions";
 
-// Services
-import LaserHairRemoval from "@/pages/services/LaserHairRemoval";
-import Hydrafacials from "@/pages/services/Hydrafacials";
-import TattooRemoval from "@/pages/services/TattooRemoval";
-import SkinRejuvenation from "@/pages/services/SkinRejuvenation";
-import SkinPenMicroneedling from "@/pages/services/SkinPenMicroneedling";
-import IVDrips from "@/pages/services/IVDrips";
-import ChemicalPeels from "@/pages/services/ChemicalPeels";
-import Electrolysis from "@/pages/services/Electrolysis";
-import ColdPlasma from "@/pages/services/ColdPlasma";
-import IntimateWhitening from "@/pages/services/IntimateWhitening";
-import Injectables from "@/pages/services/Injectables";
-import LaserResurfacing from "@/pages/services/LaserResurfacing";
-import LEDLightTherapy from "@/pages/services/LEDLightTherapy";
-import Facials from "@/pages/services/Facials";
-import VeinRemoval from "@/pages/services/VeinRemoval";
-import SkinTagMoleRemoval from "@/pages/services/SkinTagMoleRemoval";
-import SkinAnalysis from "@/pages/services/SkinAnalysis";
-import PigmentationTreatment from "@/pages/services/PigmentationTreatment";
-import Piercing from "@/pages/services/Piercing";
-import Massage from "@/pages/services/Massage";
-import HopiEarCandling from "@/pages/services/HopiEarCandling";
-import AdvancedElectrolysis from "@/pages/services/AdvancedElectrolysis";
-import MillionDollarFacial from "@/pages/services/MillionDollarFacial";
-import AdvancedPeels from "@/pages/services/AdvancedPeels";
-import LaserHairRemovalEastLondon from "@/pages/services/LaserHairRemovalEastLondon";
-import LyntonMotusAYLaser from "@/pages/services/LyntonMotusAYLaser";
+// Shop pages - lazy loaded
+const Shop = lazy(() => import("@/pages/Shop"));
+const ProductDetail = lazy(() => import("@/pages/ProductDetail"));
+const Checkout = lazy(() => import("@/pages/Checkout"));
+const OrderConfirmation = lazy(() => import("@/pages/OrderConfirmation"));
+const OrderCancelled = lazy(() => import("@/pages/OrderCancelled"));
+const GiftVouchers = lazy(() => import("@/pages/GiftVouchers"));
+const Academy = lazy(() => import("@/pages/Academy"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
+
+// Service pages - lazy loaded for mobile performance
+const LaserHairRemoval = lazy(() => import("@/pages/services/LaserHairRemoval"));
+const Hydrafacials = lazy(() => import("@/pages/services/Hydrafacials"));
+const TattooRemoval = lazy(() => import("@/pages/services/TattooRemoval"));
+const SkinRejuvenation = lazy(() => import("@/pages/services/SkinRejuvenation"));
+const SkinPenMicroneedling = lazy(() => import("@/pages/services/SkinPenMicroneedling"));
+const IVDrips = lazy(() => import("@/pages/services/IVDrips"));
+const ChemicalPeels = lazy(() => import("@/pages/services/ChemicalPeels"));
+const Electrolysis = lazy(() => import("@/pages/services/Electrolysis"));
+const ColdPlasma = lazy(() => import("@/pages/services/ColdPlasma"));
+const IntimateWhitening = lazy(() => import("@/pages/services/IntimateWhitening"));
+const Injectables = lazy(() => import("@/pages/services/Injectables"));
+const LaserResurfacing = lazy(() => import("@/pages/services/LaserResurfacing"));
+const LEDLightTherapy = lazy(() => import("@/pages/services/LEDLightTherapy"));
+const Facials = lazy(() => import("@/pages/services/Facials"));
+const VeinRemoval = lazy(() => import("@/pages/services/VeinRemoval"));
+const SkinTagMoleRemoval = lazy(() => import("@/pages/services/SkinTagMoleRemoval"));
+const SkinAnalysis = lazy(() => import("@/pages/services/SkinAnalysis"));
+const PigmentationTreatment = lazy(() => import("@/pages/services/PigmentationTreatment"));
+const Piercing = lazy(() => import("@/pages/services/Piercing"));
+const Massage = lazy(() => import("@/pages/services/Massage"));
+const HopiEarCandling = lazy(() => import("@/pages/services/HopiEarCandling"));
+const AdvancedElectrolysis = lazy(() => import("@/pages/services/AdvancedElectrolysis"));
+const MillionDollarFacial = lazy(() => import("@/pages/services/MillionDollarFacial"));
+const AdvancedPeels = lazy(() => import("@/pages/services/AdvancedPeels"));
+const LaserHairRemovalEastLondon = lazy(() => import("@/pages/services/LaserHairRemovalEastLondon"));
+const LyntonMotusAYLaser = lazy(() => import("@/pages/services/LyntonMotusAYLaser"));
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -55,48 +59,54 @@ export const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        {/* Core pages - no suspense needed */}
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/prices" element={<PageTransition><Prices /></PageTransition>} />
-        <Route path="/gift-vouchers" element={<PageTransition><GiftVouchers /></PageTransition>} />
-        <Route path="/academy" element={<PageTransition><Academy /></PageTransition>} />
-        <Route path="/shop" element={<PageTransition><Shop /></PageTransition>} />
-        <Route path="/shop/:slug" element={<PageTransition><ProductDetail /></PageTransition>} />
-        <Route path="/checkout" element={<PageTransition><Checkout /></PageTransition>} />
-        <Route path="/order-confirmation" element={<PageTransition><OrderConfirmation /></PageTransition>} />
-        <Route path="/order-cancelled" element={<PageTransition><OrderCancelled /></PageTransition>} />
-        <Route path="/laser-hair-removal-dagenham" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
-        <Route path="/hydrafacial-east-london" element={<PageTransition><Hydrafacials /></PageTransition>} />
-        <Route path="/tattoo-removal-east-london" element={<PageTransition><TattooRemoval /></PageTransition>} />
-        <Route path="/skin-rejuvenation-dagenham" element={<PageTransition><SkinRejuvenation /></PageTransition>} />
-        <Route path="/skinpen-microneedling-dagenham" element={<PageTransition><SkinPenMicroneedling /></PageTransition>} />
-        <Route path="/iv-drips-infusions-east-london" element={<PageTransition><IVDrips /></PageTransition>} />
-        <Route path="/chemical-peels-dagenham" element={<PageTransition><ChemicalPeels /></PageTransition>} />
-        <Route path="/electrolysis-hair-removal-dagenham" element={<PageTransition><Electrolysis /></PageTransition>} />
-        <Route path="/cold-plasma-treatment-dagenham" element={<PageTransition><ColdPlasma /></PageTransition>} />
-        <Route path="/intimate-whitening-east-london" element={<PageTransition><IntimateWhitening /></PageTransition>} />
-        <Route path="/injectables-dagenham" element={<PageTransition><Injectables /></PageTransition>} />
-        <Route path="/laser-resurfacing-dagenham" element={<PageTransition><LaserResurfacing /></PageTransition>} />
-        <Route path="/led-light-therapy-dagenham" element={<PageTransition><LEDLightTherapy /></PageTransition>} />
-        <Route path="/facials-dagenham" element={<PageTransition><Facials /></PageTransition>} />
-        <Route path="/vein-removal-east-london" element={<PageTransition><VeinRemoval /></PageTransition>} />
-        <Route path="/skin-tag-mole-removal-dagenham" element={<PageTransition><SkinTagMoleRemoval /></PageTransition>} />
-        <Route path="/skin-analysis-dagenham" element={<PageTransition><SkinAnalysis /></PageTransition>} />
-        <Route path="/pigmentation-treatment-dagenham" element={<PageTransition><PigmentationTreatment /></PageTransition>} />
-        <Route path="/ear-piercing-dagenham" element={<PageTransition><Piercing /></PageTransition>} />
-        <Route path="/massage-dagenham" element={<PageTransition><Massage /></PageTransition>} />
-        <Route path="/hopi-ear-candling-dagenham" element={<PageTransition><HopiEarCandling /></PageTransition>} />
-        <Route path="/advanced-electrolysis-dagenham" element={<PageTransition><AdvancedElectrolysis /></PageTransition>} />
-        <Route path="/million-dollar-facial-dagenham" element={<PageTransition><MillionDollarFacial /></PageTransition>} />
-        <Route path="/advanced-peels-dagenham" element={<PageTransition><AdvancedPeels /></PageTransition>} />
-        <Route path="/laser-hair-removal-east-london" element={<PageTransition><LaserHairRemovalEastLondon /></PageTransition>} />
-        <Route path="/lynton-motus-ay-laser" element={<PageTransition><LyntonMotusAYLaser /></PageTransition>} />
-        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-        <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsAndConditions /></PageTransition>} />
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+        
+        {/* Shop pages - with suspense */}
+        <Route path="/gift-vouchers" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><GiftVouchers /></PageTransition></Suspense>} />
+        <Route path="/academy" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Academy /></PageTransition></Suspense>} />
+        <Route path="/shop" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Shop /></PageTransition></Suspense>} />
+        <Route path="/shop/:slug" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><ProductDetail /></PageTransition></Suspense>} />
+        <Route path="/checkout" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Checkout /></PageTransition></Suspense>} />
+        <Route path="/order-confirmation" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><OrderConfirmation /></PageTransition></Suspense>} />
+        <Route path="/order-cancelled" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><OrderCancelled /></PageTransition></Suspense>} />
+        <Route path="/blog" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Blog /></PageTransition></Suspense>} />
+        <Route path="/blog/:slug" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><BlogPost /></PageTransition></Suspense>} />
+        
+        {/* Service pages - with suspense for mobile performance */}
+        <Route path="/laser-hair-removal-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemoval /></PageTransition></Suspense>} />
+        <Route path="/hydrafacial-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Hydrafacials /></PageTransition></Suspense>} />
+        <Route path="/tattoo-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><TattooRemoval /></PageTransition></Suspense>} />
+        <Route path="/skin-rejuvenation-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><SkinRejuvenation /></PageTransition></Suspense>} />
+        <Route path="/skinpen-microneedling-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><SkinPenMicroneedling /></PageTransition></Suspense>} />
+        <Route path="/iv-drips-infusions-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><IVDrips /></PageTransition></Suspense>} />
+        <Route path="/chemical-peels-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><ChemicalPeels /></PageTransition></Suspense>} />
+        <Route path="/electrolysis-hair-removal-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Electrolysis /></PageTransition></Suspense>} />
+        <Route path="/cold-plasma-treatment-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><ColdPlasma /></PageTransition></Suspense>} />
+        <Route path="/intimate-whitening-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><IntimateWhitening /></PageTransition></Suspense>} />
+        <Route path="/injectables-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Injectables /></PageTransition></Suspense>} />
+        <Route path="/laser-resurfacing-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserResurfacing /></PageTransition></Suspense>} />
+        <Route path="/led-light-therapy-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LEDLightTherapy /></PageTransition></Suspense>} />
+        <Route path="/facials-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Facials /></PageTransition></Suspense>} />
+        <Route path="/vein-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><VeinRemoval /></PageTransition></Suspense>} />
+        <Route path="/skin-tag-mole-removal-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><SkinTagMoleRemoval /></PageTransition></Suspense>} />
+        <Route path="/skin-analysis-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><SkinAnalysis /></PageTransition></Suspense>} />
+        <Route path="/pigmentation-treatment-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><PigmentationTreatment /></PageTransition></Suspense>} />
+        <Route path="/ear-piercing-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Piercing /></PageTransition></Suspense>} />
+        <Route path="/massage-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Massage /></PageTransition></Suspense>} />
+        <Route path="/hopi-ear-candling-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><HopiEarCandling /></PageTransition></Suspense>} />
+        <Route path="/advanced-electrolysis-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><AdvancedElectrolysis /></PageTransition></Suspense>} />
+        <Route path="/million-dollar-facial-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><MillionDollarFacial /></PageTransition></Suspense>} />
+        <Route path="/advanced-peels-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><AdvancedPeels /></PageTransition></Suspense>} />
+        <Route path="/laser-hair-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalEastLondon /></PageTransition></Suspense>} />
+        <Route path="/lynton-motus-ay-laser" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LyntonMotusAYLaser /></PageTransition></Suspense>} />
+        
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
