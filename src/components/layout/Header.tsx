@@ -431,12 +431,9 @@ export const Header = () => {
             </div>
           </motion.div>
 
-          {/* Mobile Navigation - Clean edge-to-edge appearance */}
-          {/* REMOVED: border-t border-white/30 for cleaner look */}
+          {/* Mobile Navigation - Clean solid white background */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain
-              bg-white/95 backdrop-blur-xl
-              shadow-lg">
+            <div className="lg:hidden py-4 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white">
               <nav className="flex flex-col gap-1">
                 {/* Mobile Services Accordion - First */}
                 <div className="py-2 px-2">
