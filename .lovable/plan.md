@@ -1,163 +1,186 @@
 
-# Advanced SEO Optimization Plan
-
-This plan will maximize search rankings for all target areas and top services.
+# Fix Plan: FAQ Schemas, Remove 25% Offers, Update Reviews & Mobile Performance
 
 ---
 
-## Current Status
+## Summary of Issues Found
 
-### What's Working
-- Homepage schema has all target areas (Redbridge, Havering, Newham, Essex, Epping)
-- FAQ schema is properly implemented
-- Service pages have basic structured data
-
-### Critical Gaps Found
-
-| Issue | Impact |
-|-------|--------|
-| Service pages limited to 5 areas | Missing searches from Redbridge, Havering, Newham, Essex, Epping |
-| No "London" in schema | Missing broad "laser hair removal London" searches |
-| No pricing in service schema | Missing rich snippet pricing display |
-| Keywords too narrow | Not targeting "near me" or borough-specific searches |
+| Issue | Files Affected |
+|-------|----------------|
+| Missing FAQ Schema | SkinTagMoleRemoval.tsx |
+| 25% Off references | FAQSection.tsx, LaserHairRemoval.tsx, SkinRejuvenation.tsx, Facials.tsx, Prices.tsx |
+| Review count 250+ | constants.ts + 9 UI components |
+| Mobile performance | Service pages with heavy imports |
 
 ---
 
-## Changes Required
+## 1. Add FAQ Schema to SkinTagMoleRemoval.tsx
 
-### 1. Expand Service Page areaServed
+**File:** `src/pages/services/SkinTagMoleRemoval.tsx`
 
-**Files:** `LaserHairRemoval.tsx`, `TattooRemoval.tsx`, `Hydrafacials.tsx`, `ChemicalPeels.tsx`, `SkinTagMoleRemoval.tsx`
+The page has 8 FAQs defined (lines 240-273) but no FAQPage schema. Add:
 
-Update `areaServed` in each service schema from:
-```
-["Dagenham", "Barking", "Romford", "Ilford", "East London"]
-```
-
-To the full list:
-```
-["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Essex", "Epping", "Barking and Dagenham"]
-```
-
----
-
-### 2. Add "London" to Homepage Schema
-
-**File:** `src/pages/Index.tsx`
-
-Add to `areaServed` array (line 43):
-```
-{ "@type": "City", "name": "London" }
-```
-
-This captures broad searches like "laser hair removal London" and "skin clinic London".
-
----
-
-### 3. Add Pricing to Service Schemas
-
-**File:** `LaserHairRemoval.tsx` - Add to `structuredData`:
 ```javascript
-"offers": {
-  "@type": "AggregateOffer",
-  "lowPrice": "80",
-  "highPrice": "2400",
-  "priceCurrency": "GBP",
-  "offerCount": "15"
-}
-```
-
-Repeat for all 5 top services with their actual price ranges.
-
----
-
-### 4. Enhance Homepage Keywords
-
-**File:** `src/pages/Index.tsx` - Update SEOHead keywords (line 189):
-
-Current:
-```
-"laser hair removal dagenham, tattoo removal east london..."
-```
-
-Enhanced:
-```
-"laser hair removal london, laser hair removal near me, tattoo removal london, hydrafacial london, skin clinic east london, laser clinic redbridge, laser clinic havering, skin tag removal essex, chemical peel newham, NHS approved skin clinic london"
-```
-
----
-
-### 5. Update Constants with London
-
-**File:** `src/lib/constants.ts` - Update areaServed (line 34):
-
-Add "London" to the array for site-wide consistency.
-
----
-
-### 6. Add BreadcrumbList Schema to Service Pages
-
-Add to each service page for better navigation snippets:
-```javascript
-const breadcrumbSchema = {
+const faqSchema = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://laserlightskinclinic.co.uk" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://laserlightskinclinic.co.uk/prices" },
-    { "@type": "ListItem", "position": 3, "name": "Laser Hair Removal" }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will removing a skin tag hurt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There's a brief stinging sensation during treatment, but it's very quick. For larger or more sensitive areas, we can apply numbing cream beforehand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the skin tag grow back?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A properly removed skin tag will not grow back. However, if you're prone to skin tags, new ones may develop in other areas over time."
+      }
+    },
+    // ... (4 most important FAQs for schema)
   ]
 }
 ```
 
----
-
-### 7. Update index.html Meta Description
-
-**File:** `index.html`
-
-Remove outdated "25% off" promotion and add location keywords:
-
-Current (line 9):
-```
-"NHS-approved laser hair removal & skin clinic in Dagenham, East London. Pain-free treatments with Lynton Motus AY technology. 25% off for new clients."
-```
-
-Updated:
-```
-"NHS-approved laser hair removal & skin clinic in East London. Serving Dagenham, Redbridge, Havering, Essex & Newham. Pain-free treatments. Book today!"
+Update SEOHead (line 281):
+```javascript
+structuredData={[structuredData, faqSchema, breadcrumbSchema]}
 ```
 
 ---
 
-## Summary of Files to Edit
+## 2. Remove All 25% Off References
+
+### File: `src/components/home/FAQSection.tsx` (Line 22)
+**Current:**
+```
+"Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. New clients also receive 25% off their first treatment course."
+```
+**Replace with:**
+```
+"Treatment costs vary by service and area. We offer transparent pricing, a free consultation, and flexible payment plans including 0% finance options."
+```
+
+### File: `src/pages/services/LaserHairRemoval.tsx`
+
+**Line 345 - SEOHead description:**
+```
+Current: "25% off for new clients!"
+Replace with: "Free consultation - Book today!"
+```
+
+**Line 360 - ServiceHero badge:**
+```
+Current: badge="25% Off First Course"
+Replace with: badge="Free Consultation"
+```
+
+**Line 415 - offerBanner highlight:**
+```
+Current: highlight: "25% OFF ALL PACKAGES"
+Replace with: highlight: "FREE CONSULTATION & PATCH TEST"
+```
+
+### File: `src/pages/services/SkinRejuvenation.tsx` (Line 338)
+```
+Current: "New clients receive 25% off their first treatment."
+Replace with: "Free consultation available. Course packages offer the best value."
+```
+
+### File: `src/pages/services/Facials.tsx` (Line 321)
+```
+Current: highlight: "25% OFF FOR NEW CLIENTS"
+Replace with: highlight: "FREE CONSULTATION AVAILABLE"
+```
+
+### File: `src/pages/Prices.tsx` (Line 391)
+```
+Current: "25% off for new clients."
+Replace with: "Free consultation available."
+```
+
+---
+
+## 3. Update Review Count from 250+ to 290+
+
+### Primary Source: `src/lib/constants.ts` (Line 26)
+```javascript
+Current: reviewCount: "250+"
+Replace: reviewCount: "290+"
+```
+
+### UI Components to Update (hardcoded values):
+
+| File | Line | Change |
+|------|------|--------|
+| `src/pages/About.tsx` | 129, 267 | 250+ -> 290+ |
+| `src/components/home/HeroSectionNew.tsx` | 17, 130 | 250+ -> 290+ |
+| `src/components/home/HeroSection.tsx` | 53, 78, 155 | 250+ -> 290+ |
+| `src/components/home/TrustBar.tsx` | 14 | 250+ -> 290+ |
+| `src/components/services/ServiceTestimonial.tsx` | 107 | 250+ -> 290+ |
+| `src/components/home/TrustSection.tsx` | 144 | 250+ -> 290+ |
+| `src/components/home/Testimonials.tsx` | 66, 158 | 250+ -> 290+ |
+| `src/pages/Contact.tsx` | 355 | 250+ -> 290+ |
+
+---
+
+## 4. Mobile Performance Optimization
+
+**Issue:** Service pages like SkinTagMoleRemoval load slowly on first visit due to heavy imports.
+
+**Solution:** Add React.lazy() for heavy service page components.
+
+### File: `src/App.tsx` - Lazy load service pages
+
+```javascript
+// Change from direct imports to lazy imports
+const SkinTagMoleRemoval = lazy(() => import("./pages/services/SkinTagMoleRemoval"));
+const LaserHairRemoval = lazy(() => import("./pages/services/LaserHairRemoval"));
+// etc.
+
+// Wrap routes in Suspense with skeleton fallback
+<Suspense fallback={<ServicePageSkeleton />}>
+  <Route path="/skin-tag-mole-removal-dagenham" element={<SkinTagMoleRemoval />} />
+</Suspense>
+```
+
+### Create: `src/components/ui/ServicePageSkeleton.tsx`
+A lightweight loading skeleton that appears while the full page loads, improving perceived performance.
+
+---
+
+## Files to Edit Summary
 
 | File | Changes |
 |------|---------|
-| `src/pages/Index.tsx` | Add "London" to areaServed, expand keywords |
-| `src/lib/constants.ts` | Add "London" to areaServed |
-| `src/pages/services/LaserHairRemoval.tsx` | Expand areaServed, add pricing schema, add breadcrumb |
-| `src/pages/services/TattooRemoval.tsx` | Expand areaServed, add pricing schema, add breadcrumb |
-| `src/pages/services/Hydrafacials.tsx` | Expand areaServed, add pricing schema, add breadcrumb |
-| `src/pages/services/ChemicalPeels.tsx` | Expand areaServed, add pricing schema, add breadcrumb |
-| `src/pages/services/SkinTagMoleRemoval.tsx` | Expand areaServed, add pricing schema, add breadcrumb |
-| `index.html` | Update meta description, remove 25% promo |
+| `src/pages/services/SkinTagMoleRemoval.tsx` | Add FAQ schema |
+| `src/components/home/FAQSection.tsx` | Remove 25% mention |
+| `src/pages/services/LaserHairRemoval.tsx` | Remove 3x 25% mentions |
+| `src/pages/services/SkinRejuvenation.tsx` | Remove 25% mention |
+| `src/pages/services/Facials.tsx` | Remove 25% mention |
+| `src/pages/Prices.tsx` | Remove 25% mention |
+| `src/lib/constants.ts` | 250+ -> 290+ |
+| `src/pages/About.tsx` | 250+ -> 290+ (2 places) |
+| `src/components/home/HeroSectionNew.tsx` | 250+ -> 290+ (2 places) |
+| `src/components/home/HeroSection.tsx` | 250+ -> 290+ (3 places) |
+| `src/components/home/TrustBar.tsx` | 250+ -> 290+ |
+| `src/components/services/ServiceTestimonial.tsx` | 250+ -> 290+ |
+| `src/components/home/TrustSection.tsx` | 250+ -> 290+ |
+| `src/components/home/Testimonials.tsx` | 250+ -> 290+ (2 places) |
+| `src/pages/Contact.tsx` | 250+ -> 290+ |
+| `src/App.tsx` | Add lazy loading |
+| `src/components/ui/ServicePageSkeleton.tsx` | New file |
 
 ---
 
-## Expected SEO Impact
+## Expected Results
 
-1. **Broader Local Reach**: Appear in searches for "laser hair removal London", "skin clinic Redbridge", "tattoo removal Havering"
-2. **Rich Snippets**: Pricing displays directly in Google results
-3. **Better Navigation**: Breadcrumb links in search results
-4. **Service-Specific Rankings**: Each service page ranks for its area combinations
-5. **Near Me Searches**: Improved visibility for "laser hair removal near me" in target areas
+1. **FAQ Rich Snippets**: SkinTagMoleRemoval will appear with Q&A in Google search results
+2. **Policy Compliance**: All 25% discount references removed per business policy
+3. **Accurate Social Proof**: Review count reflects actual 291 Google reviews
+4. **Faster Mobile**: Service pages load progressively with skeleton UI
 
----
-
-## Technical Notes
-
-- All changes use standard Schema.org markup
-- Pricing schema uses AggregateOffer for price ranges
-- BreadcrumbList improves click-through rates by 10-15%
-- No new dependencies required
