@@ -154,16 +154,16 @@ export const Header = () => {
         className="sticky top-0 z-50"
         initial={false}
         animate={{
-          // FIXED: Mobile menu open uses transparent background to allow glassmorphism
+          // Mobile menu uses solid white, no glass effect
           backgroundColor: mobileMenuOpen
-            ? "rgba(255, 255, 255, 0.25)" // Mobile: transparent for glass effect
+            ? "rgba(255, 255, 255, 1)" // Mobile: solid white for clean look
             : isCompact
               ? "rgba(255, 255, 255, 0.95)" // Desktop: solid on scroll
               : isHomepage
                 ? "rgba(0, 0, 0, 0)" // Homepage: transparent
                 : "rgba(255, 255, 255, 0)", // Other pages: transparent
-          backdropFilter: isCompact || mobileMenuOpen ? "blur(20px)" : "none", // Stronger blur
-          boxShadow: isCompact
+          backdropFilter: mobileMenuOpen ? "none" : (isCompact ? "blur(20px)" : "none"), // No blur on mobile menu
+          boxShadow: isCompact && !mobileMenuOpen
             ? "0 4px 20px rgba(0,0,0,0.1)"
             : "none"
         }}
