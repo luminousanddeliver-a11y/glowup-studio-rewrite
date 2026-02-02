@@ -2,83 +2,52 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const ServicePageSkeleton = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header skeleton */}
-      <div className="h-20 bg-background border-b border-border">
-        <div className="container-custom h-full flex items-center justify-between">
-          <Skeleton className="h-10 w-32" />
-          <div className="hidden md:flex gap-6">
-            {[...Array(5)].map((_, i) => (
-              <Skeleton key={i} className="h-4 w-20" />
-            ))}
-          </div>
-          <Skeleton className="h-10 w-28" />
-        </div>
-      </div>
-
-      {/* Hero skeleton */}
-      <section className="py-12 md:py-20 bg-secondary/30">
+    <div className="min-h-screen bg-background">
+      {/* Minimal hero skeleton - fast render */}
+      <section className="pt-24 pb-12 md:pt-28 md:pb-16 bg-gradient-to-br from-primary/5 via-background to-background">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <Skeleton className="h-6 w-40" />
-              <Skeleton className="h-12 w-full max-w-md" />
-              <Skeleton className="h-8 w-full max-w-sm" />
-              <Skeleton className="h-20 w-full max-w-lg" />
-              <div className="flex gap-3 pt-4">
-                <Skeleton className="h-12 w-40" />
-                <Skeleton className="h-12 w-32" />
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+            {/* Content side */}
+            <div className="order-2 lg:order-1 space-y-4">
+              <Skeleton className="h-1 w-12" />
+              <Skeleton className="h-10 w-3/4 md:h-12" />
+              <Skeleton className="h-6 w-2/3" />
+              <Skeleton className="h-16 w-full max-w-md" />
+              <div className="flex gap-3 pt-2">
+                <Skeleton className="h-12 w-36" />
+                <Skeleton className="h-12 w-32 hidden sm:block" />
               </div>
             </div>
-            <div className="hidden lg:block">
-              <Skeleton className="h-80 w-full rounded-xl" />
+            {/* Image side - visible on mobile too */}
+            <div className="order-1 lg:order-2">
+              <Skeleton className="aspect-[4/3] w-full rounded-2xl" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quick stats skeleton */}
-      <section className="py-8 bg-background border-b border-border">
+      {/* Quick stats - simplified */}
+      <section className="py-6 border-y border-border">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="flex items-center gap-3 p-4">
-                <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-16" />
-                  <Skeleton className="h-3 w-24" />
-                </div>
+          <div className="flex justify-around gap-4">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <Skeleton className="h-8 w-8 rounded-full" />
+                <Skeleton className="h-4 w-16 hidden sm:block" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Content skeleton */}
-      <section className="py-12 bg-background">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto space-y-4">
-            <Skeleton className="h-8 w-64 mx-auto" />
+      {/* Content placeholder - minimal */}
+      <section className="py-10">
+        <div className="container-custom max-w-3xl">
+          <Skeleton className="h-8 w-48 mx-auto mb-6" />
+          <div className="space-y-3">
             <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-3/4" />
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits skeleton */}
-      <section className="py-12 bg-secondary/30">
-        <div className="container-custom">
-          <Skeleton className="h-8 w-48 mx-auto mb-8" />
-          <div className="grid md:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="bg-card p-6 rounded-lg space-y-3">
-                <Skeleton className="h-10 w-10 rounded-lg" />
-                <Skeleton className="h-5 w-32" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-3/4" />
-              </div>
-            ))}
+            <Skeleton className="h-4 w-5/6" />
+            <Skeleton className="h-4 w-4/5" />
           </div>
         </div>
       </section>

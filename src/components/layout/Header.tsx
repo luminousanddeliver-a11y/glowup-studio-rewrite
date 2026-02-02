@@ -17,6 +17,7 @@ import { CartPreviewTooltip } from "@/components/shop/CartPreviewTooltip";
 import { WishlistPreviewTooltip } from "@/components/shop/WishlistPreviewTooltip";
 import { CartBounceIndicator } from "@/components/shop/FlyingCartAnimation";
 import { ScrollProgress } from "./ScrollProgress";
+import { prefetchRoute } from "@/lib/prefetch";
 import logo from "@/assets/logo.png";
 import { cn } from "@/lib/utils";
 
@@ -241,6 +242,8 @@ export const Header = () => {
                           ) : (
                             <a
                               href={service.href}
+                              onMouseEnter={() => prefetchRoute(service.href)}
+                              onTouchStart={() => prefetchRoute(service.href)}
                               className={cn(
                                 "cursor-pointer w-full text-sm py-2 px-3 -mx-2 rounded-lg transition-all duration-150 group/item relative",
                                 location.pathname === service.href
@@ -268,6 +271,7 @@ export const Header = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  onMouseEnter={() => prefetchRoute(link.href)}
                   className={cn(
                     "font-body transition-colors relative py-1 group",
                     isActiveLink(link.href)
@@ -524,6 +528,7 @@ export const Header = () => {
                                           ) : (
                                             <a
                                               href={service.href}
+                                              onTouchStart={() => prefetchRoute(service.href)}
                                               className="font-body font-medium text-sm text-muted-foreground hover:text-accent py-2.5 px-3 min-h-[44px] flex items-center touch-manipulation transition-all duration-200 hover:bg-gray-50 active:scale-[0.98]"
                                               onClick={() => setMobileMenuOpen(false)}
                                             >
@@ -552,6 +557,7 @@ export const Header = () => {
                   <motion.a
                     key={link.href}
                     href={link.href}
+                    onTouchStart={() => prefetchRoute(link.href)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.05 * (index + 1), duration: 0.25, ease: "easeOut" }}

@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { prefetchRoute } from "@/lib/prefetch";
 
 const serviceCategories = [
   {
@@ -191,6 +192,9 @@ export const ServicesGrid = () => {
                   <motion.a
                     key={service.name}
                     href={service.href}
+                    onMouseEnter={() => prefetchRoute(service.href)}
+                    onTouchStart={() => prefetchRoute(service.href)}
+                    onFocus={() => prefetchRoute(service.href)}
                     className="group bg-card p-4 md:p-5 rounded-lg shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-2 active:scale-[0.99] touch-manipulation min-h-[88px] flex flex-col justify-between"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

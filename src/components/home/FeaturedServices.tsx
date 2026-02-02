@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ServiceCardSkeleton } from "@/components/ui/ServiceCardSkeleton";
+import { prefetchRoute } from "@/lib/prefetch";
 import laserDevice from "@/assets/laser-device.jpg";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
 import microneedlingDevice from "@/assets/microneedling-device.jpg";
@@ -91,6 +92,8 @@ export const FeaturedServices = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
+              onMouseEnter={() => prefetchRoute(service.href)}
+              onTouchStart={() => prefetchRoute(service.href)}
             >
               <Card className="group bg-card border-border shadow-card hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 overflow-hidden h-full relative">
                 {/* Badge */}
