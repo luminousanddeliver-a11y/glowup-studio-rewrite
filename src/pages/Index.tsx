@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -14,8 +15,13 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
+import { prefetchPopularRoutes } from "@/lib/prefetch";
 
 const Index = () => {
+  // Prefetch popular service pages after homepage loads
+  useEffect(() => {
+    prefetchPopularRoutes();
+  }, []);
   // MedicalClinic + LocalBusiness combined schema with AggregateRating
   const medicalClinicSchema = {
     "@context": "https://schema.org",
