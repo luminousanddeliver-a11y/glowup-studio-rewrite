@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { MapPin, Phone, Mail, Clock, Send, MessageSquare, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -138,11 +139,13 @@ const Contact = () => {
       
       <Header />
       <main className="flex-1">
-        {/* Teal Gradient Strip */}
-        
+        {/* Breadcrumb */}
+        <div className="container-custom pt-4">
+          <PageBreadcrumb items={[{ label: "Contact" }]} />
+        </div>
         
         {/* Hero Section - Light Theme */}
-        <section className="pt-8 pb-10 md:pt-12 md:pb-14 bg-background text-center">
+        <section className="pt-4 pb-10 md:pt-6 md:pb-14 bg-background text-center">
           <div className="container-custom">
             <motion.div initial={{
             opacity: 0,
