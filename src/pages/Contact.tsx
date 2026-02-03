@@ -156,8 +156,11 @@ const Contact = () => {
       
       <Header />
       <main className="flex-1">
+        {/* Teal Gradient Strip */}
+        <div className="h-16 md:h-20 bg-gradient-to-r from-accent via-accent to-primary" />
+        
         {/* Hero Section - Light Theme */}
-        <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-background text-center">
+        <section className="pt-8 pb-10 md:pt-12 md:pb-14 bg-background text-center">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
