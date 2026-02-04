@@ -5,9 +5,43 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck, Star, Zap, Crown, Heart, Check, Building, Award } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck, Star, Zap, Crown, Heart, Check, Building, Award, MessageCircle, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { PricesStickyButton } from "@/components/prices/PricesStickyButton";
+
+const pricingFaqs = [
+  {
+    question: "Do you offer payment plans?",
+    answer: "Yes! We offer 0% interest-free finance options allowing you to spread the cost over 6-12 months. We also accept Klarna and PayPal Pay in 3. Ask at your consultation for details."
+  },
+  {
+    question: "Are consultations free?",
+    answer: "Yes, all initial consultations are completely free with no obligation. We'll assess your needs, explain the treatment process, and provide a personalised quote."
+  },
+  {
+    question: "What's included in the course prices?",
+    answer: "Course prices include all sessions, aftercare advice, and any necessary patch tests. Buy 6 sessions and get 2 free on most laser treatments—that's 8 sessions for the price of 6!"
+  },
+  {
+    question: "Do prices include consultation?",
+    answer: "Yes, the consultation is included in your treatment price. If you book a standalone consultation (£30), this is fully redeemable against any treatment you proceed with."
+  },
+  {
+    question: "Do you price match?",
+    answer: "Yes, we offer a price match promise. If you find the same treatment cheaper at a comparable clinic in the local area, we'll match that price. Just bring proof of the competitor's pricing."
+  },
+  {
+    question: "Are there any hidden fees?",
+    answer: "Absolutely not. All our prices are fully transparent and include everything you need. There are no hidden charges, surprise fees, or mandatory add-ons."
+  },
+];
+
 interface Treatment {
   name: string;
   single: string;
@@ -1018,12 +1052,12 @@ const Prices = () => {
       <Header />
       <main className="flex-1 pb-20 lg:pb-0">
         {/* Hero Section - Light Theme with Gradient */}
-        <section className="relative bg-gradient-to-b from-background via-accent/5 to-secondary pt-4 pb-12 lg:pb-16">
+        <section className="relative bg-gradient-to-b from-background via-accent/5 to-secondary pt-4 pb-10 md:pb-12 lg:pb-16">
           <div className="container-custom">
             {/* Breadcrumb */}
             <PageBreadcrumb items={[{
             label: "Prices"
-          }]} className="mb-6" />
+          }]} className="mb-4 md:mb-6" />
             
             {/* Trust Badge Pill */}
             <motion.div initial={{
@@ -1034,10 +1068,10 @@ const Prices = () => {
             y: 0
           }} transition={{
             duration: 0.4
-          }} className="flex justify-center mb-6">
-              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent rounded-full px-5 py-2 font-body text-sm">
-                <Shield className="w-4 h-4" />
-                <span className="font-medium">NHS APPROVED • INTEREST-FREE PAYMENT PLANS AVAILABLE</span>
+          }} className="flex justify-center mb-5 md:mb-6">
+              <div className="inline-flex items-center gap-1.5 md:gap-2 bg-accent/10 border border-accent/20 text-accent rounded-full px-3 md:px-5 py-1.5 md:py-2 font-body text-[11px] md:text-sm">
+                <Shield className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="font-medium text-center">NHS APPROVED • INTEREST-FREE PLANS</span>
               </div>
             </motion.div>
             
@@ -1052,13 +1086,11 @@ const Prices = () => {
             duration: 0.5,
             delay: 0.1
           }} className="text-center max-w-3xl mx-auto">
-              <h1 className="text-foreground mb-4">
+              <h1 className="text-foreground mb-3 md:mb-4">
                 Treatment Prices
               </h1>
-              <p className="text-lg lg:text-xl text-muted-foreground font-body">
-                Transparent, competitive pricing for all our treatments.
-                <br className="hidden sm:block" />
-                No hidden fees.
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-body px-2">
+                Transparent, competitive pricing for all our treatments. No hidden fees.
               </p>
             </motion.div>
 
@@ -1072,24 +1104,23 @@ const Prices = () => {
           }} transition={{
             duration: 0.5,
             delay: 0.3
-          }} className="mt-10 max-w-4xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                {trustIndicators.map((item, index) => <motion.div key={index} initial={{
-                opacity: 0,
-                y: 10
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.3,
-                delay: 0.4 + index * 0.1
-              }} className="flex flex-col items-center text-center">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-2">
-                      <item.icon className="w-6 h-6 text-accent" />
+          }} className="mt-8 md:mt-10 max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+                {trustIndicators.map((item, index) => (
+                  <motion.div 
+                    key={index} 
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }} 
+                    className="flex flex-col items-center text-center p-2 md:p-0"
+                  >
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/10 flex items-center justify-center mb-1.5 md:mb-2">
+                      <item.icon className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                     </div>
-                    <span className="font-heading font-semibold text-foreground text-sm">{item.text}</span>
-                    <span className="text-muted-foreground text-xs font-body">{item.subtext}</span>
-                  </motion.div>)}
+                    <span className="font-heading font-semibold text-foreground text-xs md:text-sm">{item.text}</span>
+                    <span className="text-muted-foreground text-[11px] md:text-xs font-body">{item.subtext}</span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -1116,53 +1147,55 @@ const Prices = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {popularPackages.map((pkg, index) => <motion.div key={pkg.name} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.4,
-              delay: index * 0.1
-            }} className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+              {popularPackages.map((pkg, index) => (
+                <motion.div 
+                  key={pkg.name} 
+                  initial={{ opacity: 0, y: 30 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.4, delay: index * 0.1 }} 
+                  className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col group"
+                >
                   {/* Card Header */}
-                  <div className="p-5 border-b border-border relative">
-                    {pkg.badge && <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-xs font-bold px-2.5 py-1 rounded-full">
+                  <div className="p-4 md:p-5 border-b border-border relative">
+                    {pkg.badge && (
+                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-[11px] md:text-xs font-bold px-2 md:px-2.5 py-1 rounded-full shadow-sm">
                         {pkg.badge}
-                      </div>}
-                    <h3 className="font-heading font-bold text-foreground text-lg pr-16 mb-1">{pkg.name}</h3>
+                      </div>
+                    )}
+                    <h3 className="font-heading font-bold text-foreground text-base md:text-lg pr-20 mb-1">{pkg.name}</h3>
                     
                     {/* Price */}
                     <div className="flex items-baseline gap-2 mt-3">
-                      <span className="text-3xl font-heading font-bold text-accent">{pkg.packagePrice}</span>
-                      <span className="text-muted-foreground line-through text-sm">{pkg.originalPrice}</span>
+                      <span className="text-2xl md:text-3xl font-heading font-bold text-accent">{pkg.packagePrice}</span>
+                      <span className="text-muted-foreground line-through text-xs md:text-sm">{pkg.originalPrice}</span>
                     </div>
                   </div>
                   
                   {/* Card Body */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">INCLUDES:</p>
+                  <div className="p-4 md:p-5 flex flex-col flex-1">
+                    <p className="text-[11px] md:text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">INCLUDES:</p>
                     <ul className="space-y-2 flex-1">
-                      {pkg.includes.map((item, i) => <li key={i} className="flex items-start gap-2 text-sm font-body text-foreground">
+                      {pkg.includes.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm font-body text-foreground">
                           <div className="w-4 h-4 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <Check className="h-2.5 w-2.5 text-accent" />
                           </div>
                           {item}
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                     
                     {/* CTA */}
-                    <Button asChild variant="outline" className="w-full mt-5 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold">
+                    <Button asChild variant="outline" className="w-full mt-4 md:mt-5 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors">
                       <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
                         Select Package
                       </a>
                     </Button>
                   </div>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -1302,9 +1335,9 @@ const Prices = () => {
         </section>
 
         {/* Payment Options */}
-        <section className="py-12 bg-background">
+        <section className="py-10 md:py-12 bg-background">
           <div className="container-custom">
-            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
               {[{
               icon: CreditCard,
               title: "All Cards Accepted",
@@ -1321,30 +1354,132 @@ const Prices = () => {
               icon: Shield,
               title: "Price Match Promise",
               desc: "We'll match local prices"
-            }].map((item, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              duration: 0.4,
-              delay: index * 0.1
-            }} className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-3">
-                    <item.icon className="h-6 w-6 text-foreground" />
-                  </div>
-                  <h3 className="font-heading font-semibold text-foreground text-sm mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs font-body">{item.desc}</p>
-                </motion.div>)}
+            }].map((item, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.4, delay: index * 0.1 }} 
+                className="flex flex-col items-center text-center p-3 md:p-0"
+              >
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-muted flex items-center justify-center mb-2 md:mb-3">
+                  <item.icon className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
+                </div>
+                <h3 className="font-heading font-semibold text-foreground text-xs md:text-sm mb-0.5 md:mb-1">{item.title}</h3>
+                <p className="text-muted-foreground text-[11px] md:text-xs font-body">{item.desc}</p>
+              </motion.div>
+            ))}
             </div>
           </div>
         </section>
 
-        {/* Spread the Cost Banner */}
-        
+        {/* FAQ Section */}
+        <section className="section-padding bg-secondary/50">
+          <div className="container-custom">
+            {/* Header with icon */}
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-10"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-full mb-4">
+                <MessageCircle className="h-7 w-7 text-primary" />
+              </div>
+              <h2 className="text-foreground mb-3">
+                Pricing FAQs
+              </h2>
+              <p className="font-body text-lg text-muted-foreground">
+                Got questions about our pricing? We've got answers.
+              </p>
+            </motion.div>
+
+            {/* FAQ Accordion */}
+            <motion.div 
+              className="max-w-3xl mx-auto space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Accordion type="single" collapsible className="w-full space-y-3">
+                {pricingFaqs.map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-30px" }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                  >
+                    <AccordionItem 
+                      value={`item-${index}`}
+                      className="bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden data-[state=open]:shadow-md"
+                    >
+                      <AccordionTrigger className="font-heading text-left text-foreground hover:text-primary py-4 md:py-5 px-5 md:px-6 hover:no-underline [&[data-state=open]]:text-primary text-sm md:text-base">
+                        <span className="flex items-center gap-3">
+                          <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs md:text-sm font-semibold text-primary">
+                            {index + 1}
+                          </span>
+                          {faq.question}
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="font-body text-muted-foreground px-5 md:px-6 pb-4 md:pb-5 pt-0 text-sm md:text-base">
+                        <div className="pl-10 md:pl-11">
+                          {faq.answer}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </motion.div>
+                ))}
+              </Accordion>
+            </motion.div>
+
+            {/* Still have questions CTA bar */}
+            <motion.div 
+              className="max-w-3xl mx-auto mt-8"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+            >
+              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5 md:p-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div>
+                    <h3 className="font-heading text-base md:text-lg font-semibold text-foreground mb-1">
+                      Still have questions?
+                    </h3>
+                    <p className="font-body text-muted-foreground text-sm">
+                      Our friendly team is here to help you with any pricing queries.
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body"
+                    >
+                      <a href="tel:02085981200">
+                        <Phone className="mr-2 h-4 w-4" />
+                        Call Us
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground font-body"
+                    >
+                      <a href="/faq">
+                        View All FAQs
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="section-padding bg-primary text-primary-foreground">
@@ -1375,7 +1510,7 @@ const Prices = () => {
           }} transition={{
             duration: 0.5,
             delay: 0.1
-          }} className="text-lg text-primary-foreground/80 font-body max-w-2xl mx-auto mb-8">
+          }} className="text-base md:text-lg text-primary-foreground/80 font-body max-w-2xl mx-auto mb-8">
               Start your journey to confidence today with our expert team. Book a free consultation to discuss your needs.
             </motion.p>
             <motion.div initial={{
