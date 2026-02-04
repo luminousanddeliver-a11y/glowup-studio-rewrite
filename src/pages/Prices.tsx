@@ -5,10 +5,9 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { PageBreadcrumb } from "@/components/layout/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck, Star, Zap, Crown, Heart } from "lucide-react";
+import { Phone, CreditCard, Gift, Shield, Sparkles, Clock, BadgeCheck, Star, Zap, Crown, Heart, Check, Building, Award } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { PricesStickyButton } from "@/components/prices/PricesStickyButton";
-import { ScrollReveal } from "@/components/home/ScrollReveal";
 
 interface Treatment {
   name: string;
@@ -289,10 +288,10 @@ const priceCategories: Record<string, PriceCategory> = {
 };
 
 const trustIndicators = [
-  { icon: Shield, text: "NHS Approved" },
-  { icon: BadgeCheck, text: "Fully Insured" },
-  { icon: Clock, text: "Free Consultation" },
-  { icon: Sparkles, text: "Award Winning" },
+  { icon: Shield, text: "NHS Approved", subtext: "Safety Standards" },
+  { icon: BadgeCheck, text: "Fully Insured", subtext: "For Your Peace of Mind" },
+  { icon: Clock, text: "Free Consultation", subtext: "No Obligation" },
+  { icon: Award, text: "Award Winning", subtext: "Expert Team" },
 ];
 
 const categoryOrder = [
@@ -385,7 +384,7 @@ const Prices = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Prices | Laser Hair Removal & Skin Treatment Costs | Dagenham"
         description="View our treatment prices for laser hair removal, HydraFacials, Botox, tattoo removal and more. Free consultation available. Transparent pricing at Laser Light Skin Clinic Dagenham."
@@ -395,71 +394,90 @@ const Prices = () => {
       
       <Header />
       <main className="flex-1 pb-20 lg:pb-0">
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground -mt-[80px] pt-[88px] lg:pt-[92px] pb-10 lg:pb-12">
+        {/* Hero Section - Light Theme with Gradient */}
+        <section className="relative bg-gradient-to-b from-background via-accent/5 to-secondary pt-4 pb-12 lg:pb-16">
           <div className="container-custom">
+            {/* Breadcrumb */}
+            <PageBreadcrumb 
+              items={[{ label: "Prices" }]} 
+              className="mb-6"
+            />
+            
+            {/* Trust Badge Pill */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-4xl"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="flex justify-center mb-6"
             >
-              <PageBreadcrumb 
-                items={[{ label: "Prices" }]} 
-                variant="dark"
-                className="mb-4"
-              />
-              <h1 className="mb-4">Treatment Prices</h1>
-              <p className="text-lg lg:text-xl text-primary-foreground/90 font-body mb-6">
-                Transparent, competitive pricing for all our treatments. No hidden fees.
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent rounded-full px-5 py-2 font-body text-sm">
+                <Shield className="w-4 h-4" />
+                <span className="font-medium">NHS APPROVED • INTEREST-FREE PAYMENT PLANS AVAILABLE</span>
+              </div>
+            </motion.div>
+            
+            {/* Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <h1 className="text-foreground mb-4">
+                Treatment Prices
+              </h1>
+              <p className="text-lg lg:text-xl text-muted-foreground font-body">
+                Transparent, competitive pricing for all our treatments.
+                <br className="hidden sm:block" />
+                No hidden fees.
               </p>
-              
-              {/* Trust Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-accent/20 text-primary-foreground rounded-lg px-6 py-3 font-body"
-              >
-                <Shield className="w-5 h-5" />
-                <span className="font-semibold">NHS Approved • Interest-Free Payment Plans Available</span>
-              </motion.div>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators - Icon Style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-4 lg:gap-8 mt-8"
+              className="mt-10 max-w-4xl mx-auto"
             >
-              {trustIndicators.map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-primary-foreground/80">
-                  <item.icon className="h-5 w-5" />
-                  <span className="font-body text-sm lg:text-base">{item.text}</span>
-                </div>
-              ))}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                {trustIndicators.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-2">
+                      <item.icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <span className="font-heading font-semibold text-foreground text-sm">{item.text}</span>
+                    <span className="text-muted-foreground text-xs font-body">{item.subtext}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>
 
         {/* Most Popular Packages */}
-        <section className="py-12 lg:py-16 bg-secondary">
+        <section className="py-12 lg:py-16 bg-background">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5 }}
-              className="text-center mb-10"
+              className="mb-10"
             >
-              <h2 className="text-foreground mb-3">Most Popular Packages</h2>
-              <p className="text-muted-foreground font-body max-w-2xl mx-auto">
-                Save more with our specially curated treatment bundles. Combine your favourite treatments at exclusive package prices.
+              <h2 className="text-foreground mb-2">Popular Packages</h2>
+              <p className="text-muted-foreground font-body">
+                Our most requested treatment combinations at the best value.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {popularPackages.map((pkg, index) => (
                 <motion.div
                   key={pkg.name}
@@ -467,76 +485,74 @@ const Prices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden group flex flex-col"
+                  className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col"
                 >
-                  {/* Header */}
-                  <div className="bg-primary p-5 text-primary-foreground relative">
+                  {/* Card Header */}
+                  <div className="p-5 border-b border-border relative">
                     {pkg.badge && (
-                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-xs font-bold px-2.5 py-1 rounded-full z-10">
+                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-xs font-bold px-2.5 py-1 rounded-full">
                         {pkg.badge}
                       </div>
                     )}
-                    <div className="flex items-center gap-3 mb-2 pr-20">
-                      <div className="p-2 bg-primary-foreground/20 rounded-lg flex-shrink-0">
-                        <pkg.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-heading font-bold text-lg leading-tight">{pkg.name}</h3>
+                    <h3 className="font-heading font-bold text-foreground text-lg pr-16 mb-1">{pkg.name}</h3>
+                    
+                    {/* Price */}
+                    <div className="flex items-baseline gap-2 mt-3">
+                      <span className="text-3xl font-heading font-bold text-accent">{pkg.packagePrice}</span>
+                      <span className="text-muted-foreground line-through text-sm">{pkg.originalPrice}</span>
                     </div>
-                    <p className="text-primary-foreground/80 text-sm font-body">{pkg.description}</p>
                   </div>
                   
-                  {/* Content */}
+                  {/* Card Body */}
                   <div className="p-5 flex flex-col flex-1">
-                    {/* Pricing */}
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-2xl font-heading font-bold text-foreground">{pkg.packagePrice}</span>
-                      <span className="text-muted-foreground line-through text-sm">{pkg.originalPrice}</span>
-                      <span className="text-accent font-semibold text-sm">{pkg.savings}</span>
-                    </div>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">INCLUDES:</p>
+                    <ul className="space-y-2 flex-1">
+                      {pkg.includes.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm font-body text-foreground">
+                          <div className="w-4 h-4 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Check className="h-2.5 w-2.5 text-accent" />
+                          </div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                     
-                    {/* Includes */}
-                    <div className="space-y-2 mb-5 flex-1">
-                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Package includes:</p>
-                      <ul className="space-y-1.5">
-                        {pkg.includes.map((item, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm font-body text-foreground">
-                            <Star className="h-3 w-3 text-accent flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    {/* CTA - Always at bottom */}
+                    {/* CTA */}
                     <Button 
                       asChild 
-                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold mt-auto"
+                      variant="outline"
+                      className="w-full mt-5 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold"
                     >
                       <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
-                        Book Package
+                        Select Package
                       </a>
                     </Button>
                   </div>
                 </motion.div>
               ))}
             </div>
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-center text-muted-foreground text-sm font-body mt-8"
-            >
-              💡 Can't find what you need? Call us on <a href="tel:02085981200" className="text-accent hover:underline font-medium">0208 598 1200</a> for a custom package quote.
-            </motion.p>
           </div>
         </section>
 
-        {/* Price Tables */}
-        <section className="section-padding bg-background">
+        {/* Full Price List Section */}
+        <section className="section-padding bg-secondary/50">
           <div className="container-custom">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-8"
+            >
+              <h2 className="text-foreground mb-2">Full Price List</h2>
+              <p className="text-muted-foreground font-body">
+                Select a category to view detailed pricing
+              </p>
+            </motion.div>
+            
             <Tabs defaultValue="laser-women" className="w-full">
+              {/* Category Pills */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -544,13 +560,13 @@ const Prices = () => {
                 transition={{ duration: 0.4 }}
                 className="mb-8"
               >
-                <div className={`${isMobile ? 'overflow-x-auto pb-2 -mx-4 px-4' : ''}`}>
-                  <TabsList className={`${isMobile ? 'inline-flex w-max' : 'grid grid-cols-5 lg:grid-cols-10'} h-auto gap-1.5 bg-secondary p-2`}>
+                <div className={`${isMobile ? 'overflow-x-auto pb-2 -mx-4 px-4' : 'flex justify-center'}`}>
+                  <TabsList className={`${isMobile ? 'inline-flex w-max' : 'inline-flex flex-wrap justify-center'} h-auto gap-2 bg-transparent p-0`}>
                     {categoryOrder.map((key) => (
                       <TabsTrigger 
                         key={key}
                         value={key} 
-                        className="whitespace-nowrap px-3 py-2.5 text-sm data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                        className="whitespace-nowrap px-4 py-2 text-sm rounded-full border border-border bg-card data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary hover:bg-muted transition-colors"
                       >
                         {categoryLabels[key]}
                       </TabsTrigger>
@@ -567,23 +583,36 @@ const Prices = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4 }}
-                      className="bg-card rounded-lg shadow-card overflow-hidden"
+                      className="bg-card rounded-xl border border-border overflow-hidden"
                     >
                       {/* Category Header */}
-                      <div className="bg-primary p-6 text-primary-foreground">
-                        <h2 className="text-2xl font-heading font-bold mb-2">{category.title}</h2>
-                        <p className="font-body text-primary-foreground/80">{category.description}</p>
+                      <div className="p-6 border-b border-border">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                          <div>
+                            <h3 className="text-xl font-heading font-bold text-foreground">{category.title}</h3>
+                            <p className="font-body text-muted-foreground text-sm mt-1">{category.description}</p>
+                          </div>
+                          {category.courseLabel && category.courseLabel !== "—" && category.courseLabel !== "Per Session" && (
+                            <div className="text-sm text-muted-foreground font-body">
+                              Buy 6, Get 2 Free
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                       {/* Price Table */}
                       <div className="overflow-x-auto">
                         <table className="w-full">
-                          <thead className="bg-secondary">
-                            <tr>
-                              <th className="text-left p-4 font-heading font-semibold text-foreground">Treatment</th>
-                              <th className="text-right p-4 font-heading font-semibold text-foreground">Single Session</th>
-                              <th className="text-right p-4 font-heading font-semibold text-foreground">
-                                {category.courseLabel || "Course"}
+                          <thead>
+                            <tr className="border-b border-border bg-muted/30">
+                              <th className="text-left p-4 font-heading font-semibold text-foreground text-sm uppercase tracking-wide">
+                                Area
+                              </th>
+                              <th className="text-center p-4 font-heading font-semibold text-foreground text-sm uppercase tracking-wide">
+                                Single Session
+                              </th>
+                              <th className="text-center p-4 font-heading font-semibold text-accent text-sm uppercase tracking-wide">
+                                {category.courseLabel || "Course of 6"}
                               </th>
                             </tr>
                           </thead>
@@ -594,13 +623,13 @@ const Prices = () => {
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: index * 0.02 }}
-                                className={`${index % 2 === 0 ? "bg-background" : "bg-secondary/30"} hover:bg-muted/50 transition-colors`}
+                                className="border-b border-border/50 last:border-b-0 hover:bg-muted/30 transition-colors"
                               >
                                 <td className="p-4 font-body text-foreground">
                                   <div className="flex items-center gap-2 flex-wrap">
-                                    <span>{treatment.name}</span>
+                                    <span className="font-medium">{treatment.name}</span>
                                     {treatment.popular && (
-                                      <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-medium">
+                                      <span className="bg-accent/10 text-accent text-xs px-2 py-0.5 rounded-full font-medium">
                                         Popular
                                       </span>
                                     )}
@@ -611,23 +640,14 @@ const Prices = () => {
                                     )}
                                   </div>
                                 </td>
-                                <td className="p-4 font-body text-foreground text-right font-medium">
+                                <td className="p-4 font-body text-muted-foreground text-center">
                                   {treatment.single}
                                 </td>
-                                <td className="p-4 font-body text-right">
+                                <td className="p-4 font-body text-center">
                                   {treatment.course ? (
                                     <div>
-                                      <span className="text-foreground font-medium">{treatment.course}</span>
-                                      {treatment.savings && (
-                                        <span className="block text-accent text-sm font-medium">
-                                          {treatment.savings}
-                                        </span>
-                                      )}
+                                      <span className="text-accent font-semibold">{treatment.course}</span>
                                     </div>
-                                  ) : treatment.savings ? (
-                                    <span className="text-accent text-sm font-medium">
-                                      {treatment.savings}
-                                    </span>
                                   ) : (
                                     <span className="text-muted-foreground">—</span>
                                   )}
@@ -640,10 +660,9 @@ const Prices = () => {
 
                       {/* Category Note */}
                       {category.note && (
-                        <div className="p-4 bg-accent/10 border-t border-border">
-                          <p className="text-accent font-body text-sm flex items-center gap-2">
-                            <Sparkles className="h-4 w-4" />
-                            {category.note}
+                        <div className="p-4 bg-muted/30 border-t border-border">
+                          <p className="text-muted-foreground font-body text-sm italic">
+                            *{category.note}
                           </p>
                         </div>
                       )}
@@ -656,27 +675,14 @@ const Prices = () => {
         </section>
 
         {/* Payment Options */}
-        <section className="py-12 bg-secondary">
+        <section className="py-12 bg-background">
           <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-8"
-            >
-              <h2 className="text-foreground mb-4">Flexible Payment Options</h2>
-              <p className="text-muted-foreground font-body max-w-2xl mx-auto">
-                We make treatments accessible with various payment methods and finance options.
-              </p>
-            </motion.div>
-
             <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {[
                 { icon: CreditCard, title: "All Cards Accepted", desc: "Visa, Mastercard, Amex" },
                 { icon: Clock, title: "0% Finance Available", desc: "Spread over 6-12 months" },
                 { icon: Gift, title: "Gift Vouchers", desc: "Perfect for any occasion" },
-                { icon: Shield, title: "Price Match", desc: "We'll match local prices" },
+                { icon: Shield, title: "Price Match Promise", desc: "We'll match local prices" },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -684,13 +690,41 @@ const Prices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-card p-6 rounded-lg text-center shadow-card"
+                  className="flex flex-col items-center text-center"
                 >
-                  <item.icon className="h-8 w-8 text-accent mx-auto mb-3" />
-                  <h3 className="font-heading font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm font-body">{item.desc}</p>
+                  <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-3">
+                    <item.icon className="h-6 w-6 text-foreground" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-xs font-body">{item.desc}</p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Spread the Cost Banner */}
+        <section className="bg-primary py-8 lg:py-10">
+          <div className="container-custom">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="text-primary-foreground">
+                <h3 className="font-heading font-bold text-xl mb-2">Spread the Cost</h3>
+                <p className="font-body text-primary-foreground/80 max-w-md">
+                  Invest in yourself today. We offer 0% interest finance plans for all course bookings over £500. Pay in 3, 6 or 12 manageable installments.
+                </p>
+                <div className="flex items-center gap-3 mt-4">
+                  <div className="bg-white px-3 py-1.5 rounded text-sm font-bold text-[#ffb3c7]">Klarna</div>
+                  <div className="bg-white px-3 py-1.5 rounded text-sm font-bold text-[#003087]">PayPal</div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start md:items-end gap-2">
+                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                  <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                    Check Eligibility →
+                  </a>
+                </Button>
+                <span className="text-primary-foreground/60 text-xs font-body">No impact on credit score</span>
+              </div>
             </div>
           </div>
         </section>
@@ -714,7 +748,7 @@ const Prices = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-lg text-primary-foreground/80 font-body max-w-2xl mx-auto mb-8"
             >
-              Book your free consultation today. Our expert team will create a personalized treatment plan tailored to your needs and budget.
+              Start your journey to confidence today with our expert team. Book a free consultation to discuss your needs.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -723,33 +757,17 @@ const Prices = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
                 <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
                   Book Free Consultation
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground">
+              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                 <a href="tel:02085981200">
                   <Phone className="h-4 w-4 mr-2" />
                   0208 598 1200
                 </a>
               </Button>
-            </motion.div>
-            
-            {/* Contact Details */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-8 pt-8 border-t border-primary-foreground/20"
-            >
-              <p className="text-primary-foreground/70 font-body text-sm">
-                📍 125 Becontree Avenue, Dagenham, Essex, RM8 2UJ
-              </p>
-              <p className="text-primary-foreground/70 font-body text-sm mt-1">
-                📧 info@laserlightskinclinic.co.uk | 📱 07949 501 777
-              </p>
             </motion.div>
           </div>
         </section>

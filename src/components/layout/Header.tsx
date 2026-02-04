@@ -97,8 +97,8 @@ const navLinks = [
 // Routes with dark/teal hero backgrounds that need light text
 // NOTE: About page has light overlay so it uses dark text (not in this list)
 // Blog posts (/blog/:slug) have full-bleed hero images so they also need light text
-// Contact page now has light background so removed from this list
-const darkHeroRoutes = ['/prices', '/blog', '/academy', '/gift-vouchers', '/privacy-policy', '/terms'];
+// Contact and Prices pages now have light backgrounds so removed from this list
+const darkHeroRoutes = ['/blog', '/academy', '/gift-vouchers', '/privacy-policy', '/terms'];
 
 // Check if current route is a service page (these have light gradient backgrounds)
 const isServicePage = (pathname: string) => {
