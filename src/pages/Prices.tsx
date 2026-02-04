@@ -1562,7 +1562,7 @@ const Prices = () => {
                           {category.courseLabel &&
                             category.courseLabel !== "—" &&
                             category.courseLabel !== "Per Session" && (
-                              <div className="text-sm text-muted-foreground font-body">Buy 6, Get 2 Free</div>
+                              <div className="text-sm text-accent font-body font-medium">Great savings on courses</div>
                             )}
                         </div>
                       </div>
@@ -1617,8 +1617,11 @@ const Prices = () => {
                                 <td className="p-4 font-body text-muted-foreground text-center">{treatment.single}</td>
                                 <td className="p-4 font-body text-center">
                                   {treatment.course ? (
-                                    <div>
-                                      <span className="text-accent font-semibold">{treatment.course}</span>
+                                    <div className="flex flex-col items-center">
+                                      <span className="text-foreground font-semibold">{treatment.course}</span>
+                                      {treatment.savings && (
+                                        <span className="text-accent text-sm font-medium">{treatment.savings}</span>
+                                      )}
                                     </div>
                                   ) : (
                                     <span className="text-muted-foreground">—</span>
