@@ -8,7 +8,7 @@ const serviceCategories = [
     services: [
       {
         name: "Laser Hair Removal",
-        description: "Pain-free permanent hair reduction with Lynton Motus AY.",
+        description: "Pain-free permanent hair reduction with Quanta Thunder.",
         href: "/laser-hair-removal-dagenham",
       },
       {

@@ -14,7 +14,7 @@ const courses = [
     level: "Level 4",
     duration: "2-3 Days",
     price: "£1,500",
-    description: "Comprehensive training on laser hair removal using the Lynton Motus AY, covering all skin types and safety protocols.",
+    description: "Comprehensive training on laser hair removal using the Quanta Thunder, covering all skin types and safety protocols.",
     includes: [
       "Theory and practical sessions",
       "Hands-on treatment practice",

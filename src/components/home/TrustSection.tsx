@@ -38,7 +38,7 @@ const promises = [
   },
   {
     icon: Zap,
-    title: "Lynton & Quanta Lasers",
+    title: "Quanta Thunder Lasers",
     description: "World-class, medical-grade technology.",
   },
 ];
