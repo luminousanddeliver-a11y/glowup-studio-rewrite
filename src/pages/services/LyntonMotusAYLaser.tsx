@@ -24,7 +24,7 @@ const LyntonMotusAYLaser = () => {
     "description": "The world's first truly pain-free Alexandrite laser for permanent hair removal. NHS-approved and safe for all skin types.",
     "manufacturer": {
       "@type": "Organization",
-      "name": "Lynton Lasers",
+      "name": "Quanta System",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "GB"
@@ -104,7 +104,7 @@ const LyntonMotusAYLaser = () => {
     "Continuous Cooling: Integrated sapphire cooling tip",
     "High Repetition Rate: Treats large areas quickly",
     "Adjustable Parameters: Customized for every skin type",
-    "Made in UK: Lynton is a British manufacturer"
+    "Made in UK: Quanta is a world-leading manufacturer"
   ];
 
   const faqs = [
@@ -129,8 +129,8 @@ const LyntonMotusAYLaser = () => {
       answer: "Most clients need 6-8 sessions for optimal results. The Alexandrite 755nm wavelength is the most effective for hair removal, meaning fewer sessions compared to other lasers or IPL."
     },
     {
-      question: "Is Lynton a reputable brand?",
-      answer: "Lynton Lasers is a British manufacturer with over 30 years of experience. Their equipment is used by NHS hospitals, private clinics, and dermatologists worldwide. They're the most trusted name in UK aesthetic laser technology."
+      question: "Is Quanta System a reputable brand?",
+      answer: "Quanta System is a world-leading manufacturer of medical and aesthetic lasers. Their equipment is used by NHS hospitals, private clinics, and dermatologists worldwide. The Thunder series represents the pinnacle of laser technology."
     }
   ];
 

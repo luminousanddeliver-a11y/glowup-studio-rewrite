@@ -156,7 +156,7 @@ const LaserHairRemovalEastLondon = () => {
     "Safe for All Skin Types: Including darker skin tones (Fitzpatrick IV-VI)",
     "Alexandrite 755nm: The gold standard wavelength for hair removal",
     "NHS & FDA Approved: Medical-grade safety standards",
-    "Made in UK: Lynton is a British manufacturer"
+    "Made in UK: Quanta is a world-leading manufacturer"
   ];
 
   const pricingTabs = [
