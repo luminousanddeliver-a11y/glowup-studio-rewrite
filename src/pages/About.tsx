@@ -66,11 +66,11 @@ const About = () => {
 
   const certifications = [
     "NHS Approved Clinic",
-    "Quanta Laser Certified",
+    "Medical LED Clinic",
     "FDA-Approved Technology",
+    "Quanta Certified Clinic",
     "Level 4 Qualified Therapists",
-    "Quanta Laser Certified",
-    "Made in Britain Equipment"
+    "Made in Italy Equipment"
   ];
 
   return (
