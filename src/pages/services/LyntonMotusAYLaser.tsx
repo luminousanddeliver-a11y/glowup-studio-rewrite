@@ -129,8 +129,8 @@ const LyntonMotusAYLaser = () => {
       answer: "Most clients need 6-8 sessions for optimal results. The Alexandrite 755nm wavelength is the most effective for hair removal, meaning fewer sessions compared to other lasers or IPL."
     },
     {
-      question: "Is Lynton a reputable brand?",
-      answer: "Lynton Lasers is a British manufacturer with over 30 years of experience. Their equipment is used by NHS hospitals, private clinics, and dermatologists worldwide. They're the most trusted name in UK aesthetic laser technology."
+      question: "Is Quanta a reputable brand?",
+      answer: "Quanta is a world-leading manufacturer of medical and aesthetic lasers. Their equipment is used by clinics and hospitals worldwide, known for cutting-edge technology and reliability."
     }
   ];
 
