@@ -272,7 +272,7 @@ const FAQ = () => {
                       size="lg"
                       className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6"
                     >
-                      <a href="/shop" target="_blank" rel="noopener noreferrer">
+                      <a href="/shop">
                         Book Free Consultation
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </a>

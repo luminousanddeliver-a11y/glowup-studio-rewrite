@@ -50,7 +50,7 @@ export const ServiceCTA = ({
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
               >
-                <a href="/shop" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   <Calendar className="mr-2 h-5 w-5" />
                   Book an Appointment
                 </a>

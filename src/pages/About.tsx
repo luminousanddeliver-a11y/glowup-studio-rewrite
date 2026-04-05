@@ -267,7 +267,7 @@ const About = () => {
                 Based on 290+ verified client reviews
               </p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <a href="/shop" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                <a href="/shop">Book an Appointment</a>
               </Button>
             </motion.div>
           </div>
@@ -288,7 +288,7 @@ const About = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                  <a href="/shop" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                  <a href="/shop">Book an Appointment</a>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary text-primary">
                   <a href="tel:02085981200">Call 0208 598 1200</a>

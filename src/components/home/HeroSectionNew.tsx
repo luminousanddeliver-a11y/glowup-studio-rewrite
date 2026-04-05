@@ -114,7 +114,7 @@ export const HeroSectionNew = () => {
                 size="lg"
                 className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
               >
-                <a href="/shop" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   Book Free Consultation
                 </a>
               </Button>

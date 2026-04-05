@@ -278,7 +278,7 @@ const LyntonMotusAYLaser = () => {
               viewport={{ once: true }}
             >
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 h-14 px-8">
-                <a href="/shop" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>

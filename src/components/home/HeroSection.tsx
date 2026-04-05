@@ -103,7 +103,7 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-base shadow-lg"
               >
-                <a href="/shop" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>

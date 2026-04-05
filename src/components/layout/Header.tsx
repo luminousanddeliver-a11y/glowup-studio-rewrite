@@ -362,7 +362,7 @@ export const Header = () => {
               </CartPreviewTooltip>
               
               <Button asChild className={`bg-primary hover:bg-primary/90 text-primary-foreground font-body px-6 transition-all duration-200 ${isCompact ? 'h-10' : 'h-12'}`}>
-                <a href="/shop" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                <a href="/shop">Book an Appointment</a>
               </Button>
             </div>
 
@@ -597,7 +597,7 @@ export const Header = () => {
                   </a>
 
                   <Button asChild className="w-full mt-3 h-14 text-base font-bold shadow-[0_4px_16px_rgba(28,158,152,0.3)] hover:shadow-[0_6px_20px_rgba(28,158,152,0.4)] active:scale-[0.98] touch-manipulation transition-all duration-200">
-                    <a href="/shop" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                    <a href="/shop">Book an Appointment</a>
                   </Button>
                 </motion.div>
               </nav>
