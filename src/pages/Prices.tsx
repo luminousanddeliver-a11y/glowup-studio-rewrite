@@ -79,7 +79,7 @@ interface PriceCategory {
 const priceCategories: Record<string, PriceCategory> = {
   "laser-women": {
     title: "Laser Hair Removal - Women",
-    description: "Pain-free permanent hair reduction with award-winning Quanta Thunder technology",
+    description: "Pain-free permanent hair reduction with award-winning Lynton Motus AY technology",
     courseLabel: "Course of 6",
     treatments: [
       {
@@ -1457,7 +1457,7 @@ const Prices = () => {
                       className="w-full mt-4 md:mt-5 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors"
                     >
                       <a
-                        href="/shop"
+                        href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -1865,7 +1865,7 @@ const Prices = () => {
                 className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
               >
                 <a
-                  href="/shop"
+                  href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

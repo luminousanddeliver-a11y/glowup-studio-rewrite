@@ -17,7 +17,7 @@ interface Technology {
 const technologies: Technology[] = [
   {
     image: laserDevice,
-    name: "Quanta Thunder",
+    name: "Lynton Motus AY",
     tagline: "Pain-Free Laser Hair Removal",
     description: "The only laser that delivers the power of Alexandrite without the pain. Our advanced cooling system ensures a comfortable experience, even on sensitive areas.",
     features: [

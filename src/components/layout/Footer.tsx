@@ -187,7 +187,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary" />
-                <span className="font-body text-background/80 text-sm">Quanta Certified</span>
+                <span className="font-body text-background/80 text-sm">Lynton Certified</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary" />

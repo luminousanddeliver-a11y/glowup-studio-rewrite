@@ -93,7 +93,7 @@ export const organizationSchema = {
     {
       "@type": "MedicalProcedure",
       "name": "Laser Hair Removal",
-      "description": "Pain-free laser hair removal using Quanta Thunder technology"
+      "description": "Pain-free laser hair removal using Lynton Motus AY technology"
     },
     {
       "@type": "MedicalProcedure",

@@ -48,7 +48,7 @@ export const ServiceHero = ({
   badge,
   trustBadge,
   primaryCtaText = "Book an Appointment",
-  primaryCtaHref = "/shop",
+  primaryCtaHref = "https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true",
   secondaryCta,
   showPhoneCta = true,
   heroImage,

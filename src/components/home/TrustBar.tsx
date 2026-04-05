@@ -17,7 +17,7 @@ const trustItems = [
   {
     icon: Sparkles,
     title: "Pain-Free Guaranteed",
-    description: "Quanta Thunder laser",
+    description: "Lynton Motus AY laser",
   },
   {
     icon: Users,

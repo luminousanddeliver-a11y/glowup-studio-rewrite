@@ -54,12 +54,14 @@ export const cspDirectives = {
     "https://www.google-analytics.com",
     "https://www.googletagmanager.com",
     "https://storage.googleapis.com",
+    "https://www.fresha.com",
     "https://*.supabase.co",
   ],
 
   // Frame sources - for embedded content
   "frame-src": [
     "'self'",
+    "https://www.fresha.com",
     "https://www.google.com",
   ],
 
@@ -79,6 +81,7 @@ export const cspDirectives = {
   "base-uri": ["'self'"],
 
   // Form action restriction
+  "form-action": ["'self'", "https://www.fresha.com"],
 
   // Frame ancestors - prevent clickjacking
   "frame-ancestors": ["'none'"],
