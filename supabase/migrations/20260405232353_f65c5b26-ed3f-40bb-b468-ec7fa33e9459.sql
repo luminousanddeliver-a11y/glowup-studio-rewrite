@@ -1,0 +1,3 @@
+UPDATE blog_posts SET content = REPLACE(REPLACE(content, 'Lynton Motus AY', 'Quanta Thunder'), 'Lynton', 'Quanta'), updated_at = NOW() WHERE content LIKE '%Lynton%';
+
+UPDATE blog_posts SET content = REPLACE(content, 'fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true', 'laserlightskinclinic.co.uk/shop/'), updated_at = NOW() WHERE content LIKE '%fresha.com%';
