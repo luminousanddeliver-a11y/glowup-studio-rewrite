@@ -21,7 +21,7 @@ If you do not agree with any part of these terms, please do not use our services
     icon: Calendar,
     title: "2. Booking & Appointments",
     content: `**Booking:**
-• Appointments can be booked online via Fresha, by phone, or in person
+• Appointments can be booked online via Phorest, by phone, or in person
 • A valid email address and phone number are required
 • Some treatments may require a deposit at the time of booking
 
