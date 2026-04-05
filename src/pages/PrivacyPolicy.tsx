@@ -72,7 +72,7 @@ We are registered at 125 Becontree Avenue, Dagenham RM8 2UJ, and we are the data
     content: `**We may share your data with:**
 • Healthcare professionals involved in your treatment
 • Payment processors (Stripe, PayPal)
-• Booking platforms (Fresha)
+• Booking platforms (Phorest)
 • IT and hosting service providers
 • Legal authorities when required by law
 
