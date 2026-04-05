@@ -404,7 +404,7 @@ const BlogPost = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2.5">
                     <Button asChild size="default" className="font-semibold w-full sm:w-auto">
-                      <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                      <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
                         Book Free Consultation
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
@@ -539,7 +539,7 @@ const BlogPost = () => {
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 font-body font-semibold h-14 px-8 shadow-lg hover:shadow-xl transition-all"
                 >
-                  <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                  <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
                     Book Free Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>

@@ -172,7 +172,7 @@ const LyntonMotusAYLaser = () => {
           subtitle="The World's Only Pain-Free Alexandrite Laser"
           description="Experience permanent hair removal without discomfort. Safe for all skin types. Available exclusively at Laser Light Skin Clinic."
           badge="Medical-Grade Technology"
-          secondaryCta={{ text: "Book Free Consultation", href: "https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" }}
+          secondaryCta={{ text: "Book Free Consultation", href: "https://phorest.com/book/salons/laserlightskinclinic" }}
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
@@ -278,7 +278,7 @@ const LyntonMotusAYLaser = () => {
               viewport={{ once: true }}
             >
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 h-14 px-8">
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
                   Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
