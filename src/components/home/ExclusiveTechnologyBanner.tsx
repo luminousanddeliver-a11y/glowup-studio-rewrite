@@ -114,7 +114,7 @@ export const ExclusiveTechnologyBanner = () => {
                 size="lg"
                 className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6 text-base shadow-lg"
               >
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>

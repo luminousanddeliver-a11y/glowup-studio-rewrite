@@ -21,7 +21,7 @@ const trustItems = [
   {
     icon: Sparkles,
     label: "Pain-Free Guaranteed",
-    sublabel: "Lynton Motus AY laser",
+    sublabel: "Quanta Thunder laser",
     variant: "accent" as const,
   },
   {
@@ -114,7 +114,7 @@ export const HeroSectionNew = () => {
                 size="lg"
                 className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
               >
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   Book Free Consultation
                 </a>
               </Button>

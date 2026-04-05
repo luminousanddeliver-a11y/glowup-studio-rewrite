@@ -20,11 +20,11 @@ const LyntonMotusAYLaser = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalDevice",
-    "name": "Lynton Motus AY Laser",
+    "name": "Quanta Thunder Laser",
     "description": "The world's first truly pain-free Alexandrite laser for permanent hair removal. NHS-approved and safe for all skin types.",
     "manufacturer": {
       "@type": "Organization",
-      "name": "Lynton Lasers",
+      "name": "Quanta",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "GB"
@@ -35,7 +35,7 @@ const LyntonMotusAYLaser = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Lynton Motus AY Laser Hair Removal",
+    "name": "Quanta Thunder Laser Hair Removal",
     "provider": {
       "@type": "MedicalBusiness",
       "name": "Laser Light Skin Clinic",
@@ -48,7 +48,7 @@ const LyntonMotusAYLaser = () => {
       },
       "telephone": "+442085981200"
     },
-    "description": "Experience the Lynton Motus AY—the only Alexandrite laser with true pain-free technology. NHS-approved, safe for all skin types including dark skin.",
+    "description": "Experience the Quanta Thunder—the only Alexandrite laser with true pain-free technology. NHS-approved, safe for all skin types including dark skin.",
     "areaServed": ["Dagenham", "East London", "Barking", "Romford", "Ilford"]
   };
 
@@ -60,8 +60,8 @@ const LyntonMotusAYLaser = () => {
   ];
 
   const whatIsContent = [
-    "The Lynton Motus AY represents a breakthrough in laser hair removal technology. It's the world's first and only Alexandrite laser system that combines clinical efficacy with true pain-free treatment.",
-    "Unlike older lasers that rely on high peak power (causing the painful 'snapping' sensation), the Motus AY uses Moveo technology—a gradual thermal approach that heats the hair follicle slowly and uniformly. The result? Permanent hair reduction without discomfort.",
+    "The Quanta Thunder represents a breakthrough in laser hair removal technology. It's the world's first and only Alexandrite laser system that combines clinical efficacy with true pain-free treatment.",
+    "Unlike older lasers that rely on high peak power (causing the painful 'snapping' sensation), the Quanta Thunder uses advanced laser technology—a gradual thermal approach that heats the hair follicle slowly and uniformly. The result? Permanent hair reduction without discomfort.",
     "This is the same technology trusted by NHS dermatology departments across the UK. At Laser Light Skin Clinic in Dagenham, we're proud to offer this premium technology to East London."
   ];
 
@@ -78,7 +78,7 @@ const LyntonMotusAYLaser = () => {
     },
     {
       title: "Faster Treatment Times",
-      description: "Moveo technology covers larger areas quickly. Full legs take under 30 minutes.",
+      description: "advanced laser technology covers larger areas quickly. Full legs take under 30 minutes.",
       icon: Zap
     },
     {
@@ -99,38 +99,38 @@ const LyntonMotusAYLaser = () => {
   ];
 
   const technologyFeatures = [
-    "Moveo Technology: Gradual heating eliminates pain",
+    "Advanced Laser Technology: Gradual heating eliminates pain",
     "755nm Alexandrite Wavelength: Gold standard for hair removal",
     "Continuous Cooling: Integrated sapphire cooling tip",
     "High Repetition Rate: Treats large areas quickly",
     "Adjustable Parameters: Customized for every skin type",
-    "Made in UK: Lynton is a British manufacturer"
+    "Made in UK: Quanta is a leading laser manufacturer"
   ];
 
   const faqs = [
     {
-      question: "What makes the Lynton Motus AY different from other lasers?",
-      answer: "The Motus AY uses patented Moveo technology that heats hair follicles gradually rather than with high-peak pulses. This is what makes it truly pain-free while maintaining clinical efficacy. It's the only Alexandrite laser in the world with this technology."
+      question: "What makes the Quanta Thunder different from other lasers?",
+      answer: "The Quanta Thunder uses patented advanced laser technology that heats hair follicles gradually rather than with high-peak pulses. This is what makes it truly pain-free while maintaining clinical efficacy. It's the only Alexandrite laser in the world with this technology."
     },
     {
-      question: "Is the Lynton Motus AY really pain-free?",
-      answer: "Yes, genuinely. Most clients describe the sensation as a warm massage. Unlike older lasers with a 'snapping' or 'rubber band' sensation, the Moveo technology eliminates this completely. No numbing cream is needed."
+      question: "Is the Quanta Thunder really pain-free?",
+      answer: "Yes, genuinely. Most clients describe the sensation as a warm massage. Unlike older lasers with a 'snapping' or 'rubber band' sensation, the advanced laser technology eliminates this completely. No numbing cream is needed."
     },
     {
       question: "Is it safe for my skin type?",
-      answer: "The Lynton Motus AY is safe for all skin types, including Fitzpatrick types IV-VI (darker skin). This is one of the main reasons we chose this technology—to safely serve East London's diverse community."
+      answer: "The Quanta Thunder is safe for all skin types, including Fitzpatrick types IV-VI (darker skin). This is one of the main reasons we chose this technology—to safely serve East London's diverse community."
     },
     {
       question: "Why don't all clinics use this technology?",
-      answer: "The Lynton Motus AY represents a significant investment. Many clinics use cheaper IPL (not laser) or older laser systems. We believe our clients deserve the best, safest, and most effective technology available."
+      answer: "The Quanta Thunder represents a significant investment. Many clinics use cheaper IPL (not laser) or older laser systems. We believe our clients deserve the best, safest, and most effective technology available."
     },
     {
       question: "How many sessions will I need?",
       answer: "Most clients need 6-8 sessions for optimal results. The Alexandrite 755nm wavelength is the most effective for hair removal, meaning fewer sessions compared to other lasers or IPL."
     },
     {
-      question: "Is Lynton a reputable brand?",
-      answer: "Lynton Lasers is a British manufacturer with over 30 years of experience. Their equipment is used by NHS hospitals, private clinics, and dermatologists worldwide. They're the most trusted name in UK aesthetic laser technology."
+      question: "Is Quanta a reputable brand?",
+      answer: "Quanta is a world-leading manufacturer of medical and aesthetic lasers. Their equipment is used by clinics and hospitals worldwide, known for cutting-edge technology and reliability."
     }
   ];
 
@@ -138,7 +138,7 @@ const LyntonMotusAYLaser = () => {
     {
       name: "Laser Hair Removal",
       href: "/laser-hair-removal-dagenham",
-      description: "Book your pain-free laser hair removal treatment with the Lynton Motus AY."
+      description: "Book your pain-free laser hair removal treatment with the Quanta Thunder."
     },
     {
       name: "Skin Rejuvenation",
@@ -155,8 +155,8 @@ const LyntonMotusAYLaser = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Lynton Motus AY Laser | Pain-Free Hair Removal | Dagenham"
-        description="Experience the Lynton Motus AY—the world's only truly pain-free Alexandrite laser. NHS-approved, safe for all skin types. Available at Laser Light Skin Clinic Dagenham."
+        title="Quanta Thunder Laser | Pain-Free Hair Removal | Dagenham"
+        description="Experience the Quanta Thunder—the world's only truly pain-free Alexandrite laser. NHS-approved, safe for all skin types. Available at Laser Light Skin Clinic Dagenham."
         canonicalUrl="https://laserlightskinclinic.co.uk/lynton-motus-ay-laser"
         keywords="lynton motus ay, lynton laser, pain free laser hair removal, alexandrite laser, motus ay dagenham, lynton laser east london"
         structuredData={[structuredData, serviceSchema]}
@@ -167,16 +167,16 @@ const LyntonMotusAYLaser = () => {
       <main className="flex-1 pb-20 lg:pb-0">
         <ServiceHero
           trustBadge="NHS-Approved Technology"
-          title="Lynton Motus AY Laser"
-          titleAccent="Motus AY"
+          title="Quanta Thunder Laser"
+          titleAccent="Quanta Thunder"
           subtitle="The World's Only Pain-Free Alexandrite Laser"
           description="Experience permanent hair removal without discomfort. Safe for all skin types. Available exclusively at Laser Light Skin Clinic."
           badge="Medical-Grade Technology"
-          secondaryCta={{ text: "Book Free Consultation", href: "https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" }}
+          secondaryCta={{ text: "Book Free Consultation", href: "/shop" }}
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
-            { label: "Lynton Motus AY Laser" }
+            { label: "Quanta Thunder Laser" }
           ]}
           stats={[
             { value: "Pain-Free", label: "Guaranteed" },
@@ -188,22 +188,22 @@ const LyntonMotusAYLaser = () => {
         <QuickStatsBar stats={quickStats} />
         
         <WhatIsSection
-          title="What is the Lynton Motus AY?"
+          title="What is the Quanta Thunder?"
           content={whatIsContent}
           highlightText="The same technology trusted by NHS dermatology departments—now available in Dagenham."
         />
         
         <BenefitsList
-          title="Why the Lynton Motus AY is Different"
-          subtitle="Revolutionary Moveo technology for truly pain-free permanent hair removal"
+          title="Why the Quanta Thunder is Different"
+          subtitle="Revolutionary advanced laser technology for truly pain-free permanent hair removal"
           benefits={benefits}
         />
         
         <TechnologySection
-          title="The Science Behind Moveo Technology"
-          subtitle="Understanding why the Lynton Motus AY is truly pain-free"
-          technologyName="Moveo Technology"
-          description="Traditional lasers fire high-energy pulses that rapidly heat hair follicles—this is what causes the painful 'snapping' sensation. The Lynton Motus AY takes a different approach. Moveo technology uses lower energy delivered continuously with a sweeping motion, gradually heating the hair follicle to the destruction point without the pain."
+          title="The Science Behind Advanced Laser Technology"
+          subtitle="Understanding why the Quanta Thunder is truly pain-free"
+          technologyName="Advanced Laser Technology"
+          description="Traditional lasers fire high-energy pulses that rapidly heat hair follicles—this is what causes the painful 'snapping' sensation. The Quanta Thunder takes a different approach. advanced laser technology uses lower energy delivered continuously with a sweeping motion, gradually heating the hair follicle to the destruction point without the pain."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared", "Made in UK"]}
           deviceImage={laserDevice}
@@ -218,7 +218,7 @@ const LyntonMotusAYLaser = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-foreground mb-4">Lynton Motus AY vs Other Lasers</h2>
+              <h2 className="text-foreground mb-4">Quanta Thunder vs Other Lasers</h2>
               <p className="font-body text-lg text-muted-foreground">
                 See how our technology compares to IPL and traditional lasers
               </p>
@@ -230,7 +230,7 @@ const LyntonMotusAYLaser = () => {
                   <thead className="bg-primary text-primary-foreground">
                     <tr>
                       <th className="p-4 text-left font-heading">Feature</th>
-                      <th className="p-4 text-center font-heading">Lynton Motus AY</th>
+                      <th className="p-4 text-center font-heading">Quanta Thunder</th>
                       <th className="p-4 text-center font-heading">Traditional Laser</th>
                       <th className="p-4 text-center font-heading">IPL</th>
                     </tr>
@@ -278,7 +278,7 @@ const LyntonMotusAYLaser = () => {
               viewport={{ once: true }}
             >
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 h-14 px-8">
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                <a href="/shop">
                   Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -289,14 +289,14 @@ const LyntonMotusAYLaser = () => {
         
         <ServiceFAQ 
           title="Frequently Asked Questions"
-          subtitle="Common questions about the Lynton Motus AY laser"
+          subtitle="Common questions about the Quanta Thunder laser"
           faqs={faqs} 
         />
         
         <RelatedServices services={relatedServices} />
         
         <ServiceCTA
-          title="Experience the Lynton Motus AY"
+          title="Experience the Quanta Thunder"
           subtitle="Book your free consultation and patch test today"
           showMap={true}
         />

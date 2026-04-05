@@ -9,7 +9,7 @@ interface Certification {
 const defaultCertifications: Certification[] = [
   { name: "NHS Approved", icon: Shield },
   { name: "FDA Cleared Technology", icon: CheckCircle },
-  { name: "Lynton Certified Clinic", icon: Award },
+  { name: "Quanta Certified Clinic", icon: Award },
   { name: "Quanta Laser Certified", icon: Sparkles },
   { name: "Level 4 Qualified", icon: Star },
   { name: "Made in Britain Equipment", icon: Heart },

@@ -38,7 +38,7 @@ const LaserHairRemoval = () => {
       },
       "telephone": "+442085981200"
     },
-    "description": "Pain-free laser hair removal in Dagenham using the Lynton Motus AY. Safe for all skin types including dark skin. NHS-approved clinic serving London & East London.",
+    "description": "Pain-free laser hair removal in Dagenham using the Quanta Thunder. Safe for all skin types including dark skin. NHS-approved clinic serving London & East London.",
     "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
     "offers": {
       "@type": "AggregateOffer",
@@ -69,7 +69,7 @@ const LaserHairRemoval = () => {
         "name": "Does laser hair removal hurt?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Our Lynton Motus AY is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
+          "text": "No. Our Quanta Thunder is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
         }
       },
       {
@@ -85,7 +85,7 @@ const LaserHairRemoval = () => {
         "name": "Is laser hair removal safe for dark skin?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The Lynton Motus AY is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). Traditional lasers carried a risk of burns or hyperpigmentation on dark skin, but our technology eliminates this risk."
+          "text": "Yes. The Quanta Thunder is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). Traditional lasers carried a risk of burns or hyperpigmentation on dark skin, but our technology eliminates this risk."
         }
       }
     ]
@@ -103,7 +103,7 @@ const LaserHairRemoval = () => {
   const whatIsContent = [
     "Laser hair removal is a medical procedure that uses concentrated light energy to target and destroy hair follicles at the root. The laser emits a specific wavelength of light that is absorbed by the melanin (pigment) in the hair shaft. This energy is converted into heat, which damages the hair follicle and inhibits future hair growth.",
     "Unlike temporary methods like shaving or waxing, laser hair removal provides long-term reduction. After a full course of treatments (typically 6-8 sessions), most clients experience permanent reduction of 80-95% in the treated area.",
-    "At Laser Light Skin Clinic, we use the Lynton Motus AY, the most advanced pain-free laser technology available. This means you get permanent results without the discomfort associated with older laser systems."
+    "At Laser Light Skin Clinic, we use the Quanta Thunder, the most advanced pain-free laser technology available. This means you get permanent results without the discomfort associated with older laser systems."
   ];
 
   // Benefits
@@ -115,7 +115,7 @@ const LaserHairRemoval = () => {
     },
     {
       title: "Pain-Free Experience",
-      description: "Our Lynton Motus AY technology is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
+      description: "Our Quanta Thunder technology is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
       icon: Heart
     },
     {
@@ -166,7 +166,7 @@ const LaserHairRemoval = () => {
 
   // Technology Features
   const technologyFeatures = [
-    "Moveo Technology: Treats large areas quickly with sweeping motion",
+    "Advanced Laser Technology: Treats large areas quickly with sweeping motion",
     "Advanced Cooling: Built-in cooling system eliminates pain",
     "Adjustable Pulse Duration: Safe for all skin types, including dark skin",
     "Faster Results: Fewer sessions required compared to older systems",
@@ -216,7 +216,7 @@ const LaserHairRemoval = () => {
     },
     {
       title: "Dark Skin",
-      description: "Our Lynton Motus AY is specifically designed to be safe for darker skin tones (Fitzpatrick IV-VI)."
+      description: "Our Quanta Thunder is specifically designed to be safe for darker skin tones (Fitzpatrick IV-VI)."
     },
     {
       title: "Blonde/Red Hair",
@@ -265,7 +265,7 @@ const LaserHairRemoval = () => {
   const faqs = [
     {
       question: "Does laser hair removal hurt?",
-      answer: "No. Our Lynton Motus AY is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
+      answer: "No. Our Quanta Thunder is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
     },
     {
       question: "How many sessions will I need?",
@@ -273,7 +273,7 @@ const LaserHairRemoval = () => {
     },
     {
       question: "Is it safe for dark skin?",
-      answer: "Yes. The Lynton Motus AY is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). Traditional lasers carried a risk of burns or hyperpigmentation on dark skin, but our technology eliminates this risk."
+      answer: "Yes. The Quanta Thunder is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). Traditional lasers carried a risk of burns or hyperpigmentation on dark skin, but our technology eliminates this risk."
     },
     {
       question: "Is laser hair removal permanent?",
@@ -285,7 +285,7 @@ const LaserHairRemoval = () => {
     },
     {
       question: "What's the difference between laser hair removal and IPL?",
-      answer: "IPL (Intense Pulsed Light) uses broad-spectrum light and is less effective than laser. True medical-grade lasers, like our Lynton Motus AY, use a single focused wavelength (Alexandrite 755nm) for superior results and safety."
+      answer: "IPL (Intense Pulsed Light) uses broad-spectrum light and is less effective than laser. True medical-grade lasers, like our Quanta Thunder, use a single focused wavelength (Alexandrite 755nm) for superior results and safety."
     },
     {
       question: "Can I get laser hair removal if I have a tan?",
@@ -313,7 +313,7 @@ const LaserHairRemoval = () => {
       rating: 5
     },
     {
-      quote: "As someone with dark skin, I was worried about finding a safe laser. The Lynton Motus AY is incredible - no burns, no pain, just results. Highly recommend!",
+      quote: "As someone with dark skin, I was worried about finding a safe laser. The Quanta Thunder is incredible - no burns, no pain, just results. Highly recommend!",
       initials: "NK",
       treatment: "Laser Hair Removal - Full Body",
       rating: 5
@@ -342,7 +342,7 @@ const LaserHairRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Pain-Free Laser Hair Removal Dagenham | NHS Approved | Book Free Consult"
-        description="Get permanent hair reduction in 6-8 sessions with pain-free Lynton Motus AY laser. Safe for all skin types. NHS-approved clinic in Dagenham. Free consultation - Book today!"
+        description="Get permanent hair reduction in 6-8 sessions with pain-free Quanta Thunder laser. Safe for all skin types. NHS-approved clinic in Dagenham. Free consultation - Book today!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
         structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />
@@ -397,10 +397,10 @@ const LaserHairRemoval = () => {
         
         {/* Section 6: Technology */}
         <TechnologySection
-          title="Why We Use the Lynton Motus AY"
+          title="Why We Use the Quanta Thunder"
           subtitle="The only laser hair removal system that combines clinical efficacy with true pain-free technology"
-          technologyName="Lynton Motus AY"
-          description="The Lynton Motus AY is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
+          technologyName="Quanta Thunder"
+          description="The Quanta Thunder is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
           deviceImage={laserDevice}
