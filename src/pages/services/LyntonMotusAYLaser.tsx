@@ -158,7 +158,7 @@ const LyntonMotusAYLaser = () => {
         title="Quanta Thunder Laser | Pain-Free Hair Removal | Dagenham"
         description="Experience the Quanta Thunder—the world's only truly pain-free Alexandrite laser. NHS-approved, safe for all skin types. Available at Laser Light Skin Clinic Dagenham."
         canonicalUrl="https://laserlightskinclinic.co.uk/lynton-motus-ay-laser"
-        keywords="lynton motus ay, lynton laser, pain free laser hair removal, alexandrite laser, motus ay dagenham, lynton laser east london"
+        keywords="quanta thunder, quanta laser, pain free laser hair removal, alexandrite laser, quanta thunder dagenham, quanta laser east london"
         structuredData={[structuredData, serviceSchema]}
       />
       
