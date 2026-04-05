@@ -37,7 +37,7 @@ export const LaserSpotlight = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={laserDevice} 
-                  alt="Lynton Motus AY laser device - Pain-free laser hair removal"
+                  alt="Quanta Thunder laser device - Pain-free laser hair removal"
                   className="w-full h-auto object-cover"
                   loading="lazy"
                 />
@@ -70,7 +70,7 @@ export const LaserSpotlight = () => {
             </h2>
             
             <p className="font-body text-muted-foreground mb-8 text-lg">
-              Experience permanent hair reduction with our NHS-approved Lynton Motus AY laser. 
+              Experience permanent hair reduction with our NHS-approved Quanta Thunder laser. 
               Advanced cooling technology ensures a comfortable experience, even on sensitive areas.
             </p>
 

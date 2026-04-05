@@ -205,7 +205,7 @@ export const HeroSection = () => {
                 <Shield className="h-5 w-5 flex-shrink-0" />
                 <span className="font-semibold text-base">NHS Approved Clinic</span>
               </div>
-              <div className="text-sm opacity-90 leading-snug">Lynton Motus AY laser—FDA certified & pain-free</div>
+              <div className="text-sm opacity-90 leading-snug">Quanta Thunder laser—FDA certified & pain-free</div>
             </motion.div>
           </motion.div>
         </div>

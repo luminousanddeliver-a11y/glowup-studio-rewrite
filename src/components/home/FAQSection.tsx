@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "Does your laser hair removal treatment hurt?",
-    answer: "No. We use the Lynton Motus AY, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line.",
+    answer: "No. We use the Quanta Thunder, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line.",
   },
   {
     question: "How much does a treatment cost?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Is the laser safe for dark skin?",
-    answer: "Absolutely. The Lynton Motus AY is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology.",
+    answer: "Absolutely. The Quanta Thunder is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology.",
   },
   {
     question: "What is the downtime after treatments?",

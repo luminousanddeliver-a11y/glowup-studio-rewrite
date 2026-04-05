@@ -19,7 +19,7 @@ const differentiators: Differentiator[] = [
   {
     icon: Sparkles,
     title: "Guaranteed Pain-Free",
-    description: "Using the revolutionary Lynton Motus AY laser, we deliver permanent hair reduction without the pain.",
+    description: "Using the revolutionary Quanta Thunder laser, we deliver permanent hair reduction without the pain.",
   },
   {
     icon: MapPin,
