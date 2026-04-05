@@ -55,7 +55,7 @@ const Index = () => {
         "@type": "MedicalProcedure",
         "name": "Laser Hair Removal",
         "procedureType": "https://schema.org/CosmeticProcedure",
-        "description": "Pain-free permanent hair reduction using NHS-approved Lynton Motus AY laser. Safe for all skin types."
+        "description": "Pain-free permanent hair reduction using NHS-approved Quanta Thunder laser. Safe for all skin types."
       },
       {
         "@type": "MedicalProcedure",
@@ -151,7 +151,7 @@ const Index = () => {
         "name": "Does your laser hair removal treatment hurt?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. We use the Lynton Motus AY, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line."
+          "text": "No. We use the Quanta Thunder, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line."
         }
       },
       {
@@ -167,7 +167,7 @@ const Index = () => {
         "name": "Is the laser safe for dark skin?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. The Lynton Motus AY is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology."
+          "text": "Absolutely. The Quanta Thunder is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology."
         }
       },
       {

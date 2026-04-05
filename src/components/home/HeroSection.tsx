@@ -103,7 +103,7 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-base shadow-lg"
               >
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
                   Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -134,7 +134,7 @@ export const HeroSection = () => {
               </a>
               <span className="text-border hidden sm:inline">|</span>
               <a 
-                href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true"
+                href="https://phorest.com/book/salons/laserlightskinclinic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -205,7 +205,7 @@ export const HeroSection = () => {
                 <Shield className="h-5 w-5 flex-shrink-0" />
                 <span className="font-semibold text-base">NHS Approved Clinic</span>
               </div>
-              <div className="text-sm opacity-90 leading-snug">Lynton Motus AY laser—FDA certified & pain-free</div>
+              <div className="text-sm opacity-90 leading-snug">Quanta Thunder laser—FDA certified & pain-free</div>
             </motion.div>
           </motion.div>
         </div>

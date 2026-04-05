@@ -163,7 +163,7 @@ const SkinRejuvenation = () => {
   const technologyFeatures = [
     "Laser Genesis for collagen stimulation",
     "IPL for pigmentation correction",
-    "Lynton Motus AY for skin tone",
+    "Quanta Thunder for skin tone",
     "SkinPen microneedling for texture",
     "AlumierMD professional peels",
     "LED light therapy"
@@ -252,7 +252,7 @@ const SkinRejuvenation = () => {
     },
     {
       question: "Is it safe for dark skin?",
-      answer: "Yes, we use advanced laser technology, including the Lynton Motus AY, that is safe for all skin types, including darker skin tones (Fitzpatrick IV-VI). A thorough consultation ensures we choose the safest and most effective approach for your skin."
+      answer: "Yes, we use advanced laser technology, including the Quanta Thunder, that is safe for all skin types, including darker skin tones (Fitzpatrick IV-VI). A thorough consultation ensures we choose the safest and most effective approach for your skin."
     },
     {
       question: "How many sessions will I need?",

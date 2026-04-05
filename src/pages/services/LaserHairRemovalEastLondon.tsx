@@ -40,7 +40,7 @@ const LaserHairRemovalEastLondon = () => {
         "reviewCount": "250"
       }
     },
-    "description": "East London's leading pain-free laser hair removal clinic. NHS-approved Lynton Motus AY technology safe for all skin types. Serving Barking, Romford, Ilford & surrounding areas.",
+    "description": "East London's leading pain-free laser hair removal clinic. NHS-approved Quanta Thunder technology safe for all skin types. Serving Barking, Romford, Ilford & surrounding areas.",
     "areaServed": ["East London", "Barking", "Romford", "Ilford", "Dagenham", "Stratford", "Canary Wharf"],
     "offers": {
       "@type": "Offer",
@@ -67,7 +67,7 @@ const LaserHairRemovalEastLondon = () => {
         "name": "Is the laser safe for darker skin tones common in East London?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Our Lynton Motus AY is specifically designed to be safe for all skin types, including Fitzpatrick types IV-VI (darker skin). This is why we're trusted by East London's diverse community."
+          "text": "Yes! Our Quanta Thunder is specifically designed to be safe for all skin types, including Fitzpatrick types IV-VI (darker skin). This is why we're trusted by East London's diverse community."
         }
       },
       {
@@ -89,7 +89,7 @@ const LaserHairRemovalEastLondon = () => {
   ];
 
   const whatIsContent = [
-    "Looking for the best laser hair removal in East London? Laser Light Skin Clinic in Dagenham offers NHS-approved, pain-free laser hair removal using the revolutionary Lynton Motus AY technology.",
+    "Looking for the best laser hair removal in East London? Laser Light Skin Clinic in Dagenham offers NHS-approved, pain-free laser hair removal using the revolutionary Quanta Thunder technology.",
     "We serve clients from across East London including Barking, Romford, Ilford, Stratford, Canary Wharf, and beyond. Our central location in Dagenham makes us easily accessible with free parking nearby.",
     "Unlike high street clinics using outdated IPL technology, we use genuine medical-grade Alexandrite laser that delivers permanent results in fewer sessions. Safe for all skin types, including darker skin tones."
   ];
@@ -102,7 +102,7 @@ const LaserHairRemovalEastLondon = () => {
     },
     {
       title: "Pain-Free Experience",
-      description: "Our Lynton Motus AY is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
+      description: "Our Quanta Thunder is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
       icon: Heart
     },
     {
@@ -156,7 +156,7 @@ const LaserHairRemovalEastLondon = () => {
     "Safe for All Skin Types: Including darker skin tones (Fitzpatrick IV-VI)",
     "Alexandrite 755nm: The gold standard wavelength for hair removal",
     "NHS & FDA Approved: Medical-grade safety standards",
-    "Made in UK: Lynton is a British manufacturer"
+    "Made in UK: Quanta is a world-leading manufacturer"
   ];
 
   const pricingTabs = [
@@ -190,7 +190,7 @@ const LaserHairRemovalEastLondon = () => {
     },
     {
       question: "Is this treatment suitable for Asian and Black skin types?",
-      answer: "Absolutely. Our Lynton Motus AY is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). This is exactly why we chose this technology to serve East London's diverse community."
+      answer: "Absolutely. Our Quanta Thunder is one of the few lasers clinically proven safe for Fitzpatrick skin types IV-VI (darker skin tones). This is exactly why we chose this technology to serve East London's diverse community."
     },
     {
       question: "How does your pricing compare to other East London clinics?",
@@ -243,7 +243,7 @@ const LaserHairRemovalEastLondon = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Laser Hair Removal East London | Pain-Free | From £80 | Book Free Consult"
-        description="East London's top-rated laser hair removal clinic. Pain-free Lynton Motus AY laser, safe for all skin types. Serving Barking, Romford, Ilford. Free consultation!"
+        description="East London's top-rated laser hair removal clinic. Pain-free Quanta Thunder laser, safe for all skin types. Serving Barking, Romford, Ilford. Free consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-east-london"
         keywords="laser hair removal east london, laser hair removal barking, laser hair removal romford, laser hair removal ilford, pain free laser east london"
         structuredData={[structuredData, faqSchema]}
@@ -277,7 +277,7 @@ const LaserHairRemovalEastLondon = () => {
         <WhatIsSection
           title="East London's Premier Laser Clinic"
           content={whatIsContent}
-          highlightText="The only clinic in East London offering both Lynton Motus AY for hair removal AND Quanta Thunder for tattoo removal."
+          highlightText="The only clinic in East London offering both Quanta Thunder for hair removal AND Quanta Thunder for tattoo removal."
         />
         
         <BenefitsList
@@ -293,10 +293,10 @@ const LaserHairRemovalEastLondon = () => {
         />
         
         <TechnologySection
-          title="NHS-Approved Lynton Motus AY"
+          title="NHS-Approved Quanta Thunder"
           subtitle="The same technology used by NHS dermatology departments"
-          technologyName="Lynton Motus AY"
-          description="We invested in the Lynton Motus AY specifically because it's safe for East London's diverse community. Unlike IPL or older lasers, it's clinically proven safe for darker skin tones while delivering permanent results."
+          technologyName="Quanta Thunder"
+          description="We invested in the Quanta Thunder specifically because it's safe for East London's diverse community. Unlike IPL or older lasers, it's clinically proven safe for darker skin tones while delivering permanent results."
           features={technologyFeatures}
           certifications={["NHS Approved", "CE Marked", "FDA Cleared", "Made in UK"]}
           deviceImage={laserDevice}

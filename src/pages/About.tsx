@@ -66,7 +66,7 @@ const About = () => {
 
   const certifications = [
     "NHS Approved Clinic",
-    "Lynton Laser Certified",
+    "Quanta Laser Certified",
     "FDA-Approved Technology",
     "Level 4 Qualified Therapists",
     "Quanta Laser Certified",
@@ -151,7 +151,7 @@ const About = () => {
                     We're proud to be NHS-approved, meaning our clinic meets the strictest safety and hygiene standards set by the National Health Service. This approval isn't just a badge – it's our commitment to your safety and wellbeing.
                   </p>
                   <p>
-                    Our investment in cutting-edge technology, including the Lynton Motus AY for pain-free laser hair removal and the <strong>exclusive Quanta Thunder Series for advanced tattoo removal</strong>—technology only available at our clinic in East London—reflects our dedication to delivering the best possible results with maximum comfort.
+                    Our investment in cutting-edge technology, including the Quanta Thunder for pain-free laser hair removal and the <strong>exclusive Quanta Thunder Series for advanced tattoo removal</strong>—technology only available at our clinic in East London—reflects our dedication to delivering the best possible results with maximum comfort.
                   </p>
                 </div>
               </motion.div>
@@ -267,7 +267,7 @@ const About = () => {
                 Based on 290+ verified client reviews
               </p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
               </Button>
             </motion.div>
           </div>
@@ -288,7 +288,7 @@ const About = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                  <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                  <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary text-primary">
                   <a href="tel:02085981200">Call 0208 598 1200</a>

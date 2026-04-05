@@ -22,7 +22,7 @@ const generalFaqs = [
   },
   {
     question: "Does your laser hair removal treatment hurt?",
-    answer: "No. We use the Lynton Motus AY, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line.",
+    answer: "No. We use the Quanta Thunder, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line.",
   },
   {
     question: "How much does a treatment cost?",
@@ -30,7 +30,7 @@ const generalFaqs = [
   },
   {
     question: "Is the laser safe for dark skin?",
-    answer: "Absolutely. The Lynton Motus AY is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology.",
+    answer: "Absolutely. The Quanta Thunder is safe for all skin types, including Fitzpatrick skin types IV-VI (darker skin tones). This is one of the reasons we chose this technology.",
   },
   {
     question: "What is the downtime after treatments?",
@@ -272,7 +272,7 @@ const FAQ = () => {
                       size="lg"
                       className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6"
                     >
-                      <a href="https://www.fresha.com/a/laser-light-skin-clinic-dagenham-125-becontree-avenue-vdj9amsj/all-offer?menu=true" target="_blank" rel="noopener noreferrer">
+                      <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
                         Book Free Consultation
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </a>
