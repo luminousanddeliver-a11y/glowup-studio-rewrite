@@ -149,7 +149,7 @@ const TattooRemoval = () => {
   const steps = [
     {
       number: 1,
-      title: "Free Consultation & Assessment",
+      title: "Consultation & Assessment",
       description: "We evaluate your tattoo's size, ink depth, colors, and your skin type. We'll provide an honest assessment of expected results and sessions needed."
     },
     {
@@ -260,7 +260,7 @@ const TattooRemoval = () => {
     },
     {
       question: "How many sessions will I need?",
-      answer: "Typically 4-10 sessions depending on the tattoo's age, ink depth, colors, and your skin type. Amateur tattoos often require fewer sessions than professional ones. We'll give you an estimate during your free consultation."
+      answer: "Typically 4-10 sessions depending on the tattoo's age, ink depth, colors, and your skin type. Amateur tattoos often require fewer sessions than professional ones. We'll give you an estimate during your consultation."
     },
     {
       question: "Can you remove colored tattoos?",
@@ -333,7 +333,7 @@ const TattooRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Tattoo Removal East London | Only Quanta Thunder Clinic | All Colors"
-        description="East London's ONLY clinic with the Quanta Thunder Series. Remove ALL ink colors including stubborn blues & greens in 50% fewer sessions. Safe for dark skin. Free consultation."
+        description="East London's ONLY clinic with the Quanta Thunder Series. Remove ALL ink colors including stubborn blues & greens in 50% fewer sessions. Safe for dark skin. Consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk/tattoo-removal-east-london"
         structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
@@ -394,7 +394,7 @@ const TattooRemoval = () => {
         <div id="pricing">
           <PricingTable
             title="Tattoo Removal Pricing"
-            subtitle="Prices based on tattoo size. Book a free consultation for an accurate quote."
+            subtitle="Prices based on tattoo size. Book a consultation for an accurate quote."
             prices={prices}
             disclaimer="Prices are per session. Most tattoos require 4-10 sessions for complete removal. Patch test included in first session price. 0% finance options available."
           />
@@ -430,7 +430,7 @@ const TattooRemoval = () => {
         
         <ServiceCTA
           title="Ready to Remove Your Tattoo?"
-          subtitle="Book your free consultation and patch test today"
+          subtitle="Book your consultation and patch test today"
         />
       </main>
       

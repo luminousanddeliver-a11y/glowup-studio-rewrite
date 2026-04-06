@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "How much does a treatment cost?",
-    answer: "Treatment costs vary by service and area. We offer transparent pricing, a free consultation, and flexible payment plans including 0% finance options.",
+    answer: "Treatment costs vary by service and area. We offer transparent pricing, a consultation, and flexible payment plans including 0% finance options.",
   },
   {
     question: "Is the laser safe for dark skin?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "How many sessions will I need?",
-    answer: "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your free consultation.",
+    answer: "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your consultation.",
   },
   {
     question: "Can I book same-day appointments?",

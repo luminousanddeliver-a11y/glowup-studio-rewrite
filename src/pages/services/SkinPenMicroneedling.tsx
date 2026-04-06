@@ -344,7 +344,7 @@ const SkinPenMicroneedling = () => {
             title="SkinPen Microneedling Pricing"
             subtitle="Investment in naturally rejuvenated skin"
             prices={prices}
-            disclaimer="Course packages recommended for acne scarring. Free consultation included. 0% finance options available."
+            disclaimer="Course packages recommended for acne scarring. Consultation included. 0% finance options available."
           />
         </div>
         

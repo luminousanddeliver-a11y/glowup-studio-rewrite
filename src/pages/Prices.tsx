@@ -652,7 +652,7 @@ const priceCategories: Record<string, PriceCategory> = {
         savings: "Save £105",
       },
     ],
-    note: "Multiple sessions recommended for optimal results. Free consultation included.",
+    note: "Multiple sessions recommended for optimal results. Consultation included.",
   },
   lesions: {
     title: "Lesion & Vascular Treatments",
@@ -1026,7 +1026,7 @@ const priceCategories: Record<string, PriceCategory> = {
         savings: "Save £80",
       },
     ],
-    note: "Tattoo removal sessions spaced 6-8 weeks apart. Free consultation.",
+    note: "Tattoo removal sessions spaced 6-8 weeks apart. Consultation.",
   },
   wellness: {
     title: "Wellness & Body",
@@ -1180,7 +1180,7 @@ const trustIndicators = [
   },
   {
     icon: Clock,
-    text: "Free Consultation",
+    text: "Consultation",
     subtext: "No Obligation",
   },
   {
@@ -1277,7 +1277,7 @@ const Prices = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Prices | Laser Hair Removal & Skin Treatment Costs | Dagenham"
-        description="View our treatment prices for laser hair removal, HydraFacials, Botox, tattoo removal and more. Free consultation available. Transparent pricing at Laser Light Skin Clinic Dagenham."
+        description="View our treatment prices for laser hair removal, HydraFacials, Botox, tattoo removal and more. Consultation available. Transparent pricing at Laser Light Skin Clinic Dagenham."
         canonicalUrl="https://laserlightskinclinic.co.uk/prices"
         structuredData={priceSchema}
       />
@@ -1836,7 +1836,7 @@ const Prices = () => {
               }}
               className="text-base md:text-lg text-primary-foreground/80 font-body max-w-2xl mx-auto mb-8"
             >
-              Start your journey to confidence today with our expert team. Book a free consultation to discuss your
+              Start your journey to confidence today with our expert team. Book a consultation to discuss your
               needs.
             </motion.p>
             <motion.div
@@ -1869,7 +1869,7 @@ const Prices = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book Free Consultation
+                  Book Consultation
                 </a>
               </Button>
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">

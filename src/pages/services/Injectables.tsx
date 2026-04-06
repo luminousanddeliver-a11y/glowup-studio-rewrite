@@ -113,7 +113,7 @@ const Injectables = () => {
   const steps = [
     {
       number: 1,
-      title: "Free Consultation",
+      title: "Consultation",
       description: "We discuss your goals, assess your facial anatomy, and create a personalized treatment plan. This is completely free with no obligation."
     },
     {
@@ -278,7 +278,7 @@ const Injectables = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Injectables Dagenham | Botox, Fillers, Lemon Bottle | Book Free Consult"
-        description="Professional aesthetic injectables in Dagenham. Botox from £150, lip fillers from £150, Lemon Bottle fat dissolving, Lumi Eyes. Level 4 qualified. Free consultation!"
+        description="Professional aesthetic injectables in Dagenham. Botox from £150, lip fillers from £150, Lemon Bottle fat dissolving, Lumi Eyes. Level 4 qualified. Consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/injectables-dagenham"
         structuredData={[structuredData, faqSchema]}
       />
@@ -292,7 +292,7 @@ const Injectables = () => {
           titleAccent="Dagenham"
           subtitle="Look Refreshed, Not Frozen. Subtle Anti-Aging Results."
           description="Subtle, natural-looking enhancements performed by qualified aesthetic practitioners using premium FDA-approved products."
-          badge="Free Consultation Available"
+          badge="Consultation Available"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={injectablesDevice}
           breadcrumbs={[
@@ -341,7 +341,7 @@ const Injectables = () => {
           subtitle="Transparent pricing with no hidden fees. All prices include consultation."
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "FREE CONSULTATION",
+            highlight: "CONSULTATION",
             text: "Book Your Assessment Today"
           }}
           paymentOptions="Interest-free payment plans available on treatments over £200."
@@ -389,7 +389,7 @@ const Injectables = () => {
         
         <ServiceCTA
           title="Ready for Your Transformation?"
-          subtitle="Book a free, no-obligation consultation to discuss your goals and create a personalized treatment plan."
+          subtitle="Book a no-obligation consultation to discuss your goals and create a personalized treatment plan."
         />
       </main>
       

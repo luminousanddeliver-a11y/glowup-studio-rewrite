@@ -308,7 +308,7 @@ const VeinRemoval = () => {
           subtitle="Investment in clearer, more even-toned skin"
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "FREE CONSULTATION",
+            highlight: "CONSULTATION",
             text: "Book Your Vein Assessment"
           }}
           paymentOptions="Pay per session or save with our course packages."
@@ -356,7 +356,7 @@ const VeinRemoval = () => {
         
         <ServiceCTA
           title="Ready for Clearer Skin?"
-          subtitle="Book a free consultation to assess your veins and create a personalized treatment plan."
+          subtitle="Book a consultation to assess your veins and create a personalized treatment plan."
         />
       </main>
       

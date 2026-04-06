@@ -244,7 +244,7 @@ const Electrolysis = () => {
     },
     {
       question: "How many sessions will I need?",
-      answer: "This varies based on the area, hair density, and individual factors. Small areas may need 6-12 sessions; larger or denser areas may require more. We'll provide an estimate during your free consultation."
+      answer: "This varies based on the area, hair density, and individual factors. Small areas may need 6-12 sessions; larger or denser areas may require more. We'll provide an estimate during your consultation."
     },
     {
       question: "Can I have electrolysis on my face?",
@@ -260,7 +260,7 @@ const Electrolysis = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Electrolysis Hair Removal Dagenham | Permanent | Grey Hair | Book Now"
-        description="Permanent electrolysis hair removal in Dagenham. The only FDA-approved permanent solution for all hair colors including grey and blonde. Book your free consultation."
+        description="Permanent electrolysis hair removal in Dagenham. The only FDA-approved permanent solution for all hair colors including grey and blonde. Book your consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk/electrolysis-hair-removal-dagenham"
         structuredData={[serviceSchema, faqSchema]}
       />
@@ -313,7 +313,7 @@ const Electrolysis = () => {
             title="Electrolysis Pricing"
             subtitle="Time-based pricing for precision treatment"
             prices={prices}
-            disclaimer="Sessions booked in 15-minute increments. Course packages offer the best value. Free consultation to estimate your treatment plan."
+            disclaimer="Sessions booked in 15-minute increments. Course packages offer the best value. Consultation to estimate your treatment plan."
           />
         </div>
         

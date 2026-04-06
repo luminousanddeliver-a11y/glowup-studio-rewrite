@@ -400,12 +400,12 @@ const BlogPost = () => {
                     Ready to Get Started?
                   </h3>
                   <p className="font-body text-sm text-muted-foreground mb-4">
-                    Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
+                    Book your consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2.5">
                     <Button asChild size="default" className="font-semibold w-full sm:w-auto">
                       <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                        Book Free Consultation
+                        Book Consultation
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
@@ -521,7 +521,7 @@ const BlogPost = () => {
               className="text-center"
             >
               <span className="inline-block bg-white/20 text-white px-4 py-1 rounded-full font-body text-sm font-medium mb-6 backdrop-blur-sm">
-                Free Consultation Available
+                Consultation Available
               </span>
               
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
@@ -530,7 +530,7 @@ const BlogPost = () => {
               </h2>
               
               <p className="font-body text-lg text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
-                Book your free consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
+                Book your consultation today and discover how our NHS-approved treatments can help you achieve your aesthetic goals.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -540,7 +540,7 @@ const BlogPost = () => {
                   className="bg-white text-primary hover:bg-white/90 font-body font-semibold h-14 px-8 shadow-lg hover:shadow-xl transition-all"
                 >
                   <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                    Book Free Consultation
+                    Book Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>

@@ -415,7 +415,7 @@ const SkinTagMoleRemoval = () => {
         
         <ServiceCTA
           title="Ready to Remove Unwanted Lesions?"
-          subtitle="Book a free consultation to assess your skin tags, moles, or other lesions and discuss removal options."
+          subtitle="Book a consultation to assess your skin tags, moles, or other lesions and discuss removal options."
         />
       </main>
       

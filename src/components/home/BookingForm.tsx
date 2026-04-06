@@ -170,7 +170,7 @@ export const BookingForm = () => {
             >
               <span className="inline-flex items-center gap-2 text-accent font-medium text-sm tracking-wide uppercase mb-4">
                 <Sparkles className="w-4 h-4" />
-                Free Consultation
+                Consultation
               </span>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 leading-tight">
                 Start Your Skin
@@ -249,7 +249,7 @@ export const BookingForm = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-foreground opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-accent-foreground"></span>
               </span>
-              <span className="font-body font-bold text-lg">Free Consultation & Patch Test</span>
+              <span className="font-body font-bold text-lg">Consultation & Patch Test</span>
             </motion.div>
           </motion.div>
 
@@ -269,7 +269,7 @@ export const BookingForm = () => {
               {/* Form header */}
               <div className="text-center mb-6">
                 <h3 className="font-heading text-xl font-semibold text-foreground mb-1">
-                  Request Your Free Consultation
+                  Request Your Consultation
                 </h3>
                 <p className="font-body text-sm text-muted-foreground">
                   Fill in your details and we'll call you back

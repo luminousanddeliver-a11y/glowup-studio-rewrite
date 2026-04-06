@@ -26,7 +26,7 @@ const generalFaqs = [
   },
   {
     question: "How much does a treatment cost?",
-    answer: "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. We offer flexible payment options and interest-free plans.",
+    answer: "Treatment costs vary by service and area. We offer transparent pricing and a no-obligation consultation where we provide a personalized quote. We offer flexible payment options and interest-free plans.",
   },
   {
     question: "Is the laser safe for dark skin?",
@@ -38,7 +38,7 @@ const generalFaqs = [
   },
   {
     question: "How many sessions will I need?",
-    answer: "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your free consultation.",
+    answer: "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your consultation.",
   },
   {
     question: "Can I book same-day appointments?",
@@ -264,7 +264,7 @@ const FAQ = () => {
                   </div>
                   <h2 className="text-primary-foreground mb-4">Still Have Questions?</h2>
                   <p className="font-body text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                    Our friendly team is here to help. Book a free consultation or give us a call to discuss your treatment options.
+                    Our friendly team is here to help. Book a consultation or give us a call to discuss your treatment options.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button 
@@ -273,7 +273,7 @@ const FAQ = () => {
                       className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6"
                     >
                       <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                        Book Free Consultation
+                        Book Consultation
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </a>
                     </Button>

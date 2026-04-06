@@ -275,7 +275,7 @@ const LaserResurfacing = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Laser Skin Resurfacing Dagenham | Acne Scars, Wrinkles | Book Consult"
-        description="Fractional laser resurfacing in Dagenham for acne scars, wrinkles, and sun damage. Medical-grade technology with dramatic results. Free consultation available."
+        description="Fractional laser resurfacing in Dagenham for acne scars, wrinkles, and sun damage. Medical-grade technology with dramatic results. Consultation available."
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-resurfacing-dagenham"
         structuredData={[structuredData, faqSchema]}
       />
@@ -289,7 +289,7 @@ const LaserResurfacing = () => {
           titleAccent="Dagenham"
           subtitle="Resurface Your Skin. Reveal a Smoother You."
           description="Dramatically reduce acne scars, wrinkles, and sun damage. Stimulate collagen production for lasting rejuvenation."
-          badge="Free Consultation"
+          badge="Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserResurfacingDevice}
           breadcrumbs={[
@@ -335,10 +335,10 @@ const LaserResurfacing = () => {
         
         <TabbedPricingTable
           title="Laser Resurfacing Pricing"
-          subtitle="Investment in lasting skin transformation. Free consultation included."
+          subtitle="Investment in lasting skin transformation. Consultation included."
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "FREE CONSULTATION",
+            highlight: "CONSULTATION",
             text: "Book Your Skin Assessment"
           }}
           paymentOptions="Interest-free payment plans available on courses."
@@ -375,7 +375,7 @@ const LaserResurfacing = () => {
         
         <ServiceCTA
           title="Ready to Transform Your Skin?"
-          subtitle="Book a free consultation to discuss your skin concerns and create a personalized treatment plan."
+          subtitle="Book a consultation to discuss your skin concerns and create a personalized treatment plan."
         />
       </main>
       

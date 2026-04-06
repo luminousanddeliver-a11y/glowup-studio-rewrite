@@ -144,7 +144,7 @@ const LaserHairRemoval = () => {
   const steps = [
     {
       number: 1,
-      title: "Free Consultation & Patch Test",
+      title: "Consultation & Patch Test",
       description: "We assess your skin type, hair type, and treatment goals. A complimentary patch test ensures you're a suitable candidate."
     },
     {
@@ -220,7 +220,7 @@ const LaserHairRemoval = () => {
     },
     {
       title: "Blonde/Red Hair",
-      description: "Laser is less effective on light hair. We recommend a free consultation to assess suitability."
+      description: "Laser is less effective on light hair. We recommend a consultation to assess suitability."
     }
   ];
 
@@ -342,7 +342,7 @@ const LaserHairRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Pain-Free Laser Hair Removal Dagenham | NHS Approved | Book Free Consult"
-        description="Get permanent hair reduction in 6-8 sessions with pain-free Quanta Thunder laser. Safe for all skin types. NHS-approved clinic in Dagenham. Free consultation - Book today!"
+        description="Get permanent hair reduction in 6-8 sessions with pain-free Quanta Thunder laser. Safe for all skin types. NHS-approved clinic in Dagenham. Consultation - Book today!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
         structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />
@@ -356,8 +356,8 @@ const LaserHairRemoval = () => {
           title="Pain-Free Laser Hair Removal in Dagenham"
           titleAccent="Dagenham"
           subtitle="Experience the Freedom of Permanently Smooth Skin"
-          description="Safe for all skin types including dark skin. Book your free consultation and say goodbye to shaving forever."
-          badge="Free Consultation"
+          description="Safe for all skin types including dark skin. Book your consultation and say goodbye to shaving forever."
+          badge="Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
@@ -409,10 +409,10 @@ const LaserHairRemoval = () => {
         {/* Section 7: Pricing */}
         <TabbedPricingTable
           title="Areas We Treat & Transparent Pricing"
-          subtitle="No hidden fees. Book a free consultation for a personalized quote."
+          subtitle="No hidden fees. Book a consultation for a personalized quote."
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "FREE CONSULTATION & PATCH TEST",
+            highlight: "CONSULTATION & PATCH TEST",
             text: "Book Your Appointment Today"
           }}
           paymentOptions="Interest-free payment plans available. Spread the cost over 6-12 months."
@@ -456,7 +456,7 @@ const LaserHairRemoval = () => {
         {/* Section 12: Final CTA */}
         <ServiceCTA
           title="Ready to Say Goodbye to Unwanted Hair?"
-          subtitle="Book a free, no-obligation consultation with one of our Level 4 qualified therapists. We'll assess your skin type, discuss your goals, and provide a personalized treatment plan."
+          subtitle="Book a no-obligation consultation with one of our Level 4 qualified therapists. We'll assess your skin type, discuss your goals, and provide a personalized treatment plan."
         />
       </main>
       

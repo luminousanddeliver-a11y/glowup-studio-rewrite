@@ -159,7 +159,7 @@ const Index = () => {
         "name": "How much does a treatment cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Treatment costs vary by service and area. We offer transparent pricing and a free, no-obligation consultation where we provide a personalized quote. Flexible payment options and interest-free plans available."
+          "text": "Treatment costs vary by service and area. We offer transparent pricing and a no-obligation consultation where we provide a personalized quote. Flexible payment options and interest-free plans available."
         }
       },
       {
@@ -175,7 +175,7 @@ const Index = () => {
         "name": "How many sessions will I need?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your free consultation."
+          "text": "This depends on the treatment. Laser hair removal typically requires 6-8 sessions for optimal results. Tattoo removal varies based on ink color and depth (4-10 sessions). We provide a detailed plan during your consultation."
         }
       },
       {

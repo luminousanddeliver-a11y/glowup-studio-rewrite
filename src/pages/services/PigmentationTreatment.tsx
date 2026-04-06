@@ -246,7 +246,7 @@ const PigmentationTreatment = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Pigmentation Treatment Dagenham | Melasma, Sun Spots | Book Now"
-        description="Professional pigmentation treatment in Dagenham. Laser, Cosmelan, chemical peels for melasma, sun spots, and uneven skin tone. Free consultation available."
+        description="Professional pigmentation treatment in Dagenham. Laser, Cosmelan, chemical peels for melasma, sun spots, and uneven skin tone. Consultation available."
         canonicalUrl="https://laserlightskinclinic.co.uk/pigmentation-treatment-dagenham"
         structuredData={structuredData}
       />

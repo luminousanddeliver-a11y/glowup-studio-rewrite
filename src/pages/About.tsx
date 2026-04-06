@@ -284,7 +284,7 @@ const About = () => {
             >
               <h2 className="text-foreground mb-4">Ready to Transform Your Skin?</h2>
               <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto mb-8">
-                Book your free consultation today and discover why hundreds of clients trust us with their skin.
+                Book your consultation today and discover why hundreds of clients trust us with their skin.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">

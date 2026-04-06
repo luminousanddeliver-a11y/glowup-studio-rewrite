@@ -172,7 +172,7 @@ const LyntonMotusAYLaser = () => {
           subtitle="The World's Only Pain-Free Alexandrite Laser"
           description="Experience permanent hair removal without discomfort. Safe for all skin types. Available exclusively at Laser Light Skin Clinic."
           badge="Medical-Grade Technology"
-          secondaryCta={{ text: "Book Free Consultation", href: "https://phorest.com/book/salons/laserlightskinclinic" }}
+          secondaryCta={{ text: "Book Consultation", href: "https://phorest.com/book/salons/laserlightskinclinic" }}
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
@@ -279,7 +279,7 @@ const LyntonMotusAYLaser = () => {
             >
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 h-14 px-8">
                 <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                  Book Free Consultation
+                  Book Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -297,7 +297,7 @@ const LyntonMotusAYLaser = () => {
         
         <ServiceCTA
           title="Experience the Quanta Thunder"
-          subtitle="Book your free consultation and patch test today"
+          subtitle="Book your consultation and patch test today"
           showMap={true}
         />
       </main>

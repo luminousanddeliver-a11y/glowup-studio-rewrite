@@ -38,7 +38,7 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Laser Light Skin Clinic",
-    "description": "Get in touch with Laser Light Skin Clinic in Dagenham. Book a free consultation for laser hair removal and skin treatments.",
+    "description": "Get in touch with Laser Light Skin Clinic in Dagenham. Book a consultation for laser hair removal and skin treatments.",
     "url": "https://laserlightskinclinic.co.uk/contact",
     "mainEntity": {
       "@type": "LocalBusiness",

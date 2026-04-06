@@ -10,7 +10,7 @@ interface ServiceCTAProps {
 
 export const ServiceCTA = ({
   title = "Ready to Start Your Transformation?",
-  subtitle = "Book your free consultation today and discover how we can help you achieve your goals.",
+  subtitle = "Book your consultation today and discover how we can help you achieve your goals.",
   showMap = true,
 }: ServiceCTAProps) => {
   return (

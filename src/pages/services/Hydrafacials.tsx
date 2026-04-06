@@ -392,7 +392,7 @@ const Hydrafacials = () => {
             title="Hydrafacial Pricing"
             subtitle="Choose the treatment that's right for you"
             prices={prices}
-            disclaimer="Free consultation included. All Hydrafacials include a personalized skin analysis and aftercare advice. Interest-free payment options available."
+            disclaimer="Consultation included. All Hydrafacials include a personalized skin analysis and aftercare advice. Interest-free payment options available."
           />
         </div>
         
