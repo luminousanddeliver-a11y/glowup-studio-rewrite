@@ -9,7 +9,7 @@ export const PremierSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src={treatmentRoom} 
+          src={clinicInterior} 
           alt="Luxury treatment room" 
           className="w-full h-full object-cover"
           loading="lazy"
