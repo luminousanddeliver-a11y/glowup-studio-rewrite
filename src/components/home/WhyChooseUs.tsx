@@ -1,7 +1,7 @@
 import { Shield, Sparkles, MapPin, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import treatmentRoom from "@/assets/treatment-room.jpg";
+import clinicExterior from "@/assets/clinic-exterior.jpg";
 
 interface Differentiator {
   icon: typeof Shield;
@@ -49,7 +49,7 @@ export const WhyChooseUs = () => {
           >
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src={treatmentRoom} 
+                src={clinicExterior} 
                 alt="Luxury treatment room with ambient lighting at Laser Light Skin Clinic" 
                 className="w-full h-full object-cover"
                 loading="lazy"
