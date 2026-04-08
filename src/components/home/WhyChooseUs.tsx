@@ -1,7 +1,7 @@
 import { Shield, Sparkles, MapPin, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import treatmentRoom from "@/assets/treatment-room.jpg";
+import clinicExterior from "@/assets/clinic-exterior.jpg";
 
 interface Differentiator {
   icon: typeof Shield;

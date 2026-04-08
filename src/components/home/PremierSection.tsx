@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import treatmentRoom from "@/assets/treatment-room.jpg";
+import clinicInterior from "@/assets/clinic-interior.jpg";
 
 export const PremierSection = () => {
   return (
