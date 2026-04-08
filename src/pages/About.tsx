@@ -94,7 +94,7 @@ const About = () => {
       <section className="relative -mt-[80px] pt-[88px] lg:pt-[92px] pb-10">
           <div 
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${consultationRoom})` }}
+            style={{ backgroundImage: `url(${clinicExterior})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40" />
           
@@ -169,8 +169,8 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <img 
-                  src={treatmentRoom} 
-                  alt="Laser Light Skin Clinic treatment room with advanced medical equipment"
+                  src={clinicFlowerWall} 
+                  alt="Laser Light Skin Clinic branded flower wall with neon logo sign"
                   className="rounded-lg shadow-card-hover w-full"
                 />
                 <motion.div 
@@ -238,6 +238,53 @@ const About = () => {
 
         {/* Certifications Bar */}
         <CertificationsBar />
+
+        {/* Clinic Gallery */}
+        <section className="section-padding bg-background">
+          <div className="container-custom">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-foreground mb-4">Our Clinic</h2>
+              <p className="text-lg text-muted-foreground font-body">
+                Take a look inside our modern, NHS-approved facility in Dagenham.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { src: clinicReception, alt: "Laser Light Skin Clinic reception area" },
+                { src: clinicInterior, alt: "Laser Light Skin Clinic interior with branding" },
+                { src: treatmentRoom, alt: "Treatment room with medical equipment" },
+                { src: treatmentRoomLaser, alt: "Laser treatment room with Quanta Thunder" },
+                { src: consultationRoom, alt: "Consultation room" },
+                { src: clinicLogoWall, alt: "Laser Light Skin Clinic branded rose wall" },
+                { src: clinicExterior, alt: "Laser Light Skin Clinic exterior storefront" },
+                { src: clinicFlowerWall, alt: "Waiting area with flower wall and seating" },
+              ].map((img, index) => (
+                <motion.div
+                  key={index}
+                  className="rounded-lg overflow-hidden shadow-card hover:shadow-card-hover transition-shadow"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <img 
+                    src={img.src} 
+                    alt={img.alt}
+                    className="w-full h-48 md:h-56 object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Reviews Summary */}
         <section className="section-padding bg-background">
