@@ -315,7 +315,7 @@ const SkinTagMoleRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Skin Tag & Mole Removal Dagenham | Quick Treatment | Book Now"
-        description="Professional skin tag and mole removal in Dagenham. Quick, safe removal using advanced electrolysis. Skin tags from £50, moles from £100. Book consultation!"
+        description="Same-day skin tag & mole removal in Dagenham — no GP referral needed. Professional, sterile clinic trusted across Barking, Romford & Ilford. From just £50."
         canonicalUrl="https://laserlightskinclinic.co.uk/skin-tag-mole-removal-dagenham"
         structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />

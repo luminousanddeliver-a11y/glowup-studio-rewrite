@@ -329,7 +329,7 @@ const Hydrafacials = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Hydrafacial East London | Instant Glow | No Downtime | Book Now"
-        description="Experience the ultimate Hydrafacial in East London at Laser Light Skin Clinic. Deep cleansing, extraction, and hydration in one session. Walk out glowing. Book today."
+        description="HydraFacial treatments in East London at our NHS-approved Dagenham clinic. Deep cleanse, hydrate & glow — no downtime. Trusted by clients across Redbridge & Havering. From £80."
         canonicalUrl="https://laserlightskinclinic.co.uk/hydrafacial-east-london"
         structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />

@@ -39,7 +39,7 @@ const Shop = () => {
     <>
       <SEOHead
         title="Shop AlumierMD Skincare | Laser Light Skin Clinic Dagenham"
-        description="Shop premium AlumierMD medical-grade skincare products. Serums, moisturizers, SPF protection and more. Free UK shipping over £50."
+        description="Shop professional skincare products recommended by our NHS-approved clinic in Dagenham. Aftercare essentials & treatment-boosting products."
       />
 
       <Header />

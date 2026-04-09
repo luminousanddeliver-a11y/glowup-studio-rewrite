@@ -111,7 +111,7 @@ const Index = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "250",
+      "reviewCount": "304",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -192,8 +192,8 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="NHS-Approved Laser & Skin Clinic in Dagenham | Laser Light"
-        description="East London's top-rated laser & skin clinic in Dagenham. Pain-free laser hair removal, tattoo removal, Hydrafacials & more. NHS-approved. Book now!"
+        title="NHS-Approved Laser & Skin Clinic Dagenham | Laser Light"
+        description="East London's only Quanta Thunder laser clinic. NHS-approved, pain-free treatments loved by 300+ Google reviewers in Dagenham, Barking & Redbridge. Book a free consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk"
         keywords="laser hair removal london, laser hair removal near me, tattoo removal london, hydrafacial london, skin clinic east london, laser clinic redbridge, laser clinic havering, skin tag removal essex, chemical peel newham, NHS approved skin clinic london, laser hair removal dagenham, tattoo removal east london"
         structuredData={[organizationSchema, websiteSchema, medicalClinicSchema, faqPageSchema]}
