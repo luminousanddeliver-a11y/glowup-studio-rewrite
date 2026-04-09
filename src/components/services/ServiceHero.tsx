@@ -200,7 +200,7 @@ export const ServiceHero = ({
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-13 px-7 text-base"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-13 px-7 text-base shadow-lg"
             >
               <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}>
                 <Calendar className="mr-2 h-5 w-5" />
@@ -213,7 +213,7 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/40 text-white hover:bg-white/10 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm"
+                className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm shadow-lg"
               >
                 <a href={secondaryCta.href}>
                   <ChevronDown className="mr-2 h-5 w-5" />
@@ -227,7 +227,7 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/40 text-white hover:bg-white/10 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm"
+                className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm shadow-lg"
               >
                 <a href="tel:02085981200">
                   <Phone className="mr-2 h-5 w-5" />
