@@ -33,7 +33,7 @@ export const PremierSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            The Premier Clinic for Redbridge & Havering
+            The Premier Clinic for Dagenham, Barking, Redbridge & Havering
           </motion.h2>
 
           {/* Description */}
