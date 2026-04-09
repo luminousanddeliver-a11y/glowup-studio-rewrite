@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, Calendar, ChevronDown, Shield, Star } from "lucide-react";
 import { PageBreadcrumb, BreadcrumbItemType } from "@/components/layout/PageBreadcrumb";
-import { OptimizedImage } from "@/components/ui/optimized-image";
 
 interface SecondaryCTA {
   text: string;
@@ -59,18 +58,15 @@ export const ServiceHero = ({
 }: ServiceHeroProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   
-  // Parallax effect for image
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
   });
   
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  // Use heroImage or fall back to backgroundImage for backwards compatibility
   const displayImage = heroImage || backgroundImage;
 
-  // Split title by accent if provided
   const renderTitle = () => {
     if (titleAccent && title.includes(titleAccent)) {
       const parts = title.split(titleAccent);
@@ -85,223 +81,193 @@ export const ServiceHero = ({
     return title;
   };
 
+  const badgeData = floatingBadge || {
+    title: "NHS Approved",
+    description: "FDA-certified technology for safe, effective treatments",
+  };
+
   return (
-    <section ref={sectionRef} className="relative bg-gradient-to-br from-primary/5 via-background to-background -mt-[80px] pt-[88px] pb-16 md:pt-[92px] md:pb-20 lg:pb-24 overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+    <section 
+      ref={sectionRef} 
+      className="relative -mt-[80px] min-h-[520px] md:min-h-[560px] lg:min-h-[600px] flex items-end overflow-hidden"
+    >
+      {/* Background image with parallax */}
+      {displayImage && (
+        <motion.div 
+          className="absolute inset-0 z-0"
+          style={{ y: bgY }}
+        >
+          <img 
+            src={displayImage} 
+            alt={`${title} treatment at Laser Light Skin Clinic Dagenham`}
+            className="w-full h-[120%] object-cover object-center"
+            loading="eager"
+          />
+        </motion.div>
+      )}
       
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left: Content (appears first on mobile and desktop) */}
-          <motion.div 
-            className="text-center lg:text-left order-1"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            {/* Breadcrumbs */}
-            {breadcrumbs && breadcrumbs.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <PageBreadcrumb items={breadcrumbs} className="mb-4 justify-center lg:justify-start" />
-              </motion.div>
-            )}
-
-            {/* Decorative teal bar */}
-            <motion.div 
-              className="w-12 h-1 bg-primary mb-6 mx-auto lg:mx-0"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            />
-            
-            {/* Trust Badge */}
-            {trustBadge && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
-                className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4 backdrop-blur-sm"
-              >
-                <Shield className="h-4 w-4" />
-                <span className="font-body text-sm font-semibold">{trustBadge}</span>
-              </motion.div>
-            )}
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-foreground mb-4 leading-tight"
-            >
-              {renderTitle()}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl md:text-2xl font-heading font-medium text-muted-foreground mb-4"
-            >
-              {subtitle}
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="font-body text-lg text-muted-foreground/80 max-w-xl mx-auto lg:mx-0 mb-6"
-            >
-              {description}
-            </motion.p>
-
-            {/* Offer Badge */}
-            {badge && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-                className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-lg mb-6"
-              >
-                <Star className="h-4 w-4 fill-current" />
-                <span className="font-body font-semibold">{badge}</span>
-              </motion.div>
-            )}
-
-            {/* CTAs */}
+      {/* Dark gradient overlay for text legibility */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
+      
+      {/* Content */}
+      <div className="container-custom relative z-10 pt-[100px] pb-10 md:pb-14 lg:pb-16 w-full">
+        <motion.div 
+          className="max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {/* Breadcrumbs */}
+          {breadcrumbs && breadcrumbs.length > 0 && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              transition={{ duration: 0.4 }}
+              className="mb-4"
             >
+              <PageBreadcrumb items={breadcrumbs} className="[&_a]:text-white/70 [&_a:hover]:text-white [&_span]:text-white/50 [&_svg]:text-white/50 [&_li:last-child_span]:text-white/90" />
+            </motion.div>
+          )}
+
+          {/* Decorative teal bar */}
+          <motion.div 
+            className="w-12 h-1 bg-primary mb-5"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+          
+          {/* Trust Badge */}
+          {trustBadge && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
+              className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full mb-4 backdrop-blur-sm border border-white/20"
+            >
+              <Shield className="h-4 w-4" />
+              <span className="font-body text-sm font-semibold">{trustBadge}</span>
+            </motion.div>
+          )}
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-white mb-3 leading-tight drop-shadow-lg"
+          >
+            {renderTitle()}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl font-heading font-medium text-white/90 mb-3 drop-shadow-md"
+          >
+            {subtitle}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="font-body text-base md:text-lg text-white/75 max-w-xl mb-5"
+          >
+            {description}
+          </motion.p>
+
+          {/* Offer Badge */}
+          {badge && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-lg mb-5 backdrop-blur-sm border border-gold/30"
+            >
+              <Star className="h-4 w-4 fill-current" />
+              <span className="font-body font-semibold">{badge}</span>
+            </motion.div>
+          )}
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-3 mb-6"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-13 px-7 text-base"
+            >
+              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}>
+                <Calendar className="mr-2 h-5 w-5" />
+                {primaryCtaText}
+              </a>
+            </Button>
+            
+            {secondaryCta && (
               <Button
                 asChild
+                variant="outline"
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
+                className="border-white/40 text-white hover:bg-white/10 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm"
               >
-                <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}>
-                  <Calendar className="mr-2 h-5 w-5" />
-                  {primaryCtaText}
+                <a href={secondaryCta.href}>
+                  <ChevronDown className="mr-2 h-5 w-5" />
+                  {secondaryCta.text}
                 </a>
               </Button>
-              
-              {secondaryCta && (
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg"
-                >
-                  <a href={secondaryCta.href}>
-                    <ChevronDown className="mr-2 h-5 w-5" />
-                    {secondaryCta.text}
-                  </a>
-                </Button>
-              )}
-              
-              {showPhoneCta && !secondaryCta && (
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body h-14 px-8 text-lg"
-                >
-                  <a href="tel:02085981200">
-                    <Phone className="mr-2 h-5 w-5" />
-                    0208 598 1200
-                  </a>
-                </Button>
-              )}
-            </motion.div>
-
-            {/* Stats with top border divider */}
-            {stats && stats.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="border-t border-border mt-8 pt-6"
+            )}
+            
+            {showPhoneCta && !secondaryCta && (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-white/40 text-white hover:bg-white/10 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm"
               >
-                <div className="flex flex-wrap justify-center lg:justify-start gap-6">
-                  {stats.map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      className="text-center lg:text-left"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                    >
-                      <div className="font-heading text-xl font-bold text-primary">{stat.value}</div>
-                      <div className="font-body text-xs text-muted-foreground">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                <a href="tel:02085981200">
+                  <Phone className="mr-2 h-5 w-5" />
+                  0208 598 1200
+                </a>
+              </Button>
             )}
           </motion.div>
 
-          {/* Right: Image (appears second on both mobile and desktop) */}
-          <motion.div 
-            className="relative order-2 mb-10 lg:mb-0"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          {/* Stats + floating badge row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-wrap items-center gap-4 md:gap-6"
           >
-            {displayImage && (
+            {/* Floating badge inline */}
+            <div className="inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2.5 rounded-lg backdrop-blur-sm shadow-lg">
+              {floatingBadge?.icon || <Shield className="h-4 w-4 flex-shrink-0" />}
+              <span className="font-semibold text-sm">{badgeData.title}</span>
+            </div>
+
+            {stats && stats.length > 0 && (
               <>
-                <motion.div 
-                  className="rounded-2xl overflow-hidden shadow-lg"
-                  style={{ y: imageY }}
-                  initial={{ scale: 0.95 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  <OptimizedImage 
-                    src={displayImage} 
-                    alt={`${title} treatment at Laser Light Skin Clinic Dagenham${floatingBadge?.title ? ` - ${floatingBadge.title}` : ''}`}
-                    className="w-full aspect-[4/3] object-cover"
-                    priority={true}
-                    objectFit="cover"
-                  />
-                </motion.div>
-                
-                {/* Floating Badge - NHS/Trust indicator */}
-                {floatingBadge ? (
-                  <motion.div 
-                    className="absolute -bottom-8 right-4 lg:-right-6 bg-primary text-primary-foreground px-6 py-5 rounded-xl shadow-xl max-w-[280px] z-10"
-                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+                <div className="w-px h-8 bg-white/20 hidden sm:block" />
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                   >
-                    <div className="flex items-center gap-2 mb-2">
-                      {floatingBadge.icon || <Shield className="h-5 w-5 flex-shrink-0" />}
-                      <span className="font-semibold text-base">{floatingBadge.title}</span>
-                    </div>
-                    <div className="text-sm opacity-90 leading-snug">{floatingBadge.description}</div>
+                    <div className="font-heading text-lg font-bold text-primary">{stat.value}</div>
+                    <div className="font-body text-xs text-white/60">{stat.label}</div>
                   </motion.div>
-                ) : (
-                  <motion.div 
-                    className="absolute -bottom-8 right-4 lg:-right-6 bg-primary text-primary-foreground px-6 py-5 rounded-xl shadow-xl max-w-[280px] z-10"
-                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <Shield className="h-5 w-5 flex-shrink-0" />
-                      <span className="font-semibold text-base">NHS Approved</span>
-                    </div>
-                    <div className="text-sm opacity-90 leading-snug">FDA-certified technology for safe, effective treatments</div>
-                  </motion.div>
-                )}
+                ))}
               </>
             )}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
