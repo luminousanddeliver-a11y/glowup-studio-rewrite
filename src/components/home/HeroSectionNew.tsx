@@ -49,7 +49,7 @@ export const HeroSectionNew = () => {
           loading="eager"
           decoding="sync"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[60%_50%] md:object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[75%_50%] md:object-[70%_50%]"
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
