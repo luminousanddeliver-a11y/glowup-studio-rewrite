@@ -383,7 +383,7 @@ const Hydrafacials = () => {
           technologyName="Hydrafacial System"
           description="The Hydrafacial system uses patented Vortex-Fusion technology to deliver superior results. The spiral design creates a vortex effect to easily dislodge and remove impurities while simultaneously infusing the skin with nourishing serums."
           features={technologyFeatures}
-          certifications={["FDA Cleared", "CE Marked"]}
+          certifications={["FDA Cleared", "FDA Approved"]}
           deviceImage={hydrafacialDevice}
         />
         

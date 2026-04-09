@@ -402,7 +402,7 @@ const LaserHairRemoval = () => {
           technologyName="Quanta Thunder"
           description="The Quanta Thunder is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
           features={technologyFeatures}
-          certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
+          certifications={["NHS Approved", "FDA Approved", "FDA Cleared"]}
           deviceImage={laserDevice}
         />
         

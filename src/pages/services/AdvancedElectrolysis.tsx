@@ -294,7 +294,7 @@ const AdvancedElectrolysis = () => {
           technologyName="Advanced Cosmetic Electrolysis"
           description="Our advanced electrolysis uses precision sterile probes to deliver controlled electrical current directly to each blemish. This targeted approach treats only the blemish tissue, leaving surrounding skin undamaged for optimal healing."
           features={technologyFeatures}
-          certifications={["Sterile Equipment", "Professional Grade", "CE Marked"]}
+          certifications={["Sterile Equipment", "Professional Grade", "FDA Approved"]}
           deviceImage={advancedElectrolysisDevice}
         />
         

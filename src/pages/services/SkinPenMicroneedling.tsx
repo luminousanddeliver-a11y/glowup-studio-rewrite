@@ -335,7 +335,7 @@ const SkinPenMicroneedling = () => {
           technologyName="SkinPen Precision"
           description="SkinPen Precision is the first microneedling device cleared by the FDA for clinical use. Its adjustable needle depth (0.25-2.5mm), single-use sterile cartridges, and precision engineering ensure consistent, safe, and effective results that at-home devices simply cannot replicate."
           features={technologyFeatures}
-          certifications={["FDA Cleared", "CE Marked", "TGA Approved"]}
+          certifications={["FDA Cleared", "FDA Approved", "TGA Approved"]}
           deviceImage={microneedlingDevice}
         />
         

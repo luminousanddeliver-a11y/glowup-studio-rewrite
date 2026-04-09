@@ -326,7 +326,7 @@ const SkinRejuvenation = () => {
           technologyName="Advanced Treatment Suite"
           description="We don't rely on a single technology—we combine multiple advanced treatments to address all aspects of skin aging. From laser and IPL for pigmentation, to microneedling for texture, to peels for radiance, we create a comprehensive plan tailored to your unique skin."
           features={technologyFeatures}
-          certifications={["NHS Approved", "CE Marked", "FDA Cleared"]}
+          certifications={["NHS Approved", "FDA Approved", "FDA Cleared"]}
           deviceImage={skinTexture}
         />
         

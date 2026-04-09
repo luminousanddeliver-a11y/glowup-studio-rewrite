@@ -299,7 +299,7 @@ const VeinRemoval = () => {
           technologyName="Vascular Laser System"
           description="Our laser system emits specific wavelengths that are absorbed by hemoglobin in blood vessels. This selective targeting heats and collapses the vessel walls without damaging surrounding tissue, allowing the body to naturally reabsorb the treated vein."
           features={technologyFeatures}
-          certifications={["CE Marked", "Medical Grade", "Safe for All Skin Types"]}
+          certifications={["FDA Approved", "Medical Grade", "Safe for All Skin Types"]}
           deviceImage={veinDevice}
         />
         

@@ -329,7 +329,7 @@ const LaserResurfacing = () => {
           technologyName="Fractional Laser System"
           description="Our fractional laser system creates thousands of microscopic treatment zones while leaving surrounding tissue intact. This 'fractional' approach triggers your body's natural healing response, stimulating collagen production and new skin cell formation."
           features={technologyFeatures}
-          certifications={["FDA Cleared", "CE Marked", "Medical Grade"]}
+          certifications={["FDA Cleared", "FDA Approved", "Medical Grade"]}
           deviceImage={laserResurfacingDevice}
         />
         

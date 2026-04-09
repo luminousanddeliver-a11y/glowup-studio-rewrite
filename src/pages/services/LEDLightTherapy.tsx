@@ -292,7 +292,7 @@ const LEDLightTherapy = () => {
           technologyName="Professional LED Panel System"
           description="Our medical-grade LED panels deliver precisely calibrated wavelengths at therapeutic intensities. Unlike home devices, professional LED therapy provides consistent, measurable light energy proven to trigger cellular responses."
           features={technologyFeatures}
-          certifications={["FDA Cleared", "CE Marked", "Medical Grade"]}
+          certifications={["FDA Cleared", "FDA Approved", "Medical Grade"]}
           deviceImage={ledDevice}
         />
         

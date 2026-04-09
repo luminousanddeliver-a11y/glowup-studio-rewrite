@@ -92,7 +92,7 @@ export const ExclusiveTechnologyBanner = () => {
                 "Removes ALL ink colors",
                 "50% fewer sessions",
                 "Minimal scarring",
-                "FDA Cleared & CE Marked"
+                "FDA Cleared & FDA Approved"
               ].map((feature, index) => (
                 <div key={feature} className="flex items-center gap-2 text-primary-foreground/90 font-body text-sm">
                   <Zap className="h-4 w-4 text-gold shrink-0" />
