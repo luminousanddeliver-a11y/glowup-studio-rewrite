@@ -1301,6 +1301,92 @@ const popularPackages: PopularPackage[] = [
     icon: Check,
   },
 ];
+const PackageCards = ({ packages }: { packages: PopularPackage[] }) => {
+  const [showAll, setShowAll] = useState(false);
+  const popularItems = packages.filter((p) => p.popular);
+  const remainingItems = packages.filter((p) => !p.popular);
+  const visibleExtra = showAll ? remainingItems : [];
+
+  const renderCard = (pkg: PopularPackage, index: number) => (
+    <motion.div
+      key={pkg.name}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col group"
+    >
+      <div className="p-4 md:p-5 border-b border-border relative">
+        {pkg.badge && (
+          <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-[11px] md:text-xs font-bold px-2 md:px-2.5 py-1 rounded-full shadow-sm">
+            {pkg.badge}
+          </div>
+        )}
+        <p className="text-[11px] text-muted-foreground font-body uppercase tracking-wide mb-1">{pkg.category}</p>
+        <h3 className="font-heading font-bold text-foreground text-base md:text-lg pr-20 mb-1">{pkg.name}</h3>
+        <div className="flex items-baseline gap-2 mt-3">
+          <span className="text-2xl md:text-3xl font-heading font-bold text-accent">{pkg.price}</span>
+        </div>
+      </div>
+      <div className="p-4 md:p-5 flex flex-col flex-1">
+        <p className="text-sm font-body text-foreground mb-2">{pkg.sessions}</p>
+        {pkg.description && (
+          <p className="text-xs font-body text-muted-foreground mb-2">{pkg.description}</p>
+        )}
+        {pkg.interval && (
+          <p className="text-xs font-body text-muted-foreground/80 italic mb-3">{pkg.interval}</p>
+        )}
+        <div className="mt-auto">
+          <Button
+            asChild
+            variant="outline"
+            className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors"
+          >
+            <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+              Buy Series
+            </a>
+          </Button>
+        </div>
+      </div>
+    </motion.div>
+  );
+
+  return (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        {popularItems.map((pkg, i) => renderCard(pkg, i))}
+      </div>
+
+      <AnimatePresence>
+        {visibleExtra.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-4 md:mt-5"
+          >
+            {visibleExtra.map((pkg, i) => renderCard(pkg, i))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {remainingItems.length > 0 && (
+        <div className="flex justify-center mt-6">
+          <Button
+            variant="outline"
+            onClick={() => setShowAll(!showAll)}
+            className="font-body font-semibold gap-2"
+          >
+            {showAll ? "Show Less" : `Show ${remainingItems.length} More Packages`}
+            <ChevronDown className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`} />
+          </Button>
+        </div>
+      )}
+    </>
+  );
+};
+
 const Prices = () => {
   const isMobile = useIsMobile();
   const priceSchema = {
