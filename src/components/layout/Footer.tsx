@@ -46,7 +46,7 @@ export const Footer = () => {
               Specialist Laser Aesthetics
             </p>
             <p className="text-background/70 font-body text-sm leading-relaxed">
-              NHS-approved clinic offering pain-free laser hair removal and advanced skin treatments, serving Dagenham, Barking, Redbridge, Havering, Romford, Ilford, Hornchurch & Chadwell Heath.
+              NHS-approved clinic offering advanced laser hair removal and skin treatments, serving Dagenham, Barking, Redbridge, Havering, Romford, Ilford, Hornchurch & Chadwell Heath.
             </p>
           </motion.div>
 
