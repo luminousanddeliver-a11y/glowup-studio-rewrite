@@ -17,7 +17,7 @@ import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Palette, Calendar, Shield, Sparkles } from "lucide-react";
-import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
+import tattooRemovalDevice from "@/assets/thunder-machine.png";
 
 
 const TattooRemoval = () => {

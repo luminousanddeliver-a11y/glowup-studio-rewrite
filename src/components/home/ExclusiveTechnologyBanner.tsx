@@ -1,7 +1,7 @@
 import { Award, ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
+import tattooRemovalDevice from "@/assets/thunder-machine.png";
 
 export const ExclusiveTechnologyBanner = () => {
   return (

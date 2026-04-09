@@ -14,7 +14,7 @@ import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, PiggyBank } from "lucide-react";
-import laserDevice from "@/assets/laser-device.jpg";
+import laserDevice from "@/assets/thunder-machine.png";
 
 const LaserHairRemovalEastLondon = () => {
   const structuredData = {

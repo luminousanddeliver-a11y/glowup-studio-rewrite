@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ServiceCardSkeleton } from "@/components/ui/ServiceCardSkeleton";
 import { prefetchRoute } from "@/lib/prefetch";
-import laserDevice from "@/assets/laser-device.jpg";
+import laserDevice from "@/assets/thunder-machine.png";
 import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
 import microneedlingDevice from "@/assets/microneedling-device.jpg";
-import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
+import tattooRemovalDevice from "@/assets/thunder-machine.png";
 
 const services = [
   {

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import laserDevice from "@/assets/laser-device.jpg";
+import laserDevice from "@/assets/thunder-machine.png";
 
 const benefits = [
   "Advanced Quanta Thunder technology",

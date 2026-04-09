@@ -11,7 +11,7 @@ import { ServiceCTA } from "@/components/services/ServiceCTA";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Shield, Users, Award, CheckCircle, Zap, Heart, Sparkles } from "lucide-react";
-import laserDevice from "@/assets/laser-device.jpg";
+import laserDevice from "@/assets/thunder-machine.png";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
