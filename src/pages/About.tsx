@@ -353,7 +353,7 @@ const About = () => {
       </main>
       <Footer />
       <MobileStickyButton />
-      <FloatingReviewButton />
+      
     </div>
   );
 };

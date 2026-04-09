@@ -244,7 +244,7 @@ const Index = () => {
       </main>
       <Footer />
       <MobileStickyButton />
-      <FloatingReviewButton />
+      
     </div>
   );
 };

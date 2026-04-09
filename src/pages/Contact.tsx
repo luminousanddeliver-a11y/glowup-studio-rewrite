@@ -447,7 +447,7 @@ const Contact = () => {
       </main>
       <Footer />
       <MobileStickyButton />
-      <FloatingReviewButton />
+      
     </div>;
 };
 export default Contact;
