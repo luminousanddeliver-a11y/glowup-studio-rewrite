@@ -1215,52 +1215,88 @@ const categoryLabels: Record<string, string> = {
 };
 interface PopularPackage {
   name: string;
+  category: string;
+  price: string;
   description: string;
-  originalPrice: string;
-  packagePrice: string;
-  savings: string;
-  includes: string[];
+  sessions: string;
+  interval?: string;
   icon: typeof Star;
   badge?: string;
+  popular?: boolean;
 }
 const popularPackages: PopularPackage[] = [
   {
-    name: "Full Body Laser Package",
-    description: "Complete hair-free transformation for women",
-    originalPrice: "£2,100",
-    packagePrice: "£1,575",
-    savings: "Save £525",
-    includes: ["Full Legs", "Full Arms", "Underarms", "Brazilian", "Full Face"],
+    name: "Half Face x3",
+    category: "Laser Hair Removal Women",
+    price: "£220.00",
+    description: "Half face laser treatment targets one side of the face using advanced laser technology to reduce hair, improve skin texture, and promote a clearer, smoother complexion.",
+    sessions: "1 session of Half Face Laser",
+    interval: "42–63 days between sessions",
     icon: Crown,
     badge: "Best Seller",
+    popular: true,
   },
   {
-    name: "Bridal Glow Package",
-    description: "Look radiant on your special day",
-    originalPrice: "£580",
-    packagePrice: "£450",
-    savings: "Save £130",
-    includes: ["HydraFacial Platinum", "LED Light Therapy", "Dermaplaning", "Underarm Laser"],
-    icon: Heart,
-    badge: "Most Popular",
-  },
-  {
-    name: "Anti-Ageing Transformation",
-    description: "Turn back the clock with our premium treatments",
-    originalPrice: "£850",
-    packagePrice: "£680",
-    savings: "Save £170",
-    includes: ["Profhilo (2 sessions)", "Cold Plasma Face", "SkinPen Microneedling"],
+    name: "Microneedling",
+    category: "MesoPeel",
+    price: "£600.00",
+    description: "Microneedling is a minimally invasive cosmetic procedure that uses tiny, sterile needles to create hundreds of microscopic, invisible punctures in the top layer of the skin.",
+    sessions: "4 sessions of Meso Microneedling",
+    interval: "28 days between sessions",
     icon: Sparkles,
+    badge: "Most Popular",
+    popular: true,
   },
   {
-    name: "Men's Grooming Package",
-    description: "Complete body grooming for men",
-    originalPrice: "£1,440",
-    packagePrice: "£1,080",
-    savings: "Save £360",
-    includes: ["Full Back (6 sessions)", "Chest & Stomach (6 sessions)", "Beard Line (6 sessions)"],
+    name: "Lumi Eyes x3",
+    category: "Aesthetic Treatments",
+    price: "£390.00",
+    description: "",
+    sessions: "3 sessions of Lumi Eyes",
+    icon: Heart,
+    popular: true,
+  },
+  {
+    name: "Blemidem Medical Peel",
+    category: "Alumier Chemical Peel",
+    price: "£600.00",
+    description: "",
+    sessions: "3 sessions of Blemiderm Peel",
+    interval: "60 days between sessions",
+    icon: Star,
+  },
+  {
+    name: "CAP x10",
+    category: "CAP Treatment",
+    price: "£900.00",
+    description: "",
+    sessions: "10 sessions of CAP treatment",
     icon: Zap,
+  },
+  {
+    name: "Front Neck - Mens Laser x3",
+    category: "Mens Laser",
+    price: "£130.00",
+    description: "",
+    sessions: "3 sessions of Front Neck - mens laser",
+    icon: BadgeCheck,
+  },
+  {
+    name: "NHS Full Face Laser",
+    category: "Laser Hair Removal Women",
+    price: "FREE",
+    description: "",
+    sessions: "8 sessions of NHS Full face laser",
+    interval: "42–60 days between sessions",
+    icon: Shield,
+  },
+  {
+    name: "Underarm x3",
+    category: "Laser Hair Removal Women",
+    price: "£150.00",
+    description: "",
+    sessions: "3 sessions of Underarms",
+    icon: Check,
   },
 ];
 const Prices = () => {
