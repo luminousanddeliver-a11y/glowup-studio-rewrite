@@ -15,11 +15,16 @@ const quickLinks = [
   { name: "FAQs", href: "/faq" },
 ] as const;
 
+const areasServed = [
+  "Dagenham", "Barking", "Redbridge", "Havering", "Romford",
+  "Ilford", "Hornchurch", "Chadwell Heath", "Newham",
+];
+
 export const Footer = () => {
   return (
     <footer className="bg-foreground text-background overflow-hidden">
       <div className="container-custom py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Column 1: Logo & About */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +33,6 @@ export const Footer = () => {
             transition={{ duration: 0.5 }}
             className="lg:pr-4"
           >
-            {/* Logo */}
             <a href="/" onClick={() => window.scrollTo(0, 0)} className="inline-block mb-4">
               <img 
                 src={logoImage} 
@@ -42,7 +46,7 @@ export const Footer = () => {
               Specialist Laser Aesthetics
             </p>
             <p className="text-background/70 font-body text-sm leading-relaxed">
-              NHS-approved clinic offering pain-free laser hair removal and advanced skin treatments in Dagenham, East London.
+              NHS-approved clinic offering pain-free laser hair removal and advanced skin treatments, serving Dagenham, Barking, Redbridge, Havering, Romford, Ilford, Hornchurch & Chadwell Heath.
             </p>
           </motion.div>
 
@@ -86,7 +90,24 @@ export const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Column 3: Contact Info */}
+          {/* Column 3: Areas We Serve */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h4 className="font-heading text-lg font-semibold mb-5 text-background">Areas We Serve</h4>
+            <ul className="space-y-2">
+              {areasServed.map((area) => (
+                <li key={area} className="font-body text-sm text-background/70">
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Column 4: Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,7 +166,7 @@ export const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Column 4: Social & Trust */}
+          {/* Column 5: Social & Trust */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +216,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary" />
-                <span className="font-body text-background/80 text-sm">FDA Approved Technology</span>
+                <span className="font-body text-background/80 text-sm">CE Marked Technology</span>
               </div>
             </div>
           </motion.div>
@@ -206,7 +227,6 @@ export const Footer = () => {
       <div className="border-t border-background/10">
         <div className="container-custom py-6 pb-40 lg:pb-6">
           <div className="flex flex-col gap-4">
-            {/* Main footer row */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="font-body text-background/60 text-sm text-center md:text-left">
                 © {new Date().getFullYear()} Laser Light Skin Clinic. All rights reserved.
@@ -236,7 +256,6 @@ export const Footer = () => {
               </div>
             </div>
             
-            {/* Agency credit row */}
             <div className="text-center border-t border-background/5 pt-4">
               <p className="font-body text-background/50 text-xs">
                 Website Created, Powered, and Managed by{" "}

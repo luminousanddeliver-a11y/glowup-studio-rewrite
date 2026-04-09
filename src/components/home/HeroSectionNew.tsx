@@ -7,14 +7,14 @@ import { GOOGLE_MAPS_REVIEWS_URL } from "@/lib/constants";
 const trustItems = [
   {
     icon: Shield,
-    label: "NHS & FDA Approved",
+    label: "NHS Approved · CE Marked",
     sublabel: "Medical-grade safety",
     variant: "primary" as const,
   },
   {
     icon: Star,
-    label: "4.9★ Rating",
-    sublabel: "290+ verified reviews",
+    label: "4.9★ on Google",
+    sublabel: "300+ verified reviews",
     variant: "gold" as const,
     href: GOOGLE_MAPS_REVIEWS_URL,
   },
@@ -41,7 +41,7 @@ const trustItems = [
 export const HeroSectionNew = () => {
   return (
     <section className="-mt-[80px] pt-[80px] relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Ken Burns animation - Using <img> for LCP optimization */}
+      {/* Background Image with Ken Burns animation */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.img 
           src={heroClinicNew}
@@ -56,20 +56,14 @@ export const HeroSectionNew = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         />
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 md:from-black/70 md:via-black/50 md:to-transparent" />
-        
-        {/* Decorative orbs */}
         <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-50" />
         <div className="absolute bottom-20 left-10 w-48 h-48 bg-accent/20 rounded-full blur-3xl opacity-50" />
       </div>
 
-      {/* Content */}
       <div className="container-custom relative z-10 py-20 md:py-24 lg:py-28">
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-          {/* Left Content - Main Message */}
           <div className="lg:col-span-3 text-center lg:text-left">
-            {/* Main Headline */}
             <motion.h1 
               className="text-white mb-4 leading-tight text-4xl md:text-5xl lg:text-6xl font-semibold"
               initial={{ opacity: 0, y: 30 }}
@@ -80,18 +74,16 @@ export const HeroSectionNew = () => {
               <span className="text-primary">Starts Here</span>
             </motion.h1>
 
-            {/* Sub-headline */}
             <motion.p 
               className="font-body text-lg md:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              The leading NHS-Approved Skin Clinic for East London & Essex. 
+              The leading NHS-Approved Skin Clinic for Dagenham, Barking, Redbridge & Havering. 
               Experience medical-grade treatments with world-class technology.
             </motion.p>
 
-            {/* Primary CTAs - Side by side */}
             <motion.div 
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10"
               initial={{ opacity: 0, y: 20 }}
@@ -115,13 +107,12 @@ export const HeroSectionNew = () => {
                 className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
               >
                 <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                  Book Consultation
+                  Book Free Consultation
                 </a>
               </Button>
             </motion.div>
           </div>
 
-          {/* Right Content - Stats (Desktop only) */}
           <motion.div 
             className="lg:col-span-2 hidden lg:block"
             initial={{ opacity: 0, x: 30 }}
@@ -134,11 +125,11 @@ export const HeroSectionNew = () => {
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <span className="block font-heading text-3xl font-bold text-primary">290+</span>
+                  <span className="block font-heading text-3xl font-bold text-primary">300+</span>
                   <span className="text-white/70 text-sm">5-Star Reviews</span>
                 </div>
                 <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <span className="block font-heading text-3xl font-bold text-primary">10+</span>
+                  <span className="block font-heading text-3xl font-bold text-primary">20+</span>
                   <span className="text-white/70 text-sm">Years Experience</span>
                 </div>
                 <div className="text-center p-4 bg-white/5 rounded-xl">
@@ -154,14 +145,13 @@ export const HeroSectionNew = () => {
           </motion.div>
         </div>
 
-        {/* Trust Bar - 5 items */}
+        {/* Trust Bar */}
         <motion.div 
           className="mt-10 md:mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {/* Mobile: 2-row grid, 5th item spans full width */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
             {trustItems.map((item, index) => {
               const ItemWrapper = item.href ? 'a' : 'div';

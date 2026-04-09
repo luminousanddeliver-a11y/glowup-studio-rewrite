@@ -43,7 +43,7 @@ const About = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "290"
+      "reviewCount": "304"
     }
   };
 
@@ -73,7 +73,7 @@ const About = () => {
   const certifications = [
     "NHS Approved Clinic",
     "Medical LED Clinic",
-    "FDA-Approved Technology",
+    "CE Marked Technology",
     "Quanta Certified Clinic",
     "Level 4 Qualified Therapists",
     "Made in Italy Equipment"
@@ -83,7 +83,7 @@ const About = () => {
     <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
         title="About Us | NHS-Approved Laser Clinic Dagenham | Laser Light"
-        description="Learn about Laser Light Skin Clinic - Dagenham's trusted NHS-approved laser aesthetics clinic with 20+ years experience. Level 4 qualified therapists serving East London."
+        description="Established in 2004, Laser Light is Dagenham's longest-running NHS-approved skin clinic. 20+ years of medical-grade treatments with East London's only Quanta Thunder laser."
         canonicalUrl="https://laserlightskinclinic.co.uk/about"
         structuredData={organizationSchema}
       />
@@ -132,7 +132,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 290+ clients for pain-free, medical-grade treatments.
+                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 5,000+ clients with 300+ five-star Google reviews for pain-free, medical-grade treatments.
               </motion.p>
             </motion.div>
           </div>
@@ -317,7 +317,7 @@ const About = () => {
                 4.9 / 5
               </motion.div>
               <p className="text-muted-foreground font-body mb-6">
-                Based on 290+ verified client reviews
+                Based on 300+ verified client reviews
               </p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
