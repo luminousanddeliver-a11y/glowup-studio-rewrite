@@ -18,6 +18,7 @@ const services = [
 export const FinalCTA = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [service, setService] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,7 +26,7 @@ export const FinalCTA = () => {
     e.preventDefault();
     
     if (!name || !phone || !service) {
-      toast.error("Please fill in all fields");
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -37,6 +38,7 @@ export const FinalCTA = () => {
     toast.success("Thanks! We'll be in touch shortly.");
     setName("");
     setPhone("");
+    setEmail("");
     setService("");
     setIsSubmitting(false);
   };
@@ -123,6 +125,13 @@ export const FinalCTA = () => {
                 onChange={(e) => setPhone(e.target.value)}
                 className="bg-card border-border h-12"
                 required
+              />
+              <Input
+                type="email"
+                placeholder="Email Address (optional)"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-card border-border h-12"
               />
               <Select value={service} onValueChange={setService} required>
                 <SelectTrigger className="bg-card border-border h-12" aria-label="Select a service of interest">

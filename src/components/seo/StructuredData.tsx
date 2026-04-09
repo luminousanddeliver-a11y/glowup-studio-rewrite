@@ -3,87 +3,60 @@ import { Helmet } from "react-helmet-async";
 // Organization Schema - Main business entity
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": "BeautySalon",
   "@id": "https://laserlightskinclinic.co.uk/#organization",
   "name": "Laser Light Skin Clinic",
-  "alternateName": "Laser Light Clinic Dagenham",
+  "alternateName": "Laser Light",
+  "description": "NHS-approved laser hair removal and skin treatment clinic in Dagenham, East London. Specialising in pain-free treatments using the Quanta Thunder laser.",
   "url": "https://laserlightskinclinic.co.uk",
-  "logo": "https://storage.googleapis.com/gpt-engineer-file-uploads/vzi9VoYX9vVShyOdOZDAL6jdw6n2/uploads/1769465234508-laser-light-logo.png",
-  "description": "NHS-approved laser hair removal & skin clinic in East London. Serving Dagenham, Redbridge, Havering, Essex & Newham. Pain-free treatments using medical-grade technology.",
-  "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/vzi9VoYX9vVShyOdOZDAL6jdw6n2/social-images/social-1769465237172-laser-light-logo.png",
   "telephone": "+442085981200",
   "email": "info@laserlightskinclinic.co.uk",
+  "image": "https://laserlightskinclinic.co.uk/og-image.png",
+  "logo": "https://laserlightskinclinic.co.uk/logo.png",
+  "foundingDate": "2004",
   "priceRange": "££",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "125 Becontree Avenue",
     "addressLocality": "Dagenham",
-    "addressRegion": "East London",
+    "addressRegion": "London",
     "postalCode": "RM8 2UJ",
     "addressCountry": "GB"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "51.5432",
-    "longitude": "0.1258"
+    "latitude": 51.5545814,
+    "longitude": 0.1173976
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "10:00",
       "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "10:00",
-      "closes": "17:00"
     }
-  ],
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Dagenham"
-    },
-    {
-      "@type": "City",
-      "name": "Barking"
-    },
-    {
-      "@type": "City",
-      "name": "Romford"
-    },
-    {
-      "@type": "City",
-      "name": "Ilford"
-    },
-    {
-      "@type": "City",
-      "name": "Redbridge"
-    },
-    {
-      "@type": "City",
-      "name": "Havering"
-    },
-    {
-      "@type": "City",
-      "name": "Newham"
-    }
-  ],
-  "hasMap": "https://maps.google.com/?cid=123456789",
-  "sameAs": [
-    "https://www.facebook.com/laserlightskinclinic",
-    "https://www.instagram.com/laserlightskinclinic",
-    "https://www.google.com/maps/place/Laser+Light+Skin+Clinic"
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
     "reviewCount": "304",
-    "bestRating": "5",
-    "worstRating": "1"
+    "bestRating": "5"
   },
+  "sameAs": [
+    "https://www.facebook.com/laserlightskinclinic",
+    "https://www.instagram.com/laserlightskinclinic"
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Dagenham" },
+    { "@type": "City", "name": "Barking" },
+    { "@type": "City", "name": "Redbridge" },
+    { "@type": "City", "name": "Havering" },
+    { "@type": "City", "name": "Romford" },
+    { "@type": "City", "name": "Ilford" },
+    { "@type": "City", "name": "Hornchurch" },
+    { "@type": "City", "name": "Chadwell Heath" },
+    { "@type": "City", "name": "Newham" }
+  ],
   "medicalSpecialty": [
     "Dermatology",
     "Cosmetic Medicine",
