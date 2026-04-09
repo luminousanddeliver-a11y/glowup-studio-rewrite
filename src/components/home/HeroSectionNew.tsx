@@ -39,21 +39,20 @@ const trustItems = [
 export const HeroSectionNew = () => {
   return (
     <section className="-mt-[80px] pt-[80px] relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Ken Burns animation */}
+      {/* Background Video */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.img 
-          src={heroClinicNew}
-          alt=""
-          width={1920}
-          height={1080}
-          loading="eager"
-          decoding="sync"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[75%_50%] md:object-[70%_50%]"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+        <motion.video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-        />
+        >
+          <source src="/videos/banner-video-laser.mp4" type="video/mp4" />
+        </motion.video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 md:from-black/70 md:via-black/50 md:to-transparent" />
         <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-50" />
         <div className="absolute bottom-20 left-10 w-48 h-48 bg-accent/20 rounded-full blur-3xl opacity-50" />
