@@ -22,7 +22,7 @@ const generalFaqs = [
   },
   {
     question: "Does your laser hair removal treatment hurt?",
-    answer: "No. We use the Quanta Thunder, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line.",
+    answer: "We use the Quanta Thunder with an advanced cooling system and Moveo technology to ensure a comfortable experience, even on sensitive areas like the bikini line. Most clients describe it as a warm sensation.",
   },
   {
     question: "How much does a treatment cost?",

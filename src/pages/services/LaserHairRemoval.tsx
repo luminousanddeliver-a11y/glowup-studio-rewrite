@@ -25,7 +25,7 @@ const LaserHairRemoval = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Pain-Free Laser Hair Removal Dagenham",
+    "name": "Laser Hair Removal Dagenham",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Laser Light Skin Clinic",
@@ -38,7 +38,7 @@ const LaserHairRemoval = () => {
       },
       "telephone": "+442085981200"
     },
-    "description": "Pain-free laser hair removal in Dagenham using the Quanta Thunder. Safe for all skin types including dark skin. NHS-approved clinic serving London & East London.",
+    "description": "Advanced laser hair removal in Dagenham using the Quanta Thunder. Safe for all skin types including dark skin. NHS-approved clinic serving London & East London.",
     "areaServed": ["Dagenham", "Barking", "Romford", "Ilford", "East London", "London", "Redbridge", "Havering", "Newham", "Barking and Dagenham", "Essex", "Epping"],
     "offers": {
       "@type": "AggregateOffer",
@@ -69,7 +69,7 @@ const LaserHairRemoval = () => {
         "name": "Does laser hair removal hurt?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Our Quanta Thunder is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
+          "text": "Our Quanta Thunder features advanced cooling technology. Most clients describe the sensation as a warm massage. Unlike older lasers, there is no \"snapping\" or burning feeling."
         }
       },
       {
@@ -94,7 +94,7 @@ const LaserHairRemoval = () => {
   // Quick Stats
   const quickStats = [
     { value: "6-8 Sessions", label: "Average Treatment Course", icon: Timer },
-    { value: "Pain-Free", label: "Guaranteed Comfort", icon: Shield },
+    { value: "Comfortable", label: "Advanced Cooling", icon: Shield },
     { value: "All Skin Types", label: "Fitzpatrick I-VI", icon: Users },
     { value: "NHS-Approved", label: "Medical-Grade Standards", icon: Award },
   ];
@@ -103,7 +103,7 @@ const LaserHairRemoval = () => {
   const whatIsContent = [
     "Laser hair removal is a medical procedure that uses concentrated light energy to target and destroy hair follicles at the root. The laser emits a specific wavelength of light that is absorbed by the melanin (pigment) in the hair shaft. This energy is converted into heat, which damages the hair follicle and inhibits future hair growth.",
     "Unlike temporary methods like shaving or waxing, laser hair removal provides long-term reduction. After a full course of treatments (typically 6-8 sessions), most clients experience permanent reduction of 80-95% in the treated area.",
-    "At Laser Light Skin Clinic, we use the Quanta Thunder, the most advanced pain-free laser technology available. This means you get permanent results without the discomfort associated with older laser systems."
+    "At Laser Light Skin Clinic, we use the Quanta Thunder, the most advanced laser technology available. This means you get permanent results with cutting-edge precision and comfort."
   ];
 
   // Benefits
@@ -114,8 +114,8 @@ const LaserHairRemoval = () => {
       icon: CheckCircle
     },
     {
-      title: "Pain-Free Experience",
-      description: "Our Quanta Thunder technology is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
+      title: "Comfortable Experience",
+      description: "Our Quanta Thunder technology features advanced cooling. Most clients describe the sensation as a warm massage.",
       icon: Heart
     },
     {
@@ -167,11 +167,11 @@ const LaserHairRemoval = () => {
   // Technology Features
   const technologyFeatures = [
     "Moveo Technology: Treats large areas quickly with sweeping motion",
-    "Advanced Cooling: Built-in cooling system eliminates pain",
+    "Advanced Cooling: Built-in cooling system for comfort",
     "Adjustable Pulse Duration: Safe for all skin types, including dark skin",
     "Faster Results: Fewer sessions required compared to older systems",
     "Alexandrite 755nm wavelength for clinical efficacy",
-    "True pain-free experience unlike any other laser"
+    "Comfortable experience with advanced technology"
   ];
 
   // Pricing Tabs
@@ -265,7 +265,7 @@ const LaserHairRemoval = () => {
   const faqs = [
     {
       question: "Does laser hair removal hurt?",
-      answer: "No. Our Quanta Thunder is guaranteed pain-free. Most clients describe it as a warm massage sensation. Unlike older lasers, there is no \"snapping\" or burning feeling."
+      answer: "Our Quanta Thunder features advanced cooling technology. Most clients describe the sensation as a warm massage. Unlike older lasers, there is no \"snapping\" or burning feeling."
     },
     {
       question: "How many sessions will I need?",
@@ -307,7 +307,7 @@ const LaserHairRemoval = () => {
 
   const testimonials = [
     {
-      quote: "I've had laser hair removal on my legs and underarms. The results are amazing! Completely pain-free and my skin is so smooth now. Best decision I ever made!",
+      quote: "I've had laser hair removal on my legs and underarms. The results are amazing! My skin is so smooth now. Best decision I ever made!",
       initials: "SA",
       treatment: "Laser Hair Removal - Full Legs",
       rating: 5
@@ -341,8 +341,8 @@ const LaserHairRemoval = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Pain-Free Laser Hair Removal Dagenham | NHS Approved | Laser Light"
-        description="Pain-free laser hair removal in Dagenham using the Quanta Thunder — safe for dark skin tones. NHS-approved clinic with 20+ years experience. From £80 per session."
+        title="Laser Hair Removal Dagenham | NHS Approved | Laser Light"
+        description="Advanced laser hair removal in Dagenham using the Quanta Thunder — safe for dark skin tones. NHS-approved clinic with 20+ years experience. From £80 per session."
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
         structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />
@@ -353,7 +353,7 @@ const LaserHairRemoval = () => {
         {/* Section 1: Hero */}
         <ServiceHero
           trustBadge="NHS-Approved Clinic"
-          title="Pain-Free Laser Hair Removal in Dagenham"
+          title="Laser Hair Removal in Dagenham"
           titleAccent="Dagenham"
           subtitle="Experience the Freedom of Permanently Smooth Skin"
           description="Safe for all skin types including dark skin. Book your consultation and say goodbye to shaving forever."
@@ -366,7 +366,7 @@ const LaserHairRemoval = () => {
           ]}
           stats={[
             { value: "6-8", label: "Sessions" },
-            { value: "Pain-Free", label: "Guaranteed" },
+            { value: "Comfortable", label: "Experience" },
             { value: "All Skin", label: "Types" }
           ]}
         />
@@ -398,9 +398,9 @@ const LaserHairRemoval = () => {
         {/* Section 6: Technology */}
         <TechnologySection
           title="Why We Use the Quanta Thunder"
-          subtitle="The only laser hair removal system that combines clinical efficacy with true pain-free technology"
+          subtitle="The only laser hair removal system that combines clinical efficacy with advanced comfort technology"
           technologyName="Quanta Thunder"
-          description="The Quanta Thunder is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
+          description="The Quanta Thunder is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with advanced comfort technology. This is the same system trusted by NHS dermatology departments across the UK."
           features={technologyFeatures}
           certifications={["NHS Approved", "FDA Approved", "FDA Cleared"]}
           deviceImage={laserDevice}
@@ -437,7 +437,7 @@ const LaserHairRemoval = () => {
         {/* Section 10: FAQs */}
         <ServiceFAQ
           title="Laser Hair Removal FAQs"
-          subtitle="Everything you need to know about our pain-free laser hair removal"
+          subtitle="Everything you need to know about our laser hair removal"
           faqs={faqs}
         />
         
@@ -447,7 +447,7 @@ const LaserHairRemoval = () => {
         {/* Section 12: Results Showcase */}
         <ResultsShowcase
           title="Real Results from Real Clients"
-          description="Join thousands of satisfied clients who have achieved permanent hair reduction with our pain-free laser technology."
+          description="Join thousands of satisfied clients who have achieved permanent hair reduction with our advanced laser technology."
         />
         
         {/* Section 13: Related Services */}

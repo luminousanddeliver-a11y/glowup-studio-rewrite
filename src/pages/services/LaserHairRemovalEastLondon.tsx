@@ -40,7 +40,7 @@ const LaserHairRemovalEastLondon = () => {
         "reviewCount": "250"
       }
     },
-    "description": "East London's leading pain-free laser hair removal clinic. NHS-approved Quanta Thunder technology safe for all skin types. Serving Barking, Romford, Ilford & surrounding areas.",
+    "description": "East London's leading laser hair removal clinic. NHS-approved Quanta Thunder technology safe for all skin types. Serving Barking, Romford, Ilford & surrounding areas.",
     "areaServed": ["East London", "Barking", "Romford", "Ilford", "Dagenham", "Stratford", "Canary Wharf"],
     "offers": {
       "@type": "Offer",
@@ -83,13 +83,13 @@ const LaserHairRemovalEastLondon = () => {
 
   const quickStats = [
     { value: "6-8 Sessions", label: "Average Treatment Course", icon: Timer },
-    { value: "Pain-Free", label: "Guaranteed Comfort", icon: Shield },
+    { value: "Comfortable", label: "Advanced Cooling", icon: Shield },
     { value: "All Skin Types", label: "Including Darker Tones", icon: Users },
     { value: "NHS-Approved", label: "Medical-Grade Standards", icon: Award },
   ];
 
   const whatIsContent = [
-    "Looking for the best laser hair removal in East London? Laser Light Skin Clinic in Dagenham offers NHS-approved, pain-free laser hair removal using the revolutionary Quanta Thunder technology.",
+    "Looking for the best laser hair removal in East London? Laser Light Skin Clinic in Dagenham offers NHS-approved laser hair removal using the revolutionary Quanta Thunder technology.",
     "We serve clients from across East London including Barking, Romford, Ilford, Stratford, Canary Wharf, and beyond. Our central location in Dagenham makes us easily accessible with free parking nearby.",
     "Unlike high street clinics using outdated IPL technology, we use genuine medical-grade Alexandrite laser that delivers permanent results in fewer sessions. Safe for all skin types, including darker skin tones."
   ];
@@ -101,8 +101,8 @@ const LaserHairRemovalEastLondon = () => {
       icon: CheckCircle
     },
     {
-      title: "Pain-Free Experience",
-      description: "Our Quanta Thunder is guaranteed pain-free. Most clients describe the sensation as a warm massage.",
+      title: "Comfortable Experience",
+      description: "Our Quanta Thunder features advanced cooling. Most clients describe the sensation as a warm massage.",
       icon: Heart
     },
     {
@@ -214,7 +214,7 @@ const LaserHairRemovalEastLondon = () => {
       rating: 5
     },
     {
-      quote: "I've tried IPL before with no results. This actual laser technology is completely different. Pain-free and my hair is almost gone after 5 sessions!",
+      quote: "I've tried IPL before with no results. This actual laser technology is completely different. My hair is almost gone after 5 sessions!",
       initials: "PR",
       treatment: "Laser Hair Removal - Brazilian",
       rating: 5
@@ -242,10 +242,10 @@ const LaserHairRemovalEastLondon = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Laser Hair Removal East London | Pain-Free | From £80 | Book Free Consult"
-        description="East London's top-rated laser hair removal clinic. Pain-free Quanta Thunder laser, safe for all skin types. Serving Barking, Romford, Ilford. Consultation!"
+        title="Laser Hair Removal East London | From £80 | Book Consult"
+        description="East London's top-rated laser hair removal clinic. Quanta Thunder laser, safe for all skin types. Serving Barking, Romford, Ilford. Consultation!"
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-east-london"
-        keywords="laser hair removal east london, laser hair removal barking, laser hair removal romford, laser hair removal ilford, pain free laser east london"
+        keywords="laser hair removal east london, laser hair removal barking, laser hair removal romford, laser hair removal ilford, laser east london"
         structuredData={[structuredData, faqSchema]}
       />
       
@@ -256,7 +256,7 @@ const LaserHairRemovalEastLondon = () => {
           trustBadge="NHS-Approved Clinic"
           title="Laser Hair Removal East London"
           titleAccent="East London"
-          subtitle="East London's Leading Pain-Free Laser Clinic"
+          subtitle="East London's Leading Laser Clinic"
           description="Serving Barking, Romford, Ilford & all East London. Safe for all skin types. Book your consultation today."
           badge="Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
@@ -267,7 +267,7 @@ const LaserHairRemovalEastLondon = () => {
           ]}
           stats={[
             { value: "From £80", label: "Per Session" },
-            { value: "Pain-Free", label: "Guaranteed" },
+            { value: "Comfortable", label: "Experience" },
             { value: "All Skin", label: "Types" }
           ]}
         />

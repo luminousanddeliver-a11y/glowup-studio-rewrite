@@ -21,7 +21,7 @@ const LyntonMotusAYLaser = () => {
     "@context": "https://schema.org",
     "@type": "MedicalDevice",
     "name": "Quanta Thunder Laser",
-    "description": "The world's first truly pain-free Alexandrite laser for permanent hair removal. NHS-approved and safe for all skin types.",
+    "description": "Advanced Alexandrite laser for permanent hair removal. NHS-approved and safe for all skin types.",
     "manufacturer": {
       "@type": "Organization",
       "name": "Quanta System",
@@ -48,27 +48,27 @@ const LyntonMotusAYLaser = () => {
       },
       "telephone": "+442085981200"
     },
-    "description": "Experience the Quanta Thunder—the only Alexandrite laser with true pain-free technology. NHS-approved, safe for all skin types including dark skin.",
+    "description": "Experience the Quanta Thunder—an advanced Alexandrite laser. NHS-approved, safe for all skin types including dark skin.",
     "areaServed": ["Dagenham", "East London", "Barking", "Romford", "Ilford"]
   };
 
   const quickStats = [
-    { value: "Pain-Free", label: "Guaranteed Experience", icon: Heart },
+    { value: "Comfortable", label: "Advanced Cooling", icon: Heart },
     { value: "All Skin Types", label: "Fitzpatrick I-VI", icon: Users },
     { value: "NHS Approved", label: "Medical-Grade Safety", icon: Shield },
     { value: "Made in UK", label: "British Technology", icon: Award },
   ];
 
   const whatIsContent = [
-    "The Quanta Thunder represents a breakthrough in laser hair removal technology. It's the world's first and only Alexandrite laser system that combines clinical efficacy with true pain-free treatment.",
-    "Unlike older lasers that rely on high peak power (causing the painful 'snapping' sensation), the Motus AY uses Moveo technology—a gradual thermal approach that heats the hair follicle slowly and uniformly. The result? Permanent hair reduction without discomfort.",
+    "The Quanta Thunder represents a breakthrough in laser hair removal technology. It's an advanced Alexandrite laser system that combines clinical efficacy with comfortable treatment.",
+    "Unlike older lasers that rely on high peak power (causing discomfort), the Motus AY uses Moveo technology—a gradual thermal approach that heats the hair follicle slowly and uniformly. The result? Permanent hair reduction with minimal discomfort.",
     "This is the same technology trusted by NHS dermatology departments across the UK. At Laser Light Skin Clinic in Dagenham, we're proud to offer this premium technology to East London."
   ];
 
   const benefits = [
     {
-      title: "Truly Pain-Free",
-      description: "No numbing cream required. Most clients describe the sensation as a warm, relaxing massage.",
+      title: "Comfortable Treatment",
+      description: "Advanced cooling and Moveo technology ensure a comfortable experience. Most clients describe the sensation as a warm massage.",
       icon: Heart
     },
     {
@@ -99,7 +99,7 @@ const LyntonMotusAYLaser = () => {
   ];
 
   const technologyFeatures = [
-    "Moveo Technology: Gradual heating eliminates pain",
+    "Moveo Technology: Gradual heating for comfort",
     "755nm Alexandrite Wavelength: Gold standard for hair removal",
     "Continuous Cooling: Integrated sapphire cooling tip",
     "High Repetition Rate: Treats large areas quickly",
@@ -110,11 +110,11 @@ const LyntonMotusAYLaser = () => {
   const faqs = [
     {
       question: "What makes the Quanta Thunder different from other lasers?",
-      answer: "The Motus AY uses patented Moveo technology that heats hair follicles gradually rather than with high-peak pulses. This is what makes it truly pain-free while maintaining clinical efficacy. It's the only Alexandrite laser in the world with this technology."
+      answer: "The Motus AY uses patented Moveo technology that heats hair follicles gradually rather than with high-peak pulses. This makes treatment comfortable while maintaining clinical efficacy. It's the only Alexandrite laser in the world with this technology."
     },
     {
-      question: "Is the Quanta Thunder really pain-free?",
-      answer: "Yes, genuinely. Most clients describe the sensation as a warm massage. Unlike older lasers with a 'snapping' or 'rubber band' sensation, the Moveo technology eliminates this completely. No numbing cream is needed."
+      question: "Is the Quanta Thunder comfortable?",
+      answer: "Yes. Most clients describe the sensation as a warm massage. Unlike older lasers with a 'snapping' or 'rubber band' sensation, the Moveo technology eliminates this completely. No numbing cream is needed."
     },
     {
       question: "Is it safe for my skin type?",
@@ -138,7 +138,7 @@ const LyntonMotusAYLaser = () => {
     {
       name: "Laser Hair Removal",
       href: "/laser-hair-removal-dagenham",
-      description: "Book your pain-free laser hair removal treatment with the Quanta Thunder."
+      description: "Book your laser hair removal treatment with the Quanta Thunder."
     },
     {
       name: "Skin Rejuvenation",
@@ -155,10 +155,10 @@ const LyntonMotusAYLaser = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Quanta Thunder Laser | Pain-Free Hair Removal | Dagenham"
-        description="Experience the Quanta Thunder—the world's only truly pain-free Alexandrite laser. NHS-approved, safe for all skin types. Available at Laser Light Skin Clinic Dagenham."
+        title="Quanta Thunder Laser | Advanced Hair Removal | Dagenham"
+        description="Experience the Quanta Thunder—an advanced Alexandrite laser. NHS-approved, safe for all skin types. Available at Laser Light Skin Clinic Dagenham."
         canonicalUrl="https://laserlightskinclinic.co.uk/lynton-motus-ay-laser"
-        keywords="quanta thunder, quanta laser, pain free laser hair removal, alexandrite laser, quanta thunder dagenham, quanta laser east london"
+        keywords="quanta thunder, quanta laser, laser hair removal, alexandrite laser, quanta thunder dagenham, quanta laser east london"
         structuredData={[structuredData, serviceSchema]}
       />
       
@@ -169,7 +169,7 @@ const LyntonMotusAYLaser = () => {
           trustBadge="NHS-Approved Technology"
           title="Quanta Thunder Laser"
           titleAccent="Motus AY"
-          subtitle="The World's Only Pain-Free Alexandrite Laser"
+          subtitle="An Advanced Alexandrite Laser"
           description="Experience permanent hair removal without discomfort. Safe for all skin types. Available exclusively at Laser Light Skin Clinic."
           badge="Medical-Grade Technology"
           secondaryCta={{ text: "Book Consultation", href: "https://phorest.com/book/salons/laserlightskinclinic" }}
@@ -179,7 +179,7 @@ const LyntonMotusAYLaser = () => {
             { label: "Quanta Thunder Laser" }
           ]}
           stats={[
-            { value: "Pain-Free", label: "Guaranteed" },
+            { value: "Comfortable", label: "Experience" },
             { value: "All Skin", label: "Types Safe" },
             { value: "NHS", label: "Approved" }
           ]}
@@ -195,13 +195,13 @@ const LyntonMotusAYLaser = () => {
         
         <BenefitsList
           title="Why the Quanta Thunder is Different"
-          subtitle="Revolutionary Moveo technology for truly pain-free permanent hair removal"
+          subtitle="Revolutionary Moveo technology for comfortable permanent hair removal"
           benefits={benefits}
         />
         
         <TechnologySection
           title="The Science Behind Moveo Technology"
-          subtitle="Understanding why the Quanta Thunder is truly pain-free"
+          subtitle="Understanding why the Quanta Thunder is comfortable"
           technologyName="Moveo Technology"
           description="Traditional lasers fire high-energy pulses that rapidly heat hair follicles—this is what causes the painful 'snapping' sensation. The Quanta Thunder takes a different approach. Moveo technology uses lower energy delivered continuously with a sweeping motion, gradually heating the hair follicle to the destruction point without the pain."
           features={technologyFeatures}
@@ -238,7 +238,7 @@ const LyntonMotusAYLaser = () => {
                   <tbody className="divide-y divide-border">
                     <tr>
                       <td className="p-4 font-medium">Pain Level</td>
-                      <td className="p-4 text-center text-primary font-semibold">Pain-Free ✓</td>
+                      <td className="p-4 text-center text-primary font-semibold">Comfortable ✓</td>
                       <td className="p-4 text-center text-muted-foreground">Painful</td>
                       <td className="p-4 text-center text-muted-foreground">Uncomfortable</td>
                     </tr>

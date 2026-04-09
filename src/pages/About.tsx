@@ -17,14 +17,14 @@ import { ScrollReveal } from "@/components/home/ScrollReveal";
 import { TeamSection } from "@/components/about/TeamSection";
 import { CertificationsBar } from "@/components/about/CertificationsBar";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
-import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
+
 
 const About = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "Laser Light Skin Clinic",
-    "description": "NHS-approved laser aesthetics clinic in Dagenham, East London offering pain-free laser hair removal and advanced skin treatments.",
+    "description": "NHS-approved laser aesthetics clinic in Dagenham, East London offering advanced laser hair removal and skin treatments.",
     "url": "https://laserlightskinclinic.co.uk/about",
     "telephone": "+442085981200",
     "address": {
@@ -132,7 +132,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 5,000+ clients with 300+ five-star Google reviews for pain-free, medical-grade treatments.
+                The only NHS-approved laser clinic in East London with the <strong className="text-gold">exclusive Quanta Thunder Series</strong>—trusted by over 5,000+ clients with 300+ five-star Google reviews for medical-grade treatments.
               </motion.p>
             </motion.div>
           </div>
@@ -157,7 +157,7 @@ const About = () => {
                     We're proud to be NHS-approved, meaning our clinic meets the strictest safety and hygiene standards set by the National Health Service. This approval isn't just a badge – it's our commitment to your safety and wellbeing.
                   </p>
                   <p>
-                    Our investment in cutting-edge technology, including the Quanta Thunder for pain-free laser hair removal and the <strong>exclusive Quanta Thunder Series for advanced tattoo removal</strong>—technology only available at our clinic in East London—reflects our dedication to delivering the best possible results with maximum comfort.
+                    Our investment in cutting-edge technology, including the Quanta Thunder for laser hair removal and the <strong>exclusive Quanta Thunder Series for advanced tattoo removal</strong>—technology only available at our clinic in East London—reflects our dedication to delivering the best possible results with maximum comfort.
                   </p>
                 </div>
               </motion.div>
@@ -353,7 +353,7 @@ const About = () => {
       </main>
       <Footer />
       <MobileStickyButton />
-      <FloatingReviewButton />
+      
     </div>
   );
 };

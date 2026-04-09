@@ -7,7 +7,7 @@ export const organizationSchema = {
   "@id": "https://laserlightskinclinic.co.uk/#organization",
   "name": "Laser Light Skin Clinic",
   "alternateName": "Laser Light",
-  "description": "NHS-approved laser hair removal and skin treatment clinic in Dagenham, East London. Specialising in pain-free treatments using the Quanta Thunder laser.",
+  "description": "NHS-approved laser hair removal and skin treatment clinic in Dagenham, East London. Specialising in advanced treatments using the Quanta Thunder laser.",
   "url": "https://laserlightskinclinic.co.uk",
   "telephone": "+442085981200",
   "email": "info@laserlightskinclinic.co.uk",
@@ -66,7 +66,7 @@ export const organizationSchema = {
     {
       "@type": "MedicalProcedure",
       "name": "Laser Hair Removal",
-      "description": "Pain-free laser hair removal using Quanta Thunder technology"
+      "description": "Advanced laser hair removal using Quanta Thunder technology"
     },
     {
       "@type": "MedicalProcedure",

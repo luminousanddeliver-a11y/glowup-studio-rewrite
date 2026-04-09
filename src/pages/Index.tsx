@@ -14,7 +14,7 @@ import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
-import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
+
 import { prefetchPopularRoutes } from "@/lib/prefetch";
 
 const Index = () => {
@@ -34,7 +34,7 @@ const Index = () => {
     "email": "info@laserlightskinclinic.co.uk",
     "priceRange": "££",
     "medicalSpecialty": ["Dermatology", "Cosmetic Medicine"],
-    "description": "NHS-approved laser and skin clinic in Dagenham, East London. Specializing in pain-free laser hair removal, tattoo removal, Hydrafacials, and advanced skin treatments. Safe for all skin types.",
+    "description": "NHS-approved laser and skin clinic in Dagenham, East London. Specializing in advanced laser hair removal, tattoo removal, Hydrafacials, and skin treatments. Safe for all skin types.",
     "slogan": "Your Journey to Flawless Skin Starts Here",
     "areaServed": [
       { "@type": "City", "name": "Dagenham" },
@@ -55,7 +55,7 @@ const Index = () => {
         "@type": "MedicalProcedure",
         "name": "Laser Hair Removal",
         "procedureType": "https://schema.org/CosmeticProcedure",
-        "description": "Pain-free permanent hair reduction using NHS-approved Quanta Thunder laser. Safe for all skin types."
+        "description": "Permanent hair reduction using NHS-approved Quanta Thunder laser. Safe for all skin types."
       },
       {
         "@type": "MedicalProcedure",
@@ -151,7 +151,7 @@ const Index = () => {
         "name": "Does your laser hair removal treatment hurt?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. We use the Quanta Thunder, which is guaranteed pain-free. Its advanced cooling system and Moveo technology ensure a comfortable experience, even on sensitive areas like the bikini line."
+          "text": "We use the Quanta Thunder with advanced cooling and Moveo technology for a comfortable experience, even on sensitive areas like the bikini line."
         }
       },
       {
@@ -193,7 +193,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="NHS-Approved Laser & Skin Clinic Dagenham | Laser Light"
-        description="East London's only Quanta Thunder laser clinic. NHS-approved, pain-free treatments loved by 300+ Google reviewers in Dagenham, Barking & Redbridge. Book a free consultation."
+        description="East London's only Quanta Thunder laser clinic. NHS-approved treatments loved by 300+ Google reviewers in Dagenham, Barking & Redbridge. Book a consultation."
         canonicalUrl="https://laserlightskinclinic.co.uk"
         keywords="laser hair removal london, laser hair removal near me, tattoo removal london, hydrafacial london, skin clinic east london, laser clinic redbridge, laser clinic havering, skin tag removal essex, chemical peel newham, NHS approved skin clinic london, laser hair removal dagenham, tattoo removal east london"
         structuredData={[organizationSchema, websiteSchema, medicalClinicSchema, faqPageSchema]}
@@ -244,7 +244,7 @@ const Index = () => {
       </main>
       <Footer />
       <MobileStickyButton />
-      <FloatingReviewButton />
+      
     </div>
   );
 };

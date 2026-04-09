@@ -81,7 +81,7 @@ interface PriceCategory {
 const priceCategories: Record<string, PriceCategory> = {
   "laser-women": {
     title: "Laser Hair Removal - Women",
-    description: "Pain-free permanent hair reduction with award-winning Quanta Thunder technology",
+    description: "Permanent hair reduction with award-winning Quanta Thunder technology",
     courseLabel: "Course of 6",
     treatments: [
       {

@@ -18,8 +18,8 @@ const differentiators: Differentiator[] = [
   },
   {
     icon: Sparkles,
-    title: "Guaranteed Pain-Free",
-    description: "Using the revolutionary Quanta Thunder laser, we deliver permanent hair reduction without the pain.",
+    title: "Advanced Technology",
+    description: "Using the revolutionary Quanta Thunder laser, we deliver permanent hair reduction with cutting-edge precision.",
   },
   {
     icon: MapPin,

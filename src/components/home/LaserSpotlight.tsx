@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import laserDevice from "@/assets/laser-device.jpg";
 
 const benefits = [
-  "Pain-free guaranteed",
+  "Advanced Quanta Thunder technology",
   "Safe for all skin types",
   "Permanent results in 6-8 sessions",
 ];
@@ -37,7 +37,7 @@ export const LaserSpotlight = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={laserDevice} 
-                  alt="Quanta Thunder laser device - Pain-free laser hair removal"
+                  alt="Quanta Thunder laser device - Advanced laser hair removal"
                   className="w-full h-auto object-cover"
                   loading="lazy"
                 />
@@ -66,7 +66,7 @@ export const LaserSpotlight = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h2 className="text-foreground mb-4">
-              The Leader in <span className="text-primary">Pain-Free</span> Laser Hair Removal
+              The Leader in <span className="text-primary">Advanced</span> Laser Hair Removal
             </h2>
             
             <p className="font-body text-muted-foreground mb-8 text-lg">

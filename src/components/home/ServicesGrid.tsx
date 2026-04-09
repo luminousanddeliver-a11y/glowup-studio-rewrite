@@ -8,7 +8,7 @@ const serviceCategories = [
     services: [
       {
         name: "Laser Hair Removal",
-        description: "Pain-free permanent hair reduction with Quanta Thunder.",
+        description: "Permanent hair reduction with Quanta Thunder technology.",
         href: "/laser-hair-removal-dagenham",
       },
       {
