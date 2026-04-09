@@ -67,8 +67,8 @@ const LyntonMotusAYLaser = () => {
 
   const benefits = [
     {
-      title: "Truly Pain-Free",
-      description: "No numbing cream required. Most clients describe the sensation as a warm, relaxing massage.",
+      title: "Comfortable Treatment",
+      description: "Advanced cooling and Moveo technology ensure a comfortable experience. Most clients describe the sensation as a warm massage.",
       icon: Heart
     },
     {
