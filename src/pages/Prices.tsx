@@ -1417,93 +1417,19 @@ const Prices = () => {
         <section className="py-12 lg:py-16 bg-background">
           <div className="container-custom">
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                margin: "-50px",
-              }}
-              transition={{
-                duration: 0.5,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
               className="mb-10"
             >
-              <h2 className="text-foreground mb-2">Popular Packages</h2>
+              <h2 className="text-foreground mb-2">Treatment Packages</h2>
               <p className="text-muted-foreground font-body">
-                Our most requested treatment combinations at the best value.
+                Our most requested treatment series — buy and save.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {popularPackages.map((pkg, index) => (
-                <motion.div
-                  key={pkg.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col group"
-                >
-                  {/* Card Header */}
-                  <div className="p-4 md:p-5 border-b border-border relative">
-                    {pkg.badge && (
-                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-[11px] md:text-xs font-bold px-2 md:px-2.5 py-1 rounded-full shadow-sm">
-                        {pkg.badge}
-                      </div>
-                    )}
-                    <h3 className="font-heading font-bold text-foreground text-base md:text-lg pr-20 mb-1">
-                      {pkg.name}
-                    </h3>
-
-                    {/* Price */}
-                    <div className="flex items-baseline gap-2 mt-3">
-                      <span className="text-2xl md:text-3xl font-heading font-bold text-accent">
-                        {pkg.packagePrice}
-                      </span>
-                      <span className="text-muted-foreground line-through text-xs md:text-sm">{pkg.originalPrice}</span>
-                    </div>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <p className="text-[11px] md:text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                      INCLUDES:
-                    </p>
-                    <ul className="space-y-2 flex-1">
-                      {pkg.includes.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm font-body text-foreground">
-                          <div className="w-4 h-4 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="h-2.5 w-2.5 text-accent" />
-                          </div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA */}
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full mt-4 md:mt-5 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors"
-                    >
-                      <a
-                        href="https://phorest.com/book/salons/laserlightskinclinic"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Select Package
-                      </a>
-                    </Button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <PackageCards packages={popularPackages} />
           </div>
         </section>
 
