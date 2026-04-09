@@ -8,12 +8,14 @@ const trustItems = [
   {
     icon: Shield,
     label: "NHS & FDA Approved",
+    mobileLabel: "NHS & FDA",
     sublabel: "Medical-grade safety",
     variant: "primary" as const,
   },
   {
     icon: Star,
     label: "4.9★ on Google",
+    mobileLabel: "4.9★ Google",
     sublabel: "300+ verified reviews",
     variant: "gold" as const,
     href: GOOGLE_MAPS_REVIEWS_URL,
@@ -21,18 +23,21 @@ const trustItems = [
   {
     icon: Sparkles,
     label: "Pain-Free Guaranteed",
+    mobileLabel: "Pain-Free",
     sublabel: "Quanta Thunder laser",
     variant: "accent" as const,
   },
   {
     icon: Users,
     label: "All Skin Types",
+    mobileLabel: "All Skin Types",
     sublabel: "Including darker tones",
     variant: "primary" as const,
   },
   {
     icon: MapPin,
     label: "Only in East London",
+    mobileLabel: "East London Only",
     sublabel: "Quanta Thunder laser",
     variant: "exclusive" as const,
   },
@@ -198,8 +203,11 @@ export const HeroSectionNew = () => {
                     </div>
                     <div className="min-w-0 flex-1 overflow-hidden">
                       <div className="flex items-center gap-1.5">
-                        <span className="font-heading text-xs md:text-sm font-medium text-white truncate">
+                        <span className="font-heading text-xs md:text-sm font-medium text-white truncate hidden md:inline">
                           {item.label}
+                        </span>
+                        <span className="font-heading text-xs font-medium text-white md:hidden">
+                          {item.mobileLabel}
                         </span>
                         {item.variant === 'exclusive' && (
                           <span className="flex-shrink-0 px-1.5 py-0.5 bg-gold text-black text-[8px] md:text-[9px] font-bold rounded uppercase leading-none">
