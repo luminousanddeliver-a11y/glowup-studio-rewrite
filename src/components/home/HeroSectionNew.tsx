@@ -68,8 +68,16 @@ export const HeroSectionNew = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Your Journey to Flawless Skin{" "}
-              <span className="text-primary bg-black/40 px-3 py-1 rounded-md inline-block">Starts Here</span>
+              Your Journey to{" "}
+              <span className="block sm:inline text-primary relative">
+                Flawless Skin
+                <motion.span 
+                  className="absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-primary via-accent to-primary rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                />
+              </span>
             </motion.h1>
 
             <motion.p 

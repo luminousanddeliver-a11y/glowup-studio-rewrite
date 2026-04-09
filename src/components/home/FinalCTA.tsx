@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, ArrowRight, Loader2 } from "lucide-react";
+import { Phone, MapPin, ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const services = [
   "Laser Hair Removal",
@@ -32,15 +33,24 @@ export const FinalCTA = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission - in production, this would call an API
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("Thanks! We'll be in touch shortly.");
-    setName("");
-    setPhone("");
-    setEmail("");
-    setService("");
-    setIsSubmitting(false);
+    try {
+      const { error } = await supabase.functions.invoke("send-enquiry-email", {
+        body: { name, phone, email, service },
+      });
+
+      if (error) throw error;
+
+      toast.success("Thanks! We'll be in touch shortly.");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setService("");
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error("Something went wrong. Please call us at 0208 598 1200.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,7 +74,7 @@ export const FinalCTA = () => {
             Ready to <span className="text-primary">Glow Up?</span>
           </motion.h2>
 
-          {/* Contact Info */}
+          {/* Contact Info - no email shown */}
           <motion.div 
             className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-8 text-sm"
             initial={{ opacity: 0, y: 20 }}
@@ -78,13 +88,6 @@ export const FinalCTA = () => {
             >
               <Phone className="h-4 w-4" />
               <span>0208 598 1200</span>
-            </a>
-            <a 
-              href="mailto:info@laserlightskinclinic.co.uk"
-              className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Mail className="h-4 w-4" />
-              <span>info@laserlightskinclinic.co.uk</span>
             </a>
             <a 
               href="https://maps.google.com/?q=125+Becontree+Avenue,+Dagenham+RM8+2UJ"

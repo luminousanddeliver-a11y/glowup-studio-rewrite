@@ -123,12 +123,15 @@ export const BookingFormWizard = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.from("inquiries").insert({
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        service_interest: data.service_interest,
-        message: data.message || null,
+      // Send via edge function (saves to DB + sends email)
+      const { error } = await supabase.functions.invoke("send-enquiry-email", {
+        body: {
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          service: data.service_interest,
+          message: data.message || null,
+        },
       });
 
       if (error) throw error;
