@@ -65,7 +65,7 @@ const Contact = () => {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "290",
+        "reviewCount": "304",
         "bestRating": "5",
         "worstRating": "1"
       },
@@ -136,7 +136,7 @@ const Contact = () => {
     highlight: false
   }];
   return <div className="min-h-screen flex flex-col bg-background">
-      <SEOHead title="Contact Us | Laser Light Skin Clinic Dagenham | Book Appointment" description="Contact Laser Light Skin Clinic in Dagenham. Call 0208 598 1200 or 07949 501 777. Book an appointment for laser hair removal and skin treatments." canonicalUrl="https://laserlightskinclinic.co.uk/contact" structuredData={contactPageSchema} />
+      <SEOHead title="Contact Us | Laser Light Skin Clinic Dagenham | Book Appointment" description="Get in touch with Laser Light Skin Clinic, 125 Becontree Ave, Dagenham RM8 2UJ. Call 0208 598 1200 or book online. Open Mon–Sat 10am–7pm." canonicalUrl="https://laserlightskinclinic.co.uk/contact" structuredData={contactPageSchema} />
       
       <Header />
       <main className="flex-1">

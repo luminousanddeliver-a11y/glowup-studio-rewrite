@@ -167,7 +167,7 @@ const TermsAndConditions = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Terms & Conditions | Laser Light Skin Clinic Dagenham"
-        description="Read our terms and conditions for booking appointments, payments, and treatment policies at Laser Light Skin Clinic in Dagenham."
+        description="Terms and conditions for treatments and services at Laser Light Skin Clinic, Dagenham."
         canonicalUrl="https://laserlightskinclinic.co.uk/terms"
         noindex={false}
       />

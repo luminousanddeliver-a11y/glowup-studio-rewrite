@@ -156,8 +156,8 @@ const FAQ = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Frequently Asked Questions | Laser Light Skin Clinic Dagenham"
-        description="Get answers to common questions about laser hair removal, tattoo removal, Hydrafacials, and skin treatments at Laser Light Skin Clinic in Dagenham, East London."
+        title="FAQs | Laser Hair Removal & Skin Treatment Questions | Laser Light"
+        description="Common questions about laser hair removal, HydraFacials, skin tag removal & more at our NHS-approved Dagenham clinic. Answers from our qualified team."
         canonicalUrl="https://laserlightskinclinic.co.uk/faq"
         structuredData={faqPageSchema}
       />

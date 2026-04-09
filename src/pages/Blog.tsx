@@ -58,7 +58,7 @@ const Blog = () => {
     <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
         title="Skincare & Treatment Advice | Laser Light Skin Clinic Blog"
-        description="Expert tips on laser hair removal, Hydrafacials, IV drips, and advanced skin treatments. Get answers to your aesthetic questions from Dagenham's NHS-approved clinic."
+        description="Expert skincare tips, laser treatment guides & aftercare advice from Dagenham's NHS-approved clinic. Written by our Level 4 qualified practitioners."
         canonicalUrl="https://laserlightskinclinic.co.uk/blog"
         keywords="skincare advice, laser treatment tips, hydrafacial benefits, iv drip wellness, aesthetic clinic blog"
         structuredData={blogSchema}

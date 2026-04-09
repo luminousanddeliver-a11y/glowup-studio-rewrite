@@ -268,7 +268,7 @@ const ChemicalPeels = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Chemical Peels Dagenham | Acne & Pigmentation | AlumierMD | Book Now"
-        description="Medical-grade chemical peels in Dagenham for acne, pigmentation, and skin rejuvenation. AlumierMD professional solutions. Clearer, brighter skin. Book your consultation."
+        description="Medical-grade chemical peels in Dagenham for acne scars, pigmentation & dull skin. NHS-approved clinic with Level 4 qualified practitioners. From £80. Book today."
         canonicalUrl="https://laserlightskinclinic.co.uk/chemical-peels-dagenham"
         structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />

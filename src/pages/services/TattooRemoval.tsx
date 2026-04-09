@@ -333,7 +333,7 @@ const TattooRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Tattoo Removal East London | Only Quanta Thunder Clinic | All Colors"
-        description="East London's ONLY clinic with the Quanta Thunder Series. Remove ALL ink colors including stubborn blues & greens in 50% fewer sessions. Safe for dark skin. Consultation."
+        description="Professional tattoo removal in East London using advanced Quanta Thunder laser technology. NHS-approved clinic in Dagenham serving Barking, Havering & Redbridge. From £50."
         canonicalUrl="https://laserlightskinclinic.co.uk/tattoo-removal-east-london"
         structuredData={[serviceSchema, faqSchema, breadcrumbSchema]}
       />

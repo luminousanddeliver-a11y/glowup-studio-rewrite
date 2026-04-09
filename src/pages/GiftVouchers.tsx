@@ -81,8 +81,8 @@ const GiftVouchers = () => {
   return (
     <div className="min-h-screen flex flex-col pb-20 lg:pb-0">
       <SEOHead
-        title="Gift Vouchers | Laser & Skin Treatment Gifts Dagenham | Laser Light"
-        description="Give the gift of beautiful skin. Purchase gift vouchers for laser hair removal, Hydrafacials, and skin treatments at Laser Light Skin Clinic Dagenham."
+        title="Gift Vouchers | Laser Light Skin Clinic Dagenham"
+        description="Give the gift of glowing skin. Laser Light gift vouchers for laser treatments, HydraFacials & more at our NHS-approved Dagenham clinic. From £50."
         canonicalUrl="https://laserlightskinclinic.co.uk/gift-vouchers"
         structuredData={giftVoucherSchema}
       />

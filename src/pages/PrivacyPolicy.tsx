@@ -153,7 +153,7 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Privacy Policy | Laser Light Skin Clinic Dagenham"
-        description="Learn how Laser Light Skin Clinic collects, uses, and protects your personal data. UK GDPR compliant privacy policy."
+        description="How Laser Light Skin Clinic handles your personal data. Read our full privacy policy."
         canonicalUrl="https://laserlightskinclinic.co.uk/privacy-policy"
         noindex={false}
       />

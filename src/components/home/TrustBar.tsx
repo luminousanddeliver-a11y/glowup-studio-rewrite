@@ -5,13 +5,13 @@ import { GOOGLE_MAPS_REVIEWS_URL } from "@/lib/constants";
 const trustItems = [
   {
     icon: Shield,
-    title: "NHS & FDA Approved",
+    title: "NHS Approved · CE Marked",
     description: "Medical-grade safety",
   },
   {
     icon: Star,
     title: "4.9★ Rating",
-    description: "290+ verified reviews",
+    description: "300+ verified reviews",
     link: GOOGLE_MAPS_REVIEWS_URL,
   },
   {

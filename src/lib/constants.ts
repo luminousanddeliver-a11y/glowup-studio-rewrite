@@ -23,9 +23,9 @@ export const CLINIC_INFO = {
     lat: 51.5545814,
     lng: 0.1173976,
   },
-  reviewCount: "290+",
+  reviewCount: "300+",
   rating: "4.9",
-  yearsExperience: "6+",
+  yearsExperience: "20+",
   openingHours: {
     weekdays: "10:00 AM - 7:00 PM",
     saturday: "10:00 AM - 5:00 PM",

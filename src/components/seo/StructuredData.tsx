@@ -80,7 +80,7 @@ export const organizationSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
-    "reviewCount": "290",
+    "reviewCount": "304",
     "bestRating": "5",
     "worstRating": "1"
   },

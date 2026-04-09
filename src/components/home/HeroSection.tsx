@@ -50,7 +50,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Permanent results in 6-8 sessions. <strong className="text-foreground">Safe for all skin types</strong>, including darker skin tones. NHS-approved technology trusted by 290+ happy clients.
+              Permanent results in 6-8 sessions. <strong className="text-foreground">Safe for all skin types</strong>, including darker skin tones. NHS-approved technology trusted by 300+ happy clients.
             </motion.p>
 
             {/* Trust Signals - Visible without scrolling */}
@@ -75,7 +75,7 @@ export const HeroSection = () => {
                 className="flex items-center gap-1.5 bg-gold/10 text-gold px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gold/20 transition-colors"
               >
                 <Star className="h-4 w-4 fill-current" />
-                <span>4.9★ (290+ Reviews)</span>
+                <span>4.9★ on Google · 300+ reviews</span>
               </a>
             </motion.div>
 
@@ -103,8 +103,8 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-base shadow-lg"
               >
-                <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                  Book Consultation
+              <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+                  Book Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -152,8 +152,8 @@ export const HeroSection = () => {
             >
               <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 {[
-                  { value: "290+", label: "Happy Clients" },
-                  { value: "6+", label: "Years Experience" },
+                  { value: "300+", label: "5-Star Reviews" },
+                  { value: "20+", label: "Years Experience" },
                   { value: "All Skin", label: "Types Treated" }
                 ].map((stat, index) => (
                   <motion.div 
