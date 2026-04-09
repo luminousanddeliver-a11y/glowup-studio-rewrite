@@ -181,7 +181,7 @@ export const HeroSectionNew = () => {
                       ${item.variant === 'primary' ? 'bg-primary/20 hover:bg-primary/30' : ''}
                       ${item.variant === 'gold' ? 'bg-gold/20 hover:bg-gold/30' : ''}
                       ${item.variant === 'accent' ? 'bg-accent/20 hover:bg-accent/30' : ''}
-                      ${item.variant === 'exclusive' ? 'bg-gold/20 hover:bg-gold/30' : ''}
+                      
                       ${item.href ? 'cursor-pointer' : ''}
                     `}
                   >
@@ -190,14 +190,14 @@ export const HeroSectionNew = () => {
                       ${item.variant === 'primary' ? 'bg-primary/30' : ''}
                       ${item.variant === 'gold' ? 'bg-gold/30' : ''}
                       ${item.variant === 'accent' ? 'bg-accent/30' : ''}
-                      ${item.variant === 'exclusive' ? 'bg-gold/30' : ''}
+                      
                     `}>
                       <item.icon className={`
                         h-4 w-4
                         ${item.variant === 'primary' ? 'text-primary' : ''}
                         ${item.variant === 'gold' ? 'text-gold fill-gold' : ''}
                         ${item.variant === 'accent' ? 'text-accent' : ''}
-                        ${item.variant === 'exclusive' ? 'text-gold' : ''}
+                        
                       `} />
                     </div>
                     <div className="min-w-0 flex-1 overflow-hidden">
@@ -208,11 +208,7 @@ export const HeroSectionNew = () => {
                         <span className="font-heading text-xs font-medium text-white md:hidden">
                           {item.mobileLabel}
                         </span>
-                        {item.variant === 'exclusive' && (
-                          <span className="flex-shrink-0 px-1.5 py-0.5 bg-gold text-black text-[8px] md:text-[9px] font-bold rounded uppercase leading-none">
-                            Exclusive
-                          </span>
-                        )}
+                      
                       </div>
                       <span className="text-[10px] md:text-xs text-white/60 block truncate">
                         {item.sublabel}

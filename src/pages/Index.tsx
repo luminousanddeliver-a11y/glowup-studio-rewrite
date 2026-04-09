@@ -14,7 +14,7 @@ import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
-import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
+
 import { prefetchPopularRoutes } from "@/lib/prefetch";
 
 const Index = () => {
