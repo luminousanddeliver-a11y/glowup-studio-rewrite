@@ -179,7 +179,7 @@ const LyntonMotusAYLaser = () => {
             { label: "Quanta Thunder Laser" }
           ]}
           stats={[
-            { value: "Pain-Free", label: "Guaranteed" },
+            { value: "Comfortable", label: "Experience" },
             { value: "All Skin", label: "Types Safe" },
             { value: "NHS", label: "Approved" }
           ]}
@@ -195,13 +195,13 @@ const LyntonMotusAYLaser = () => {
         
         <BenefitsList
           title="Why the Quanta Thunder is Different"
-          subtitle="Revolutionary Moveo technology for truly pain-free permanent hair removal"
+          subtitle="Revolutionary Moveo technology for comfortable permanent hair removal"
           benefits={benefits}
         />
         
         <TechnologySection
           title="The Science Behind Moveo Technology"
-          subtitle="Understanding why the Quanta Thunder is truly pain-free"
+          subtitle="Understanding why the Quanta Thunder is comfortable"
           technologyName="Moveo Technology"
           description="Traditional lasers fire high-energy pulses that rapidly heat hair follicles—this is what causes the painful 'snapping' sensation. The Quanta Thunder takes a different approach. Moveo technology uses lower energy delivered continuously with a sweeping motion, gradually heating the hair follicle to the destruction point without the pain."
           features={technologyFeatures}
@@ -238,7 +238,7 @@ const LyntonMotusAYLaser = () => {
                   <tbody className="divide-y divide-border">
                     <tr>
                       <td className="p-4 font-medium">Pain Level</td>
-                      <td className="p-4 text-center text-primary font-semibold">Pain-Free ✓</td>
+                      <td className="p-4 text-center text-primary font-semibold">Comfortable ✓</td>
                       <td className="p-4 text-center text-muted-foreground">Painful</td>
                       <td className="p-4 text-center text-muted-foreground">Uncomfortable</td>
                     </tr>

@@ -398,9 +398,9 @@ const LaserHairRemoval = () => {
         {/* Section 6: Technology */}
         <TechnologySection
           title="Why We Use the Quanta Thunder"
-          subtitle="The only laser hair removal system that combines clinical efficacy with true pain-free technology"
+          subtitle="The only laser hair removal system that combines clinical efficacy with advanced comfort technology"
           technologyName="Quanta Thunder"
-          description="The Quanta Thunder is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with true pain-free technology. This is the same system trusted by NHS dermatology departments across the UK."
+          description="The Quanta Thunder is the only laser hair removal system in the world that combines the clinical efficacy of Alexandrite wavelength (755nm) with advanced comfort technology. This is the same system trusted by NHS dermatology departments across the UK."
           features={technologyFeatures}
           certifications={["NHS Approved", "FDA Approved", "FDA Cleared"]}
           deviceImage={laserDevice}
@@ -437,7 +437,7 @@ const LaserHairRemoval = () => {
         {/* Section 10: FAQs */}
         <ServiceFAQ
           title="Laser Hair Removal FAQs"
-          subtitle="Everything you need to know about our pain-free laser hair removal"
+          subtitle="Everything you need to know about our laser hair removal"
           faqs={faqs}
         />
         
@@ -447,7 +447,7 @@ const LaserHairRemoval = () => {
         {/* Section 12: Results Showcase */}
         <ResultsShowcase
           title="Real Results from Real Clients"
-          description="Join thousands of satisfied clients who have achieved permanent hair reduction with our pain-free laser technology."
+          description="Join thousands of satisfied clients who have achieved permanent hair reduction with our advanced laser technology."
         />
         
         {/* Section 13: Related Services */}
