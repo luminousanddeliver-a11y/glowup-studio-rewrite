@@ -248,7 +248,7 @@ const SkinAnalysis = () => {
           technologyName="Skin Analysis System"
           description="Our professional skin analysis system uses multiple imaging modes including UV light, polarized light, and standard photography. This multi-spectrum approach reveals sun damage, bacteria, oil deposits, and other concerns that aren't visible to the naked eye."
           features={technologyFeatures}
-          certifications={["Professional Grade", "CE Marked", "Data-Driven"]}
+          certifications={["Professional Grade", "FDA Approved", "Data-Driven"]}
           deviceImage={skinAnalysisDevice}
         />
         

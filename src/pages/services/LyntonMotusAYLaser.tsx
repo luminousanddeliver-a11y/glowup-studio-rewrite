@@ -205,7 +205,7 @@ const LyntonMotusAYLaser = () => {
           technologyName="Moveo Technology"
           description="Traditional lasers fire high-energy pulses that rapidly heat hair follicles—this is what causes the painful 'snapping' sensation. The Quanta Thunder takes a different approach. Moveo technology uses lower energy delivered continuously with a sweeping motion, gradually heating the hair follicle to the destruction point without the pain."
           features={technologyFeatures}
-          certifications={["NHS Approved", "CE Marked", "FDA Cleared", "Made in UK"]}
+          certifications={["NHS Approved", "FDA Approved", "FDA Cleared", "Made in UK"]}
           deviceImage={laserDevice}
         />
 

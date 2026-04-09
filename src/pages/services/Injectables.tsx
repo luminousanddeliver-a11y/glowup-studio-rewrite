@@ -332,7 +332,7 @@ const Injectables = () => {
           technologyName="FDA-Approved Injectables"
           description="At Laser Light Skin Clinic, we use only premium, FDA-approved products from trusted manufacturers. All treatments are performed using sterile, single-use products with precise injection techniques developed through advanced training."
           features={technologyFeatures}
-          certifications={["FDA Approved", "CE Marked", "Level 4 Qualified"]}
+          certifications={["FDA Approved", "FDA Approved", "Level 4 Qualified"]}
           deviceImage={injectablesDevice}
         />
         

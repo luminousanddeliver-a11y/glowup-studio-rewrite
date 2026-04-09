@@ -387,7 +387,7 @@ const TattooRemoval = () => {
           technologyName="Quanta Thunder Series"
           description="We're the ONLY clinic in East London offering the revolutionary Quanta Thunder Series—a medical-grade multi-wavelength laser system that delivers ultra-short pulses to shatter ink particles without damaging surrounding tissue. With multiple wavelengths, it effectively targets ALL tattoo colors on all skin types in 50% fewer sessions than traditional lasers."
           features={technologyFeatures}
-          certifications={["NHS Approved", "CE Marked", "FDA Cleared", "Exclusive to East London"]}
+          certifications={["NHS Approved", "FDA Approved", "FDA Cleared", "Exclusive to East London"]}
           deviceImage={tattooRemovalDevice}
         />
         

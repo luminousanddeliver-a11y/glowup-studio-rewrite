@@ -298,7 +298,7 @@ const LaserHairRemovalEastLondon = () => {
           technologyName="Quanta Thunder"
           description="We invested in the Quanta Thunder specifically because it's safe for East London's diverse community. Unlike IPL or older lasers, it's clinically proven safe for darker skin tones while delivering permanent results."
           features={technologyFeatures}
-          certifications={["NHS Approved", "CE Marked", "FDA Cleared", "Made in UK"]}
+          certifications={["NHS Approved", "FDA Approved", "FDA Cleared", "Made in UK"]}
           deviceImage={laserDevice}
         />
         

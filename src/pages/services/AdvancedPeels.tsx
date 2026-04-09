@@ -322,7 +322,7 @@ const AdvancedPeels = () => {
           technologyName="Professional Peel Systems"
           description="We use Mesoestetic's complete range of professional peels—the global leaders in depigmenting treatments. These medical-grade formulations are only available in certified clinics and are administered by trained professionals for optimal safety and efficacy."
           features={technologyFeatures}
-          certifications={["Mesoestetic Certified", "Medical Grade", "CE Marked"]}
+          certifications={["Mesoestetic Certified", "Medical Grade", "FDA Approved"]}
           deviceImage={chemicalPeelProducts}
         />
         

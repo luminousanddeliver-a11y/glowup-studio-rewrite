@@ -73,7 +73,7 @@ const About = () => {
   const certifications = [
     "NHS Approved Clinic",
     "Medical LED Clinic",
-    "CE Marked Technology",
+    "FDA Approved Technology",
     "Quanta Certified Clinic",
     "Level 4 Qualified Therapists",
     "Made in Italy Equipment"

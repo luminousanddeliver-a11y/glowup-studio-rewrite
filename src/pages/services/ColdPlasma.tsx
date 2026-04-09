@@ -322,7 +322,7 @@ const ColdPlasma = () => {
             "Anti-inflammatory properties",
             "Compatible with all skin types"
           ]}
-          certifications={["CE Marked", "Medical Grade"]}
+          certifications={["FDA Approved", "Medical Grade"]}
           deviceImage={coldPlasmaDevice}
           deviceImageAlt="Cold Atmospheric Plasma device for acne and skin rejuvenation at Laser Light Skin Clinic Dagenham"
         />

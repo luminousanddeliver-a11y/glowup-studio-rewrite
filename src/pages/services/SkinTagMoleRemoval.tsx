@@ -369,7 +369,7 @@ const SkinTagMoleRemoval = () => {
           technologyName="Electrolysis & Cryotherapy"
           description="We use advanced electrolysis (radiofrequency) for precise lesion removal with minimal tissue damage. For warts and certain lesions, cryotherapy (freezing) may be more appropriate. All equipment is sterile and single-use."
           features={technologyFeatures}
-          certifications={["CE Marked", "Single-Use Equipment", "Professional Grade"]}
+          certifications={["FDA Approved", "Single-Use Equipment", "Professional Grade"]}
           deviceImage={skinTagDevice}
         />
         

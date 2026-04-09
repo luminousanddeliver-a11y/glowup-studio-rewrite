@@ -39,7 +39,7 @@ const technologies: Technology[] = [
       "Removes ALL ink colors including stubborn blues & greens",
       "50% fewer sessions than traditional lasers",
       "Minimal scarring with precision targeting",
-      "FDA Cleared & CE Marked",
+      "FDA Cleared & FDA Approved",
     ],
   },
 ];
