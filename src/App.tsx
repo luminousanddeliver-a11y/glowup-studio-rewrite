@@ -16,6 +16,7 @@ import { CookieConsent } from "@/components/common/CookieConsent";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { SkipToContent } from "@/components/common/SkipToContent";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { StructuredData, organizationSchema, websiteSchema } from "@/components/seo/StructuredData";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
                 <CompareModal />
                 <FlyingCartAnimation />
                 <BrowserRouter>
+                  <StructuredData schemas={[organizationSchema, websiteSchema]} />
                   <GoogleAnalytics />
                   <SkipToContent />
                   <AnimatedRoutes />
