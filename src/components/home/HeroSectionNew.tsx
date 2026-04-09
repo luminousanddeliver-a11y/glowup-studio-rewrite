@@ -76,7 +76,7 @@ export const HeroSectionNew = () => {
               transition={{ duration: 0.6 }}
             >
               Your Journey to Flawless Skin{" "}
-              <span className="text-primary">Starts Here</span>
+              <span className="text-primary" style={{ textShadow: '0 0 8px rgba(255,255,255,0.7), 0 0 16px rgba(255,255,255,0.4)' }}>Starts Here</span>
             </motion.h1>
 
             <motion.p 
