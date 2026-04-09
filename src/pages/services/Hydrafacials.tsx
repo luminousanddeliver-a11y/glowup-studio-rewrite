@@ -17,7 +17,7 @@ import { RelatedServices } from "@/components/services/RelatedServices";
 import { ServiceTestimonial } from "@/components/services/ServiceTestimonial";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { Timer, Sparkles, Shield, Users } from "lucide-react";
-import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
+import hydrafacialDevice from "@/assets/hydrafacial-device.gif";
 
 
 const Hydrafacials = () => {

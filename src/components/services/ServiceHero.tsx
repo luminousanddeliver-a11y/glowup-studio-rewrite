@@ -93,9 +93,9 @@ export const ServiceHero = ({
       
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left: Content (appears second on mobile, first on desktop) */}
+          {/* Left: Content (appears first on mobile and desktop) */}
           <motion.div 
-            className="text-center lg:text-left order-2 lg:order-1"
+            className="text-center lg:text-left order-1"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -245,9 +245,9 @@ export const ServiceHero = ({
             )}
           </motion.div>
 
-          {/* Right: Image (appears first on mobile, second on desktop) */}
+          {/* Right: Image (appears second on both mobile and desktop) */}
           <motion.div 
-            className="relative order-1 lg:order-2 mb-10 lg:mb-0"
+            className="relative order-2 mb-10 lg:mb-0"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import hydrafacialDevice from "@/assets/hydrafacial-device.jpg";
+import hydrafacialDevice from "@/assets/hydrafacial-device.gif";
 
 const benefits = [
   "Deeply cleanses for a fresh feel",
