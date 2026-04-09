@@ -22,8 +22,8 @@ const trustItems = [
   },
   {
     icon: Sparkles,
-    label: "Pain-Free Guaranteed",
-    mobileLabel: "Pain-Free",
+    label: "Advanced Technology",
+    mobileLabel: "Advanced Tech",
     sublabel: "Quanta Thunder laser",
     variant: "accent" as const,
   },
@@ -33,13 +33,6 @@ const trustItems = [
     mobileLabel: "All Skin Types",
     sublabel: "Including darker tones",
     variant: "primary" as const,
-  },
-  {
-    icon: MapPin,
-    label: "Only in East London",
-    mobileLabel: "East London Only",
-    sublabel: "Quanta Thunder laser",
-    variant: "exclusive" as const,
   },
 ];
 

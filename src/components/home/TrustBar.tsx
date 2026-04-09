@@ -16,7 +16,7 @@ const trustItems = [
   },
   {
     icon: Sparkles,
-    title: "Pain-Free Guaranteed",
+    title: "Advanced Technology",
     description: "Quanta Thunder laser",
   },
   {

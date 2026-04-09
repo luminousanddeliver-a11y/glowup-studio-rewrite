@@ -15,11 +15,11 @@ const services = [
   {
     image: laserDevice,
     title: "Laser Hair Removal",
-    description: "Pain-free permanent hair reduction using NHS-approved Quanta Thunder. Safe for all skin types.",
+    description: "Permanent hair reduction using NHS-approved Quanta Thunder. Safe for all skin types.",
     price: "From £80",
     href: "/laser-hair-removal-dagenham",
     badge: "Most Popular",
-    trustSignal: "Pain-Free Guaranteed"
+    trustSignal: "NHS Approved"
   },
   {
     image: hydrafacialDevice,

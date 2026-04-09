@@ -41,7 +41,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Pain-Free Laser Hair Removal in <span className="text-primary">Dagenham</span>
+              Advanced Laser Hair Removal in <span className="text-primary">Dagenham</span>
             </motion.h1>
 
             <motion.p 
@@ -66,7 +66,7 @@ export const HeroSection = () => {
               </div>
               <div className="flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium">
                 <CheckCircle className="h-4 w-4" />
-                <span>Pain-Free Guaranteed</span>
+                <span>Advanced Technology</span>
               </div>
               <a 
                 href={GOOGLE_MAPS_REVIEWS_URL}
@@ -187,7 +187,7 @@ export const HeroSection = () => {
             >
               <OptimizedImage 
                 src={heroClinicNew} 
-                alt="Pain-free laser hair removal treatment at Laser Light Skin Clinic Dagenham"
+                alt="Advanced laser hair removal treatment at Laser Light Skin Clinic Dagenham"
                 className="w-full"
                 priority={true}
                 objectFit="cover"
@@ -205,7 +205,7 @@ export const HeroSection = () => {
                 <Shield className="h-5 w-5 flex-shrink-0" />
                 <span className="font-semibold text-base">NHS Approved Clinic</span>
               </div>
-              <div className="text-sm opacity-90 leading-snug">Quanta Thunder laser—FDA certified & pain-free</div>
+              <div className="text-sm opacity-90 leading-snug">Quanta Thunder laser—NHS & FDA approved</div>
             </motion.div>
           </motion.div>
         </div>

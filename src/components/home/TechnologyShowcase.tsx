@@ -18,8 +18,8 @@ const technologies: Technology[] = [
   {
     image: laserDevice,
     name: "Quanta Thunder",
-    tagline: "Pain-Free Laser Hair Removal",
-    description: "The only laser that delivers the power of Alexandrite without the pain. Our advanced cooling system ensures a comfortable experience, even on sensitive areas.",
+    tagline: "Advanced Laser Hair Removal",
+    description: "The only laser that delivers the power of Alexandrite with cutting-edge precision. Our advanced cooling system ensures a comfortable experience, even on sensitive areas.",
     features: [
       "Safe for all skin types (Fitzpatrick I-VI)",
       "No downtime",
