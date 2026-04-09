@@ -71,6 +71,7 @@ const LaserHairRemoval = () => {
           "@type": "Answer",
           "text": "Our Quanta Thunder features advanced cooling technology. Most clients describe the sensation as a warm massage. Unlike older lasers, there is no \"snapping\" or burning feeling."
         }
+      },
       {
         "@type": "Question",
         "name": "How many sessions will I need?",
