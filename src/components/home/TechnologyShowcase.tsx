@@ -1,8 +1,8 @@
 import { Check, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import laserDevice from "@/assets/laser-device.jpg";
-import tattooRemovalDevice from "@/assets/tattoo-removal-device.jpg";
+import laserDevice from "@/assets/thunder-machine.png";
+import tattooRemovalDevice from "@/assets/thunder-machine.png";
 
 interface Technology {
   image: string;
