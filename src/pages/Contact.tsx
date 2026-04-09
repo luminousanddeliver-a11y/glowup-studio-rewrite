@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import { z } from "zod";
 import { MobileStickyButton } from "@/components/home/MobileStickyButton";
 import { FloatingReviewButton } from "@/components/common/FloatingReviewButton";
+import { ClinicGalleryCarousel } from "@/components/common/ClinicGalleryCarousel";
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().email("Please enter a valid email"),
@@ -304,6 +305,9 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* Clinic Gallery */}
+        <ClinicGalleryCarousel />
+
         {/* Three Info Cards Section */}
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="container-custom">
@@ -431,7 +435,7 @@ const Contact = () => {
                 </div>
 
                 <Button asChild className="w-full h-12 bg-card hover:bg-card/90 text-accent font-semibold border-0">
-                  <a href="https://laserlightskinclinic.book.app/book-now" target="_blank" rel="noopener noreferrer">
+                  <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
                     Book Your Appointment Now
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
