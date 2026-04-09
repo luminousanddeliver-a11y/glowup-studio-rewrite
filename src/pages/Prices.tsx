@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -1215,54 +1217,176 @@ const categoryLabels: Record<string, string> = {
 };
 interface PopularPackage {
   name: string;
+  category: string;
+  price: string;
   description: string;
-  originalPrice: string;
-  packagePrice: string;
-  savings: string;
-  includes: string[];
+  sessions: string;
+  interval?: string;
   icon: typeof Star;
   badge?: string;
+  popular?: boolean;
 }
 const popularPackages: PopularPackage[] = [
   {
-    name: "Full Body Laser Package",
-    description: "Complete hair-free transformation for women",
-    originalPrice: "£2,100",
-    packagePrice: "£1,575",
-    savings: "Save £525",
-    includes: ["Full Legs", "Full Arms", "Underarms", "Brazilian", "Full Face"],
+    name: "Half Face x3",
+    category: "Laser Hair Removal Women",
+    price: "£220.00",
+    description: "Half face laser treatment targets one side of the face using advanced laser technology to reduce hair, improve skin texture, and promote a clearer, smoother complexion.",
+    sessions: "1 session of Half Face Laser",
+    interval: "42–63 days between sessions",
     icon: Crown,
     badge: "Best Seller",
+    popular: true,
   },
   {
-    name: "Bridal Glow Package",
-    description: "Look radiant on your special day",
-    originalPrice: "£580",
-    packagePrice: "£450",
-    savings: "Save £130",
-    includes: ["HydraFacial Platinum", "LED Light Therapy", "Dermaplaning", "Underarm Laser"],
-    icon: Heart,
-    badge: "Most Popular",
-  },
-  {
-    name: "Anti-Ageing Transformation",
-    description: "Turn back the clock with our premium treatments",
-    originalPrice: "£850",
-    packagePrice: "£680",
-    savings: "Save £170",
-    includes: ["Profhilo (2 sessions)", "Cold Plasma Face", "SkinPen Microneedling"],
+    name: "Microneedling",
+    category: "MesoPeel",
+    price: "£600.00",
+    description: "Microneedling is a minimally invasive cosmetic procedure that uses tiny, sterile needles to create hundreds of microscopic, invisible punctures in the top layer of the skin.",
+    sessions: "4 sessions of Meso Microneedling",
+    interval: "28 days between sessions",
     icon: Sparkles,
+    badge: "Most Popular",
+    popular: true,
   },
   {
-    name: "Men's Grooming Package",
-    description: "Complete body grooming for men",
-    originalPrice: "£1,440",
-    packagePrice: "£1,080",
-    savings: "Save £360",
-    includes: ["Full Back (6 sessions)", "Chest & Stomach (6 sessions)", "Beard Line (6 sessions)"],
+    name: "Lumi Eyes x3",
+    category: "Aesthetic Treatments",
+    price: "£390.00",
+    description: "",
+    sessions: "3 sessions of Lumi Eyes",
+    icon: Heart,
+    popular: true,
+  },
+  {
+    name: "Blemidem Medical Peel",
+    category: "Alumier Chemical Peel",
+    price: "£600.00",
+    description: "",
+    sessions: "3 sessions of Blemiderm Peel",
+    interval: "60 days between sessions",
+    icon: Star,
+  },
+  {
+    name: "CAP x10",
+    category: "CAP Treatment",
+    price: "£900.00",
+    description: "",
+    sessions: "10 sessions of CAP treatment",
     icon: Zap,
   },
+  {
+    name: "Front Neck - Mens Laser x3",
+    category: "Mens Laser",
+    price: "£130.00",
+    description: "",
+    sessions: "3 sessions of Front Neck - mens laser",
+    icon: BadgeCheck,
+  },
+  {
+    name: "NHS Full Face Laser",
+    category: "Laser Hair Removal Women",
+    price: "FREE",
+    description: "",
+    sessions: "8 sessions of NHS Full face laser",
+    interval: "42–60 days between sessions",
+    icon: Shield,
+  },
+  {
+    name: "Underarm x3",
+    category: "Laser Hair Removal Women",
+    price: "£150.00",
+    description: "",
+    sessions: "3 sessions of Underarms",
+    icon: Check,
+  },
 ];
+const PackageCards = ({ packages }: { packages: PopularPackage[] }) => {
+  const [showAll, setShowAll] = useState(false);
+  const popularItems = packages.filter((p) => p.popular);
+  const remainingItems = packages.filter((p) => !p.popular);
+  const visibleExtra = showAll ? remainingItems : [];
+
+  const renderCard = (pkg: PopularPackage, index: number) => (
+    <motion.div
+      key={pkg.name}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col group"
+    >
+      <div className="p-4 md:p-5 border-b border-border relative">
+        {pkg.badge && (
+          <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-[11px] md:text-xs font-bold px-2 md:px-2.5 py-1 rounded-full shadow-sm">
+            {pkg.badge}
+          </div>
+        )}
+        <p className="text-[11px] text-muted-foreground font-body uppercase tracking-wide mb-1">{pkg.category}</p>
+        <h3 className="font-heading font-bold text-foreground text-base md:text-lg pr-20 mb-1">{pkg.name}</h3>
+        <div className="flex items-baseline gap-2 mt-3">
+          <span className="text-2xl md:text-3xl font-heading font-bold text-accent">{pkg.price}</span>
+        </div>
+      </div>
+      <div className="p-4 md:p-5 flex flex-col flex-1">
+        <p className="text-sm font-body text-foreground mb-2">{pkg.sessions}</p>
+        {pkg.description && (
+          <p className="text-xs font-body text-muted-foreground mb-2">{pkg.description}</p>
+        )}
+        {pkg.interval && (
+          <p className="text-xs font-body text-muted-foreground/80 italic mb-3">{pkg.interval}</p>
+        )}
+        <div className="mt-auto">
+          <Button
+            asChild
+            variant="outline"
+            className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors"
+          >
+            <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+              Buy Series
+            </a>
+          </Button>
+        </div>
+      </div>
+    </motion.div>
+  );
+
+  return (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        {popularItems.map((pkg, i) => renderCard(pkg, i))}
+      </div>
+
+      <AnimatePresence>
+        {visibleExtra.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-4 md:mt-5"
+          >
+            {visibleExtra.map((pkg, i) => renderCard(pkg, i))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {remainingItems.length > 0 && (
+        <div className="flex justify-center mt-6">
+          <Button
+            variant="outline"
+            onClick={() => setShowAll(!showAll)}
+            className="font-body font-semibold gap-2"
+          >
+            {showAll ? "Show Less" : `Show ${remainingItems.length} More Packages`}
+            <ChevronDown className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`} />
+          </Button>
+        </div>
+      )}
+    </>
+  );
+};
+
 const Prices = () => {
   const isMobile = useIsMobile();
   const priceSchema = {
@@ -1381,93 +1505,19 @@ const Prices = () => {
         <section className="py-12 lg:py-16 bg-background">
           <div className="container-custom">
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                margin: "-50px",
-              }}
-              transition={{
-                duration: 0.5,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
               className="mb-10"
             >
-              <h2 className="text-foreground mb-2">Popular Packages</h2>
+              <h2 className="text-foreground mb-2">Treatment Packages</h2>
               <p className="text-muted-foreground font-body">
-                Our most requested treatment combinations at the best value.
+                Our most requested treatment series — buy and save.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {popularPackages.map((pkg, index) => (
-                <motion.div
-                  key={pkg.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-card-hover transition-all duration-300 flex flex-col group"
-                >
-                  {/* Card Header */}
-                  <div className="p-4 md:p-5 border-b border-border relative">
-                    {pkg.badge && (
-                      <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-[11px] md:text-xs font-bold px-2 md:px-2.5 py-1 rounded-full shadow-sm">
-                        {pkg.badge}
-                      </div>
-                    )}
-                    <h3 className="font-heading font-bold text-foreground text-base md:text-lg pr-20 mb-1">
-                      {pkg.name}
-                    </h3>
-
-                    {/* Price */}
-                    <div className="flex items-baseline gap-2 mt-3">
-                      <span className="text-2xl md:text-3xl font-heading font-bold text-accent">
-                        {pkg.packagePrice}
-                      </span>
-                      <span className="text-muted-foreground line-through text-xs md:text-sm">{pkg.originalPrice}</span>
-                    </div>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <p className="text-[11px] md:text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                      INCLUDES:
-                    </p>
-                    <ul className="space-y-2 flex-1">
-                      {pkg.includes.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm font-body text-foreground">
-                          <div className="w-4 h-4 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="h-2.5 w-2.5 text-accent" />
-                          </div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA */}
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full mt-4 md:mt-5 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors"
-                    >
-                      <a
-                        href="https://phorest.com/book/salons/laserlightskinclinic"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Select Package
-                      </a>
-                    </Button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <PackageCards packages={popularPackages} />
           </div>
         </section>
 

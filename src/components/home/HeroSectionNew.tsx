@@ -100,7 +100,13 @@ export const HeroSectionNew = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white font-body min-h-[52px] px-8 text-base shadow-lg shadow-primary/25"
               >
-                <a href="/prices">
+                <a 
+                  href="#treatment-finder" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('treatment-finder')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                >
                   View Treatments
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -112,7 +118,7 @@ export const HeroSectionNew = () => {
                 className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
               >
                 <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
-                  Book Free Consultation
+                  Book Consultation
                 </a>
               </Button>
             </motion.div>
