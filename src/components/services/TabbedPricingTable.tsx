@@ -65,17 +65,19 @@ export const TabbedPricingTable = ({
             transition={{ duration: 0.4 }}
             className="max-w-4xl mx-auto mb-8"
           >
-            <motion.div
-              animate={{ scale: [1, 1.01, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground rounded-lg p-4 text-center"
-            >
-              <p className="font-heading font-bold text-lg">
-                <span className="text-white">{offerBanner.highlight}</span>
-                {" - "}
-                {offerBanner.text}
-              </p>
-            </motion.div>
+            <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+              <motion.div
+                animate={{ scale: [1, 1.01, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground rounded-lg p-4 text-center cursor-pointer hover:opacity-90 transition-opacity"
+              >
+                <p className="font-heading font-bold text-lg">
+                  <span className="text-white">{offerBanner.highlight}</span>
+                  {" - "}
+                  {offerBanner.text}
+                </p>
+              </motion.div>
+            </a>
           </motion.div>
         )}
 
