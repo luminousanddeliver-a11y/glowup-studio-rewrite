@@ -117,7 +117,7 @@ export const HeroSectionNew = () => {
                 size="lg"
                 className="border-white bg-white/10 text-white hover:bg-white hover:text-foreground font-body min-h-[52px] px-8 text-base backdrop-blur-sm"
               >
-                <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
                   Book Consultation
                 </a>
               </Button>

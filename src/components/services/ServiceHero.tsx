@@ -47,7 +47,7 @@ export const ServiceHero = ({
   badge,
   trustBadge,
   primaryCtaText = "Book an Appointment",
-  primaryCtaHref = "https://phorest.com/book/salons/laserlightskinclinic",
+  primaryCtaHref = "https://www.phorest.com/salon/laserlightskinclinic/book/service-selection",
   secondaryCta,
   showPhoneCta = true,
   heroImage,
