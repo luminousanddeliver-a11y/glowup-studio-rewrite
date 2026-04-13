@@ -109,7 +109,7 @@ export const ServiceFAQ = forwardRef<HTMLElement, ServiceFAQProps>(
                     asChild
                     className="bg-primary hover:bg-primary/90 text-primary-foreground font-body"
                   >
-                    <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
                       Book Consultation
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>

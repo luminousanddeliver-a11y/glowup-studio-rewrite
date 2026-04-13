@@ -435,7 +435,7 @@ const Contact = () => {
                 </div>
 
                 <Button asChild className="w-full h-12 bg-card hover:bg-card/90 text-accent font-semibold border-0">
-                  <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
                     Book Your Appointment Now
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>

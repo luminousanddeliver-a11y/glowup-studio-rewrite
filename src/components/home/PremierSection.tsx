@@ -69,7 +69,7 @@ export const PremierSection = () => {
               size="lg"
               className="bg-card text-primary hover:bg-card/90 font-body min-h-[48px] px-4 md:px-6 text-sm md:text-base whitespace-normal text-center"
             >
-              <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
                 Book Your Free, No-Obligation Consultation
                 <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
               </a>

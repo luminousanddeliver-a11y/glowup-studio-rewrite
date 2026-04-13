@@ -1340,9 +1340,9 @@ const PackageCards = ({ packages }: { packages: PopularPackage[] }) => {
           <Button
             asChild
             variant="outline"
-            className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold group-hover:bg-accent/5 transition-colors"
+            className="w-full border-accent text-accent hover:bg-accent hover:text-primary font-semibold group-hover:bg-accent/5 transition-colors"
           >
-            <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.phorest.com/salon/laserlightskinclinic/buy/course" target="_blank" rel="noopener noreferrer">
               Buy Series
             </a>
           </Button>
@@ -1915,7 +1915,7 @@ const Prices = () => {
                 className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
               >
                 <a
-                  href="https://phorest.com/book/salons/laserlightskinclinic"
+                  href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

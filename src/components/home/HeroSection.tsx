@@ -103,7 +103,7 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-base shadow-lg"
               >
-              <a href="https://phorest.com/book/salons/laserlightskinclinic" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
                    Book Consultation
                    <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -134,7 +134,7 @@ export const HeroSection = () => {
               </a>
               <span className="text-border hidden sm:inline">|</span>
               <a 
-                href="https://phorest.com/book/salons/laserlightskinclinic"
+                href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
