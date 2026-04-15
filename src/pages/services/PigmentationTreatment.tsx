@@ -132,7 +132,7 @@ const PigmentationTreatment = () => {
     {
       label: "Cosmelan/Dermamelan",
       prices: [
-        { area: "Cosmelan Pack (Full Protocol)", singleSession: "£650", course: "N/A", savings: "Includes home kit" },
+        { area: "Cosmelan Pack (Full Protocol)", singleSession: "£1,200", course: "N/A", savings: "Includes home kit" },
         { area: "Dermamelan Pack (Full Protocol)", singleSession: "£850", course: "N/A", savings: "Includes home kit" },
         { area: "Maintenance Session", singleSession: "£100", course: "N/A", savings: "" },
       ]
