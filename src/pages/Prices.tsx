@@ -186,9 +186,9 @@ const priceCategories: Record<string, PriceCategory> = {
       },
       {
         name: "Full Arms",
-        single: "£100",
-        course: "£450",
-        savings: "Save £150",
+        single: "£180",
+        course: "£810",
+        savings: "Save £270",
       },
       {
         name: "Hands & Fingers",
@@ -259,9 +259,9 @@ const priceCategories: Record<string, PriceCategory> = {
       },
       {
         name: "Full Body",
-        single: "£350",
-        course: "£1575",
-        savings: "Save £525",
+        single: "£1,200",
+        course: "£5,400",
+        savings: "Save £1,800",
         popular: true,
       },
     ],
@@ -367,9 +367,9 @@ const priceCategories: Record<string, PriceCategory> = {
       },
       {
         name: "Full Arms",
-        single: "£100",
-        course: "£450",
-        savings: "Save £150",
+        single: "£180",
+        course: "£810",
+        savings: "Save £270",
       },
       {
         name: "Hands & Fingers",
@@ -450,9 +450,9 @@ const priceCategories: Record<string, PriceCategory> = {
       },
       {
         name: "HydraFacial Keravive (Scalp)",
-        single: "£200",
-        course: "£540",
-        savings: "Save £60",
+        single: "£450",
+        course: "£1,215",
+        savings: "Save £135",
       },
       {
         name: "Million Dollar Facial",
@@ -520,7 +520,7 @@ const priceCategories: Record<string, PriceCategory> = {
       },
       {
         name: "Cosmelan Depigmentation Peel",
-        single: "£650",
+        single: "£1,200",
         popular: true,
       },
       {

@@ -154,7 +154,7 @@ const AdvancedPeels = () => {
     {
       label: "Cosmelan",
       prices: [
-        { area: "Cosmelan Peel (In-Clinic)", singleSession: "£650", course: "—", note: "Includes home kit" },
+        { area: "Cosmelan Peel (In-Clinic)", singleSession: "£1,200", course: "—", note: "Includes home kit" },
         { area: "Cosmelan Home Maintenance Kit", singleSession: "£180", course: "—", note: "3-month supply" },
         { area: "Cosmelan Complete Protocol", singleSession: "£800", course: "—", note: "Treatment + 6-month maintenance" },
       ]
