@@ -63,11 +63,14 @@ export const HeroSectionNew = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <img 
-                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_42x14dp.png" 
-                alt="Google" 
-                className="h-5 w-auto"
-              />
+              <svg className="h-4 w-auto" viewBox="0 0 74 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.24 8.19v2.46h5.88a5.09 5.09 0 01-2.16 3.34l3.49 2.71a10.54 10.54 0 003.19-7.97c0-.7-.07-1.36-.18-2H9.24z" fill="#4285F4"/>
+                <path d="M9.24 19.19c2.92 0 5.36-.97 7.14-2.62l-3.49-2.71a6.38 6.38 0 01-9.54-3.36H.09v2.8a10.74 10.74 0 009.15 5.89z" fill="#34A853"/>
+                <path d="M3.35 10.5a6.53 6.53 0 010-4.18v-2.8H.09a10.74 10.74 0 000 9.78l3.26-2.8z" fill="#FBBC05"/>
+                <path d="M9.24.57a5.82 5.82 0 014.12 1.61l3.08-3.08A10.34 10.34 0 009.24-3.19 10.74 10.74 0 00.09 2.7l3.26 2.8A6.4 6.4 0 019.24.57z" fill="#EA4335"/>
+                <path d="M23.74 8.19V5.94h-2.25v2.25h-2.25v2.25h2.25v2.25h2.25v-2.25H26V8.19z" fill="#4285F4" opacity="0"/>
+                <text x="24" y="16" fill="white" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="500">Google</text>
+              </svg>
               <div className="flex items-center gap-1">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
