@@ -107,22 +107,10 @@ export const TreatmentFinder = () => {
                 `}
                 />
 
-                <div
-                  className={`
-                  relative w-14 h-14 md:w-16 md:h-16 rounded-2xl 
-                  flex items-center justify-center mb-4
-                  transition-all duration-300
-                  shadow-sm group-hover:shadow-md
-                  ${
-                    treatment.isViewAll
-                      ? "bg-primary/10 group-hover:bg-primary/20 group-hover:scale-110"
-                      : "bg-accent/10 group-hover:bg-accent/20 group-hover:scale-110"
-                  }
-                `}
-                >
+                <div className="relative mb-4">
                   <treatment.icon
                     className={`
-                    h-7 w-7 md:h-8 md:w-8 transition-transform duration-300
+                    h-8 w-8 md:h-9 md:w-9 transition-all duration-300 group-hover:scale-110
                     ${treatment.isViewAll ? "text-primary" : "text-accent"}
                   `}
                   />
