@@ -56,10 +56,12 @@ export const HeroSectionNew = () => {
 
             {/* Google Reviews Badge */}
             <motion.a
-              href={GOOGLE_MAPS_REVIEWS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 mb-8"
+              href="#trust-section"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('trust-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              className="inline-flex items-center gap-3 mb-8 cursor-pointer"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
