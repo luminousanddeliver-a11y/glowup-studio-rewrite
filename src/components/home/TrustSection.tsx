@@ -255,14 +255,14 @@ export const TrustSection = () => {
             {promises.map((promise, index) => (
               <motion.div
                 key={promise.title}
-                className="relative flex flex-col items-center text-center p-6 md:p-8 bg-secondary rounded-2xl group hover:shadow-lg transition-all duration-300"
+                className="relative flex flex-col items-center text-center p-5 md:p-6 bg-secondary rounded-2xl group hover:shadow-lg transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="relative mb-3">
                   <promise.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h4 className="relative font-heading font-semibold text-foreground mb-2">

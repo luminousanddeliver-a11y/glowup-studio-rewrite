@@ -90,7 +90,8 @@ export const TreatmentFinder = () => {
                   bg-card border border-border 
                   shadow-sm hover:shadow-xl 
                   transition-all duration-300 
-                  group min-h-[140px] md:min-h-[160px]
+                  group h-full min-h-[160px]
+                  hover:-translate-y-1
                   hover:-translate-y-1
                   ${treatment.isViewAll ? "border-primary/40 bg-gradient-to-br from-primary/5 to-primary/10" : ""}
                 `}
