@@ -41,7 +41,6 @@ export const ReviewForm = ({ productId, productName }: ReviewFormProps) => {
     mutationFn: async (data: {
       product_id: string;
       reviewer_name: string;
-      reviewer_email: string;
       rating: number;
       title: string | null;
       content: string;
@@ -113,7 +112,6 @@ export const ReviewForm = ({ productId, productName }: ReviewFormProps) => {
     submitReview.mutate({
       product_id: productId,
       reviewer_name: name.trim(),
-      reviewer_email: email.trim(),
       rating,
       title: title.trim() || null,
       content: content.trim(),
