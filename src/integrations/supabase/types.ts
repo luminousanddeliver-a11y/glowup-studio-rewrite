@@ -206,7 +206,6 @@ export type Database = {
           order_id: string | null
           product_id: string
           rating: number
-          reviewer_email: string
           reviewer_name: string
           title: string | null
           updated_at: string | null
@@ -220,7 +219,6 @@ export type Database = {
           order_id?: string | null
           product_id: string
           rating: number
-          reviewer_email: string
           reviewer_name: string
           title?: string | null
           updated_at?: string | null
@@ -234,7 +232,6 @@ export type Database = {
           order_id?: string | null
           product_id?: string
           rating?: number
-          reviewer_email?: string
           reviewer_name?: string
           title?: string | null
           updated_at?: string | null
