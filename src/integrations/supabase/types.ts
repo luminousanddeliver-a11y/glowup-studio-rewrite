@@ -68,6 +68,51 @@ export type Database = {
         }
         Relationships: []
       }
+      button_events: {
+        Row: {
+          created_at: string
+          cta_key: string | null
+          element_type: string | null
+          href: string | null
+          id: string
+          is_key_cta: boolean
+          label: string
+          path: string
+          referrer: string | null
+          session_id: string | null
+          user_agent: string | null
+          viewport_width: number | null
+        }
+        Insert: {
+          created_at?: string
+          cta_key?: string | null
+          element_type?: string | null
+          href?: string | null
+          id?: string
+          is_key_cta?: boolean
+          label: string
+          path: string
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+          viewport_width?: number | null
+        }
+        Update: {
+          created_at?: string
+          cta_key?: string | null
+          element_type?: string | null
+          href?: string | null
+          id?: string
+          is_key_cta?: boolean
+          label?: string
+          path?: string
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+          viewport_width?: number | null
+        }
+        Relationships: []
+      }
       inquiries: {
         Row: {
           created_at: string
