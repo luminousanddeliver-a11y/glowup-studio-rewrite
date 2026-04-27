@@ -54,7 +54,7 @@ export const PromoBanner = () => {
               <a 
                 href="tel:02085981200" 
                 className="underline underline-offset-2 hover:no-underline ml-1"
-              >
+               data-cta="call_now">
                 Book Now
               </a>
             </p>

@@ -126,7 +126,7 @@ export const FAQSection = () => {
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body"
                 >
-                  <a href="tel:02085981200">
+                  <a href="tel:02085981200" data-cta="call_now">
                     <Phone className="mr-2 h-4 w-4" />
                     Call Us
                   </a>

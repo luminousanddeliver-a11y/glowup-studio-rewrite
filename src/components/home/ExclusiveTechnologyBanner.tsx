@@ -114,7 +114,7 @@ export const ExclusiveTechnologyBanner = () => {
                 size="lg"
                 className="bg-gold hover:bg-gold/90 text-gold-foreground font-body h-12 px-6 text-base shadow-lg"
               >
-                <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer" data-cta="book_now">
                   Book Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>

@@ -154,7 +154,7 @@ export const Testimonials = forwardRef<HTMLElement, object>(function Testimonial
                   href={GOOGLE_MAPS_REVIEWS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                >
+                 data-cta="google_reviews">
                   Read All 300+ Reviews
                 </a>
               </Button>

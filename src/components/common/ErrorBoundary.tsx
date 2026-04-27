@@ -143,7 +143,7 @@ export class ErrorBoundary extends Component<Props, State> {
               <a
                 href="tel:02085981200"
                 className="text-primary hover:underline font-medium"
-              >
+               data-cta="call_now">
                 0208 598 1200
               </a>
             </p>

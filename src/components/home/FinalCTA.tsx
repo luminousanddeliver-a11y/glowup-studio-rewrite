@@ -85,7 +85,7 @@ export const FinalCTA = () => {
             <a 
               href="tel:02085981200"
               className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
+             data-cta="call_now">
               <Phone className="h-4 w-4" />
               <span>0208 598 1200</span>
             </a>
