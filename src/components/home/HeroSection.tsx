@@ -73,7 +73,7 @@ export const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 bg-gold/10 text-gold px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gold/20 transition-colors"
-              >
+               data-cta="google_reviews">
                 <Star className="h-4 w-4 fill-current" />
                 <span>4.9★ on Google · 300+ reviews</span>
               </a>
@@ -103,7 +103,7 @@ export const HeroSection = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-body h-14 px-8 text-base shadow-lg"
               >
-              <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer" data-cta="book_now">
                    Book Consultation
                    <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -128,7 +128,7 @@ export const HeroSection = () => {
               <a 
                 href="tel:02085981200"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
+               data-cta="call_now">
                 <Phone className="h-4 w-4" />
                 <span>Call: 0208 598 1200</span>
               </a>
@@ -138,7 +138,7 @@ export const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
-              >
+               data-cta="book_now">
                 Free Patch Test Available
               </a>
             </motion.div>

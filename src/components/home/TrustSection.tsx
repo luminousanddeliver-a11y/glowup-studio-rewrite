@@ -156,7 +156,7 @@ export const TrustSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-card border border-border rounded-full px-5 py-2.5 shadow-sm hover:shadow-md transition-shadow"
-          >
+           data-cta="google_reviews">
             <GoogleIcon />
             <span className="font-heading text-sm font-medium text-foreground">4.9★ on Google</span>
             <span className="text-muted-foreground text-sm">·</span>
@@ -234,7 +234,7 @@ export const TrustSection = () => {
                 href={GOOGLE_MAPS_REVIEWS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-              >
+               data-cta="google_reviews">
                 Read All 300+ Reviews
               </a>
             </Button>

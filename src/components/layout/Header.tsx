@@ -298,7 +298,7 @@ export const Header = () => {
                   "flex items-center gap-2 transition-colors relative group py-1",
                   navTextColor, navHoverColor
                 )}
-              >
+               data-cta="call_now">
                 <Phone className="h-4 w-4" />
                 <span className="font-body relative">
                   0208 598 1200
@@ -362,7 +362,7 @@ export const Header = () => {
               </CartPreviewTooltip>
               
               <Button asChild className={`bg-primary hover:bg-primary/90 text-primary-foreground font-body px-6 transition-all duration-200 ${isCompact ? 'h-10' : 'h-12'}`}>
-                <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer" data-cta="book_now">Book an Appointment</a>
               </Button>
             </div>
 
@@ -591,13 +591,13 @@ export const Header = () => {
                   <a
                     href="tel:02085981200"
                     className="flex items-center gap-3 text-gray-800 font-medium py-3 touch-manipulation group"
-                  >
+                   data-cta="call_now">
                     <Phone className="h-5 w-5 text-accent/70 group-hover:text-accent transition-colors" />
                     <span className="font-body font-bold">0208 598 1200</span>
                   </a>
 
                   <Button asChild className="w-full mt-3 h-14 text-base font-bold shadow-[0_4px_16px_rgba(28,158,152,0.3)] hover:shadow-[0_6px_20px_rgba(28,158,152,0.4)] active:scale-[0.98] touch-manipulation transition-all duration-200">
-                    <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+                    <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer" data-cta="book_now">Book an Appointment</a>
                   </Button>
                 </motion.div>
               </nav>

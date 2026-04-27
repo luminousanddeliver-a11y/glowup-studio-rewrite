@@ -54,6 +54,7 @@ const MillionDollarFacial = lazy(() => import("@/pages/services/MillionDollarFac
 const AdvancedPeels = lazy(() => import("@/pages/services/AdvancedPeels"));
 const LaserHairRemovalEastLondon = lazy(() => import("@/pages/services/LaserHairRemovalEastLondon"));
 const LyntonMotusAYLaser = lazy(() => import("@/pages/services/LyntonMotusAYLaser"));
+const AdminAnalytics = lazy(() => import("@/pages/AdminAnalytics"));
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -109,6 +110,8 @@ export const AnimatedRoutes = () => {
         <Route path="/laser-hair-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalEastLondon /></PageTransition></Suspense>} />
         <Route path="/lynton-motus-ay-laser" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LyntonMotusAYLaser /></PageTransition></Suspense>} />
         
+        <Route path="/admin/analytics" element={<Suspense fallback={<ServicePageSkeleton />}><AdminAnalytics /></Suspense>} />
+
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
