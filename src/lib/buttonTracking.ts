@@ -58,7 +58,8 @@ function fireBookNowConversion(el: HTMLElement, href: string | null): boolean {
   // New tab or non-navigating: fire event, don't defer
   if (!isAnchor || !href || opensNewTab || href.startsWith("#")) {
     if (typeof gtag === "function") {
-      const txnId = `bk_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+      const pageSlug = (window.location.pathname || "/").replace(/^\/+|\/+$/g, "").replace(/[^a-zA-Z0-9_-]+/g, "_") || "home";
+      const txnId = `${pageSlug}_${Date.now()}`;
       gtag("event", "conversion", {
         send_to: "AW-18104090476/5k9kCIX1vaccEOz-2bhD",
         value: 1.0,
