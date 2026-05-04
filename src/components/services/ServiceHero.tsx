@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Phone, Calendar, ChevronDown, Shield, Star } from "lucide-react";
+import { Phone, Calendar, ChevronDown, Shield, Star, Instagram } from "lucide-react";
 import { PageBreadcrumb, BreadcrumbItemType } from "@/components/layout/PageBreadcrumb";
 
 interface SecondaryCTA {
@@ -89,7 +89,7 @@ export const ServiceHero = ({
   return (
     <section 
       ref={sectionRef} 
-      className="relative -mt-[80px] min-h-[520px] md:min-h-[560px] lg:min-h-[600px] flex items-end overflow-hidden"
+      className="relative -mt-[80px] min-h-[680px] md:min-h-[640px] lg:min-h-[700px] flex items-end overflow-hidden"
     >
       {/* Background image with parallax */}
       {displayImage && (
@@ -195,15 +195,15 @@ export const ServiceHero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-wrap gap-3 mb-6"
+            className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-6"
           >
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold h-12 px-5 text-sm md:text-base shadow-lg rounded-lg inline-flex items-center"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold py-5 px-6 text-base h-auto min-h-[60px] shadow-lg rounded-lg w-full sm:w-auto"
             >
-              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now">
-                <Calendar className="mr-2 h-4 w-4" />
+              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now" className="inline-flex items-center justify-center">
+                <Calendar className="mr-2 h-5 w-5" />
                 {primaryCtaText}
               </a>
             </Button>
@@ -213,10 +213,10 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-12 px-5 text-sm md:text-base backdrop-blur-sm shadow-lg rounded-lg inline-flex items-center"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold py-5 px-6 text-base h-auto min-h-[60px] backdrop-blur-sm shadow-lg rounded-lg w-full sm:w-auto"
               >
-                <a href={secondaryCta.href}>
-                  <ChevronDown className="mr-2 h-4 w-4" />
+                <a href={secondaryCta.href} className="inline-flex items-center justify-center">
+                  <ChevronDown className="mr-2 h-5 w-5" />
                   {secondaryCta.text}
                 </a>
               </Button>
@@ -227,14 +227,26 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-12 px-5 text-sm md:text-base backdrop-blur-sm shadow-lg rounded-lg inline-flex items-center"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold py-5 px-6 text-base h-auto min-h-[60px] backdrop-blur-sm shadow-lg rounded-lg w-full sm:w-auto"
               >
-                <a href="tel:02085981200">
-                  <Phone className="mr-2 h-4 w-4" />
+                <a href="tel:02085981200" className="inline-flex items-center justify-center">
+                  <Phone className="mr-2 h-5 w-5" />
                   0208 598 1200
                 </a>
               </Button>
             )}
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold py-5 px-6 text-base h-auto min-h-[60px] backdrop-blur-sm shadow-lg rounded-lg w-full sm:w-auto"
+            >
+              <a href="https://www.instagram.com/laserlightskinclinic/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center">
+                <Instagram className="mr-2 h-5 w-5" />
+                See examples on Instagram
+              </a>
+            </Button>
           </motion.div>
 
           {/* Stats + floating badge row */}
