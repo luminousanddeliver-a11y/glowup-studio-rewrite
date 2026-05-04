@@ -4,6 +4,8 @@ export const SERVICE_CONVERSION_VALUES: Record<string, number> = {
   "laser-hair-removal": 80,
   "laser-hair-removal-east-london": 80,
   "laser-hair-removal-dagenham": 80,
+  "laser-hair-removal-ilford": 80,
+  "laser-hair-removal-redbridge": 80,
   "lynton-motus-ay-laser": 80,
   "million-dollar-facial": 350,
   "skinpen-microneedling": 200,

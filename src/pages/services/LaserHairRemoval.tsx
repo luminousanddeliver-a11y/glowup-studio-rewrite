@@ -356,8 +356,8 @@ const LaserHairRemoval = () => {
           title="Laser Hair Removal in Dagenham"
           titleAccent="Dagenham"
           subtitle="Experience the Freedom of Permanently Smooth Skin"
-          description="Safe for all skin types including dark skin. Book your consultation and say goodbye to shaving forever."
-          badge="Consultation"
+          description="Safe for all skin types including dark skin. Start with a skin patch test & consultation."
+          primaryCtaText="Book a Skin Patch & Consultation – £25"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
@@ -365,7 +365,7 @@ const LaserHairRemoval = () => {
             { label: "Laser Hair Removal" }
           ]}
           stats={[
-            { value: "6-8", label: "Sessions" },
+            { value: "From £25", label: "Patch & Consult" },
             { value: "Comfortable", label: "Experience" },
             { value: "All Skin", label: "Types" }
           ]}
@@ -415,8 +415,8 @@ const LaserHairRemoval = () => {
             highlight: "CONSULTATION & PATCH TEST",
             text: "Book Your Appointment Today"
           }}
-          paymentOptions="Interest-free payment plans available. Spread the cost over 6-12 months."
-          disclaimer="Prices may vary based on individual assessment. Course payments can be split with 0% finance options available."
+          paymentOptions="Plans available via our finance partner. Subject to status."
+          disclaimer="Prices may vary based on individual assessment."
         />
         
         {/* Section 8: Who Is This For */}
