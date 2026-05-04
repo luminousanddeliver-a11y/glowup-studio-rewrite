@@ -195,43 +195,43 @@ export const ServiceHero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 mb-6"
+            className="flex flex-wrap gap-3 mb-6"
           >
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold min-h-[64px] py-4 px-6 text-base md:text-lg leading-tight shadow-xl rounded-xl w-full sm:w-auto whitespace-normal"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold h-12 px-5 text-sm md:text-base shadow-lg rounded-lg inline-flex items-center"
             >
-              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now" className="flex items-center justify-center text-center">
-                <Calendar className="mr-2 h-5 w-5 flex-shrink-0" />
-                <span>{primaryCtaText}</span>
+              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now">
+                <Calendar className="mr-2 h-4 w-4" />
+                {primaryCtaText}
               </a>
             </Button>
-            
+
             {secondaryCta && (
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold min-h-[64px] py-4 px-6 text-base md:text-lg leading-tight backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto whitespace-normal"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-12 px-5 text-sm md:text-base backdrop-blur-sm shadow-lg rounded-lg inline-flex items-center"
               >
-                <a href={secondaryCta.href} className="flex items-center justify-center text-center">
-                  <ChevronDown className="mr-2 h-5 w-5 flex-shrink-0" />
-                  <span>{secondaryCta.text}</span>
+                <a href={secondaryCta.href}>
+                  <ChevronDown className="mr-2 h-4 w-4" />
+                  {secondaryCta.text}
                 </a>
               </Button>
             )}
-            
+
             {showPhoneCta && !secondaryCta && (
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold min-h-[64px] py-4 px-6 text-base md:text-lg leading-tight backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto whitespace-normal"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-12 px-5 text-sm md:text-base backdrop-blur-sm shadow-lg rounded-lg inline-flex items-center"
               >
-                <a href="tel:02085981200" className="flex items-center justify-center text-center">
-                  <Phone className="mr-2 h-5 w-5 flex-shrink-0" />
-                  <span>0208 598 1200</span>
+                <a href="tel:02085981200">
+                  <Phone className="mr-2 h-4 w-4" />
+                  0208 598 1200
                 </a>
               </Button>
             )}

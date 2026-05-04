@@ -357,7 +357,7 @@ const LaserHairRemoval = () => {
           titleAccent="Dagenham"
           subtitle="Experience the freedom of permanently smooth skin"
           description="Safe for all skin types including dark skin."
-          primaryCtaText="Book Patch Test & Consultation"
+          primaryCtaText="Book Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[

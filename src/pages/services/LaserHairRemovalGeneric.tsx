@@ -164,7 +164,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           titleAccent={isIlford ? "Ilford" : undefined}
           subtitle="Permanently smooth skin with the Quanta Thunder"
           description="Safe for all skin types including darker tones."
-          primaryCtaText="Book Patch Test & Consultation"
+          primaryCtaText="Book Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
