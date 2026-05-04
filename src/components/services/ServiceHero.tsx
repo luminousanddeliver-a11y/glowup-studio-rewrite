@@ -200,11 +200,11 @@ export const ServiceHero = ({
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold h-14 md:h-16 px-8 text-base md:text-lg shadow-xl rounded-xl w-full sm:w-auto"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold min-h-[64px] py-4 px-6 text-base md:text-lg leading-tight shadow-xl rounded-xl w-full sm:w-auto whitespace-normal"
             >
-              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now">
-                <Calendar className="mr-2 h-5 w-5 md:h-6 md:w-6" />
-                {primaryCtaText}
+              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now" className="flex items-center justify-center text-center">
+                <Calendar className="mr-2 h-5 w-5 flex-shrink-0" />
+                <span>{primaryCtaText}</span>
               </a>
             </Button>
             
@@ -213,11 +213,11 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-14 md:h-16 px-8 text-base md:text-lg backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold min-h-[64px] py-4 px-6 text-base md:text-lg leading-tight backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto whitespace-normal"
               >
-                <a href={secondaryCta.href}>
-                  <ChevronDown className="mr-2 h-5 w-5 md:h-6 md:w-6" />
-                  {secondaryCta.text}
+                <a href={secondaryCta.href} className="flex items-center justify-center text-center">
+                  <ChevronDown className="mr-2 h-5 w-5 flex-shrink-0" />
+                  <span>{secondaryCta.text}</span>
                 </a>
               </Button>
             )}
@@ -227,11 +227,11 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-14 md:h-16 px-8 text-base md:text-lg backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold min-h-[64px] py-4 px-6 text-base md:text-lg leading-tight backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto whitespace-normal"
               >
-                <a href="tel:02085981200">
-                  <Phone className="mr-2 h-5 w-5 md:h-6 md:w-6" />
-                  0208 598 1200
+                <a href="tel:02085981200" className="flex items-center justify-center text-center">
+                  <Phone className="mr-2 h-5 w-5 flex-shrink-0" />
+                  <span>0208 598 1200</span>
                 </a>
               </Button>
             )}
