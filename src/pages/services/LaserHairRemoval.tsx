@@ -342,7 +342,7 @@ const LaserHairRemoval = () => {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Laser Hair Removal Dagenham | NHS Approved | Laser Light"
-        description="Advanced laser hair removal in Dagenham using the Quanta Thunder — safe for dark skin tones. NHS-approved clinic with 20+ years experience. From £80 per session."
+        description="Advanced laser hair removal in Dagenham using the Quanta Thunder, safe for dark skin tones. NHS-approved clinic with 20+ years experience. From £80 per session."
         canonicalUrl="https://laserlightskinclinic.co.uk/laser-hair-removal-dagenham"
         structuredData={[structuredData, faqSchema, breadcrumbSchema]}
       />

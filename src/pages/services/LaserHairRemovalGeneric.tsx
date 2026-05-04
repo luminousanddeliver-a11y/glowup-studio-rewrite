@@ -95,7 +95,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
     "Moveo Technology: treats large areas quickly",
     "Advanced cooling for a comfortable experience",
     "Safe for all skin types including Fitzpatrick IV-VI",
-    "Alexandrite 755nm — gold-standard wavelength",
+    "Alexandrite 755nm, gold-standard wavelength",
     "NHS Approved · FDA Approved",
     "Trusted by NHS dermatology departments"
   ];
@@ -197,7 +197,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           title="The Quanta Thunder"
           subtitle="The same technology trusted by NHS dermatology departments"
           technologyName="Quanta Thunder"
-          description="A true medical-grade Alexandrite laser combining clinical efficacy with advanced cooling for a comfortable experience — safe for every skin tone."
+          description="A true medical-grade Alexandrite laser combining clinical efficacy with advanced cooling for a comfortable experience. Safe for every skin tone."
           features={technologyFeatures}
           certifications={["NHS Approved", "FDA Approved"]}
           deviceImage={laserDevice}
