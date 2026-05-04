@@ -147,7 +147,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
     { question: "Is it safe for darker skin?", answer: "Yes. The Quanta Thunder is clinically proven safe for Fitzpatrick IV-VI." },
     { question: "How many sessions will I need?", answer: "Most clients need 6-8 sessions spaced 4-6 weeks apart for optimal results." },
     { question: "Do you offer payment plans?", answer: "Yes. Interest-free payment plans from 3 to 12 months are available." },
-    ...(isIlford ? [{ question: "Where are you located from Ilford?", answer: "We're in Dagenham (RM8 2UJ), a short drive from Ilford, with free parking nearby." }] : []),
+    ...(loc ? [loc.faqLocation] : []),
   ];
 
   const testimonials = [
@@ -164,9 +164,9 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title={isIlford ? "Laser Hair Removal Ilford | NHS Approved | Laser Light" : "Laser Hair Removal | NHS Approved | Laser Light Skin Clinic"}
-        description={isIlford
-          ? "Laser hair removal serving Ilford & Redbridge. Quanta Thunder, safe for all skin types. Interest-free plans 3 to 12 months."
+        title={loc ? `Laser Hair Removal ${loc.label} | NHS Approved | Laser Light` : "Laser Hair Removal | NHS Approved | Laser Light Skin Clinic"}
+        description={loc
+          ? `Laser hair removal serving ${loc.label} & surrounding areas. Quanta Thunder, safe for all skin types. Interest-free plans 3 to 12 months.`
           : "NHS-approved laser hair removal using the Quanta Thunder. Safe for all skin types. Interest-free plans 3 to 12 months."}
         canonicalUrl={canonical}
         structuredData={[structuredData]}
@@ -177,8 +177,8 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
       <main className="flex-1 pb-20 lg:pb-0">
         <ServiceHero
           trustBadge="NHS-Approved Clinic"
-          title={isIlford ? "Laser Hair Removal Ilford" : "Laser Hair Removal"}
-          titleAccent={isIlford ? "Ilford" : undefined}
+          title={loc ? `Laser Hair Removal ${loc.label}` : "Laser Hair Removal"}
+          titleAccent={loc ? loc.label : undefined}
           subtitle="Permanently smooth skin with the Quanta Thunder"
           description="Safe for all skin types including darker tones."
           primaryCtaText="Book Consultation"
@@ -186,14 +186,14 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
-            { label: isIlford ? "Laser Hair Removal Ilford" : "Laser Hair Removal" }
+            { label: loc ? `Laser Hair Removal ${loc.label}` : "Laser Hair Removal" }
           ]}
         />
 
         <QuickStatsBar stats={quickStats} />
 
         <WhatIsSection
-          title={isIlford ? "Ilford's Trusted Laser Clinic" : "Medical-Grade Laser Hair Removal"}
+          title={loc ? loc.whatIsTitle : "Medical-Grade Laser Hair Removal"}
           content={whatIsContent}
           collapsible
         />
