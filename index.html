@@ -84,7 +84,8 @@
           }
         };
         setTimeout(doRedirect, 1500);
-        var txnId = 'bk_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+        var pageSlug = (window.location.pathname || '/').replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9_-]+/g, '_') || 'home';
+        var txnId = pageSlug + '_' + Date.now();
         gtag('event', 'conversion', {
           'send_to': 'AW-18104090476/5k9kCIX1vaccEOz-2bhD',
           'value': 1.0,
