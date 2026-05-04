@@ -28,7 +28,7 @@ const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 
 // Service pages - lazy loaded for mobile performance
-const LaserHairRemoval = lazy(() => import("@/pages/services/LaserHairRemoval"));
+
 const Hydrafacials = lazy(() => import("@/pages/services/Hydrafacials"));
 const TattooRemoval = lazy(() => import("@/pages/services/TattooRemoval"));
 const SkinRejuvenation = lazy(() => import("@/pages/services/SkinRejuvenation"));
