@@ -200,10 +200,10 @@ export const ServiceHero = ({
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-13 px-7 text-base shadow-lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold h-14 md:h-16 px-8 text-base md:text-lg shadow-xl rounded-xl w-full sm:w-auto"
             >
               <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now">
-                <Calendar className="mr-2 h-5 w-5" />
+                <Calendar className="mr-2 h-5 w-5 md:h-6 md:w-6" />
                 {primaryCtaText}
               </a>
             </Button>
@@ -213,10 +213,10 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm shadow-lg"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-14 md:h-16 px-8 text-base md:text-lg backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto"
               >
                 <a href={secondaryCta.href}>
-                  <ChevronDown className="mr-2 h-5 w-5" />
+                  <ChevronDown className="mr-2 h-5 w-5 md:h-6 md:w-6" />
                   {secondaryCta.text}
                 </a>
               </Button>
@@ -227,10 +227,10 @@ export const ServiceHero = ({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body h-13 px-7 text-base backdrop-blur-sm shadow-lg"
+                className="border-2 border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white font-body font-semibold h-14 md:h-16 px-8 text-base md:text-lg backdrop-blur-sm shadow-xl rounded-xl w-full sm:w-auto"
               >
                 <a href="tel:02085981200">
-                  <Phone className="mr-2 h-5 w-5" />
+                  <Phone className="mr-2 h-5 w-5 md:h-6 md:w-6" />
                   0208 598 1200
                 </a>
               </Button>
