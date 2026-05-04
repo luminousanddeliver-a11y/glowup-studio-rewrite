@@ -53,6 +53,7 @@ const AdvancedElectrolysis = lazy(() => import("@/pages/services/AdvancedElectro
 const MillionDollarFacial = lazy(() => import("@/pages/services/MillionDollarFacial"));
 const AdvancedPeels = lazy(() => import("@/pages/services/AdvancedPeels"));
 const LaserHairRemovalEastLondon = lazy(() => import("@/pages/services/LaserHairRemovalEastLondon"));
+const LaserHairRemovalGeneric = lazy(() => import("@/pages/services/LaserHairRemovalGeneric"));
 const LyntonMotusAYLaser = lazy(() => import("@/pages/services/LyntonMotusAYLaser"));
 const AdminAnalytics = lazy(() => import("@/pages/AdminAnalytics"));
 
