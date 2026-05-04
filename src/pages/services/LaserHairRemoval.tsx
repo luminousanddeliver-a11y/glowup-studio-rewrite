@@ -355,19 +355,14 @@ const LaserHairRemoval = () => {
           trustBadge="NHS-Approved Clinic"
           title="Laser Hair Removal in Dagenham"
           titleAccent="Dagenham"
-          subtitle="Experience the Freedom of Permanently Smooth Skin"
-          description="Safe for all skin types including dark skin. Start with a skin patch test & consultation."
-          primaryCtaText="Book a Skin Patch & Consultation – £25"
+          subtitle="Experience the freedom of permanently smooth skin"
+          description="Safe for all skin types including dark skin."
+          primaryCtaText="Book Patch Test & Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: "Laser Hair Removal" }
-          ]}
-          stats={[
-            { value: "From £25", label: "Patch & Consult" },
-            { value: "Comfortable", label: "Experience" },
-            { value: "All Skin", label: "Types" }
           ]}
         />
         
@@ -378,7 +373,7 @@ const LaserHairRemoval = () => {
         <WhatIsSection
           title="What is Laser Hair Removal?"
           content={whatIsContent}
-          highlightText="The only system we trust for our Dagenham clients - delivering permanent results without the discomfort."
+          collapsible
         />
         
         {/* Section 4: Benefits */}
