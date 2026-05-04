@@ -17,20 +17,39 @@ import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, Piggy
 import laserDevice from "@/assets/thunder-machine.png";
 
 interface Props {
-  variant?: "default" | "ilford";
+  variant?: "default" | "ilford" | "dagenham";
 }
 
+const LOCATION_COPY = {
+  ilford: {
+    label: "Ilford",
+    path: "/laser-hair-removal-ilford",
+    areaServed: ["Ilford", "Redbridge", "Gants Hill", "Seven Kings", "Goodmayes", "Barkingside", "East London"],
+    whatIsTitle: "Ilford's Trusted Laser Clinic",
+    intro: "Looking for laser hair removal in Ilford? Laser Light Skin Clinic, just minutes away in Dagenham, offers NHS-approved laser hair removal using the Quanta Thunder.",
+    locality: "We welcome clients from across Ilford, Redbridge, Gants Hill, Seven Kings, Goodmayes and Barkingside. Easy access by car with free parking nearby.",
+    faqLocation: { question: "Where are you located from Ilford?", answer: "We're in Dagenham (RM8 2UJ), a short drive from Ilford, with free parking nearby." },
+  },
+  dagenham: {
+    label: "Dagenham",
+    path: "/laser-hair-removal-dagenham",
+    areaServed: ["Dagenham", "Barking", "Romford", "Becontree", "Chadwell Heath", "East London"],
+    whatIsTitle: "Dagenham's Trusted Laser Clinic",
+    intro: "Looking for laser hair removal in Dagenham? Laser Light Skin Clinic on Becontree Avenue offers NHS-approved laser hair removal using the Quanta Thunder.",
+    locality: "We welcome clients from across Dagenham, Barking, Romford, Becontree and Chadwell Heath. Free parking available nearby.",
+    faqLocation: { question: "Where are you located in Dagenham?", answer: "We're at 125 Becontree Avenue, Dagenham RM8 2UJ, with free parking nearby." },
+  },
+} as const;
+
 const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
-  const isIlford = variant === "ilford";
-  const locationLabel = isIlford ? "Ilford" : "London";
-  const canonical = isIlford
-    ? "https://laserlightskinclinic.co.uk/laser-hair-removal-ilford"
-    : "https://laserlightskinclinic.co.uk/laser-hair-removal";
+  const isLocation = variant === "ilford" || variant === "dagenham";
+  const loc = isLocation ? LOCATION_COPY[variant as "ilford" | "dagenham"] : null;
+  const canonical = `https://laserlightskinclinic.co.uk${loc ? loc.path : "/laser-hair-removal"}`;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": `Laser Hair Removal ${locationLabel}`,
+    "name": loc ? `Laser Hair Removal ${loc.label}` : "Laser Hair Removal",
     "provider": {
       "@type": "MedicalBusiness",
       "name": "Laser Light Skin Clinic",
@@ -44,10 +63,8 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
       },
       "telephone": "+442085981200"
     },
-    "description": `NHS-approved laser hair removal${isIlford ? " serving Ilford and surrounding areas" : ""} using the Quanta Thunder. Safe for all skin types including darker tones.`,
-    "areaServed": isIlford
-      ? ["Ilford", "Redbridge", "Gants Hill", "Seven Kings", "Goodmayes", "Barkingside", "East London"]
-      : ["London", "East London", "Dagenham", "Barking", "Romford", "Ilford", "Stratford"],
+    "description": `NHS-approved laser hair removal${loc ? ` serving ${loc.label} and surrounding areas` : ""} using the Quanta Thunder. Safe for all skin types including darker tones.`,
+    "areaServed": loc ? loc.areaServed : ["London", "East London", "Dagenham", "Barking", "Romford", "Ilford", "Stratford"],
     "offers": {
       "@type": "Offer",
       "price": "25",
@@ -63,10 +80,10 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
     { value: "NHS-Approved", label: "Medical-Grade", icon: Award },
   ];
 
-  const whatIsContent = isIlford
+  const whatIsContent = loc
     ? [
-        "Looking for laser hair removal in Ilford? Laser Light Skin Clinic, just minutes away in Dagenham, offers NHS-approved laser hair removal using the Quanta Thunder.",
-        "We welcome clients from across Ilford, Redbridge, Gants Hill, Seven Kings, Goodmayes and Barkingside. Easy access by car with free parking nearby.",
+        loc.intro,
+        loc.locality,
         "Unlike high street IPL, we use genuine medical-grade Alexandrite laser. Fewer sessions, permanent results, and safe for all skin tones."
       ]
     : [
