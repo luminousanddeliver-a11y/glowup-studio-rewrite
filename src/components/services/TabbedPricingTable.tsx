@@ -158,16 +158,43 @@ export const TabbedPricingTable = ({
             ))}
           </Tabs>
 
+          {/* Book CTA below pricing */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.25 }}
+            className="flex justify-center mt-8"
+          >
+            <a
+              href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="book_now"
+              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold h-14 px-8 rounded-md text-lg shadow-lg transition-colors"
+            >
+              Book Your Appointment
+            </a>
+          </motion.div>
+
           {paymentOptions && (
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="text-center mt-6 font-body text-muted-foreground"
+              className="max-w-2xl mx-auto mt-8 bg-gradient-to-r from-primary/10 to-accent/10 border-2 border-primary/30 rounded-xl p-5 text-center shadow-md"
             >
-              {paymentOptions}
-            </motion.p>
+              <p className="font-heading font-bold text-lg text-primary mb-1">
+                💳 0% Interest-Free Payment Plans
+              </p>
+              <p className="font-body text-base text-foreground">
+                Spread the cost over <span className="font-bold">3 – 12 months</span> with no interest, no fees.
+              </p>
+              {paymentOptions && (
+                <p className="font-body text-sm text-muted-foreground mt-2">{paymentOptions}</p>
+              )}
+            </motion.div>
           )}
 
           {disclaimer && (
