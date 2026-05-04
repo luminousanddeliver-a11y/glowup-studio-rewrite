@@ -202,7 +202,7 @@ export const ServiceHero = ({
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-13 px-7 text-base shadow-lg"
             >
-              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}>
+              <a href={primaryCtaHref} target={primaryCtaHref.startsWith("http") ? "_blank" : undefined} rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now">
                 <Calendar className="mr-2 h-5 w-5" />
                 {primaryCtaText}
               </a>
