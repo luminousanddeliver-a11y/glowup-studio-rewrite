@@ -65,19 +65,19 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
 
   const whatIsContent = isIlford
     ? [
-        "Looking for laser hair removal in Ilford? Laser Light Skin Clinic — just minutes away in Dagenham — offers NHS-approved laser hair removal using the Quanta Thunder.",
+        "Looking for laser hair removal in Ilford? Laser Light Skin Clinic, just minutes away in Dagenham, offers NHS-approved laser hair removal using the Quanta Thunder.",
         "We welcome clients from across Ilford, Redbridge, Gants Hill, Seven Kings, Goodmayes and Barkingside. Easy access by car with free parking nearby.",
-        "Unlike high street IPL, we use genuine medical-grade Alexandrite laser — fewer sessions, permanent results, and safe for all skin tones."
+        "Unlike high street IPL, we use genuine medical-grade Alexandrite laser. Fewer sessions, permanent results, and safe for all skin tones."
       ]
     : [
         "Laser hair removal uses concentrated light energy to target and destroy hair follicles at the root, providing long-term reduction of 80-95% after a full course.",
-        "At Laser Light Skin Clinic we use the Quanta Thunder — a true medical-grade Alexandrite laser, safe for all skin types including Fitzpatrick IV-VI.",
-        "Every treatment starts with a £25 skin patch test and consultation so we can confirm suitability and design your personalised course."
+        "At Laser Light Skin Clinic we use the Quanta Thunder, a true medical-grade Alexandrite laser, safe for all skin types including Fitzpatrick IV-VI.",
+        "Every treatment starts with a skin patch test and consultation so we can confirm suitability and design your personalised course."
       ];
 
   const benefits = [
     { title: "Permanent Hair Reduction", description: "Achieve 80-95% permanent reduction. No more shaving or waxing.", icon: CheckCircle },
-    { title: "Comfortable Experience", description: "Quanta Thunder advanced cooling — most clients describe it as a warm massage.", icon: Heart },
+    { title: "Comfortable Experience", description: "Quanta Thunder advanced cooling. Most clients describe it as a warm massage.", icon: Heart },
     { title: "Safe for All Skin Types", description: "Suitable for Fitzpatrick I-VI, including darker skin tones.", icon: Users },
     { title: "Quick Sessions", description: "Underarms in 5-10 minutes, full legs under 30 minutes.", icon: Clock },
     { title: "No Downtime", description: "Resume normal activities immediately.", icon: Calendar },
@@ -85,7 +85,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
   ];
 
   const steps = [
-    { number: 1, title: "Skin Patch & Consultation (£25)", description: "We assess your skin and hair type and run a patch test to confirm suitability." },
+    { number: 1, title: "Skin Patch & Consultation", description: "We assess your skin and hair type and run a patch test to confirm suitability." },
     { number: 2, title: "Treatment Sessions", description: "6-8 sessions, 4-6 weeks apart. Each session 10-45 minutes depending on area." },
     { number: 3, title: "Visible Results", description: "Gradual reduction after each session. By session 4, most see 50-70% reduction." },
     { number: 4, title: "Permanent Results", description: "80-95% permanent reduction by the end of your course." },
@@ -95,7 +95,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
     "Moveo Technology: treats large areas quickly",
     "Advanced cooling for a comfortable experience",
     "Safe for all skin types including Fitzpatrick IV-VI",
-    "Alexandrite 755nm — gold-standard wavelength",
+    "Alexandrite 755nm, gold-standard wavelength",
     "NHS Approved · FDA Approved",
     "Trusted by NHS dermatology departments"
   ];
@@ -127,14 +127,14 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
   const faqs = [
     { question: "How much is the consultation?", answer: "Your skin patch test and consultation is £25. This confirms your skin's suitability and lets us design your treatment plan." },
     { question: "Does it hurt?", answer: "Our Quanta Thunder features advanced cooling. Most clients describe the sensation as a warm massage." },
-    { question: "Is it safe for darker skin?", answer: "Yes — the Quanta Thunder is clinically proven safe for Fitzpatrick IV-VI." },
+    { question: "Is it safe for darker skin?", answer: "Yes. The Quanta Thunder is clinically proven safe for Fitzpatrick IV-VI." },
     { question: "How many sessions will I need?", answer: "Most clients need 6-8 sessions spaced 4-6 weeks apart for optimal results." },
-    { question: "Do you offer payment plans?", answer: "Yes — interest-free payment plans from 3 to 12 months are available." },
-    ...(isIlford ? [{ question: "Where are you located from Ilford?", answer: "We're in Dagenham (RM8 2UJ) — a short drive from Ilford, with free parking nearby." }] : []),
+    { question: "Do you offer payment plans?", answer: "Yes. Interest-free payment plans from 3 to 12 months are available." },
+    ...(isIlford ? [{ question: "Where are you located from Ilford?", answer: "We're in Dagenham (RM8 2UJ), a short drive from Ilford, with free parking nearby." }] : []),
   ];
 
   const testimonials = [
-    { quote: "Amazing results — my skin is so smooth and the team made me feel completely at ease.", initials: "SA", treatment: "Full Legs", rating: 5 },
+    { quote: "Amazing results. My skin is so smooth and the team made me feel completely at ease.", initials: "SA", treatment: "Full Legs", rating: 5 },
     { quote: "As someone with darker skin I was nervous, but the Quanta Thunder is brilliant. Real results, no irritation.", initials: "NK", treatment: "Full Body", rating: 5 },
   ];
 
@@ -149,8 +149,8 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
       <SEOHead
         title={isIlford ? "Laser Hair Removal Ilford | NHS Approved | Laser Light" : "Laser Hair Removal | NHS Approved | Laser Light Skin Clinic"}
         description={isIlford
-          ? "Laser hair removal serving Ilford & Redbridge. Quanta Thunder, safe for all skin types. £25 skin patch & consultation. Interest-free 3–12 months."
-          : "NHS-approved laser hair removal using the Quanta Thunder. Safe for all skin types. £25 skin patch & consultation. Interest-free plans 3–12 months."}
+          ? "Laser hair removal serving Ilford & Redbridge. Quanta Thunder, safe for all skin types. Interest-free plans 3 to 12 months."
+          : "NHS-approved laser hair removal using the Quanta Thunder. Safe for all skin types. Interest-free plans 3 to 12 months."}
         canonicalUrl={canonical}
         structuredData={[structuredData]}
       />
@@ -163,27 +163,22 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           title={isIlford ? "Laser Hair Removal Ilford" : "Laser Hair Removal"}
           titleAccent={isIlford ? "Ilford" : undefined}
           subtitle="Permanently smooth skin with the Quanta Thunder"
-          description="Safe for all skin types including darker tones. Start with a skin patch test & consultation."
-          primaryCtaText="Book a Skin Patch & Consultation – £25"
+          description="Safe for all skin types including darker tones."
+          primaryCtaText="Book Patch Test & Consultation"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
             { label: isIlford ? "Laser Hair Removal Ilford" : "Laser Hair Removal" }
           ]}
-          stats={[
-            { value: "From £25", label: "Patch & Consult" },
-            { value: "Comfortable", label: "Experience" },
-            { value: "All Skin", label: "Types" }
-          ]}
         />
 
         <QuickStatsBar stats={quickStats} />
 
         <WhatIsSection
-          title={isIlford ? "Ilford's Trusted Laser Clinic — Just Down the Road" : "Medical-Grade Laser Hair Removal"}
+          title={isIlford ? "Ilford's Trusted Laser Clinic" : "Medical-Grade Laser Hair Removal"}
           content={whatIsContent}
-          highlightText="Skin patch test & consultation just £25 — fully redeemable against your first treatment."
+          collapsible
         />
 
         <BenefitsList
@@ -202,7 +197,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           title="The Quanta Thunder"
           subtitle="The same technology trusted by NHS dermatology departments"
           technologyName="Quanta Thunder"
-          description="A true medical-grade Alexandrite laser combining clinical efficacy with advanced cooling for a comfortable experience — safe for every skin tone."
+          description="A true medical-grade Alexandrite laser combining clinical efficacy with advanced cooling for a comfortable experience. Safe for every skin tone."
           features={technologyFeatures}
           certifications={["NHS Approved", "FDA Approved"]}
           deviceImage={laserDevice}
@@ -213,10 +208,10 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           subtitle="No hidden fees. Course savings + interest-free payment plans."
           tabs={pricingTabs}
           offerBanner={{
-            highlight: "SKIN PATCH & CONSULTATION – £25",
+            highlight: "SKIN PATCH & CONSULTATION",
             text: "Book Yours Today"
           }}
-          paymentOptions="Plans available via our finance partner. Subject to status."
+          paymentOptions="Interest-free payment plans from 3 to 12 months. Subject to status."
         />
 
         <ServiceTestimonial testimonials={testimonials} />
@@ -231,7 +226,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
 
         <ServiceCTA
           title="Ready to Book?"
-          subtitle="Reserve your £25 skin patch test & consultation and take the first step to permanently smooth skin."
+          subtitle="Reserve your skin patch test & consultation and take the first step to permanently smooth skin."
         />
       </main>
 

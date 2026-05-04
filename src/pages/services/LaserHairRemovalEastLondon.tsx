@@ -59,7 +59,7 @@ const LaserHairRemovalEastLondon = () => {
         "name": "Where is your laser hair removal clinic in East London?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We're located at 125 Becontree Avenue, Dagenham RM8 2UJ—easily accessible from Barking, Romford, Ilford, Stratford, and all East London areas. Free parking available nearby."
+          "text": "We're located at 125 Becontree Avenue, Dagenham RM8 2UJ, easily accessible from Barking, Romford, Ilford, Stratford, and all East London areas. Free parking available nearby."
         }
       },
       {

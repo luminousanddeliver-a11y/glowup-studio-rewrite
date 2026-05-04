@@ -1,12 +1,18 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 interface WhatIsSectionProps {
   title: string;
   content: string[];
   highlightText?: string;
+  collapsible?: boolean;
 }
 
-export const WhatIsSection = ({ title, content, highlightText }: WhatIsSectionProps) => {
+export const WhatIsSection = ({ title, content, highlightText, collapsible = false }: WhatIsSectionProps) => {
+  const [expanded, setExpanded] = useState(!collapsible);
+  const visible = collapsible && !expanded ? content.slice(0, 1) : content;
+
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
@@ -22,7 +28,7 @@ export const WhatIsSection = ({ title, content, highlightText }: WhatIsSectionPr
           </motion.h2>
           
           <div className="space-y-6">
-            {content.map((paragraph, index) => (
+            {visible.map((paragraph, index) => (
               <motion.p
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -35,6 +41,18 @@ export const WhatIsSection = ({ title, content, highlightText }: WhatIsSectionPr
               </motion.p>
             ))}
           </div>
+
+          {collapsible && content.length > 1 && (
+            <div className="mt-6 text-center">
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="inline-flex items-center gap-2 text-primary font-body font-medium hover:underline"
+              >
+                {expanded ? "Show less" : "Read more"}
+                <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
+              </button>
+            </div>
+          )}
           
           {highlightText && (
             <motion.div
