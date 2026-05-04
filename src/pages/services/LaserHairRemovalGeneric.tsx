@@ -17,20 +17,39 @@ import { Timer, Shield, Users, Award, CheckCircle, Heart, Clock, Calendar, Piggy
 import laserDevice from "@/assets/thunder-machine.png";
 
 interface Props {
-  variant?: "default" | "ilford";
+  variant?: "default" | "ilford" | "dagenham";
 }
 
+const LOCATION_COPY = {
+  ilford: {
+    label: "Ilford",
+    path: "/laser-hair-removal-ilford",
+    areaServed: ["Ilford", "Redbridge", "Gants Hill", "Seven Kings", "Goodmayes", "Barkingside", "East London"],
+    whatIsTitle: "Ilford's Trusted Laser Clinic",
+    intro: "Looking for laser hair removal in Ilford? Laser Light Skin Clinic, just minutes away in Dagenham, offers NHS-approved laser hair removal using the Quanta Thunder.",
+    locality: "We welcome clients from across Ilford, Redbridge, Gants Hill, Seven Kings, Goodmayes and Barkingside. Easy access by car with free parking nearby.",
+    faqLocation: { question: "Where are you located from Ilford?", answer: "We're in Dagenham (RM8 2UJ), a short drive from Ilford, with free parking nearby." },
+  },
+  dagenham: {
+    label: "Dagenham",
+    path: "/laser-hair-removal-dagenham",
+    areaServed: ["Dagenham", "Barking", "Romford", "Becontree", "Chadwell Heath", "East London"],
+    whatIsTitle: "Dagenham's Trusted Laser Clinic",
+    intro: "Looking for laser hair removal in Dagenham? Laser Light Skin Clinic on Becontree Avenue offers NHS-approved laser hair removal using the Quanta Thunder.",
+    locality: "We welcome clients from across Dagenham, Barking, Romford, Becontree and Chadwell Heath. Free parking available nearby.",
+    faqLocation: { question: "Where are you located in Dagenham?", answer: "We're at 125 Becontree Avenue, Dagenham RM8 2UJ, with free parking nearby." },
+  },
+} as const;
+
 const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
-  const isIlford = variant === "ilford";
-  const locationLabel = isIlford ? "Ilford" : "London";
-  const canonical = isIlford
-    ? "https://laserlightskinclinic.co.uk/laser-hair-removal-ilford"
-    : "https://laserlightskinclinic.co.uk/laser-hair-removal";
+  const isLocation = variant === "ilford" || variant === "dagenham";
+  const loc = isLocation ? LOCATION_COPY[variant as "ilford" | "dagenham"] : null;
+  const canonical = `https://laserlightskinclinic.co.uk${loc ? loc.path : "/laser-hair-removal"}`;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": `Laser Hair Removal ${locationLabel}`,
+    "name": loc ? `Laser Hair Removal ${loc.label}` : "Laser Hair Removal",
     "provider": {
       "@type": "MedicalBusiness",
       "name": "Laser Light Skin Clinic",
@@ -44,10 +63,8 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
       },
       "telephone": "+442085981200"
     },
-    "description": `NHS-approved laser hair removal${isIlford ? " serving Ilford and surrounding areas" : ""} using the Quanta Thunder. Safe for all skin types including darker tones.`,
-    "areaServed": isIlford
-      ? ["Ilford", "Redbridge", "Gants Hill", "Seven Kings", "Goodmayes", "Barkingside", "East London"]
-      : ["London", "East London", "Dagenham", "Barking", "Romford", "Ilford", "Stratford"],
+    "description": `NHS-approved laser hair removal${loc ? ` serving ${loc.label} and surrounding areas` : ""} using the Quanta Thunder. Safe for all skin types including darker tones.`,
+    "areaServed": loc ? loc.areaServed : ["London", "East London", "Dagenham", "Barking", "Romford", "Ilford", "Stratford"],
     "offers": {
       "@type": "Offer",
       "price": "25",
@@ -63,10 +80,10 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
     { value: "NHS-Approved", label: "Medical-Grade", icon: Award },
   ];
 
-  const whatIsContent = isIlford
+  const whatIsContent = loc
     ? [
-        "Looking for laser hair removal in Ilford? Laser Light Skin Clinic, just minutes away in Dagenham, offers NHS-approved laser hair removal using the Quanta Thunder.",
-        "We welcome clients from across Ilford, Redbridge, Gants Hill, Seven Kings, Goodmayes and Barkingside. Easy access by car with free parking nearby.",
+        loc.intro,
+        loc.locality,
         "Unlike high street IPL, we use genuine medical-grade Alexandrite laser. Fewer sessions, permanent results, and safe for all skin tones."
       ]
     : [
@@ -130,7 +147,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
     { question: "Is it safe for darker skin?", answer: "Yes. The Quanta Thunder is clinically proven safe for Fitzpatrick IV-VI." },
     { question: "How many sessions will I need?", answer: "Most clients need 6-8 sessions spaced 4-6 weeks apart for optimal results." },
     { question: "Do you offer payment plans?", answer: "Yes. Interest-free payment plans from 3 to 12 months are available." },
-    ...(isIlford ? [{ question: "Where are you located from Ilford?", answer: "We're in Dagenham (RM8 2UJ), a short drive from Ilford, with free parking nearby." }] : []),
+    ...(loc ? [loc.faqLocation] : []),
   ];
 
   const testimonials = [
@@ -147,9 +164,9 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title={isIlford ? "Laser Hair Removal Ilford | NHS Approved | Laser Light" : "Laser Hair Removal | NHS Approved | Laser Light Skin Clinic"}
-        description={isIlford
-          ? "Laser hair removal serving Ilford & Redbridge. Quanta Thunder, safe for all skin types. Interest-free plans 3 to 12 months."
+        title={loc ? `Laser Hair Removal ${loc.label} | NHS Approved | Laser Light` : "Laser Hair Removal | NHS Approved | Laser Light Skin Clinic"}
+        description={loc
+          ? `Laser hair removal serving ${loc.label} & surrounding areas. Quanta Thunder, safe for all skin types. Interest-free plans 3 to 12 months.`
           : "NHS-approved laser hair removal using the Quanta Thunder. Safe for all skin types. Interest-free plans 3 to 12 months."}
         canonicalUrl={canonical}
         structuredData={[structuredData]}
@@ -160,8 +177,8 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
       <main className="flex-1 pb-20 lg:pb-0">
         <ServiceHero
           trustBadge="NHS-Approved Clinic"
-          title={isIlford ? "Laser Hair Removal Ilford" : "Laser Hair Removal"}
-          titleAccent={isIlford ? "Ilford" : undefined}
+          title={loc ? `Laser Hair Removal ${loc.label}` : "Laser Hair Removal"}
+          titleAccent={loc ? loc.label : undefined}
           subtitle="Permanently smooth skin with the Quanta Thunder"
           description="Safe for all skin types including darker tones."
           primaryCtaText="Book Consultation"
@@ -169,14 +186,14 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           heroImage={laserDevice}
           breadcrumbs={[
             { label: "Services", href: "/prices" },
-            { label: isIlford ? "Laser Hair Removal Ilford" : "Laser Hair Removal" }
+            { label: loc ? `Laser Hair Removal ${loc.label}` : "Laser Hair Removal" }
           ]}
         />
 
         <QuickStatsBar stats={quickStats} />
 
         <WhatIsSection
-          title={isIlford ? "Ilford's Trusted Laser Clinic" : "Medical-Grade Laser Hair Removal"}
+          title={loc ? loc.whatIsTitle : "Medical-Grade Laser Hair Removal"}
           content={whatIsContent}
           collapsible
         />

@@ -28,7 +28,7 @@ const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 
 // Service pages - lazy loaded for mobile performance
-const LaserHairRemoval = lazy(() => import("@/pages/services/LaserHairRemoval"));
+
 const Hydrafacials = lazy(() => import("@/pages/services/Hydrafacials"));
 const TattooRemoval = lazy(() => import("@/pages/services/TattooRemoval"));
 const SkinRejuvenation = lazy(() => import("@/pages/services/SkinRejuvenation"));
@@ -84,7 +84,7 @@ export const AnimatedRoutes = () => {
         <Route path="/blog/:slug" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><BlogPost /></PageTransition></Suspense>} />
         
         {/* Service pages - with suspense for mobile performance */}
-        <Route path="/laser-hair-removal-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemoval /></PageTransition></Suspense>} />
+        <Route path="/laser-hair-removal-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalGeneric variant="dagenham" /></PageTransition></Suspense>} />
         <Route path="/hydrafacial-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><Hydrafacials /></PageTransition></Suspense>} />
         <Route path="/tattoo-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><TattooRemoval /></PageTransition></Suspense>} />
         <Route path="/skin-rejuvenation-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><SkinRejuvenation /></PageTransition></Suspense>} />
