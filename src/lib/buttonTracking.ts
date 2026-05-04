@@ -47,6 +47,35 @@ async function logEvent(payload: {
   }
 }
 
+function fireBookNowConversion(el: HTMLElement, href: string | null): boolean {
+  const gtag = (window as any).gtag;
+  const reportFn = (window as any).gtag_report_conversion;
+  const tag = el.tagName.toLowerCase();
+  const isAnchor = tag === "a";
+  const anchor = isAnchor ? (el as HTMLAnchorElement) : null;
+  const opensNewTab = !!anchor && anchor.target === "_blank";
+
+  // New tab or non-navigating: fire event, don't defer
+  if (!isAnchor || !href || opensNewTab || href.startsWith("#")) {
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", {
+        send_to: "AW-18104090476/5k9kCIX1vaccEOz-2bhD",
+        value: 1.0,
+        currency: "GBP",
+        transaction_id: "",
+      });
+    }
+    return false;
+  }
+
+  // Same-tab navigation: defer redirect until conversion is recorded
+  if (typeof reportFn === "function") {
+    reportFn(href);
+    return true;
+  }
+  return false;
+}
+
 export function initButtonTracking() {
   if (typeof window === "undefined") return;
   if ((window as any).__llButtonTrackingInit) return;
@@ -58,13 +87,11 @@ export function initButtonTracking() {
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
-      // Find nearest button or anchor
       const el = target.closest(
         'button, a, [role="button"], [data-cta]'
       ) as HTMLElement | null;
       if (!el) return;
 
-      // Ignore disabled
       if (el.getAttribute("aria-disabled") === "true") return;
       if ((el as HTMLButtonElement).disabled) return;
 
@@ -80,7 +107,13 @@ export function initButtonTracking() {
         element_type: tag,
         href,
       });
+
+      // Google Ads "BookNow" conversion
+      if (ctaKey === "book_now") {
+        const deferred = fireBookNowConversion(el, href);
+        if (deferred) e.preventDefault();
+      }
     },
-    { capture: true, passive: true }
+    { capture: true, passive: false }
   );
 }

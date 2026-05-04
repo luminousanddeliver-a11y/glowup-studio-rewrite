@@ -72,6 +72,28 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-18104090476');
+
+      // Google Ads conversion: BookNow
+      function gtag_report_conversion(url) {
+        var redirected = false;
+        var doRedirect = function () {
+          if (redirected) return;
+          redirected = true;
+          if (typeof(url) !== 'undefined' && url) {
+            window.location = url;
+          }
+        };
+        // Fallback so the user is never stuck if gtag is blocked/slow
+        setTimeout(doRedirect, 1500);
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18104090476/5k9kCIX1vaccEOz-2bhD',
+          'value': 1.0,
+          'currency': 'GBP',
+          'transaction_id': '',
+          'event_callback': doRedirect
+        });
+        return false;
+      }
     </script>
 
     <meta property="og:title" content="Laser Hair Removal &amp; Skin Clinic Dagenham | Laser Light Skin Clinic">
