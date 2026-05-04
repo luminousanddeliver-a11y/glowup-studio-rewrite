@@ -1,0 +1,1 @@
+ALTER TABLE public.product_reviews DROP COLUMN IF EXISTS reviewer_email;
