@@ -310,7 +310,7 @@ const LaserHairRemovalEastLondon = () => {
             highlight: "CONSULTATION & PATCH TEST",
             text: "Book Your Appointment Today"
           }}
-          paymentOptions="Interest-free payment plans available. Spread the cost over 6-12 months."
+          paymentOptions="Plans available via our finance partner. Subject to status."
         />
         
         <ServiceTestimonial testimonials={testimonials} />
