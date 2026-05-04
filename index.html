@@ -73,8 +73,28 @@
       gtag('js', new Date());
       gtag('config', 'AW-18104090476');
 
+      // Per-service starting prices (GBP) for conversion value
+      window.LL_SERVICE_VALUES = {
+        'laser-hair-removal': 80, 'laser-hair-removal-east-london': 80, 'laser-hair-removal-dagenham': 80,
+        'lynton-motus-ay-laser': 80, 'million-dollar-facial': 350, 'skinpen-microneedling': 200,
+        'advanced-peels': 150, 'chemical-peels': 80, 'skin-rejuvenation': 100, 'laser-resurfacing': 150,
+        'pigmentation-treatment': 100, 'tattoo-removal': 50, 'vein-removal': 80, 'skin-tag-mole-removal': 60,
+        'advanced-electrolysis': 50, 'electrolysis': 30, 'intimate-v-whitening': 150, 'intimate-whitening': 150,
+        'cold-plasma': 120, 'led-light-therapy': 45, 'hydrafacials': 85, 'facials': 45,
+        'injectables': 150, 'iv-drips': 100, 'massage': 40, 'hopi-ear-candling': 45,
+        'skin-analysis': 30, 'piercing': 25
+      };
+      function ll_get_conversion_value() {
+        var clean = (window.location.pathname || '/').replace(/^\/+|\/+$/g, '');
+        if (!clean) return 1.0;
+        var map = window.LL_SERVICE_VALUES || {};
+        if (map[clean] !== undefined) return map[clean];
+        var last = clean.split('/').pop();
+        if (last && map[last] !== undefined) return map[last];
+        return 1.0;
+      }
       // Google Ads conversion: BookNow
-      function gtag_report_conversion(url) {
+      function gtag_report_conversion(url, valueOverride) {
         var redirected = false;
         var doRedirect = function () {
           if (redirected) return;
@@ -86,9 +106,10 @@
         setTimeout(doRedirect, 1500);
         var pageSlug = (window.location.pathname || '/').replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9_-]+/g, '_') || 'home';
         var txnId = pageSlug + '_' + Date.now();
+        var value = (typeof valueOverride === 'number') ? valueOverride : ll_get_conversion_value();
         gtag('event', 'conversion', {
           'send_to': 'AW-18104090476/5k9kCIX1vaccEOz-2bhD',
-          'value': 1.0,
+          'value': value,
           'currency': 'GBP',
           'transaction_id': txnId,
           'event_callback': doRedirect
