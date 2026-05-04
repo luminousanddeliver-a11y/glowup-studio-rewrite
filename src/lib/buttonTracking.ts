@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { getConversionValueForPath } from "@/lib/conversionValues";
 
 const SESSION_KEY = "ll_track_session";
 
@@ -55,6 +56,8 @@ function fireBookNowConversion(el: HTMLElement, href: string | null): boolean {
   const anchor = isAnchor ? (el as HTMLAnchorElement) : null;
   const opensNewTab = !!anchor && anchor.target === "_blank";
 
+  const value = getConversionValueForPath(window.location.pathname);
+
   // New tab or non-navigating: fire event, don't defer
   if (!isAnchor || !href || opensNewTab || href.startsWith("#")) {
     if (typeof gtag === "function") {
@@ -62,7 +65,7 @@ function fireBookNowConversion(el: HTMLElement, href: string | null): boolean {
       const txnId = `${pageSlug}_${Date.now()}`;
       gtag("event", "conversion", {
         send_to: "AW-18104090476/5k9kCIX1vaccEOz-2bhD",
-        value: 1.0,
+        value,
         currency: "GBP",
         transaction_id: txnId,
       });
@@ -72,7 +75,7 @@ function fireBookNowConversion(el: HTMLElement, href: string | null): boolean {
 
   // Same-tab navigation: defer redirect until conversion is recorded
   if (typeof reportFn === "function") {
-    reportFn(href);
+    reportFn(href, value);
     return true;
   }
   return false;

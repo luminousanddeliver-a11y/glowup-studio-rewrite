@@ -65,7 +65,7 @@ export const TabbedPricingTable = ({
             transition={{ duration: 0.4 }}
             className="max-w-4xl mx-auto mb-8"
           >
-            <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer" data-cta="book_now">
               <motion.div
                 animate={{ scale: [1, 1.01, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
