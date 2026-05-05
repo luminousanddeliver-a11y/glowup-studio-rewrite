@@ -184,13 +184,12 @@ const TattooRemoval = () => {
   ];
 
   const prices = [
-    { area: "Extra Small (up to 2cm²)", singleSession: "£50", course: "£200 (5 sessions)" },
-    { area: "Small (2-5cm²)", singleSession: "£80", course: "£320 (5 sessions)" },
-    { area: "Medium (5-10cm²)", singleSession: "£120", course: "£480 (5 sessions)" },
-    { area: "Large (10-20cm²)", singleSession: "£180", course: "£720 (5 sessions)" },
-    { area: "Extra Large (20-40cm²)", singleSession: "£250", course: "£1000 (5 sessions)" },
-    { area: "Full Sleeve", singleSession: "£400", course: "£1600 (5 sessions)" },
-    { area: "Cover-Up Fading", singleSession: "£60", course: "£180 (4 sessions)", note: "2-4 sessions for cover-up prep" }
+    { area: "Extra Small (up to 2cm²)", singleSession: "£60", course: "£270 (6 sessions)", note: "Save £90" },
+    { area: "Small (2-5cm²)", singleSession: "£80", course: "£360 (6 sessions)", note: "Save £120" },
+    { area: "Medium (5-10cm²)", singleSession: "£120", course: "£540 (6 sessions)", note: "Save £180" },
+    { area: "Large (10-20cm²)", singleSession: "£180", course: "£810 (6 sessions)", note: "Save £270" },
+    { area: "Extra Large (20-30cm²)", singleSession: "£250", course: "£1,125 (6 sessions)", note: "Save £375" },
+    { area: "Full Sleeve", singleSession: "POA", course: "—", note: "Consultation required" }
   ];
 
   const idealCandidates = [

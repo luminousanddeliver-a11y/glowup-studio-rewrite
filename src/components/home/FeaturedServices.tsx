@@ -16,7 +16,7 @@ const services = [
     image: laserDevice,
     title: "Laser Hair Removal",
     description: "Permanent hair reduction using NHS-approved Quanta Thunder. Safe for all skin types.",
-    price: "From £80",
+    price: "From £40",
     href: "/laser-hair-removal-dagenham",
     badge: "Most Popular",
     trustSignal: "NHS Approved"
@@ -25,7 +25,7 @@ const services = [
     image: hydrafacialDevice,
     title: "Hydrafacials",
     description: "Deep cleanse, exfoliate, and hydrate with medical-grade Hydrafacial technology.",
-    price: "From £90",
+    price: "From £80",
     href: "/hydrafacial-east-london",
     trustSignal: "Visible Results in 1 Session"
   },
@@ -41,7 +41,7 @@ const services = [
     image: tattooRemovalDevice,
     title: "Tattoo Removal",
     description: "East London's ONLY Quanta Thunder laser for complete tattoo removal.",
-    price: "From £50",
+    price: "From £60",
     href: "/tattoo-removal-east-london",
     badge: "Exclusive",
     trustSignal: "Only in East London"

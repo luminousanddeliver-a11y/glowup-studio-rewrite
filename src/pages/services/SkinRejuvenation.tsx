@@ -170,11 +170,13 @@ const SkinRejuvenation = () => {
   ];
 
   const prices = [
-    { area: "Laser Skin Rejuvenation (Full Face)", singleSession: "£150", course: "£675 (6 sessions)" },
-    { area: "Laser Skin Rejuvenation (Face & Neck)", singleSession: "£200", course: "£900 (6 sessions)" },
-    { area: "IPL Pigmentation Treatment", singleSession: "£120", course: "£540 (6 sessions)" },
-    { area: "LED Light Therapy", singleSession: "£50", course: "£225 (6 sessions)" },
-    { area: "Combination Package", singleSession: "£250", course: "£1125 (6 sessions)", note: "Laser + Peel + LED" }
+    { area: "IPL Skin Rejuvenation - Half Face", singleSession: "£135", course: "£546 (6 sessions)", note: "30% off" },
+    { area: "IPL Skin Rejuvenation - Full Face", singleSession: "£175", course: "£714 (6 sessions)", note: "32% off" },
+    { area: "IPL Skin Rejuvenation - Full Face & Neck", singleSession: "£200", course: "£810 (6 sessions)" },
+    { area: "IPL Skin Rejuvenation - Full Face, Neck & Chest", singleSession: "£250", course: "£1,020 (6 sessions)" },
+    { area: "IPL Skin Rejuvenation - Hands", singleSession: "£100", course: "£405 (6 sessions)" },
+    { area: "Laser Skin Rejuvenation (Face)", singleSession: "£150", course: "£400 (3 sessions)" },
+    { area: "LED Light Therapy (Standalone)", singleSession: "£60", course: "£160 (3 sessions)" },
   ];
 
   const idealCandidates = [

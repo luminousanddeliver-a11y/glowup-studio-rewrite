@@ -111,29 +111,22 @@ const Facials = () => {
 
   const pricingTabs = [
     {
-      label: "Signature Facials",
+      label: "Signature",
       prices: [
-        { area: "Express Glow (30 min)", singleSession: "£45", course: "£240 (6)", savings: "Save £30" },
-        { area: "Classic Deep Cleanse (60 min)", singleSession: "£75", course: "£400 (6)", savings: "Save £50" },
-        { area: "Luxury Anti-Aging (75 min)", singleSession: "£95", course: "£510 (6)", savings: "Save £60" },
-        { area: "Million Dollar Facial (90 min)", singleSession: "£150", course: "£800 (6)", savings: "Save £100" },
+        { area: "Express Glow Facial (30 mins)", singleSession: "£55", course: "£150 (3)", savings: "Save £15" },
+        { area: "Deep Cleansing Facial (60 mins)", singleSession: "£75", course: "£200 (3)", savings: "Save £25" },
+        { area: "Anti-Ageing Facial (75 mins)", singleSession: "£95", course: "£255 (3)", savings: "Save £30" },
+        { area: "Million Dollar Facial", singleSession: "£180", course: "£480 (3)", savings: "Save £60" },
       ]
     },
     {
-      label: "Targeted Facials",
+      label: "Targeted",
       prices: [
-        { area: "Acne Clarifying (60 min)", singleSession: "£80", course: "£430 (6)", savings: "Save £50" },
-        { area: "Brightening (60 min)", singleSession: "£85", course: "£460 (6)", savings: "Save £50" },
-        { area: "Sensitive Skin Calm (60 min)", singleSession: "£80", course: "£430 (6)", savings: "Save £50" },
-        { area: "Hydration Boost (60 min)", singleSession: "£75", course: "£400 (6)", savings: "Save £50" },
-      ]
-    },
-    {
-      label: "Men's Facials",
-      prices: [
-        { area: "Gentleman's Express (30 min)", singleSession: "£50", course: "£270 (6)", savings: "Save £30" },
-        { area: "Gentleman's Deep Cleanse (60 min)", singleSession: "£80", course: "£430 (6)", savings: "Save £50" },
-        { area: "Executive Rejuvenation (75 min)", singleSession: "£100", course: "£540 (6)", savings: "Save £60" },
+        { area: "Oxygen Facial", singleSession: "£85", course: "£230 (3)", savings: "Save £25" },
+        { area: "Dermaplaning Facial", singleSession: "£65", course: "£175 (3)", savings: "Save £20" },
+        { area: "HydraFacial Mini (30 mins)", singleSession: "£80", course: "£215 (3)", savings: "Save £25" },
+        { area: "HydraFacial Signature (45 mins)", singleSession: "£120", course: "£320 (3)", savings: "Save £40" },
+        { area: "HydraFacial Deluxe (60 mins)", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
       ]
     }
   ];

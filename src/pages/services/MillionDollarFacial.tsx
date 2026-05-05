@@ -142,10 +142,10 @@ const MillionDollarFacial = () => {
   ];
 
   const prices = [
-    { area: "Million Dollar Facial (90 mins)", singleSession: "£350", course: "£945 (3 sessions)" },
-    { area: "Million Dollar Facial + Neck", singleSession: "£420", course: "£1,134 (3 sessions)" },
-    { area: "Million Dollar Express (60 mins)", singleSession: "£250", course: "£675 (3 sessions)", note: "Perfect for maintenance" },
-    { area: "Bridal Package (3 facials)", singleSession: "—", course: "£900", note: "Includes wedding day glow treatment" }
+    { area: "Million Dollar Facial (90 mins)", singleSession: "£180", course: "£480 (3 sessions)", note: "Save £60 on course" },
+    { area: "Express Glow Facial (30 mins)", singleSession: "£55", course: "£150 (3 sessions)", note: "Quick refresh" },
+    { area: "Deep Cleansing Facial (60 mins)", singleSession: "£75", course: "£200 (3 sessions)" },
+    { area: "Anti-Ageing Facial (75 mins)", singleSession: "£95", course: "£255 (3 sessions)" },
   ];
 
   const idealCandidates = [

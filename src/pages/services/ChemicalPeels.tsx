@@ -165,12 +165,12 @@ const ChemicalPeels = () => {
   ];
 
   const prices = [
-    { area: "Light Peel (Glow Peel)", singleSession: "£80", course: "£360 (6 sessions)", note: "Lunchtime glow, no downtime" },
-    { area: "Medium Peel (Radiant Peel)", singleSession: "£120", course: "£540 (6 sessions)", note: "3-5 days flaking" },
-    { area: "Acne Peel (Salicylic)", singleSession: "£100", course: "£450 (6 sessions)", note: "Targets active acne" },
-    { area: "Pigmentation Peel", singleSession: "£150", course: "£675 (6 sessions)", note: "Targets dark spots & melasma" },
-    { area: "Peel + LED Therapy", singleSession: "£130", course: "£585 (6 sessions)", note: "Enhanced healing" },
-    { area: "Peel + Hydrafacial Combo", singleSession: "£180", course: "£810 (6 sessions)", note: "Ultimate skin refresh" }
+    { area: "Chemical Peel - Light (Glycolic)", singleSession: "£80", course: "£215 (3 sessions)", note: "Lunchtime glow, no downtime" },
+    { area: "Chemical Peel - Medium (TCA)", singleSession: "£120", course: "£320 (3 sessions)", note: "3-5 days flaking" },
+    { area: "Chemical Peel - Deep (Jessner)", singleSession: "£150", course: "£400 (3 sessions)", note: "Deeper renewal" },
+    { area: "Cosmelan Depigmentation Peel", singleSession: "£1,200", course: "—", note: "Includes home kit" },
+    { area: "Dermamelan Peel", singleSession: "£750", course: "—", note: "Professional-strength" },
+    { area: "LED Light Therapy (Add-on)", singleSession: "£40", course: "£100 (3 sessions)", note: "Enhanced healing" }
   ];
 
   const idealCandidates = [

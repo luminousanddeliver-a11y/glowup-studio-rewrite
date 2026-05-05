@@ -121,22 +121,21 @@ const AdvancedElectrolysis = () => {
 
   const pricingTabs = [
     {
-      label: "By Time",
+      label: "By Session",
       prices: [
-        { area: "15 Minutes", singleSession: "£50", course: "N/A", savings: "Treats 3-5 small blemishes" },
-        { area: "30 Minutes", singleSession: "£80", course: "N/A", savings: "Treats 6-10 blemishes" },
-        { area: "45 Minutes", singleSession: "£110", course: "N/A", savings: "Treats 11-15 blemishes" },
-        { area: "60 Minutes", singleSession: "£140", course: "N/A", savings: "Multiple/larger areas" },
+        { area: "Advanced Electrolysis (15 mins)", singleSession: "£40", course: "£180 (6)", savings: "Save £60" },
+        { area: "Advanced Electrolysis (30 mins)", singleSession: "£55", course: "£250 (6)", savings: "Save £80" },
       ]
     },
     {
-      label: "By Blemish",
+      label: "By Lesion",
       prices: [
-        { area: "Milia (per lesion)", singleSession: "£15", course: "£60 (5+)", savings: "Save £15" },
-        { area: "Small Skin Tag", singleSession: "£30", course: "N/A", savings: "" },
-        { area: "Medium Skin Tag", singleSession: "£50", course: "N/A", savings: "" },
-        { area: "Blood Spot (small)", singleSession: "£25", course: "N/A", savings: "" },
-        { area: "Blood Spot (large)", singleSession: "£40", course: "N/A", savings: "" },
+        { area: "Skin Tag (1 tag)", singleSession: "£50", course: "N/A", savings: "" },
+        { area: "Skin Tags (2-5)", singleSession: "£80", course: "N/A", savings: "" },
+        { area: "Skin Tags (6-10)", singleSession: "£120", course: "N/A", savings: "" },
+        { area: "Milia (per milia)", singleSession: "£30", course: "N/A", savings: "" },
+        { area: "Milia Extraction (up to 4)", singleSession: "£50", course: "N/A", savings: "" },
+        { area: "Milia Extraction (5-10)", singleSession: "£80", course: "N/A", savings: "" },
       ]
     }
   ];

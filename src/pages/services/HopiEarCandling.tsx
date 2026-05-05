@@ -120,8 +120,8 @@ const HopiEarCandling = () => {
   ];
 
   const pricingData = [
-    { area: "Hopi Ear Candling (Both Ears)", singleSession: "£45", course: "£240 (6)", savings: "Save £30" },
-    { area: "With Extended Facial Massage", singleSession: "£60", course: "£320 (6)", savings: "Save £40" },
+    { area: "Hopi Ear Candling (Both Ears)", singleSession: "£35", course: "£90 (3 sessions)", savings: "Save £15" },
+    { area: "With Extended Facial Massage", singleSession: "£60", course: "£160 (3 sessions)", savings: "Save £20" },
     { area: "Add Scalp Massage", singleSession: "+£15", course: "N/A", savings: "" },
   ];
 

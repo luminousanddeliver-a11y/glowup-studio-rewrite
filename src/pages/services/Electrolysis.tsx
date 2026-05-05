@@ -154,11 +154,11 @@ const Electrolysis = () => {
   ];
 
   const prices = [
-    { area: "15 Minutes", singleSession: "£30", course: "£135 (6 sessions)" },
-    { area: "30 Minutes", singleSession: "£50", course: "£225 (6 sessions)" },
-    { area: "45 Minutes", singleSession: "£70", course: "£315 (6 sessions)" },
-    { area: "60 Minutes", singleSession: "£90", course: "£405 (6 sessions)" },
-    { area: "Consultation", singleSession: "Free", course: "-", note: "Includes treatment plan" }
+    { area: "Electrolysis (15 mins)", singleSession: "£25", course: "£120 (6 sessions)", note: "Save £30" },
+    { area: "Electrolysis (30 mins)", singleSession: "£40", course: "£180 (6 sessions)", note: "Save £60" },
+    { area: "Electrolysis (45 mins)", singleSession: "£55", course: "£250 (6 sessions)", note: "Save £80" },
+    { area: "Advanced Electrolysis (15 mins)", singleSession: "£40", course: "£180 (6 sessions)", note: "For skin lesions" },
+    { area: "Advanced Electrolysis (30 mins)", singleSession: "£55", course: "£250 (6 sessions)" }
   ];
 
   const idealCandidates = [

@@ -121,27 +121,28 @@ const VeinRemoval = () => {
 
   const pricingTabs = [
     {
-      label: "Facial Veins",
+      label: "Facial / Body Veins",
       prices: [
-        { area: "Small Area (nose tip)", singleSession: "£80", course: "£200 (3)", savings: "Save £40" },
-        { area: "Medium Area (nose/cheeks)", singleSession: "£120", course: "£300 (3)", savings: "Save £60" },
-        { area: "Large Area (full face)", singleSession: "£180", course: "£450 (3)", savings: "Save £90" },
+        { area: "Vein Removal (Small Area)", singleSession: "£80", course: "£215 (6)", savings: "Save £25" },
+        { area: "Vein Removal (Medium Area)", singleSession: "£120", course: "£320 (6)", savings: "Save £40" },
+        { area: "Vein Removal (Large Area)", singleSession: "£180", course: "£480 (6)", savings: "Save £60" },
+        { area: "Rosacea Treatment (Full Face)", singleSession: "£175", course: "£470 (6)", savings: "Save £55" },
       ]
     },
     {
-      label: "Leg Veins",
+      label: "Leg Thread Veins",
       prices: [
-        { area: "Small Cluster", singleSession: "£100", course: "£250 (3)", savings: "Save £50" },
-        { area: "Half Lower Leg", singleSession: "£200", course: "£500 (3)", savings: "Save £100" },
-        { area: "Full Lower Leg", singleSession: "£350", course: "£875 (3)", savings: "Save £175" },
+        { area: "Thread Vein Removal (Small)", singleSession: "£100", course: "£270 (6)", savings: "Save £30" },
+        { area: "Thread Vein Removal (Medium)", singleSession: "£150", course: "£400 (6)", savings: "Save £50" },
+        { area: "Thread Vein Removal (Large)", singleSession: "£200", course: "£540 (6)", savings: "Save £60" },
       ]
     },
     {
-      label: "Body",
+      label: "Vascular Lesions",
       prices: [
-        { area: "Small Area", singleSession: "£100", course: "£250 (3)", savings: "Save £50" },
-        { area: "Medium Area", singleSession: "£150", course: "£375 (3)", savings: "Save £75" },
-        { area: "Large Area", singleSession: "£250", course: "£625 (3)", savings: "Save £125" },
+        { area: "Vascular Lesions - 20 mins (Small Area)", singleSession: "£220", course: "N/A", savings: "" },
+        { area: "Vascular Lesions - 30 mins (Medium Area)", singleSession: "£450", course: "N/A", savings: "" },
+        { area: "Benign Pigmented Lesions (Full Face)", singleSession: "£220", course: "£450 (3)", savings: "10% off" },
       ]
     }
   ];
