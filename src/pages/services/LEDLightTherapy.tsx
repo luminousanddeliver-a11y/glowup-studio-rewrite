@@ -121,20 +121,15 @@ const LEDLightTherapy = () => {
 
   const pricingTabs = [
     {
-      label: "Single Sessions",
+      label: "Standalone",
       prices: [
-        { area: "LED Therapy (20 min)", singleSession: "£50", course: "N/A", savings: "" },
-        { area: "LED Therapy (30 min)", singleSession: "£65", course: "N/A", savings: "" },
-        { area: "LED Add-On to Facial", singleSession: "£25", course: "N/A", savings: "" },
+        { area: "LED Light Therapy (Standalone)", singleSession: "£60", course: "£160 (3)", savings: "Save £20" },
       ]
     },
     {
-      label: "Courses",
+      label: "Add-On",
       prices: [
-        { area: "6 Sessions (20 min)", singleSession: "£50/each", course: "£240", savings: "Save £60" },
-        { area: "10 Sessions (20 min)", singleSession: "£50/each", course: "£350", savings: "Save £150" },
-        { area: "6 Sessions (30 min)", singleSession: "£65/each", course: "£300", savings: "Save £90" },
-        { area: "10 Sessions (30 min)", singleSession: "£65/each", course: "£450", savings: "Save £200" },
+        { area: "LED Light Therapy (Add-on to Facial/Peel)", singleSession: "£40", course: "£100 (3)", savings: "Save £20" },
       ]
     }
   ];

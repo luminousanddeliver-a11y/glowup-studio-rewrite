@@ -149,29 +149,16 @@ const LaserResurfacing = () => {
     {
       label: "Face",
       prices: [
-        { area: "Full Face", singleSession: "£350", course: "£950 (3)", savings: "Save £100" },
-        { area: "Forehead", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
-        { area: "Cheeks", singleSession: "£200", course: "£540 (3)", savings: "Save £60" },
-        { area: "Around Eyes", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
-        { area: "Around Mouth", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
+        { area: "Laser Resurfacing (Face)", singleSession: "£250", course: "£675 (3)", savings: "Save £75" },
+        { area: "Laser Resurfacing (Full Face)", singleSession: "£350", course: "£945 (3)", savings: "Save £105" },
       ]
     },
     {
-      label: "Scars",
+      label: "Microneedling Alternative",
       prices: [
-        { area: "Acne Scars (Full Face)", singleSession: "£400", course: "£1,080 (3)", savings: "Save £120" },
-        { area: "Acne Scars (Cheeks Only)", singleSession: "£250", course: "£675 (3)", savings: "Save £75" },
-        { area: "Surgical Scar (Small)", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
-        { area: "Surgical Scar (Large)", singleSession: "£250", course: "£675 (3)", savings: "Save £75" },
-      ]
-    },
-    {
-      label: "Body",
-      prices: [
-        { area: "Neck", singleSession: "£250", course: "£675 (3)", savings: "Save £75" },
-        { area: "Décolletage", singleSession: "£300", course: "£810 (3)", savings: "Save £90" },
-        { area: "Hands", singleSession: "£200", course: "£540 (3)", savings: "Save £60" },
-        { area: "Stretch Marks (Per Area)", singleSession: "£200", course: "£540 (3)", savings: "Save £60" },
+        { area: "SkinPen Microneedling (Acne Scars)", singleSession: "£250", course: "£675 (3)", savings: "Save £75" },
+        { area: "SkinPen Microneedling (Stretch Marks)", singleSession: "£200", course: "£540 (3)", savings: "Save £60" },
+        { area: "SkinPen Microneedling (Face & Neck)", singleSession: "£300", course: "£810 (3)", savings: "Save £90" },
       ]
     }
   ];

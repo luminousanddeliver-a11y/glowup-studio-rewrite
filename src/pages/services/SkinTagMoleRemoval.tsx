@@ -190,28 +190,28 @@ const SkinTagMoleRemoval = () => {
     {
       label: "Skin Tags",
       prices: [
-        { area: "1 Skin Tag", singleSession: "£50", course: "N/A", savings: "" },
-        { area: "2-5 Skin Tags", singleSession: "£80", course: "N/A", savings: "" },
-        { area: "6-10 Skin Tags", singleSession: "£120", course: "N/A", savings: "" },
-        { area: "10+ Skin Tags", singleSession: "From £150", course: "N/A", savings: "" },
+        { area: "Skin Tag Removal (1 tag)", singleSession: "£50", course: "N/A", savings: "" },
+        { area: "Skin Tag Removal (2-5 tags)", singleSession: "£80", course: "N/A", savings: "" },
+        { area: "Skin Tag Removal (6-10 tags)", singleSession: "£120", course: "N/A", savings: "" },
       ]
     },
     {
       label: "Moles",
       prices: [
-        { area: "Small Mole (up to 3mm)", singleSession: "£100", course: "N/A", savings: "" },
-        { area: "Medium Mole (3-5mm)", singleSession: "£150", course: "N/A", savings: "" },
-        { area: "Large Mole (5mm+)", singleSession: "From £200", course: "N/A", savings: "" },
+        { area: "Mole Removal (per mole)", singleSession: "£100", course: "N/A", savings: "" },
+        { area: "Mole Removal (2-3 moles)", singleSession: "£180", course: "N/A", savings: "" },
         { area: "Multiple Moles", singleSession: "Quote on assessment", course: "N/A", savings: "" },
       ]
     },
     {
       label: "Other Lesions",
       prices: [
-        { area: "Milia (per lesion)", singleSession: "£30", course: "£120 (5+)", savings: "Save £30" },
-        { area: "Wart (small)", singleSession: "£60", course: "N/A", savings: "" },
-        { area: "Wart (large)", singleSession: "£100", course: "N/A", savings: "" },
-        { area: "Seborrheic Keratosis", singleSession: "From £80", course: "N/A", savings: "" },
+        { area: "Wart Removal (per wart)", singleSession: "£75", course: "N/A", savings: "" },
+        { area: "Syringoma Removal (per session)", singleSession: "£150", course: "N/A", savings: "" },
+        { area: "Milia Removal (per milia)", singleSession: "£30", course: "N/A", savings: "" },
+        { area: "Milia Extraction (up to 4)", singleSession: "£50", course: "N/A", savings: "" },
+        { area: "Milia Extraction (5-10)", singleSession: "£80", course: "N/A", savings: "" },
+        { area: "Xanthelasma Removal", singleSession: "£200", course: "N/A", savings: "" },
       ]
     }
   ];

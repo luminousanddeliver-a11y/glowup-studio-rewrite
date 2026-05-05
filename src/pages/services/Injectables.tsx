@@ -146,35 +146,40 @@ const Injectables = () => {
     {
       label: "Botox",
       prices: [
-        { area: "1 Area (e.g., frown lines)", singleSession: "£150", course: "N/A", savings: "" },
-        { area: "2 Areas", singleSession: "£200", course: "N/A", savings: "" },
-        { area: "3 Areas", singleSession: "£250", course: "N/A", savings: "" },
-        { area: "Forehead Only", singleSession: "£100", course: "N/A", savings: "" },
+        { area: "Botox - 1 Area", singleSession: "£150", course: "N/A", savings: "" },
+        { area: "Botox - 2 Areas", singleSession: "£220", course: "N/A", savings: "" },
+        { area: "Botox - 3 Areas", singleSession: "£280", course: "N/A", savings: "" },
+        { area: "Botox - Bunny Lines / Gummy Smile", singleSession: "£100", course: "N/A", savings: "" },
+        { area: "Botox - Hyperhidrosis (Underarms)", singleSession: "£350", course: "N/A", savings: "" },
       ]
     },
     {
       label: "Fillers",
       prices: [
         { area: "Lip Filler (0.5ml)", singleSession: "£150", course: "N/A", savings: "" },
-        { area: "Lip Filler (1ml)", singleSession: "£250", course: "N/A", savings: "" },
-        { area: "Cheek Filler (1ml)", singleSession: "£300", course: "N/A", savings: "" },
-        { area: "Jawline (2ml)", singleSession: "£500", course: "N/A", savings: "" },
-        { area: "Nasolabial Folds (1ml)", singleSession: "£300", course: "N/A", savings: "" },
+        { area: "Lip Filler (1ml)", singleSession: "£220", course: "N/A", savings: "" },
+        { area: "Cheek Filler (1ml)", singleSession: "£280", course: "N/A", savings: "" },
+        { area: "Chin Filler (1ml)", singleSession: "£280", course: "N/A", savings: "" },
+        { area: "Jawline Filler (2ml)", singleSession: "£450", course: "N/A", savings: "" },
+        { area: "Nasolabial Folds (1ml)", singleSession: "£250", course: "N/A", savings: "" },
+        { area: "Tear Trough (Under Eyes)", singleSession: "£350", course: "N/A", savings: "" },
+        { area: "Non-Surgical Rhinoplasty", singleSession: "£350", course: "N/A", savings: "" },
       ]
     },
     {
       label: "Fat Dissolving",
       prices: [
-        { area: "Lemon Bottle - Chin", singleSession: "£100", course: "£450 (5)", savings: "Save £50" },
-        { area: "Lemon Bottle - Jowls", singleSession: "£100", course: "£450 (5)", savings: "Save £50" },
-        { area: "Lemon Bottle - Body Area", singleSession: "£150", course: "£675 (5)", savings: "Save £75" },
+        { area: "Lemon Bottle (per vial)", singleSession: "£120", course: "£320 (3)", savings: "Save £40" },
+        { area: "Lemon Bottle - Double Chin (2 vials)", singleSession: "£220", course: "£580 (3)", savings: "Save £80" },
       ]
     },
     {
-      label: "Lumi Eyes",
+      label: "Skin Boosters",
       prices: [
-        { area: "Under Eye Treatment", singleSession: "£200", course: "£550 (3)", savings: "Save £50" },
-        { area: "Full Eye Area", singleSession: "£250", course: "£675 (3)", savings: "Save £75" },
+        { area: "Lumi Eyes (Under Eye)", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
+        { area: "Profhilo (2 Sessions)", singleSession: "£500", course: "N/A", savings: "" },
+        { area: "Skin Boosters", singleSession: "£200", course: "£540 (3)", savings: "Save £60" },
+        { area: "PRP Vampire Facial", singleSession: "£300", course: "£810 (3)", savings: "Save £90" },
       ]
     }
   ];

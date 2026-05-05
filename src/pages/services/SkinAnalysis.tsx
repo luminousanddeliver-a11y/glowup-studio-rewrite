@@ -129,7 +129,7 @@ const SkinAnalysis = () => {
   ];
 
   const pricingData = [
-    { area: "Standalone Skin Analysis", singleSession: "£50", course: "N/A", savings: "" },
+    { area: "Skin Analysis Consultation", singleSession: "£30", course: "N/A", savings: "Redeemable against treatment" },
     { area: "Analysis + Facial", singleSession: "Complimentary", course: "N/A", savings: "" },
     { area: "Analysis + Any Treatment", singleSession: "Complimentary", course: "N/A", savings: "" },
     { area: "Follow-Up Analysis", singleSession: "£25", course: "N/A", savings: "" },

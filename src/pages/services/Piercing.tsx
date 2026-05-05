@@ -120,8 +120,8 @@ const Piercing = () => {
   ];
 
   const pricingData = [
-    { area: "Single Lobe Piercing", singleSession: "£15", course: "N/A", savings: "Includes earring" },
-    { area: "Both Lobes", singleSession: "£25", course: "N/A", savings: "Includes earrings" },
+    { area: "Ear Piercing (including studs)", singleSession: "£25", course: "N/A", savings: "Includes earrings" },
+    { area: "Nose Piercing", singleSession: "£30", course: "N/A", savings: "Includes stud" },
     { area: "Single Helix/Cartilage", singleSession: "£25", course: "N/A", savings: "Includes earring" },
     { area: "Upgrade to Gold Studs", singleSession: "+£10", course: "N/A", savings: "" },
     { area: "Aftercare Solution", singleSession: "£5", course: "N/A", savings: "Included with piercing" },

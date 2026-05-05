@@ -162,9 +162,8 @@ const AdvancedPeels = () => {
     {
       label: "Dermamelan",
       prices: [
-        { area: "Dermamelan Peel (In-Clinic)", singleSession: "£850", course: "—", note: "Professional-strength, includes home kit" },
+        { area: "Dermamelan Peel (In-Clinic)", singleSession: "£750", course: "—", note: "Professional-strength, includes home kit" },
         { area: "Dermamelan Home Maintenance", singleSession: "£200", course: "—", note: "3-month supply" },
-        { area: "Dermamelan Complete Protocol", singleSession: "£1,000", course: "—", note: "Treatment + 6-month maintenance" },
       ]
     }
   ];

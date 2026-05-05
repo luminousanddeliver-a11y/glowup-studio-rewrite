@@ -98,26 +98,21 @@ const Massage = () => {
     {
       label: "Swedish",
       prices: [
-        { area: "30 Minutes (Back, Neck, Shoulders)", singleSession: "£40", course: "£210 (6)", savings: "Save £30" },
-        { area: "45 Minutes (Extended)", singleSession: "£55", course: "£290 (6)", savings: "Save £40" },
-        { area: "60 Minutes (Full Body)", singleSession: "£70", course: "£370 (6)", savings: "Save £50" },
-        { area: "90 Minutes (Luxury Full Body)", singleSession: "£100", course: "£530 (6)", savings: "Save £70" },
+        { area: "Swedish Massage (30 mins)", singleSession: "£40", course: "£100 (3)", savings: "Save £20" },
+        { area: "Swedish Massage (60 mins)", singleSession: "£70", course: "£180 (3)", savings: "Save £30" },
       ]
     },
     {
       label: "Deep Tissue",
       prices: [
-        { area: "30 Minutes (Targeted Area)", singleSession: "£50", course: "£265 (6)", savings: "Save £35" },
-        { area: "45 Minutes (Extended)", singleSession: "£65", course: "£345 (6)", savings: "Save £45" },
-        { area: "60 Minutes (Full Body)", singleSession: "£85", course: "£450 (6)", savings: "Save £60" },
-        { area: "90 Minutes (Intensive)", singleSession: "£120", course: "£635 (6)", savings: "Save £85" },
+        { area: "Deep Tissue Massage (60 mins)", singleSession: "£80", course: "£215 (3)", savings: "Save £25" },
       ]
     },
     {
-      label: "Hot Stone",
+      label: "Hot Stone & Aromatherapy",
       prices: [
-        { area: "60 Minutes", singleSession: "£90", course: "£480 (6)", savings: "Save £60" },
-        { area: "90 Minutes (Full Experience)", singleSession: "£130", course: "£690 (6)", savings: "Save £90" },
+        { area: "Hot Stone Massage (60 mins)", singleSession: "£85", course: "£230 (3)", savings: "Save £25" },
+        { area: "Aromatherapy Massage (60 mins)", singleSession: "£75", course: "£200 (3)", savings: "Save £25" },
       ]
     },
     {

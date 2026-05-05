@@ -121,28 +121,32 @@ const PigmentationTreatment = () => {
 
   const pricingTabs = [
     {
-      label: "Laser/IPL",
+      label: "IPL Pigmentation",
       prices: [
-        { area: "Spot Treatment (1-5 spots)", singleSession: "£100", course: "£270 (3)", savings: "Save £30" },
-        { area: "Full Face", singleSession: "£200", course: "£540 (3)", savings: "Save £60" },
-        { area: "Hands", singleSession: "£150", course: "£400 (3)", savings: "Save £50" },
-        { area: "Décolletage", singleSession: "£180", course: "£480 (3)", savings: "Save £60" },
+        { area: "Single Lesion", singleSession: "£75", course: "N/A", savings: "" },
+        { area: "Cheeks", singleSession: "£100", course: "N/A", savings: "" },
+        { area: "Cheeks and Nose", singleSession: "£150", course: "N/A", savings: "" },
+        { area: "Half Face", singleSession: "£180", course: "N/A", savings: "" },
+        { area: "Full Face", singleSession: "£200", course: "N/A", savings: "" },
+        { area: "Full Face and Neck", singleSession: "£250", course: "N/A", savings: "" },
+        { area: "Full Face, Neck and Chest", singleSession: "£300", course: "N/A", savings: "" },
+        { area: "Hands", singleSession: "£150", course: "N/A", savings: "" },
       ]
     },
     {
       label: "Cosmelan/Dermamelan",
       prices: [
-        { area: "Cosmelan Pack (Full Protocol)", singleSession: "£1,200", course: "N/A", savings: "Includes home kit" },
-        { area: "Dermamelan Pack (Full Protocol)", singleSession: "£850", course: "N/A", savings: "Includes home kit" },
-        { area: "Maintenance Session", singleSession: "£100", course: "N/A", savings: "" },
+        { area: "Cosmelan Depigmentation Peel", singleSession: "£1,200", course: "N/A", savings: "Includes home kit" },
+        { area: "Dermamelan Peel", singleSession: "£750", course: "N/A", savings: "Includes home kit" },
       ]
     },
     {
-      label: "Chemical Peels",
+      label: "Acne IPL",
       prices: [
-        { area: "Brightening Peel", singleSession: "£100", course: "£450 (6)", savings: "Save £150" },
-        { area: "TCA Peel", singleSession: "£150", course: "£600 (6)", savings: "Save £300" },
-        { area: "Advanced Depigmenting Peel", singleSession: "£180", course: "£720 (6)", savings: "Save £360" },
+        { area: "Acne Treatment IPL - Half Face", singleSession: "£95", course: "£486 (6)", savings: "15% off" },
+        { area: "Acne Treatment IPL - Full Face", singleSession: "£150", course: "£765 (6)", savings: "15% off" },
+        { area: "Acne Treatment IPL - Chest", singleSession: "£150", course: "£765 (6)", savings: "15% off" },
+        { area: "Acne Treatment IPL - Full Back", singleSession: "£250", course: "£1,275 (6)", savings: "15% off" },
       ]
     }
   ];
