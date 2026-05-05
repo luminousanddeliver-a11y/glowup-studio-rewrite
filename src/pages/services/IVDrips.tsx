@@ -149,13 +149,15 @@ const IVDrips = () => {
   ];
 
   const prices = [
-    { area: "Signature Wellness Drip", singleSession: "£100", course: "£450 (6 sessions)", note: "Hydration + essential vitamins" },
-    { area: "Energy Boost IV", singleSession: "£150", course: "£675 (6 sessions)", note: "B vitamins + vitamin C + minerals" },
-    { area: "Immunity Shield IV", singleSession: "£180", course: "£810 (6 sessions)", note: "High-dose vitamin C + zinc + glutathione" },
-    { area: "Skin Glow IV", singleSession: "£200", course: "£900 (6 sessions)", note: "Glutathione + biotin + vitamin C" },
-    { area: "NAD+ Anti-Aging IV", singleSession: "£350", course: "£1575 (6 sessions)", note: "Cellular rejuvenation" },
-    { area: "B12 Injection", singleSession: "£35", course: "£150 (6 sessions)", note: "Quick energy boost" },
-    { area: "Vitamin D Injection", singleSession: "£35", course: "£150 (6 sessions)", note: "Immune support" }
+    { area: "IV Drip - Vitamin C Boost", singleSession: "£150", course: "£400 (3 sessions)", note: "Save £50" },
+    { area: "IV Drip - Glutathione (Skin Brightening)", singleSession: "£180", course: "£480 (3 sessions)", note: "Save £60" },
+    { area: "IV Drip - Myers Cocktail", singleSession: "£200", course: "£540 (3 sessions)", note: "Classic wellness blend" },
+    { area: "IV Drip - Immunity Boost", singleSession: "£180", course: "£480 (3 sessions)" },
+    { area: "IV Drip - Energy & Recovery", singleSession: "£180", course: "£480 (3 sessions)" },
+    { area: "IV Drip - Hair, Skin & Nails", singleSession: "£200", course: "£540 (3 sessions)" },
+    { area: "IV Drip - NAD+ (Anti-Ageing)", singleSession: "£350", course: "£945 (3 sessions)", note: "Cellular rejuvenation" },
+    { area: "Vitamin B12 Injection", singleSession: "£35", course: "£90 (3 sessions)", note: "Quick energy boost" },
+    { area: "Biotin Injection", singleSession: "£40", course: "£100 (3 sessions)", note: "Hair, skin & nails support" }
   ];
 
   const idealCandidates = [

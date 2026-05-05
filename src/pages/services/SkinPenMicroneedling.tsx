@@ -175,11 +175,11 @@ const SkinPenMicroneedling = () => {
   ];
 
   const prices = [
-    { area: "SkinPen Full Face", singleSession: "£200", course: "£540 (3 sessions)" },
-    { area: "SkinPen Face & Neck", singleSession: "£280", course: "£756 (3 sessions)" },
-    { area: "SkinPen Face, Neck & Décolletage", singleSession: "£350", course: "£945 (3 sessions)" },
-    { area: "SkinPen Targeted Area", singleSession: "£120", course: "£324 (3 sessions)", note: "Scars, stretch marks, etc." },
-    { area: "SkinPen + PRP (Vampire Facial)", singleSession: "£350", course: "£945 (3 sessions)", note: "Enhanced with your own growth factors" }
+    { area: "SkinPen Microneedling (Face)", singleSession: "£250", course: "£675 (3 sessions)" },
+    { area: "SkinPen Microneedling (Face & Neck)", singleSession: "£300", course: "£810 (3 sessions)" },
+    { area: "SkinPen Microneedling (Acne Scars)", singleSession: "£250", course: "£675 (3 sessions)" },
+    { area: "SkinPen Microneedling (Stretch Marks)", singleSession: "£200", course: "£540 (3 sessions)" },
+    { area: "PRP Vampire Facial", singleSession: "£300", course: "£810 (3 sessions)", note: "Enhanced with your own growth factors" }
   ];
 
   const idealCandidates = [

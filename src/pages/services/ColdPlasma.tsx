@@ -155,11 +155,9 @@ const ColdPlasma = () => {
   ];
 
   const prices = [
-    { area: "Cold Plasma Facial", singleSession: "£120", course: "£540 (6 sessions)" },
-    { area: "Cold Plasma Acne Treatment", singleSession: "£100", course: "£450 (6 sessions)" },
-    { area: "Cold Plasma + Hydrafacial", singleSession: "£180", course: "£810 (6 sessions)" },
-    { area: "Cold Plasma + Microneedling", singleSession: "£280", course: "£1260 (6 sessions)" },
-    { area: "Cold Plasma Add-On", singleSession: "£50", course: "-", note: "Add to any facial treatment" }
+    { area: "Cold Plasma (Face)", singleSession: "£180", course: "£480 (3 sessions)", note: "Save £60 on course" },
+    { area: "Cold Plasma (Neck)", singleSession: "£120", course: "£320 (3 sessions)" },
+    { area: "Cold Plasma (Face & Neck)", singleSession: "£250", course: "£675 (3 sessions)" }
   ];
 
   const idealCandidates = [

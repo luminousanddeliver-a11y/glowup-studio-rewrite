@@ -130,9 +130,6 @@ const Facials = () => {
       ]
     }
   ];
-      ]
-    }
-  ];
 
   const idealCandidates = [
     "Want to maintain healthy, glowing skin",

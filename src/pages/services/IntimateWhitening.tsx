@@ -164,11 +164,8 @@ const IntimateWhitening = () => {
   ];
 
   const prices = [
-    { area: "Intimate V-Whitening", singleSession: "£150", course: "£600 (5 sessions)" },
-    { area: "Bikini Line Lightening", singleSession: "£100", course: "£400 (5 sessions)" },
-    { area: "Inner Thigh Lightening", singleSession: "£120", course: "£480 (5 sessions)" },
-    { area: "Underarm Lightening", singleSession: "£80", course: "£320 (5 sessions)" },
-    { area: "Combined Areas Package", singleSession: "£200", course: "£800 (5 sessions)", note: "2 areas per session" }
+    { area: "Intimate V-Whitening (per session)", singleSession: "£150", course: "£400 (3 sessions)", note: "Save £50" },
+    { area: "Intimate V-Whitening (Course of 6)", singleSession: "—", course: "£750", note: "Save £150 on full course" }
   ];
 
   const idealCandidates = [
