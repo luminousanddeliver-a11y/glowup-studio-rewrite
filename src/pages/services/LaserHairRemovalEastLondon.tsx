@@ -163,22 +163,31 @@ const LaserHairRemovalEastLondon = () => {
     {
       label: "Women's",
       prices: [
-        { area: "Upper Lip", singleSession: "£80", course: "£450", savings: "Save £30" },
-        { area: "Full Face", singleSession: "£140", course: "£780", savings: "Save £60" },
-        { area: "Underarms", singleSession: "£80", course: "£450", savings: "Save £30" },
-        { area: "Brazilian/Hollywood", singleSession: "£120", course: "£660", savings: "Save £60" },
-        { area: "Half Legs", singleSession: "£140", course: "£780", savings: "Save £60" },
-        { area: "Full Legs", singleSession: "£200", course: "£1,100", savings: "Save £100" },
-        { area: "Full Body Special", singleSession: "£450", course: "£2,400", savings: "Save £300" },
+        { area: "Upper Lip", singleSession: "£40", course: "£180", savings: "Save £60" },
+        { area: "Chin", singleSession: "£45", course: "£200", savings: "Save £70" },
+        { area: "Full Face", singleSession: "£85", course: "£380", savings: "Save £130" },
+        { area: "Underarms", singleSession: "£55", course: "£250", savings: "Save £80" },
+        { area: "Bikini Line", singleSession: "£55", course: "£250", savings: "Save £80" },
+        { area: "Brazilian", singleSession: "£95", course: "£430", savings: "Save £140" },
+        { area: "Hollywood", singleSession: "£110", course: "£495", savings: "Save £165" },
+        { area: "Half Legs", singleSession: "£120", course: "£540", savings: "Save £180" },
+        { area: "Full Legs", singleSession: "£180", course: "£810", savings: "Save £270" },
+        { area: "Full Arms", singleSession: "£180", course: "£810", savings: "Save £270" },
+        { area: "Full Body", singleSession: "£1,200", course: "£5,400", savings: "Save £1,800" },
       ]
     },
     {
       label: "Men's",
       prices: [
-        { area: "Beard Line", singleSession: "£100", course: "£550", savings: "Save £50" },
-        { area: "Back (Full)", singleSession: "£200", course: "£1,100", savings: "Save £100" },
-        { area: "Chest", singleSession: "£140", course: "£780", savings: "Save £60" },
-        { area: "Shoulders", singleSession: "£100", course: "£550", savings: "Save £50" },
+        { area: "Beard Line / Cheeks", singleSession: "£55", course: "£250", savings: "Save £80" },
+        { area: "Full Beard", singleSession: "£85", course: "£380", savings: "Save £130" },
+        { area: "Full Back", singleSession: "£140", course: "£630", savings: "Save £210" },
+        { area: "Chest", singleSession: "£120", course: "£540", savings: "Save £180" },
+        { area: "Stomach", singleSession: "£100", course: "£450", savings: "Save £150" },
+        { area: "Chest & Stomach", singleSession: "£180", course: "£810", savings: "Save £270" },
+        { area: "Shoulders", singleSession: "£80", course: "£360", savings: "Save £120" },
+        { area: "Full Legs", singleSession: "£200", course: "£900", savings: "Save £300" },
+        { area: "Full Body", singleSession: "£400", course: "£1,800", savings: "Save £600" },
       ]
     }
   ];
