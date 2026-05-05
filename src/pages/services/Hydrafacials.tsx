@@ -194,11 +194,12 @@ const Hydrafacials = () => {
   ];
 
   const prices = [
-    { area: "Express Hydrafacial", singleSession: "£80", course: "£360 (6 sessions)", note: "30-minute treatment" },
-    { area: "Signature Hydrafacial", singleSession: "£120", course: "£540 (6 sessions)" },
-    { area: "Deluxe Hydrafacial", singleSession: "£150", course: "£675 (6 sessions)", note: "Includes LED therapy" },
-    { area: "Platinum Hydrafacial", singleSession: "£200", course: "£900 (6 sessions)", note: "Includes lymphatic drainage" },
-    { area: "Hydrafacial + Chemical Peel", singleSession: "£180", course: "£810 (6 sessions)" }
+    { area: "HydraFacial Mini (30 mins)", singleSession: "£80", course: "£215 (3 sessions)", note: "Express glow treatment" },
+    { area: "HydraFacial Signature (45 mins)", singleSession: "£120", course: "£320 (3 sessions)" },
+    { area: "HydraFacial Deluxe (60 mins)", singleSession: "£150", course: "£400 (3 sessions)", note: "Includes LED therapy" },
+    { area: "HydraFacial Platinum (75 mins)", singleSession: "£180", course: "£480 (3 sessions)", note: "Includes lymphatic drainage" },
+    { area: "HydraFacial for Back", singleSession: "£150", course: "£400 (3 sessions)" },
+    { area: "HydraFacial Keravive (Scalp)", singleSession: "£450", course: "£1,215 (3 sessions)" },
   ];
 
   const idealCandidates = [
