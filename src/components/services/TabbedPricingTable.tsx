@@ -167,3 +167,97 @@ export const TabbedPricingTable = ({
     </section>
   );
 };
+
+const PricingTabPanel = ({ prices }: { prices: PriceItem[] }) => {
+  const [expanded, setExpanded] = useState(false);
+  // Show popular items first; if none flagged, show first 5
+  const popularPrices = prices.filter((p) => p.popular);
+  const visibleCount = popularPrices.length > 0 ? popularPrices.length : Math.min(5, prices.length);
+  const ordered = popularPrices.length > 0
+    ? [...popularPrices, ...prices.filter((p) => !p.popular)]
+    : prices;
+  const visible = expanded ? ordered : ordered.slice(0, visibleCount);
+  const hiddenCount = ordered.length - visibleCount;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="bg-card rounded-lg shadow-card overflow-hidden"
+    >
+      <Table>
+        <TableHeader>
+          <TableRow className="bg-primary hover:bg-primary">
+            <TableHead className="text-primary-foreground font-heading font-semibold py-4">
+              Treatment Area
+            </TableHead>
+            <TableHead className="text-primary-foreground font-heading font-semibold py-4 text-center">
+              Single Session
+            </TableHead>
+            <TableHead className="text-primary-foreground font-heading font-semibold py-4 text-center">
+              Course of 6
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <AnimatePresence initial={false}>
+            {visible.map((price, index) => (
+              <motion.tr
+                key={`${price.area}-${index}`}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, delay: index * 0.02 }}
+                className="hover:bg-muted/50 transition-colors"
+              >
+                <TableCell className="font-body font-medium text-foreground py-4">
+                  <span className="inline-flex items-center gap-2">
+                    {price.area}
+                    {price.popular && (
+                      <span className="inline-flex items-center gap-1 text-xs bg-accent/15 text-accent px-2 py-0.5 rounded-full font-semibold">
+                        <Star className="h-3 w-3 fill-current" /> Popular
+                      </span>
+                    )}
+                  </span>
+                </TableCell>
+                <TableCell className="font-body text-center text-muted-foreground py-4">
+                  {price.singleSession}
+                </TableCell>
+                <TableCell className="font-body text-center py-4">
+                  <span className="text-foreground font-medium">{price.course}</span>
+                  {price.savings && (
+                    <span className="block text-sm text-accent font-medium">
+                      {price.savings}
+                    </span>
+                  )}
+                </TableCell>
+              </motion.tr>
+            ))}
+          </AnimatePresence>
+        </TableBody>
+      </Table>
+
+      {hiddenCount > 0 && (
+        <div className="flex justify-center border-t border-border bg-muted/20">
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            className="inline-flex items-center gap-2 py-4 px-6 font-heading font-semibold text-primary hover:text-primary/80 transition-colors"
+            aria-expanded={expanded}
+          >
+            {expanded ? (
+              <>
+                Show fewer prices <ChevronUp className="h-4 w-4" />
+              </>
+            ) : (
+              <>
+                Show {hiddenCount} more {hiddenCount === 1 ? "price" : "prices"} <ChevronDown className="h-4 w-4" />
+              </>
+            )}
+          </button>
+        </div>
+      )}
+    </motion.div>
+  );
+};
