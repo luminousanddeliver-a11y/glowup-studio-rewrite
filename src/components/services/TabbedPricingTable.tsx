@@ -107,56 +107,7 @@ export const TabbedPricingTable = ({
 
             {tabs.map((tab) => (
               <TabsContent key={tab.label} value={tab.label.toLowerCase()}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-card rounded-lg shadow-card overflow-hidden"
-                >
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-primary hover:bg-primary">
-                        <TableHead className="text-primary-foreground font-heading font-semibold py-4">
-                          Treatment Area
-                        </TableHead>
-                        <TableHead className="text-primary-foreground font-heading font-semibold py-4 text-center">
-                          Single Session
-                        </TableHead>
-                        <TableHead className="text-primary-foreground font-heading font-semibold py-4 text-center">
-                          Course of 6
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {tab.prices.map((price, index) => (
-                        <motion.tr
-                          key={index}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.03 }}
-                          className="hover:bg-muted/50 transition-colors"
-                        >
-                          <TableCell className="font-body font-medium text-foreground py-4">
-                            {price.area}
-                          </TableCell>
-                          <TableCell className="font-body text-center text-muted-foreground py-4">
-                            {price.singleSession}
-                          </TableCell>
-                          <TableCell className="font-body text-center py-4">
-                            <span className="text-foreground font-medium">
-                              {price.course}
-                            </span>
-                            {price.savings && (
-                              <span className="block text-sm text-accent font-medium">
-                                {price.savings}
-                              </span>
-                            )}
-                          </TableCell>
-                        </motion.tr>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </motion.div>
+                <PricingTabPanel prices={tab.prices} />
               </TabsContent>
             ))}
           </Tabs>
