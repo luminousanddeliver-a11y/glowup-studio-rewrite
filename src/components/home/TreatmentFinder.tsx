@@ -6,13 +6,13 @@ const treatments = [
     icon: Zap,
     label: "Laser Hair Removal",
     href: "/laser-hair-removal-dagenham",
-    price: "From £80",
+    price: "From £40",
   },
   {
     icon: Eraser,
     label: "Tattoo Removal",
     href: "/tattoo-removal-east-london",
-    price: "From £50",
+    price: "From £60",
   },
   {
     icon: Droplets,
