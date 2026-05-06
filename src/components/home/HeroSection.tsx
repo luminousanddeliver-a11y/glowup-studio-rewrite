@@ -87,7 +87,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.4, delay: 0.3 }}
             >
               <span className="font-body text-sm">Treatments from</span>
-              <span className="font-heading font-bold text-xl text-primary">£80</span>
+              <span className="font-heading font-bold text-xl text-primary">£40</span>
               <span className="bg-accent text-accent-foreground text-xs font-bold px-2 py-0.5 rounded-full">Free Patch Test</span>
             </motion.div>
 
