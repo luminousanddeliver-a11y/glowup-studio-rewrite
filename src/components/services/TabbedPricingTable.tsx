@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { ChevronDown, ChevronUp, Star } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Table,
@@ -14,6 +16,7 @@ interface PriceItem {
   singleSession: string;
   course: string;
   savings?: string;
+  popular?: boolean;
 }
 
 interface PricingTab {
