@@ -5,7 +5,7 @@ const treatments = [
   {
     icon: Zap,
     label: "Laser Hair Removal",
-    href: "/laser-hair-removal-dagenham",
+    href: "/laser-hair-removal",
     price: "From £40",
   },
   {
