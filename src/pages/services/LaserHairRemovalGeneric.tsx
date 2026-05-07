@@ -272,6 +272,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           }}
           paymentOptions="0% interest-free finance options allowing you to spread the cost over 6-12 months. Ask at your consultation for details."
           disclaimer="Patch test required before first treatment. Prices include consultation."
+          bookHref="http://phore.st/H4vcC"
         />
 
         <ServiceTestimonial testimonials={testimonials} />
