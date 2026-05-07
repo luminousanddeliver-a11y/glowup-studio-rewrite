@@ -287,11 +287,12 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
         <ServiceCTA
           title="Ready to Book?"
           subtitle="Reserve your skin patch test & consultation and take the first step to permanently smooth skin."
+          bookHref="http://phore.st/H4vcC"
         />
       </main>
 
       <Footer />
-      <MobileStickyButton />
+      <MobileStickyButton bookHref="http://phore.st/H4vcC" />
     </div>
   );
 };
