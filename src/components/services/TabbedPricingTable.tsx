@@ -35,6 +35,7 @@ interface TabbedPricingTableProps {
   };
   paymentOptions?: string;
   disclaimer?: string;
+  bookHref?: string;
 }
 
 export const TabbedPricingTable = ({
@@ -44,6 +45,7 @@ export const TabbedPricingTable = ({
   offerBanner,
   paymentOptions,
   disclaimer,
+  bookHref = "https://www.phorest.com/salon/laserlightskinclinic/book/service-selection",
 }: TabbedPricingTableProps) => {
   return (
     <section id="pricing" className="section-padding bg-secondary">
@@ -122,7 +124,7 @@ export const TabbedPricingTable = ({
             className="flex justify-center mt-8"
           >
             <a
-              href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
+              href={bookHref}
               target="_blank"
               rel="noopener noreferrer"
               data-cta="book_now"
