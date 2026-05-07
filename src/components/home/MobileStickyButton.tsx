@@ -19,7 +19,7 @@ export const MobileStickyButton = ({ bookHref = "https://www.phorest.com/salon/l
           asChild
           className="flex-1 h-14 font-body font-semibold text-base bg-primary hover:bg-primary/90 text-primary-foreground active:scale-[0.98] transition-all touch-manipulation shadow-lg"
         >
-          <a href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2" data-cta="book_now">
+          <a href={bookHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2" data-cta="book_now">
             <Calendar className="h-5 w-5" />
             <span>Book Appointment</span>
           </a>
