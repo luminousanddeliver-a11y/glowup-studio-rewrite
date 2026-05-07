@@ -31,6 +31,7 @@ interface TabbedPricingTableProps {
   offerBanner?: {
     text: string;
     highlight: string;
+    href?: string;
   };
   paymentOptions?: string;
   disclaimer?: string;
