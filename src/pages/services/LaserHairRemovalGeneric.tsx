@@ -222,6 +222,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           subtitle="Permanently smooth skin with the Quanta Thunder"
           description="Safe for all skin types including darker tones."
           primaryCtaText="Book Consultation"
+          primaryCtaHref="http://phore.st/H4vcC"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
