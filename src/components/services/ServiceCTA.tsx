@@ -6,12 +6,14 @@ interface ServiceCTAProps {
   title?: string;
   subtitle?: string;
   showMap?: boolean;
+  bookHref?: string;
 }
 
 export const ServiceCTA = ({
   title = "Ready to Start Your Transformation?",
   subtitle = "Book your consultation today and discover how we can help you achieve your goals.",
   showMap = true,
+  bookHref = "https://www.phorest.com/salon/laserlightskinclinic/book/service-selection",
 }: ServiceCTAProps) => {
   return (
     <section id="contact" className="section-padding bg-primary text-primary-foreground">
