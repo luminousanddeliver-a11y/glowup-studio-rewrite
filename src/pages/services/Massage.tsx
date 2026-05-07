@@ -234,10 +234,6 @@ const Massage = () => {
           title="Massage Pricing"
           subtitle="Invest in your wellbeing with regular massage therapy"
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "COURSE SAVINGS",
-            text: "Save Up to £90 on 6-Session Courses"
-          }}
           paymentOptions="Individual sessions or save with our course packages."
           disclaimer="All massages performed by qualified, insured therapists."
         />

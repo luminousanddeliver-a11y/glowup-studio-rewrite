@@ -330,10 +330,6 @@ const AdvancedPeels = () => {
             title="Advanced Peels Pricing"
             subtitle="Investment in clear, even-toned skin"
             tabs={pricingTabs}
-            offerBanner={{
-              highlight: "CONSULTATION",
-              text: "Includes Skin Analysis & Treatment Plan"
-            }}
             paymentOptions="Payment plans available for Cosmelan/Dermamelan protocols."
             disclaimer="Pricing includes all in-clinic products. Home care products priced separately unless stated."
           />

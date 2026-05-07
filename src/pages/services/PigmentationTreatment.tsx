@@ -312,10 +312,6 @@ const PigmentationTreatment = () => {
           title="Pigmentation Treatment Pricing"
           subtitle="Investment in clear, even-toned skin"
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "FREE SKIN ANALYSIS",
-            text: "Book Your Pigmentation Assessment"
-          }}
           paymentOptions="Interest-free payment plans available on treatments over £200."
           disclaimer="Treatment recommendations made after skin analysis. Results vary by individual."
         />
