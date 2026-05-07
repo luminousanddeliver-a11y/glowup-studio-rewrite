@@ -398,6 +398,8 @@ const TattooRemoval = () => {
             subtitle="Transparent pricing per session, based on tattoo size."
             prices={prices}
             disclaimer="Prices are per session. Most tattoos require 4-10 sessions for complete removal. Patch test included in first session price. 0% finance options available."
+            ctaText="Book Consultation (£25)"
+            ctaHref="http://phore.st/clzX9"
           />
         </div>
         
