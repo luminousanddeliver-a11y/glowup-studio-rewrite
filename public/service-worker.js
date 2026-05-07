@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
-const CACHE_NAME = 'laser-light-clinic-v1';
-const RUNTIME_CACHE = 'runtime-cache-v1';
+const CACHE_NAME = 'laser-light-clinic-v2';
+const RUNTIME_CACHE = 'runtime-cache-v2';
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
