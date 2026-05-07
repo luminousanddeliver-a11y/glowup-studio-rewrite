@@ -347,6 +347,8 @@ const TattooRemoval = () => {
           subtitle="Erase Your Past. Love Your Skin Again."
           description="Remove ALL ink colors—including stubborn blues and greens—in 50% fewer sessions with our exclusive Quanta Thunder Series technology."
           badge="Exclusive Technology"
+          primaryCtaText="Book Consultation"
+          primaryCtaHref="http://phore.st/clzX9"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={tattooRemovalDevice}
           breadcrumbs={[
