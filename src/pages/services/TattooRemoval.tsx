@@ -432,11 +432,12 @@ const TattooRemoval = () => {
         <ServiceCTA
           title="Ready to Remove Your Tattoo?"
           subtitle="Book your consultation and patch test today"
+          bookHref="http://phore.st/clzX9"
         />
       </main>
       
       <Footer />
-      <MobileStickyButton />
+      <MobileStickyButton bookHref="http://phore.st/clzX9" />
     </div>
   );
 };
