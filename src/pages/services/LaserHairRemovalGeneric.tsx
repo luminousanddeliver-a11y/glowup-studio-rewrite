@@ -266,7 +266,8 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           tabs={pricingTabs}
           offerBanner={{
             highlight: "SKIN PATCH & CONSULTATION",
-            text: "Book Yours Today"
+            text: "Book Yours Today",
+            href: "http://phore.st/H4vcC"
           }}
           paymentOptions="0% interest-free finance options allowing you to spread the cost over 6-12 months. Ask at your consultation for details."
           disclaimer="Patch test required before first treatment. Prices include consultation."
