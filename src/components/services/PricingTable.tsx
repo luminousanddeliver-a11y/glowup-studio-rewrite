@@ -13,9 +13,11 @@ interface PricingTableProps {
   subtitle?: string;
   prices: PriceItem[];
   disclaimer?: string;
+  ctaText?: string;
+  ctaHref?: string;
 }
 
-export const PricingTable = ({ title, subtitle, prices, disclaimer }: PricingTableProps) => {
+export const PricingTable = ({ title, subtitle, prices, disclaimer, ctaText = "Book Your Appointment", ctaHref = "https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" }: PricingTableProps) => {
   return (
     <section className="section-padding bg-secondary">
       <div className="container-custom">
