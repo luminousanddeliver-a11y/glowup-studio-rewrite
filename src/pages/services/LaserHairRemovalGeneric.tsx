@@ -222,6 +222,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
           subtitle="Permanently smooth skin with the Quanta Thunder"
           description="Safe for all skin types including darker tones."
           primaryCtaText="Book Consultation"
+          primaryCtaHref="http://phore.st/H4vcC"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={laserDevice}
           breadcrumbs={[
@@ -286,11 +287,12 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
         <ServiceCTA
           title="Ready to Book?"
           subtitle="Reserve your skin patch test & consultation and take the first step to permanently smooth skin."
+          bookHref="http://phore.st/H4vcC"
         />
       </main>
 
       <Footer />
-      <MobileStickyButton />
+      <MobileStickyButton bookHref="http://phore.st/H4vcC" />
     </div>
   );
 };
