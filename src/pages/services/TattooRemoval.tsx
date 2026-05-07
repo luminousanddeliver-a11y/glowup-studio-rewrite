@@ -393,7 +393,7 @@ const TattooRemoval = () => {
         <div id="pricing">
           <PricingTable
             title="Tattoo Removal Pricing"
-            subtitle="Prices based on tattoo size. Book a consultation for an accurate quote."
+            subtitle="Transparent pricing per session, based on tattoo size."
             prices={prices}
             disclaimer="Prices are per session. Most tattoos require 4-10 sessions for complete removal. Patch test included in first session price. 0% finance options available."
           />
