@@ -27,7 +27,6 @@ const routeImports: Record<string, () => Promise<unknown>> = {
   "/advanced-electrolysis-dagenham": () => import("@/pages/services/AdvancedElectrolysis"),
   "/million-dollar-facial-dagenham": () => import("@/pages/services/MillionDollarFacial"),
   "/advanced-peels-dagenham": () => import("@/pages/services/AdvancedPeels"),
-  "/laser-hair-removal-east-london": () => import("@/pages/services/LaserHairRemovalEastLondon"),
   "/lynton-motus-ay-laser": () => import("@/pages/services/LyntonMotusAYLaser"),
   "/about": () => import("@/pages/About"),
   "/contact": () => import("@/pages/Contact"),

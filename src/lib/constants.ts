@@ -38,7 +38,6 @@ export const CLINIC_INFO = {
 // SEO-optimized service slugs
 export const SERVICE_SLUGS = {
   laserHairRemoval: "/laser-hair-removal-dagenham",
-  laserHairRemovalEastLondon: "/laser-hair-removal-east-london",
   lyntonMotusAY: "/lynton-motus-ay-laser",
   tattooRemoval: "/tattoo-removal-east-london",
   hydrafacial: "/hydrafacial-east-london",

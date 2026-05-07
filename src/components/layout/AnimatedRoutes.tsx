@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "./PageTransition";
 import { ServicePageSkeleton } from "@/components/ui/ServicePageSkeleton";
@@ -52,7 +52,7 @@ const HopiEarCandling = lazy(() => import("@/pages/services/HopiEarCandling"));
 const AdvancedElectrolysis = lazy(() => import("@/pages/services/AdvancedElectrolysis"));
 const MillionDollarFacial = lazy(() => import("@/pages/services/MillionDollarFacial"));
 const AdvancedPeels = lazy(() => import("@/pages/services/AdvancedPeels"));
-const LaserHairRemovalEastLondon = lazy(() => import("@/pages/services/LaserHairRemovalEastLondon"));
+
 const LaserHairRemovalGeneric = lazy(() => import("@/pages/services/LaserHairRemovalGeneric"));
 const LyntonMotusAYLaser = lazy(() => import("@/pages/services/LyntonMotusAYLaser"));
 const AdminAnalytics = lazy(() => import("@/pages/AdminAnalytics"));
@@ -108,7 +108,7 @@ export const AnimatedRoutes = () => {
         <Route path="/advanced-electrolysis-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><AdvancedElectrolysis /></PageTransition></Suspense>} />
         <Route path="/million-dollar-facial-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><MillionDollarFacial /></PageTransition></Suspense>} />
         <Route path="/advanced-peels-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><AdvancedPeels /></PageTransition></Suspense>} />
-        <Route path="/laser-hair-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalEastLondon /></PageTransition></Suspense>} />
+        <Route path="/laser-hair-removal-east-london" element={<Navigate to="/laser-hair-removal" replace />} />
         <Route path="/laser-hair-removal" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalGeneric variant="default" /></PageTransition></Suspense>} />
         <Route path="/laser-hair-removal-ilford" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalGeneric variant="ilford" /></PageTransition></Suspense>} />
         <Route path="/lynton-motus-ay-laser" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LyntonMotusAYLaser /></PageTransition></Suspense>} />
