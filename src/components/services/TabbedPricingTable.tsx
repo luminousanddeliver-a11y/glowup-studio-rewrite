@@ -35,6 +35,7 @@ interface TabbedPricingTableProps {
   };
   paymentOptions?: string;
   disclaimer?: string;
+  bookHref?: string;
 }
 
 export const TabbedPricingTable = ({
