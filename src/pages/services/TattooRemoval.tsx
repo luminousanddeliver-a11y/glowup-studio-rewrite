@@ -189,7 +189,7 @@ const TattooRemoval = () => {
     { area: "Medium (5-10cm²)", singleSession: "£120", course: "£540 (6 sessions)", note: "Save £180" },
     { area: "Large (10-20cm²)", singleSession: "£180", course: "£810 (6 sessions)", note: "Save £270" },
     { area: "Extra Large (20-30cm²)", singleSession: "£250", course: "£1,125 (6 sessions)", note: "Save £375" },
-    { area: "Full Sleeve", singleSession: "POA", course: "—", note: "Consultation required" }
+    { area: "Full Sleeve", singleSession: "From £350", course: "From £1,575 (6 sessions)", note: "Save £525" }
   ];
 
   const idealCandidates = [
