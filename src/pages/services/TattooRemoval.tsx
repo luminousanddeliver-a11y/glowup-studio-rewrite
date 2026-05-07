@@ -189,7 +189,7 @@ const TattooRemoval = () => {
     { area: "Medium (5-10cm²)", singleSession: "£120", course: "£540 (6 sessions)", note: "Save £180" },
     { area: "Large (10-20cm²)", singleSession: "£180", course: "£810 (6 sessions)", note: "Save £270" },
     { area: "Extra Large (20-30cm²)", singleSession: "£250", course: "£1,125 (6 sessions)", note: "Save £375" },
-    { area: "Full Sleeve", singleSession: "POA", course: "—", note: "Consultation required" }
+    { area: "Full Sleeve", singleSession: "POA", course: "—", note: "Sized at consultation" }
   ];
 
   const idealCandidates = [
@@ -347,6 +347,8 @@ const TattooRemoval = () => {
           subtitle="Erase Your Past. Love Your Skin Again."
           description="Remove ALL ink colors—including stubborn blues and greens—in 50% fewer sessions with our exclusive Quanta Thunder Series technology."
           badge="Exclusive Technology"
+          primaryCtaText="Book Consultation"
+          primaryCtaHref="http://phore.st/clzX9"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={tattooRemovalDevice}
           breadcrumbs={[
@@ -393,9 +395,11 @@ const TattooRemoval = () => {
         <div id="pricing">
           <PricingTable
             title="Tattoo Removal Pricing"
-            subtitle="Prices based on tattoo size. Book a consultation for an accurate quote."
+            subtitle="Transparent pricing per session, based on tattoo size."
             prices={prices}
             disclaimer="Prices are per session. Most tattoos require 4-10 sessions for complete removal. Patch test included in first session price. 0% finance options available."
+            ctaText="Book Consultation (£25)"
+            ctaHref="http://phore.st/clzX9"
           />
         </div>
         
@@ -430,11 +434,12 @@ const TattooRemoval = () => {
         <ServiceCTA
           title="Ready to Remove Your Tattoo?"
           subtitle="Book your consultation and patch test today"
+          bookHref="http://phore.st/clzX9"
         />
       </main>
       
       <Footer />
-      <MobileStickyButton />
+      <MobileStickyButton bookHref="http://phore.st/clzX9" />
     </div>
   );
 };
