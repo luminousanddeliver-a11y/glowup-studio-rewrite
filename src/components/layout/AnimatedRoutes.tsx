@@ -108,7 +108,7 @@ export const AnimatedRoutes = () => {
         <Route path="/advanced-electrolysis-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><AdvancedElectrolysis /></PageTransition></Suspense>} />
         <Route path="/million-dollar-facial-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><MillionDollarFacial /></PageTransition></Suspense>} />
         <Route path="/advanced-peels-dagenham" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><AdvancedPeels /></PageTransition></Suspense>} />
-        <Route path="/laser-hair-removal-east-london" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalEastLondon /></PageTransition></Suspense>} />
+        <Route path="/laser-hair-removal-east-london" element={<Navigate to="/laser-hair-removal" replace />} />
         <Route path="/laser-hair-removal" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalGeneric variant="default" /></PageTransition></Suspense>} />
         <Route path="/laser-hair-removal-ilford" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LaserHairRemovalGeneric variant="ilford" /></PageTransition></Suspense>} />
         <Route path="/lynton-motus-ay-laser" element={<Suspense fallback={<ServicePageSkeleton />}><PageTransition><LyntonMotusAYLaser /></PageTransition></Suspense>} />
