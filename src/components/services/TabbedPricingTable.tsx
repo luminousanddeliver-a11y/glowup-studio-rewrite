@@ -45,6 +45,7 @@ export const TabbedPricingTable = ({
   offerBanner,
   paymentOptions,
   disclaimer,
+  bookHref = "https://www.phorest.com/salon/laserlightskinclinic/book/service-selection",
 }: TabbedPricingTableProps) => {
   return (
     <section id="pricing" className="section-padding bg-secondary">
