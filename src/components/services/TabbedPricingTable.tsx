@@ -124,7 +124,7 @@ export const TabbedPricingTable = ({
             className="flex justify-center mt-8"
           >
             <a
-              href="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
+              href={bookHref}
               target="_blank"
               rel="noopener noreferrer"
               data-cta="book_now"
