@@ -74,7 +74,7 @@ export const PricingTable = ({ title, subtitle, prices, disclaimer, ctaText = "B
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-body h-14 px-8 text-lg"
             >
-              <a href="#contact">Get Your Free Quote</a>
+              <a href={ctaHref} target={ctaHref.startsWith("http") ? "_blank" : undefined} rel={ctaHref.startsWith("http") ? "noopener noreferrer" : undefined} data-cta="book_now">{ctaText}</a>
             </Button>
           </div>
         </div>
