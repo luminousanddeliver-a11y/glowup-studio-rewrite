@@ -308,10 +308,6 @@ const VeinRemoval = () => {
           title="Vein Removal Pricing"
           subtitle="Investment in clearer, more even-toned skin"
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "CONSULTATION",
-            text: "Book Your Vein Assessment"
-          }}
           paymentOptions="Pay per session or save with our course packages."
           disclaimer="Pricing based on area size. Exact cost determined at consultation."
         />

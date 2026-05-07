@@ -301,10 +301,6 @@ const AdvancedElectrolysis = () => {
           title="Advanced Electrolysis Pricing"
           subtitle="Flexible pricing by time or by blemish"
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "FREE ASSESSMENT",
-            text: "Book Your Consultation"
-          }}
           paymentOptions="Choose time-based or per-blemish pricing based on your needs."
           disclaimer="Number of blemishes treated per session depends on size and location."
         />

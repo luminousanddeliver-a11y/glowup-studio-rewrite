@@ -345,10 +345,6 @@ const Injectables = () => {
           title="Injectable Pricing"
           subtitle="Transparent pricing with no hidden fees. All prices include consultation."
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "CONSULTATION",
-            text: "Book Your Assessment Today"
-          }}
           paymentOptions="Interest-free payment plans available on treatments over £200."
           disclaimer="Prices may vary based on individual assessment. A consultation is required before all injectable treatments."
         />

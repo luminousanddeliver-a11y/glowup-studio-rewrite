@@ -295,10 +295,6 @@ const LEDLightTherapy = () => {
           title="LED Therapy Pricing"
           subtitle="Affordable treatments with excellent value courses"
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "10-SESSION COURSE",
-            text: "Best Value - Save Up to £200"
-          }}
           paymentOptions="Pay per session or save with our course packages."
           disclaimer="LED therapy is often combined with other treatments for enhanced results."
         />

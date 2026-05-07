@@ -377,10 +377,6 @@ const SkinTagMoleRemoval = () => {
           title="Removal Pricing"
           subtitle="Clear, transparent pricing for lesion removal"
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "FREE ASSESSMENT",
-            text: "Book Your Consultation"
-          }}
           paymentOptions="Multiple lesions? We offer package pricing."
           disclaimer="All lesions assessed at consultation. Suspicious lesions will be referred for medical opinion."
         />

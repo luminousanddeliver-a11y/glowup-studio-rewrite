@@ -324,10 +324,6 @@ const LaserResurfacing = () => {
           title="Laser Resurfacing Pricing"
           subtitle="Investment in lasting skin transformation. Consultation included."
           tabs={pricingTabs}
-          offerBanner={{
-            highlight: "CONSULTATION",
-            text: "Book Your Skin Assessment"
-          }}
           paymentOptions="Interest-free payment plans available on courses."
           disclaimer="Prices may vary based on individual assessment. Patch test required before first treatment."
         />
