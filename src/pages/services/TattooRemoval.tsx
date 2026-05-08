@@ -347,8 +347,8 @@ const TattooRemoval = () => {
           subtitle="Erase Your Past. Love Your Skin Again."
           description="Remove ALL ink colors—including stubborn blues and greens—in 50% fewer sessions with our exclusive Quanta Thunder Series technology."
           badge="Exclusive Technology"
-          primaryCtaText="Book Consultation"
-          primaryCtaHref="http://phore.st/clzX9"
+          primaryCtaText="Book Now"
+          primaryCtaHref="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
           secondaryCta={{ text: "View Pricing", href: "#pricing" }}
           heroImage={tattooRemovalDevice}
           breadcrumbs={[
@@ -398,8 +398,8 @@ const TattooRemoval = () => {
             subtitle="Transparent pricing per session, based on tattoo size."
             prices={prices}
             disclaimer="Prices are per session. Most tattoos require 4-10 sessions for complete removal. Patch test included in first session price. 0% finance options available."
-            ctaText="Book Consultation (£25)"
-            ctaHref="http://phore.st/clzX9"
+            ctaText="Book Now"
+            ctaHref="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
           />
         </div>
         
@@ -433,13 +433,13 @@ const TattooRemoval = () => {
         
         <ServiceCTA
           title="Ready to Remove Your Tattoo?"
-          subtitle="Book your consultation and patch test today"
-          bookHref="http://phore.st/clzX9"
+          subtitle="Book your appointment today"
+          bookHref="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection"
         />
       </main>
       
       <Footer />
-      <MobileStickyButton bookHref="http://phore.st/clzX9" />
+      <MobileStickyButton bookHref="https://www.phorest.com/salon/laserlightskinclinic/book/service-selection" />
     </div>
   );
 };
