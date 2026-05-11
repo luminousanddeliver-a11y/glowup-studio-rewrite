@@ -128,7 +128,7 @@ const LaserHairRemovalGeneric = ({ variant = "default" }: Props) => {
         { area: "Hollywood", singleSession: "£110", course: "£495", savings: "Save £165", popular: true },
         { area: "Half Legs (Lower)", singleSession: "£120", course: "£540", savings: "Save £180", popular: true },
         { area: "Full Legs", singleSession: "£180", course: "£810", savings: "Save £270", popular: true },
-        { area: "Full Body", singleSession: "£1,200", course: "£5,400", savings: "Save £1,800", popular: true },
+        { area: "Full Body (6 sessions)", singleSession: "—", course: "£1,200", savings: "Course only", popular: true },
         { area: "Chin", singleSession: "£45", course: "£200", savings: "Save £70" },
         { area: "Lip & Chin", singleSession: "£65", course: "£290", savings: "Save £100" },
         { area: "Sideburns", singleSession: "£45", course: "£200", savings: "Save £70" },
