@@ -189,7 +189,7 @@ const LaserHairRemoval = () => {
         { area: "Half Legs", singleSession: "£120", course: "£540", savings: "Save £180" },
         { area: "Full Legs", singleSession: "£180", course: "£810", savings: "Save £270" },
         { area: "Full Arms", singleSession: "£180", course: "£810", savings: "Save £270" },
-        { area: "Full Body", singleSession: "£300", course: "£1,200", savings: "6-session course" },
+        { area: "Full Body (6 sessions)", singleSession: "—", course: "£1,200", savings: "Course only" },
       ]
     },
     {
