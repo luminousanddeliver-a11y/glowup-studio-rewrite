@@ -189,7 +189,7 @@ const LaserHairRemoval = () => {
         { area: "Half Legs", singleSession: "£120", course: "£540", savings: "Save £180" },
         { area: "Full Legs", singleSession: "£180", course: "£810", savings: "Save £270" },
         { area: "Full Arms", singleSession: "£180", course: "£810", savings: "Save £270" },
-        { area: "Full Body", singleSession: "£1,200", course: "£5,400", savings: "Save £1,800" },
+        { area: "Full Body (6 sessions)", singleSession: "—", course: "£1,200", savings: "Course only" },
       ]
     },
     {
@@ -203,7 +203,7 @@ const LaserHairRemoval = () => {
         { area: "Chest & Stomach", singleSession: "£180", course: "£810", savings: "Save £270" },
         { area: "Shoulders", singleSession: "£80", course: "£360", savings: "Save £120" },
         { area: "Full Legs", singleSession: "£200", course: "£900", savings: "Save £300" },
-        { area: "Full Body", singleSession: "£400", course: "£1,800", savings: "Save £600" },
+        { area: "Full Body (6 sessions)", singleSession: "—", course: "£1,200", savings: "Course only" },
       ]
     }
   ];
